@@ -48,10 +48,10 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 
 == Changelog ==
 
-= 0.3 =
+= 1.03 =
 * In this version the image uploading by means of custom fields is substituted with the Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
 
-= 0.3 =
+= 1.03 =
 This version fixes a security related bug. Upgrade immediately.
