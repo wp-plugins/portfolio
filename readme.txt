@@ -4,7 +4,7 @@ Donate link: http://bestwebsoft.com/
 Tags: portfolio, images gallery, custom fields
 Requires at least: 3.1
 Tested up to: 3.1
-Stable tag: 2011.1.03
+Stable tag: 2011.1.04
 
 Portfolio allows you to create a page with information about your past projects.
 
@@ -36,7 +36,7 @@ if(function_exists('display_term')) { display_term(); return; } } ?>` in your te
 
 = How to add an image? =
 
-1. Use Wordpress meta box to upload images from URL or your local storage. Note that one image needs to be selected as 'Featured' - it will be main image of your Portfolio item.
+Use Wordpress meta box to upload images from URL or your local storage. Note that one image needs to be selected as 'Featured' - it will be main image of your Portfolio item.
 
 == Screenshots ==
 
@@ -46,6 +46,9 @@ if(function_exists('display_term')) { display_term(); return; } } ?>` in your te
 4. Portfolio frontend page.
 
 == Changelog ==
+
+= 1.04 =
+* In this version added image for portfolio to the admin page.
 
 = 1.03 =
 * In this version the image uploading by means of custom fields is substituted with the Wordpress standard meta box for the media files uploading.
