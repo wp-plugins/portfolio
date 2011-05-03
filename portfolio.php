@@ -364,7 +364,7 @@ if( ! function_exists ( 'display_portfolio' ) ) {
 			// If isset featured images, display this value 
 			if( array_key_exists( '_thumbnail_id', $meta_values ) ) {
 				$thumb			= wp_get_attachment_metadata( $meta_values['_thumbnail_id'][0] );
-				$thumb_url	= $upload_dir["url"] ."/". $thumb['sizes']['medium']['file'];
+				$thumb_url	= $upload_dir["baseurl"] ."/". substr($thumb['file'], 0, 8) . $thumb['sizes']['medium']['file'];
 				$featured_image_url = $upload_dir["baseurl"] ."/". $thumb["file"];
 			}
 			
@@ -426,7 +426,7 @@ if( ! function_exists ( 'display_portfolio' ) ) {
 			$count = 0;
 			// Display images from gallery
 			for( $i = 0; $i < count( $images ); $i++ ) {
-				$thumb_url = $upload_dir["url"] ."/". $images[$i]['metadata']['sizes']["medium"]['file'];
+				$thumb_url = $upload_dir["baseurl"] ."/". substr($thumb['file'], 0, 8) . $images[$i]['metadata']['sizes']["medium"]['file'];
 				$image_url = $images[$i]['alldata']->guid;
 
 				if( ! isset( $images[$i]['metadata']['sizes']["medium"]['file'] ) )

@@ -4,7 +4,7 @@ Donate link: http://bestwebsoft.com/
 Tags: portfolio, images gallery, custom fields
 Requires at least: 3.1
 Tested up to: 3.1
-Stable tag: 2011.1.04
+Stable tag: 2011.1.05
 
 Portfolio allows you to create a page with information about your past projects.
 
@@ -47,6 +47,9 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 
 == Changelog ==
 
+= 1.05 =
+* In this version fixes a display image bug.
+
 = 1.04 =
 * In this version added image for portfolio to the admin page.
 
@@ -54,6 +57,9 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 * In this version the image uploading by means of custom fields is substituted with the Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= 1.05 =
+This version fixes a display image bug. Upgrade immediately.
 
 = 1.03 =
 This version fixes a security related bug. Upgrade immediately.

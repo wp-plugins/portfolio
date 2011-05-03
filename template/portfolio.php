@@ -36,7 +36,7 @@ get_header(); ?>
 
 			if( array_key_exists( '_thumbnail_id', $meta_values ) ) {
 				$thumb			= wp_get_attachment_metadata( $meta_values['_thumbnail_id'][0] );
-				$thumb_url	= $upload_dir["url"] ."/". $thumb['sizes']['medium']['file'];
+				$thumb_url	= $upload_dir["baseurl"] ."/". substr($thumb['file'], 0, 8) . $thumb['sizes']['medium']['file'];
 				$featured_image_url = $upload_dir["baseurl"] ."/". $thumb["file"];
 			}
 			
@@ -44,7 +44,7 @@ get_header(); ?>
 			if( count( $thumb ) == 0 ) {
 				if( count( $post_attachments ) > 0 ) {
 					$metadata		= wp_get_attachment_metadata( $post_attachments[0]->ID );
-					$thumb_url	= ( isset( $metadata['sizes']["medium"]['file'] ) ? $upload_dir["url"] ."/". $metadata['sizes']["medium"]['file'] : $post_attachments[0]->guid );
+					$thumb_url	= ( isset( $metadata['sizes']["medium"]['file'] ) ? $upload_dir["baseurl"] ."/". substr($thumb['file'], 0, 8) . $metadata['sizes']["medium"]['file'] : $post_attachments[0]->guid );
 					$featured_image_url = $upload_dir["baseurl"] ."/". $metadata["file"];
 					$image_alt					= get_post_custom( $post_attachments[0]->ID );
 					$image_alt					= $image_alt["_wp_attachment_image_alt"][0];
