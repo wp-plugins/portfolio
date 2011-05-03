@@ -8,7 +8,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 1.03
+Version: 1.05
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
