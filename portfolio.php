@@ -47,24 +47,6 @@ if( ! function_exists( 'portfolio_plugin_install' ) ) {
 		{
 			add_action( 'admin_notices', create_function( '', "echo 'Error copy template file';" ) );
 		}
-		/* Функция добавления темплейта 
-		function get_custom_post_type_template($single_template) {
-			 global $post;
-
-			 if ($post->post_type == 'my_post_type') {
-						$single_template = dirname( __FILE__ ) . '/post-type-template.php';
-			 }
-			 return $single_template;
-	}
-
-	add_filter( "single_template", "get_custom_post_type_template" ) ;
-
-		
-		Данные для сохранения поста для функции edit_post($post_data)
-array(54) { ["_wpnonce"]=> string(10) "dcc0930750" ["_wp_http_referer"]=> string(52) "/testing_plugin/wp-admin/post-new.php?post_type=page" 
-
-["parent_id"]=> string(2) "12" ["user_ID"]=> string(1) "1" ["action"]=> string(8) "editpost" ["originalaction"]=> string(8) "editpost" ["post_author"]=> string(1) "1" ["post_type"]=> string(4) "page" ["original_post_status"]=> string(10) "auto-draft" ["referredby"]=> string(69) "http://localhost/testing_plugin/wp-admin/post.php?post=12&action=edit" ["_wp_original_http_referer"]=> string(69) "http://localhost/testing_plugin/wp-admin/post.php?post=12&action=edit" ["auto_draft"]=> string(1) "0" ["post_ID"]=> string(2) "31" ["autosavenonce"]=> string(10) "968dcfe1c4" ["meta-box-order-nonce"]=> string(10) "95f16cbbe6" ["closedpostboxesnonce"]=> string(10) "dd59e5af3d" ["wp-preview"]=> string(0) "" ["hidden_post_status"]=> string(5) "draft" ["post_status"]=> string(5) "draft" ["hidden_post_password"]=> string(0) "" ["hidden_post_visibility"]=> string(6) "public" ["visibility"]=> string(6) "public" ["post_password"]=> string(0) "" ["mm"]=> string(2) "04" ["jj"]=> string(2) "29" ["aa"]=> string(4) "2011" ["hh"]=> string(2) "17" ["mn"]=> string(2) "45" ["ss"]=> string(2) "23" ["hidden_mm"]=> string(2) "04" ["cur_mm"]=> string(2) "04" ["hidden_jj"]=> string(2) "29" ["cur_jj"]=> string(2) "29" ["hidden_aa"]=> string(4) "2011" ["cur_aa"]=> string(4) "2011" ["hidden_hh"]=> string(2) "17" ["cur_hh"]=> string(2) "17" ["hidden_mn"]=> string(2) "45" ["cur_mn"]=> string(2) "45" ["original_publish"]=> string(7) "Publish" ["publish"]=> string(7) "Publish" ["page_template"]=> string(10) "plugin.php" ["menu_order"]=> string(1) "0" ["post_title"]=> string(4) "test" ["samplepermalinknonce"]=> string(10) "076f9f997b" ["content"]=> string(0) "" ["metakeyinput"]=> string(0) "" ["metavalue"]=> string(0) "" ["_ajax_nonce-add-meta"]=> string(10) "76dfa77c60" ["advanced_view"]=> string(1) "1" ["comment_status"]=> string(4) "open" ["ping_status"]=> string(4) "open" ["post_name"]=> string(0) "" ["post_author_override"]=> string(1) "1" } 
-*/
 	}
 }
 
