@@ -32,12 +32,12 @@ License: GPLv2 or later
 
 $prtf_boxes = array (
 	'Portfolio-Info' => array (
-		array( '_prtf_date_compl', 'Date of completion', 'Date, when a task was executed', '', '' ),
-		array( '_prtf_link', 'Link', 'Link on the site', '', '' ),
-		array( '_prtf_short_descr', 'Short description', 'Short description for display in portfolio page', '', '' ),
-		array( '_prtf_descr', 'Description', 'Description for the task', 'textarea', '' ),
+		array( '_prtf_date_compl', 'Date of completion', 'The date when the task was completed', '', '' ),
+		array( '_prtf_link', 'Link', 'A link to the site', '', '' ),
+		array( '_prtf_short_descr', 'Short description', 'A short description which you\'d like to be displayed on your portfolio page', '', '' ),
+		array( '_prtf_descr', 'Description', 'Description of the task', 'textarea', '' ),
 		array( '_prtf_svn', 'SVN', 'URL of the SVN', '', '' ),
-		array( '_prtf_images', 'Image', 'Image for portfolio. One of the image sed as featured image', 'gallery', '' ),
+		array( '_prtf_images', 'Image', 'Image for portfolio. One of the images should be set as a featured image', 'gallery', '' ),
 		)
 );
 
@@ -436,7 +436,7 @@ if( ! function_exists ( 'display_portfolio' ) ) {
 				$images_alt = $images_alt["_wp_attachment_image_alt"][0];
 
 				if( 0 == $count )
-					$content .= "<span class=\"lable\">More screnshots</span>: <div class=\"portfolio_images_rows\">";
+					$content .= "<span class=\"lable\">More screenshots</span>: <div class=\"portfolio_images_rows\">";
 
 				$content .= '<div class="portfolio_images_gallery"><a class="lightbox" rel="lightbox" href="'. $image_url .'" title="'. $images[$i]['alldata']->post_title .'"><img src="'. $thumb_url .'" width="240" alt="'. $images_alt .'" /></a><br />'. $images[$i]['alldata']->post_content .'</div>';
 				$count++;
