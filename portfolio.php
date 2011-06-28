@@ -347,7 +347,7 @@ if( ! function_exists ( 'display_portfolio' ) ) {
 			// If isset featured images, display this value 
 			if( array_key_exists( '_thumbnail_id', $meta_values ) ) {
 				$thumb			= wp_get_attachment_metadata( $meta_values['_thumbnail_id'][0] );
-				$thumb_url	= $upload_dir["url"] ."/". substr($thumb['file'], 0, 8) . $thumb['sizes']['medium']['file'];
+				$thumb_url	= $upload_dir["baseurl"] ."/". substr($thumb['file'], 0, 8) . $thumb['sizes']['medium']['file'];
 				$featured_image_url = $upload_dir["baseurl"] ."/". $thumb["file"];
 			}
 			
@@ -474,7 +474,7 @@ function display_portfolio_term()
 
 			if( array_key_exists( '_thumbnail_id', $meta_values ) ) {
 				$thumb			= wp_get_attachment_metadata( $meta_values['_thumbnail_id'][0] );
-				$thumb_url	= $upload_dir["url"] ."/". $thumb['sizes']['medium']['file'];
+				$thumb_url	= $upload_dir["baseurl"] ."/". substr($thumb['file'], 0, 8) . $thumb['sizes']['medium']['file'];
 				$featured_image_url = $upload_dir["baseurl"] ."/". $thumb["file"];
 			}
 			
@@ -575,7 +575,7 @@ if( ! function_exists ( 'display_term' ) ) {
 
 			if( array_key_exists( '_thumbnail_id', $meta_values ) ) {
 				$thumb			= wp_get_attachment_metadata( $meta_values['_thumbnail_id'][0] );
-				$thumb_url	= $upload_dir["url"] ."/". $thumb['sizes']['medium']['file'];
+				$thumb_url	= $upload_dir["baseurl"] ."/". substr($thumb['file'], 0, 8) . $thumb['sizes']['medium']['file'];
 				$featured_image_url = $upload_dir["baseurl"] ."/". $thumb["file"];
 			}
 
