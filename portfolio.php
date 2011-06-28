@@ -47,7 +47,7 @@ if( ! function_exists( 'portfolio_plugin_install' ) ) {
 		{
 			add_action( 'admin_notices', create_function( '', "echo 'Error copy template file';" ) );
 		}
-		/* Функция добавления темплейта 
+		/* This is especially useful for plugins using the new Custom Post Types to load template files specific to your new post type.
 		function get_custom_post_type_template($single_template) {
 			 global $post;
 
@@ -59,11 +59,23 @@ if( ! function_exists( 'portfolio_plugin_install' ) ) {
 
 	add_filter( "single_template", "get_custom_post_type_template" ) ;
 
-		
-		Данные для сохранения поста для функции edit_post($post_data)
-array(54) { ["_wpnonce"]=> string(10) "dcc0930750" ["_wp_http_referer"]=> string(52) "/testing_plugin/wp-admin/post-new.php?post_type=page" 
+	// Add the page/post into the database
+	//$post = get_default_post_to_edit( "page", true );
+	//$post_ID = $post->ID;
+	//$temp_ID = isset($temp_ID) ? (int) $temp_ID : 0;
+	$user_ID = isset($user_ID) ? (int) $user_ID : 0;
+	
+	$my_post = array(
+     'post_title'		=> 'My post',
+     'post_content' => 'This is my post.',
+     'post_status'	=> 'publish',
+     'post_author'	=> $user_ID,
+     'post_type'		=> 'page',
+		 'page_template' => 'portfolio_1.php'
+  );
 
-["parent_id"]=> string(2) "12" ["user_ID"]=> string(1) "1" ["action"]=> string(8) "editpost" ["originalaction"]=> string(8) "editpost" ["post_author"]=> string(1) "1" ["post_type"]=> string(4) "page" ["original_post_status"]=> string(10) "auto-draft" ["referredby"]=> string(69) "http://localhost/testing_plugin/wp-admin/post.php?post=12&action=edit" ["_wp_original_http_referer"]=> string(69) "http://localhost/testing_plugin/wp-admin/post.php?post=12&action=edit" ["auto_draft"]=> string(1) "0" ["post_ID"]=> string(2) "31" ["autosavenonce"]=> string(10) "968dcfe1c4" ["meta-box-order-nonce"]=> string(10) "95f16cbbe6" ["closedpostboxesnonce"]=> string(10) "dd59e5af3d" ["wp-preview"]=> string(0) "" ["hidden_post_status"]=> string(5) "draft" ["post_status"]=> string(5) "draft" ["hidden_post_password"]=> string(0) "" ["hidden_post_visibility"]=> string(6) "public" ["visibility"]=> string(6) "public" ["post_password"]=> string(0) "" ["mm"]=> string(2) "04" ["jj"]=> string(2) "29" ["aa"]=> string(4) "2011" ["hh"]=> string(2) "17" ["mn"]=> string(2) "45" ["ss"]=> string(2) "23" ["hidden_mm"]=> string(2) "04" ["cur_mm"]=> string(2) "04" ["hidden_jj"]=> string(2) "29" ["cur_jj"]=> string(2) "29" ["hidden_aa"]=> string(4) "2011" ["cur_aa"]=> string(4) "2011" ["hidden_hh"]=> string(2) "17" ["cur_hh"]=> string(2) "17" ["hidden_mn"]=> string(2) "45" ["cur_mn"]=> string(2) "45" ["original_publish"]=> string(7) "Publish" ["publish"]=> string(7) "Publish" ["page_template"]=> string(10) "plugin.php" ["menu_order"]=> string(1) "0" ["post_title"]=> string(4) "test" ["samplepermalinknonce"]=> string(10) "076f9f997b" ["content"]=> string(0) "" ["metakeyinput"]=> string(0) "" ["metavalue"]=> string(0) "" ["_ajax_nonce-add-meta"]=> string(10) "76dfa77c60" ["advanced_view"]=> string(1) "1" ["comment_status"]=> string(4) "open" ["ping_status"]=> string(4) "open" ["post_name"]=> string(0) "" ["post_author_override"]=> string(1) "1" } 
+	// Insert the post into the database
+  wp_insert_post( $my_post );
 */
 	}
 }
@@ -173,7 +185,7 @@ if( ! function_exists( 'portfolio_custom_permalinks' ) ) {
 		global $wp_rewrite;
 		$wp_rewrite->add_rule( 'portfolio/page/([^/]+)/?$', 'index.php?pagename=portfolio&page=$matches[1]', 'top' );
 		$wp_rewrite->add_rule( 'technologies/([^/]*)/?$', 'index.php?post_type=portfolio&tag=$matches[1]', 'top' );
-		$wp_rewrite->add_rule( 'technologies/([^/]+)/page/([0-9]*)/?$', 'index.php?post_type=portfolio&tag=$matches[1]&paged=$matches[2]', 'top' );
+		$wp_rewrite->add_rule( 'technologies/([^/]+)/page/([0-9]*)/?$', 'index.php?post_type=portfolio&tag=$matches[1]&paged=$matches[2]&page=$matches[2]', 'top' );
     $wp_rewrite->flush_rules();
 	}
 }
@@ -357,6 +369,7 @@ if( ! function_exists ( 'display_portfolio' ) ) {
 			$thumb			= array();
 			$images			= array();
 			$upload_dir = wp_upload_dir();
+			$upload_dir['url'] = preg_replace("/uploads\/.*/", "uploads/".date("Y/m", strtotime($post->post_date)), $upload_dir['url']);
 			$image_alt	= "";
 			$thumb_url	=	"";
 			$featured_image_url = "";
@@ -484,6 +497,7 @@ function display_portfolio_term()
 			$thumb			= array();
 			$images			= array();
 			$upload_dir = wp_upload_dir();
+			$upload_dir['url'] = preg_replace("/uploads\/.*/", "uploads/".date("Y/m", strtotime($post->post_date)), $upload_dir['url']);
 			$image_alt	= "";
 			$thumb_url	=	"";
 			$featured_image_url = "";
@@ -558,7 +572,7 @@ if( ! function_exists ( 'display_term' ) ) {
 	function display_term()	{
 		global $wp_query;
 		global $paged;
-		$paged	= ( $wp_query->query_vars['page'] ) ? $wp_query->query_vars['page'] : 1;
+		$paged	= ( $wp_query->query_vars['page'] ) ? $wp_query->query_vars['page'] : (( $wp_query->query_vars['paged'] ) ? $wp_query->query_vars['paged'] : 1);
 		$args		= array(
 			'post_type'					=> 'portfolio',
 			'post_status'				=> 'publish',
@@ -583,6 +597,7 @@ if( ! function_exists ( 'display_term' ) ) {
 			$thumb			= array();
 			$images			= array();
 			$upload_dir = wp_upload_dir();
+			$upload_dir['url'] = preg_replace("/uploads\/.*/", "uploads/".date("Y/m", strtotime($post->post_date)), $upload_dir['url']);
 			$image_alt	= "";
 			$thumb_url	=	"";
 			$featured_image_url = "";
