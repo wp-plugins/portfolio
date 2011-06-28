@@ -155,7 +155,8 @@ if( ! function_exists( 'portfolio_custom_permalinks' ) ) {
 		global $wp_rewrite;
 		$wp_rewrite->add_rule( 'portfolio/page/([^/]+)/?$', 'index.php?pagename=portfolio&page=$matches[1]', 'top' );
 		$wp_rewrite->add_rule( 'technologies/([^/]*)/?$', 'index.php?post_type=portfolio&tag=$matches[1]', 'top' );
-		$wp_rewrite->add_rule( 'technologies/([^/]+)/page/([0-9]*)/?$', 'index.php?post_type=portfolio&tag=$matches[1]&paged=$matches[2]&page=$matches[2]', 'top' );
+		$wp_rewrite->add_rule( 'technologies/([^/]+)/page/([0-9]*)/?$', 'index.php?post_type=portfolio&tag=$matches[1]&paged=$matches[2]', 'top' );
+    	$wp_rewrite->flush_rules();
 	}
 }
 
