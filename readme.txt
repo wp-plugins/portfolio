@@ -47,7 +47,10 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 
 == Changelog ==
 
-= 1.05 =
+= 1.07 =
+* The bugs of description block displaying  are fixed and jQuery noConflict added in this version of the plugin.
+
+= 1.06 =
 * The bugs of featured images displaying and pagination are fixed in this version of the plugin.
 
 = 1.05 =
@@ -61,7 +64,10 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 
 == Upgrade Notice ==
 
-= 1.05 =
+= 1.07 =
+The bugs of description block displaying  are fixed and jQuery noConflict added in this version of the plugin.
+
+= 1.06 =
 The bugs of featured images displaying and pagination are fixed in this version of the plugin. Upgrade immediately.
 
 = 1.05 =

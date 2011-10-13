@@ -8,7 +8,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 1.05
+Version: 1.07
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -125,6 +125,7 @@ if( ! function_exists( 'post_type_portfolio' ) ) {
 					'comments', //Ability to turn on/off comments.
 					'revisions', //Allows revisions to be made for your post.
 					'author', //Displays a select box for changing the post author.
+					'thumbnail', //Displays a box for featured image.
 				)
 			)
 		);
@@ -186,7 +187,7 @@ if( ! function_exists( 'portfolio_custom_permalinks' ) ) {
 		$wp_rewrite->add_rule( 'portfolio/page/([^/]+)/?$', 'index.php?pagename=portfolio&page=$matches[1]', 'top' );
 		$wp_rewrite->add_rule( 'technologies/([^/]*)/?$', 'index.php?post_type=portfolio&tag=$matches[1]', 'top' );
 		$wp_rewrite->add_rule( 'technologies/([^/]+)/page/([0-9]*)/?$', 'index.php?post_type=portfolio&tag=$matches[1]&paged=$matches[2]&page=$matches[2]', 'top' );
-    $wp_rewrite->flush_rules();
+    		$wp_rewrite->flush_rules();
 	}
 }
 
@@ -263,9 +264,14 @@ if( ! function_exists( 'text_area' ) ) {
 		$label_format =
 			'<div class="portfolio_admin_box">'.
 			'<p><label for="%1$s"><strong>%2$s</strong></label></p>'.
-			'<p><textarea class="theEditor" style="width: 90%%;" name="%1$s">%3$s</textarea></p>'.
+			'<p><textarea class="theEditor" id="theEditor" style="width: 90%%;color:#000;" name="%1$s">%3$s</textarea></p>'.
 			'<p><em>'. $description .'</em></p>'.
 			'</div>';
+		echo "
+		<style>
+		#theEditor_tbl {background-color: #FFFFFF; border: 1px solid #CCCCCC;}
+		</style>
+		";
 		return vsprintf( $label_format, $args );
 	}
 }
@@ -576,7 +582,8 @@ if( ! function_exists ( 'display_term' ) ) {
 		$args		= array(
 			'post_type'					=> 'portfolio',
 			'post_status'				=> 'publish',
-			'orderby'						=> 'menu_order',
+			'orderby'						=> 'date',
+			'order'							=> 'DESC',
 			'caller_get_posts'  => 1,
 			'posts_per_page'		=> 5,
 			'paged'							=> $paged 
@@ -607,6 +614,7 @@ if( ! function_exists ( 'display_term' ) ) {
 				$thumb_url	= $upload_dir["url"] ."/". $thumb['sizes']['medium']['file'];
 				$featured_image_url = $upload_dir["baseurl"] ."/". $thumb["file"];
 			}
+
 			
 			// If featured images not set, display one image from post's gallery
 			$post_attachments = get_posts( 'post_type=attachment&post_parent='. $post->ID .'&numberposts=1' );
@@ -718,6 +726,7 @@ function portfolio_register_plugin_links($links, $file) {
 	return $links;
 }
 
+add_action( 'admin_print_footer_scripts', 'wp_tiny_mce', 25 );
 
 register_activation_hook( __FILE__, 'portfolio_plugin_install'); // activate plugin
 register_deactivation_hook( __FILE__, 'portfolio_plugin_uninstall'); // deactivate plugin
