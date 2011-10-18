@@ -1,10 +1,10 @@
 ﻿=== Portfolio ===
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/
-Tags: portfolio, images gallery, custom fields
+Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portfolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.1.3
-Stable tag: 2011.1.06
+Stable tag: 2011.1.07
 
 Portfolio allows you to create a page with information about your past projects.
 
