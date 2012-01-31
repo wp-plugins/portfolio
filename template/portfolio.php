@@ -7,96 +7,142 @@ get_header(); ?>
 
 		<div id="container">
 			<div id="content" role="main">
-			
-			<?php global $wp_query;
-			$paged = ( $wp_query->query_vars['page'] ) ? $wp_query->query_vars['page'] : 1;
-			$args = array(
-				'post_type'					=> 'portfolio',
-				'post_status'				=> 'publish',
-				'orderby'						=> 'menu_order',
-				'caller_get_posts'  => 1,
-				'posts_per_page'		=> 5,
-				'paged'							=> $paged 
-				);
-
-			query_posts( $args );
-			
-			while ( have_posts() ) : the_post(); ?>
-			<div class="portfolio_content">
-			<div class="item_title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></div>
-			<div class="entry">
-			<?php global $post; $meta_values = get_post_custom($post->ID);
-			
-			$thumb			= array();
-			$images			= array();
-			$upload_dir = wp_upload_dir();
-			$image_alt	= "";
-			$thumb_url	=	"";
-			$featured_image_url = "";
-
-			if( array_key_exists( '_thumbnail_id', $meta_values ) ) {
-				$thumb			= wp_get_attachment_metadata( $meta_values['_thumbnail_id'][0] );
-				$thumb_url	= $upload_dir["url"] ."/". $thumb['sizes']['medium']['file'];
-				$featured_image_url = $upload_dir["baseurl"] ."/". $thumb["file"];
-			}
-			
-			$post_attachments = get_posts( 'post_type=attachment&post_parent='. $post->ID .'&numberposts=1' );
-			if( count( $thumb ) == 0 ) {
-				if( count( $post_attachments ) > 0 ) {
-					$metadata		= wp_get_attachment_metadata( $post_attachments[0]->ID );
-					$thumb_url	= ( isset( $metadata['sizes']["medium"]['file'] ) ? $upload_dir["url"] ."/". $metadata['sizes']["medium"]['file'] : $post_attachments[0]->guid );
-					$featured_image_url = $upload_dir["baseurl"] ."/". $metadata["file"];
-					$image_alt					= get_post_custom( $post_attachments[0]->ID );
-					$image_alt					= $image_alt["_wp_attachment_image_alt"][0];
+				<div class="breadcrumbs">
+				<?php if( $wp_query->query_vars["technologies"] ) {
+					$term = get_term_by('slug', $wp_query->query_vars["technologies"], 'portfolio_technologies');
+					echo __('Technologies', 'portfolio').": ".( $term->name );
 				}
 				else {
-					$thumb_url					= "";
-					$featured_image_url = "";
-					$image_alt					= "";
-				}
-			}
-
-			echo '<p><a class="lightbox" rel="lightbox" href="'. $featured_image_url .'"><img src="'. $thumb_url .'" width="240" alt="'. $image_alt .'" /></a></p>';
-			echo '<p><span class="lable">Date of completion</span>: '. $meta_values["_prtf_date_compl"][0] .'</p>';
-			$user_id = get_current_user_id();
-			if ( $user_id == 0 ) {
-				echo '<p><span class="lable">Link</span>: '. $meta_values["_prtf_link"][0] .'</p>';
-			}
-			else {
-				if( parse_url( $meta_values["_prtf_link"][0] ) !== false )
-					echo '<p><span class="lable">Link</span>: <a href="'. $meta_values["_prtf_link"][0] .'">'. $meta_values["_prtf_link"][0] .'</a></p>';
-				else
-					echo '<p><span class="lable">Link</span>: '. $meta_values["_prtf_link"][0] .'</p>';
-			}
-			echo '<p><span class="lable">Short description</span>: '. $meta_values["_prtf_short_descr"][0] .'</p>'; ?>
-			</div>
-			<div class="read_more"><a href="<?php the_permalink(); ?>" rel="bookmark">Read more >></a></div>
-			</div>
-			<?php $tags = wp_get_object_terms( $post->ID, 'post_tag' ) ;			
-			if ( $tags ) {
-				if( count( $tags ) > 0 ) {
-					$content = "";
-					$content .= '<div class="portfolio_terms">Technologies: ';
-					foreach ( $tags as $tag ) {
-						$content .= '<a href="'. get_tag_link( $tag->term_id ). '" title="' . sprintf( __( "View all posts in %s" ), $tag->name ) . '" ' . '>' . $tag->name.'</a>, ';
-					}
-					$content = substr( $content, 0, strlen( $content ) -2 );
-					$content .= '</div>';
-					echo $content;
-				}
-			}
-			endwhile; ?>
+					the_title(); 
+				} ?>
+				</div>
 			
-			<script type="text/javascript">
-			var base_url = "<?php echo WP_PLUGIN_URL .'/portfolio'; ?>";
-			jQuery(document).ready(function(){
-					jQuery('a[rel="lightbox"]').colorbox({transition:'fade'});
-				});
-			</script>
+				<?php global $wp_query;
+				$paged = ( $wp_query->query_vars['paged'] ) ? $wp_query->query_vars['paged'] : 1;
+				$technologies = ( $wp_query->query_vars["technologies"] ) ? $wp_query->query_vars["technologies"] : "";
+				if( $technologies != "" ) {
+					$args = array(
+						'post_type'					=> 'portfolio',
+						'post_status'				=> 'publish',
+						'orderby'						=> 'menu_order',
+						'caller_get_posts'  => 1,
+						'posts_per_page'		=> get_option('posts_per_page'),
+						'paged'							=> $paged,
+						'tax_query' => array(
+								array(
+									'taxonomy' => 'portfolio_technologies',
+									'field' => 'slug',
+									'terms' => $technologies
+								)
+							)
+						);
+				}
+				else {
+					$args = array(
+						'post_type'					=> 'portfolio',
+						'post_status'				=> 'publish',
+						'orderby'						=> 'menu_order',
+						'caller_get_posts'  => 1,
+						'posts_per_page'		=> get_option('posts_per_page'),
+						'paged'							=> $paged
+						);
+				}
+
+				query_posts( $args );
+				
+				while ( have_posts() ) : the_post(); ?>
+					<div class="portfolio_content">
+						<div class="entry">
+							<?php global $post;
+							$meta_values				= get_post_custom($post->ID);
+							$post_thumbnail_id	= get_post_thumbnail_id( $post->ID );
+							if( empty ( $post_thumbnail_id ) ) {
+								$args = array(
+									'post_parent' => $post->ID,
+									'post_type' => 'attachment',
+									'post_mime_type' => 'image',
+									'numberposts' => 1
+								);
+								$attachments				= get_children( $args );
+								$post_thumbnail_id	= key($attachments);
+							}
+							$image						= wp_get_attachment_image_src( $post_thumbnail_id, 'portfolio-thumb' );
+							$image_alt				= get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
+							$image_desc 			= get_post($post_thumbnail_id);
+							$image_desc				= $image_desc->post_content;
+							if( get_option( 'prtfl_postmeta_update' ) == '1' ) {
+								$post_meta		= get_post_meta( $post->ID, 'prtfl_information', true);
+								$date_compl		= $post_meta['_prtfl_date_compl'];
+								$date_compl		= explode( "/", $date_compl );
+								$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								$link					= $post_meta['_prtfl_link'];
+								$short_descr	= $post_meta['_prtfl_short_descr'];
+							}
+							else{
+								$date_compl		= get_post_meta( $post->ID, '_prtfl_date_compl', true );
+								$date_compl		= explode( "/", $date_compl );
+								$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								$link					= get_post_meta($post->ID, '_prtfl_link', true);
+								$short_descr	= get_post_meta($post->ID, '_prtfl_short_descr', true); 
+							} ?>
+
+							<div class="portfolio_thumb">
+								<a class="lightbox" rel="lightbox" href="<?php echo $image[0]; ?>" title="<?php echo $image_desc; ?>">
+									<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
+								</a>
+							</div>
+							<div class="portfolio_short_content">
+								<div class="item_title">
+									<p>
+										<a href="<?php echo get_permalink(); ?>" rel="bookmark"><?php echo get_the_title(); ?></a>
+									</p>
+								</div> <!-- .item_title -->
+								<p>
+									<span class="lable"><?php _e( 'Date of completion', 'portfolio' ); ?>:</span> <?php echo $date_compl; ?>
+								</p>
+								<?php $user_id = get_current_user_id();
+								if ( $user_id == 0 ) { ?>
+								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <?php echo $link; ?></p>
+								<?php }
+								else if( parse_url( $link ) !== false ) { ?>
+								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
+								<?php } else { ?>
+								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <?php echo $link; ?></p>
+								<?php } ?>
+								<p><span class="lable"><?php _e( 'Short description', 'portfolio' ); ?>:</span> <?php echo $short_descr; ?></p>
+							</div> <!-- .portfolio_short_content -->
+						</div> <!-- .entry -->
+						<div class="entry_footer">
+							<div class="read_more">
+								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php _e( 'Read more', 'portfolio' ); ?></a>
+							</div> <!-- .read_more -->
+							<?php $terms = wp_get_object_terms( $post->ID, 'portfolio_technologies' ) ;			
+							if ( is_array( $terms ) && count( $terms ) > 0) { ?>
+								<div class="portfolio_terms"><?php _e( 'Technologies', 'portfolio' ); ?>:
+								<?php $count = 0;
+								foreach ( $terms as $term ) {
+									if( $count > 0 ) 
+										echo ', '; 
+									echo '<a href="'. get_term_link( $term->slug, 'portfolio_technologies') . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name.'</a>';
+									$count++;
+								} ?>
+								</div>
+							<?php } ?>
+						</div> <!-- .entry_footer -->
+					</div> <!-- .portfolio_content -->
+			<?php endwhile; 
+			$portfolio_options = get_option( 'prtfl_options' ); ?>
+			
+				<script type="text/javascript">
+					var $j = jQuery.noConflict();
+					$j(document).ready(function(){
+						$j("a[rel^='lightbox']").prettyPhoto({theme: '<?php echo $portfolio_options["prtfl_prettyPhoto_style"]; ?>'});
+					});
+				</script>
 			</div><!-- #content -->
-
-			<?php portfolio_pagination(); ?>
-
+			<div id="portfolio_pagenation">
+			<?php prtfl_pagination(); ?>
+			</div>
 		</div><!-- #container -->
 		<div id="jquery-overlay"></div>
 

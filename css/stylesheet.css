@@ -1,45 +1,21 @@
-.home, .single, .page
-{
-	cursor: url(../images/arrow_auto.png), auto;
-}
-span.lable
-{
-	font-weight: bold;
-}
-#content .entry p, #content .entry-content p
-{
-	margin-bottom:5px;
-	line-height: 18px;
+#prtfl_form_image_size label{
+	display: block;
+    float: left;
+    width: 130px;
 }
 
-.portfolio_images_gallery
-{
-	width:240px;
-	float:left;
-	padding-right:6px;
-	padding-bottom:10px;
-}
-.portfolio_images_block
-{
-	clear:both;
+#prtfl_form_image_size select{
+	width: 140px;
 }
 
-a.lightbox
-{
-	cursor: url(../images/icon_zoom.png), se-resize;
+.portfolio_images_block {
+    clear: both;
 }
 
-#lightbox-nav-btnNext {
-	cursor: url(../images/arrow_right.png), e-resize;
-}
-
-#lightbox-nav-btnPrev {
-	cursor: url(../images/arrow_left.png), e-resize;
-}
-
-#colorbox 
-{
-	cursor: url(../images/arrow_auto.png), auto;
+.portfolio_images_gallery {
+    float: left;
+    padding-bottom: 10px;
+    padding-right: 6px;
 }
 
 .portfolio_images_rows
@@ -68,21 +44,6 @@ a.lightbox
 	padding-top:5px;
 }
 
-#addimageinfo
-{
-	-moz-border-radius: 11px 11px 11px 11px;
-    -moz-box-sizing: content-box;
-    border-style: solid;
-    border-width: 1px;
-    cursor: pointer;
-    font-size: 11px !important;
-    line-height: 13px;
-    padding: 3px 8px;
-    text-decoration: none;
-	background-color: #FFFFFF;
-    border-color: #DFDFDF;
-}
-
 .wrap #icon-edit.icon32-posts-portfolio
 {
  background: url("../images/icons_32.png") no-repeat scroll left top transparent;
@@ -95,4 +56,162 @@ a.lightbox
 
 #adminmenu #menu-posts-portfolio div.wp-menu-image {
     background: url("../images/menu.png?ver=20100531") no-repeat scroll left -32px transparent;
+}
+
+#adminmenu #toplevel_page_bws_plugins div.wp-menu-image
+{
+	background: url("../images/icon_16.png") no-repeat scroll center center transparent;
+}
+#adminmenu #toplevel_page_bws_plugins:hover div.wp-menu-image, #adminmenu #toplevel_page_bws_plugins.wp-has-current-submenu div.wp-menu-image
+{
+	background: url("../images/icon_16_c.png") no-repeat scroll center center transparent;
+}	
+.wrap #icon-options-general.icon32-bws
+{
+	background: url("../images/icon_36.png") no-repeat scroll left top transparent;
+}
+#toplevel_page_bws_plugins .wp-submenu .wp-first-item
+{
+	display:none;
+}
+
+#container {
+	color: #686868;
+}
+
+#container .breadcrumbs {
+    border-bottom: 1px solid #D8D8D8;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.portfolio_thumb{
+	float:left;
+	width:300px;
+}
+
+.portfolio_content .read_more{
+	clear: both;
+    float: right;
+    text-align: center;
+	z-index:100;
+	position:relative;
+
+}
+
+.portfolio_content .read_more a{
+	display:block;
+	width:80px;
+	font-size:14px;
+	color:#FFF;
+	background-color:#555;
+	padding:3px 0;
+}
+
+.portfolio_content .read_more a:hover{
+	background-color:#2484c6;
+}
+
+.portfolio_short_content{
+	float:right;
+	width:335px;
+}
+
+.entry_footer {
+	clear:both;
+	position:relative;
+	height:30px;
+	padding-bottom:15px;
+}
+.portfolio_terms{
+	border-bottom: 1px solid #D8D8D8;
+    clear: both;
+    font-size: 13px;
+    margin: 0;
+    position: relative;
+    top: -25px;
+	z-index:99;
+}
+
+.portfolio_terms a{
+	font-size:13px;
+}
+
+.portfolio_short_content p, .portfolio_images_block{
+	padding-bottom:10px;
+	font-size:15px;
+	margin-bottom: 0 !important;
+}
+
+.portfolio_short_content p .lable{
+	font-weight:normal;
+}
+
+.portfolio_short_content .item_title{
+	padding:0 0 15px;
+}
+
+.portfolio_short_content .item_title a{
+	font-size:20px;
+}
+
+.portfolio_short_content .item_title a:hover{
+}
+
+.portfolio_images_block{
+	font-size:15px;
+}
+
+.portfolio_images_block .lable{
+	font-weight:normal;
+}
+
+.portfolio_images_rows{
+	border:0;
+	padding:0;
+}
+
+.portfolio_thumb img, .portfolio_images_gallery img {
+	padding:4px;
+	border:1px solid #D8D8D8;
+}
+
+#portfolio_pagenation {
+	margin:10px 0;
+}
+
+.pagination .current, .pagination a {
+	padding:5px;
+}
+
+.pagination a {
+	padding:5px;
+	margin: 0 2px;
+	background-color: #555555;
+	color: #fff;
+}
+.pagination a:hover {
+	background-color: #2484C6;
+}
+
+#prtfl_loader, #prtfl_img_loader {
+	float: left;
+    position: relative;
+    display:none;
+}
+
+#ajax_update_postmeta, #ajax_update_images {
+	float:left;
+}
+
+#prtfl_svn_additional_field, #prtfl_executor_additional_field {
+	float:left;
+	position:relative;
+	top:2px;
+}
+
+#content {
+	float:left;
+	margin-left:0;
 }
