@@ -25,6 +25,7 @@ Also it allows to add additional screenhots (many additional screenshots per 1 p
 
 = Translate =
 
+* Dutch (nl_NL) (thanks <a href="ronald@hostingu.nl">HostingU, Ronald Verheul</a> )
 * Russian (ru_RU)
 
 If you create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://bestwebsoft.com/" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
@@ -67,6 +68,7 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 == Changelog ==
 
 = V2.02 - 24.02.2012 =
+* NEW : Added Dutch language file for plugin.
 * New : Added code for backup portfolio template before update plugin.
 * Change : Code to include styles and scripts in a plug for the correct SSL verification.
 
@@ -94,7 +96,7 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 == Upgrade Notice ==
 
 = V2.02 =
-Added code for backup portfolio template before update plugin. Changed code to include styles and scripts in a plug for the correct SSL verification.
+Added Dutch language file for plugin. Added code for backup portfolio template before update plugin. Changed code to include styles and scripts in a plug for the correct SSL verification.
 
 = V2.01 =
 Added language files and Settings page for plugin. Template for portfolio display is changed. Changes were done to both main page and single portfolio page. A possibility to create new thumbnails for portfolio images is added. Upgrade immediately.
