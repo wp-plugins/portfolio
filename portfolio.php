@@ -8,7 +8,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.01
+Version: 2.02
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -32,23 +32,44 @@ $prtfl_boxes = array ();
 
 if( ! function_exists( 'prtfl_plugin_install' ) ) {
 	function prtfl_plugin_install() {
-		if ( ! copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio.php', TEMPLATEPATH .'/portfolio.php' ) ) {
-			add_action( 'admin_notices', create_function( '', "echo 'Error copy template file';" ) );
+		if ( ! file_exists( TEMPLATEPATH .'/portfolio.php' ) ) {
+			if( ! copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio.php', TEMPLATEPATH .'/portfolio.php' ) )
+				add_action( 'admin_notices', create_function( '',  'echo "Error copy template file";' ) );
 		}
-		if ( ! copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio-post.php', TEMPLATEPATH .'/portfolio-post.php' ) ) {
-			add_action( 'admin_notices', create_function( '', "echo 'Error copy template file';" ) );
+		else {
+			copy( TEMPLATEPATH .'/portfolio.php', TEMPLATEPATH .'/portfolio.php.bak' );
+			if( ! copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio.php', TEMPLATEPATH .'/portfolio.php' ) )
+				add_action( 'admin_notices', create_function( '',  'echo "Error copy template file";' ) );
+		}
+		if ( ! file_exists( TEMPLATEPATH .'/portfolio-post.php' ) ) {
+			if( ! copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio-post.php', TEMPLATEPATH .'/portfolio-post.php' ) )
+				add_action( 'admin_notices', create_function( '',  'echo "Error copy template file";' ) );
+		}
+		else {
+			copy( TEMPLATEPATH .'/portfolio-post.php', TEMPLATEPATH .'/portfolio-post.php.bak' );
+			if( ! copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio-post.php', TEMPLATEPATH .'/portfolio-post.php' ) )
+				add_action( 'admin_notices', create_function( '',  'echo "Error copy template file";' ) );
 		}
 	}
 }
 
 if( ! function_exists( 'prtfl_plugin_uninstall' ) ) {
 	function prtfl_plugin_uninstall() {
-		if ( ! unlink( TEMPLATEPATH .'/portfolio.php' ) ) {
-			add_action( 'admin_notices', create_function( '', "echo 'Error delete template file';" ) );
+		if ( file_exists( TEMPLATEPATH .'/portfolio.php' ) && ! unlink(TEMPLATEPATH .'/portfolio.php') ) {
+			add_action( 'admin_notices', create_function( '', ' return "Error delete template file";' ) );
 		}
-		if ( ! unlink( TEMPLATEPATH .'/portfolio-post.php' ) ) {
-			add_action( 'admin_notices', create_function( '', "echo 'Error delete template file';" ) );
+		if ( file_exists( TEMPLATEPATH .'/portfolio-post.php' ) && ! unlink(TEMPLATEPATH .'/portfolio-post.php') ) {
+			add_action( 'admin_notices', create_function( '', ' return "Error delete template file";' ) );
 		}
+		if( get_option( 'prtfl_postmeta_update' ) ) {
+			delete_option( 'prtfl_postmeta_update' );
+		}
+		if( get_option( 'prtfl_tag_update' ) ) {
+			delete_option( 'prtfl_tag_update' );
+		}
+		if( get_option( 'prtfl_options' ) ) {
+			delete_option( 'prtfl_options' );
+		}		
 	}
 }
 
@@ -548,7 +569,7 @@ if( ! function_exists ( 'prtfl_replace_old_post_tag' ) ) {
 if( ! function_exists( 'bws_add_menu_render' ) ) {
 	function bws_add_menu_render() {
 		global $title;
-		$active_plugins = get_option( 'active_plugins' );
+		$active_plugins = get_option('active_plugins');
 		$all_plugins		= get_plugins();
 
 		$array_activate = array();
@@ -561,28 +582,25 @@ if( ! function_exists( 'bws_add_menu_render' ) ) {
 			array( 'facebook-button-plugin\/facebook-button-plugin.php', 'Facebook Like Button Plugin', 'http://wordpress.org/extend/plugins/facebook-button-plugin/', 'http://bestwebsoft.com/plugin/facebook-like-button-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Facebook+Like+Button+Plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=facebook-button-plugin.php' ), 
 			array( 'twitter-plugin\/twitter.php', 'Twitter Plugin', 'http://wordpress.org/extend/plugins/twitter-plugin/', 'http://bestwebsoft.com/plugin/twitter-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Twitter+Plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=twitter.php' ), 
 			array( 'portfolio\/portfolio.php', 'Portfolio', 'http://wordpress.org/extend/plugins/portfolio/', 'http://bestwebsoft.com/plugin/portfolio-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Portfolio+bestwebsoft&plugin-search-input=Search+Plugins', '' ),
-			array( 'portfolio-plugin\/portfolio-plugin.php', 'Gallery', 'http://wordpress.org/extend/plugins/portfolio-plugin/', 'http://bestwebsoft.com/plugin/portfolio-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Gallery+Plugin+bestwebsoft&plugin-search-input=Search+Plugins', '' ),
-			array( 'adsense-plugin\/adsense-plugin.php', 'Google AdSense Plugin', 'http://wordpress.org/extend/plugins/adsense-plugin/', 'http://bestwebsoft.com/plugin/google-adsense-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Adsense+Plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=adsense-plugin.php' )
+			array( 'gallery-plugin\/gallery-plugin.php', 'Gallery', 'http://wordpress.org/extend/plugins/gallery-plugin/', 'http://bestwebsoft.com/plugin/gallery-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Gallery+Plugin+bestwebsoft&plugin-search-input=Search+Plugins', '' ),
+			array( 'adsense-plugin\/adsense-plugin.php', 'Google AdSense Plugin', 'http://wordpress.org/extend/plugins/adsense-plugin/', 'http://bestwebsoft.com/plugin/google-adsense-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Adsense+Plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=adsense-plugin.php' ),
+			array( 'custom-search-plugin\/custom-search-plugin.php', 'Custom Search Plugin', 'http://wordpress.org/extend/plugins/custom-search-plugin/', 'http://bestwebsoft.com/plugin/custom-search-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Custom+Search+plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=custom_search.php' )
 		);
-		foreach( $array_plugins as $plugins )
-		{
-			if( 0 < count( preg_grep( "/".$plugins[0]."/", $active_plugins ) ) )
-			{
+		foreach($array_plugins as $plugins) {
+			if( 0 < count( preg_grep( "/".$plugins[0]."/", $active_plugins ) ) ) {
 				$array_activate[$count_activate]['title'] = $plugins[1];
 				$array_activate[$count_activate]['link']	= $plugins[2];
 				$array_activate[$count_activate]['href']	= $plugins[3];
-				$array_activate[$count_activate]['url']		= $plugins[5];
+				$array_activate[$count_activate]['url']	= $plugins[5];
 				$count_activate++;
 			}
-			else if( array_key_exists( str_replace( "\\", "", $plugins[0]), $all_plugins ) )
-			{
+			else if( array_key_exists(str_replace("\\", "", $plugins[0]), $all_plugins) ) {
 				$array_install[$count_install]['title'] = $plugins[1];
 				$array_install[$count_install]['link']	= $plugins[2];
 				$array_install[$count_install]['href']	= $plugins[3];
 				$count_install++;
 			}
-			else
-			{
+			else {
 				$array_recomend[$count_recomend]['title'] = $plugins[1];
 				$array_recomend[$count_recomend]['link']	= $plugins[2];
 				$array_recomend[$count_recomend]['href']	= $plugins[3];
@@ -605,7 +623,7 @@ if( ! function_exists( 'bws_add_menu_render' ) ) {
 			<?php if( 0 < $count_install ) { ?>
 			<div>
 				<h3><?php _e( 'Installed plugins', 'portfolio' ); ?></h3>
-				<?php foreach( $array_install as $install_plugin) { ?>
+				<?php foreach($array_install as $install_plugin) { ?>
 				<div style="float:left; width:200px;"><?php echo $install_plugin['title']; ?></div> <p><a href="<?php echo $install_plugin['link']; ?>" target="_blank"><?php echo __( "Read more", 'portfolio'); ?></a></p>
 				<?php } ?>
 			</div>
@@ -836,7 +854,7 @@ if ( ! function_exists ( 'prtfl_plugin_action_links' ) ) {
 	function prtfl_plugin_action_links( $links, $file ) {
 			//Static so we don't call plugin_basename on every plugin row.
 		static $this_plugin;
-		if ( ! $this_plugin ) $this_plugin = plugin_basename(__FILE__);
+		if ( ! $this_plugin ) $this_plugin = plugin_basename( __FILE__ );
 
 		if ( $file == $this_plugin ){
 				 $settings_link = '<a href="admin.php?page=portfolio.php">' . __( 'Settings', 'portfolio' ) . '</a>';
@@ -849,7 +867,7 @@ if ( ! function_exists ( 'prtfl_plugin_action_links' ) ) {
 if ( ! function_exists ( 'prtfl_register_plugin_links' ) ) {
 	function prtfl_register_plugin_links($links, $file) {
 		$base = plugin_basename(__FILE__);
-		if ($file == $base) {
+		if ( $file == $base ) {
 			$links[] = '<a href="admin.php?page=portfolio.php">' . __( 'Settings', 'portfolio' ) . '</a>';
 			$links[] = '<a href="http://wordpress.org/extend/plugins/portfolio/faq/" target="_blank">' . __( 'FAQ', 'portfolio' ) . '</a>';
 			$links[] = '<a href="Mailto:plugin@bestwebsoft.com">' . __( 'Support', 'portfolio' ) . '</a>';
@@ -859,16 +877,13 @@ if ( ! function_exists ( 'prtfl_register_plugin_links' ) ) {
 }
 
 if ( ! function_exists( 'prtfl_add_portfolio_ancestor_to_menu' ) ) {
-	function prtfl_add_portfolio_ancestor_to_menu($classes, $item)
-	{
+	function prtfl_add_portfolio_ancestor_to_menu( $classes, $item ) {
 		
-		if (is_singular('portfolio'))
-		{
+		if ( is_singular( 'portfolio' ) ) {
 			global $wpdb, $post;
-			$parent = $wpdb->get_var("SELECT $wpdb->posts.post_name FROM $wpdb->posts, $wpdb->postmeta WHERE meta_key = '_wp_page_template' AND meta_value = 'portfolio.php' AND (post_status = 'publish' OR post_status = 'private') AND $wpdb->posts.ID = $wpdb->postmeta.post_id");	
+			$parent = $wpdb->get_var( "SELECT $wpdb->posts.post_name FROM $wpdb->posts, $wpdb->postmeta WHERE meta_key = '_wp_page_template' AND meta_value = 'portfolio.php' AND (post_status = 'publish' OR post_status = 'private') AND $wpdb->posts.ID = $wpdb->postmeta.post_id" );	
 			
-			if ( in_array( 'menu-item-' . $item->ID, $classes ) && $parent == strtolower( $item->title ) )
-			{
+			if ( in_array( 'menu-item-' . $item->ID, $classes ) && $parent == strtolower( $item->title ) ) {
 				$classes[] = 'current-page-ancestor';
 			}
 		}
@@ -877,8 +892,8 @@ if ( ! function_exists( 'prtfl_add_portfolio_ancestor_to_menu' ) ) {
 	}
 }
 
-register_activation_hook( __FILE__, 'prtfl_plugin_install'); // activate plugin
-register_deactivation_hook( __FILE__, 'prtfl_plugin_uninstall'); // deactivate plugin
+register_activation_hook( __FILE__, 'prtfl_plugin_install' ); // activate plugin
+register_uninstall_hook( __FILE__, 'prtfl_plugin_uninstall' ); // deactivate plugin
 
 // adds "Settings" link to the plugin action page
 add_filter( 'plugin_action_links', 'prtfl_plugin_action_links', 10, 2 );
@@ -899,7 +914,7 @@ add_action( 'template_redirect', 'prtfl_template_redirect' ); // add template fo
 add_action( 'init', 'prtfl_custom_permalinks' ); // add custom permalink for portfolio
 
 
-add_action('after_setup_theme', 'prtfl_add_template_in_new_theme'); // add template in theme after activate new theme
+add_action( 'after_setup_theme', 'prtfl_add_template_in_new_theme' ); // add template in theme after activate new theme
 
 //Additional links on the plugin page
 add_filter( 'plugin_row_meta', 'prtfl_register_plugin_links', 10, 2 );

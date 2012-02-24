@@ -38,6 +38,7 @@ get_header(); ?>
 								$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
 								$link					= $post_meta['_prtfl_link'];
 								$short_descr	= $post_meta['_prtfl_short_descr'];
+								$full_descr		= $post->post_content != "" ? $post->post_content : $post_meta['_prtfl_descr'];
 								$svn					= $post_meta['_prtf_svn'];
 							}
 							else{
@@ -46,6 +47,7 @@ get_header(); ?>
 								$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
 								$link					= get_post_meta($post->ID, '_prtfl_link', true);
 								$short_descr	= get_post_meta($post->ID, '_prtfl_short_descr', true); 
+								$full_descr		= $post->post_content != "" ? $post->post_content : get_post_meta($post->ID, '_prtfl_descr', true);
 								$svn					= get_post_meta($post->ID, '_prtf_svn', true);
 							} ?>
 
@@ -68,7 +70,7 @@ get_header(); ?>
 								<?php } else { ?>
 								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <?php echo $link; ?></p>
 								<?php } ?>
-								<p><span class="lable"><?php _e( 'Description', 'portfolio' ); ?>:</span> <?php echo str_replace("\n", "<br />", $post->post_content); ?></p>
+								<p><span class="lable"><?php _e( 'Description', 'portfolio' ); ?>:</span> <?php echo str_replace("\n", "<br />", $full_descr); ?></p>
 								<?php if ( 0 != $user_id && $prtfl_options ) {
 									if( 1 == $portfolio_options['prtfl_svn_additional_field'] ) { ?>
 										<p><span class="lable"><?php _e( 'SVN', 'portfolio' ); ?>:</span> <?php echo $svn; ?></p>

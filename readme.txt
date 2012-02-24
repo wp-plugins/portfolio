@@ -1,10 +1,10 @@
 === Portfolio ===
 Contributors: bestwebsoft
-Donate link: http://bestwebsoft.com/
+Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=13
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 2.01
+Stable tag: 2.02
 
 Portfolio plugin allows you to create a page with information about your past projects.
 
@@ -66,6 +66,10 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 
 == Changelog ==
 
+= V2.02 - 24.02.2012 =
+* New : Added code for backup portfolio template before update plugin.
+* Change : Code to include styles and scripts in a plug for the correct SSL verification.
+
 = V2.01 - 31.01.2012 =
 * NEW : Added language files for plugin.
 * NEW : Added Settings page for Portfolio.
@@ -88,6 +92,9 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 * In this version the image uploading by means of custom fields is substituted with the Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.02 =
+Added code for backup portfolio template before update plugin. Changed code to include styles and scripts in a plug for the correct SSL verification.
 
 = V2.01 =
 Added language files and Settings page for plugin. Template for portfolio display is changed. Changes were done to both main page and single portfolio page. A possibility to create new thumbnails for portfolio images is added. Upgrade immediately.
