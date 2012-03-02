@@ -135,10 +135,10 @@ if( ! function_exists( 'prtfl_post_type_portfolio' ) ) {
 		wp_enqueue_style( 'portfolioStylesheet' );
 		wp_register_script( 'portfolioScript', plugins_url( 'js/script.js', __FILE__ ) );
 		wp_enqueue_script( 'portfolioScript' );
-		wp_enqueue_script( 'portfolioDatepicker', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );  
-		wp_enqueue_style( 'portfoliodDtepicker', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
-		wp_enqueue_script( 'portfolioLightbox', plugins_url( 'pretty_photo/js/jquery.prettyPhoto.js', __FILE__ ) ); 
-		wp_enqueue_style( 'portfolioLightbox', plugins_url( 'pretty_photo/css/prettyPhoto.css', __FILE__ ) );
+		wp_enqueue_script( 'portfolioDatepickerScript', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );  
+		wp_enqueue_style( 'portfolioDatepickerStylesheet', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
+		wp_enqueue_script( 'portfolioLightboxScript', plugins_url( 'pretty_photo/js/jquery.prettyPhoto.js', __FILE__ ) ); 
+		wp_enqueue_style( 'portfolioLightboxStylesheet', plugins_url( 'pretty_photo/css/prettyPhoto.css', __FILE__ ) );
 	}
 }
 
@@ -250,7 +250,7 @@ if( ! function_exists( 'prtfl_widget_display' ) ) {
 		else {
 			$title = $widget_name;
 		}
-		$title = apply_filters( 'widget_title', $title, $instance, 'portfolio_technologies_widget' );
+		$title = apply_filters( 'widget_title', $title, '', 'portfolio_technologies_widget' );
 
 		echo $before_widget;
 		if ( $title )
