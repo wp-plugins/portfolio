@@ -141,7 +141,8 @@ get_header(); ?>
 				</script>
 			</div><!-- #content -->
 			<div id="portfolio_pagenation">
-			<?php prtfl_pagination(); ?>
+			<?php if( function_exists( 'prtfl_pagination' ) ) prtfl_pagination(); ?>
+			<input type="hidden" value="Version=2.03" />
 			</div>
 		</div><!-- #container -->
 		<div id="jquery-overlay"></div>

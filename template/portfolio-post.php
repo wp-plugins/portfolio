@@ -34,8 +34,10 @@ get_header(); ?>
 							if( get_option( 'prtfl_postmeta_update' ) == '1' ) {
 								$post_meta		= get_post_meta( $post->ID, 'prtfl_information', true);
 								$date_compl		= $post_meta['_prtfl_date_compl'];
-								$date_compl		= explode( "/", $date_compl );
-								$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
+									$date_compl		= explode( "/", $date_compl );
+									$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								}
 								$link					= $post_meta['_prtfl_link'];
 								$short_descr	= $post_meta['_prtfl_short_descr'];
 								$full_descr		= $post->post_content != "" ? $post->post_content : $post_meta['_prtfl_descr'];
@@ -43,8 +45,10 @@ get_header(); ?>
 							}
 							else{
 								$date_compl		= get_post_meta( $post->ID, '_prtfl_date_compl', true );
-								$date_compl		= explode( "/", $date_compl );
-								$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
+									$date_compl		= explode( "/", $date_compl );
+									$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								}
 								$link					= get_post_meta($post->ID, '_prtfl_link', true);
 								$short_descr	= get_post_meta($post->ID, '_prtfl_short_descr', true); 
 								$full_descr		= $post->post_content != "" ? $post->post_content : get_post_meta($post->ID, '_prtfl_descr', true);
@@ -156,6 +160,7 @@ get_header(); ?>
 				</script>
 			</div><!-- #content -->
 		</div><!-- #container -->
+		<input type="hidden" value="Version=2.03" />
 		<div id="jquery-overlay"></div>
 
 <?php get_sidebar(); ?>

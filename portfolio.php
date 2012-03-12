@@ -8,7 +8,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.02
+Version: 2.03
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -129,16 +129,6 @@ if( ! function_exists( 'prtfl_post_type_portfolio' ) ) {
 				)
 			)
 		);
-
-		// Register style and script files
-		wp_register_style( 'portfolioStylesheet', plugins_url( 'css/stylesheet.css', __FILE__ ) );
-		wp_enqueue_style( 'portfolioStylesheet' );
-		wp_register_script( 'portfolioScript', plugins_url( 'js/script.js', __FILE__ ) );
-		wp_enqueue_script( 'portfolioScript' );
-		wp_enqueue_script( 'portfolioDatepickerScript', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );  
-		wp_enqueue_style( 'portfolioDatepickerStylesheet', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
-		wp_enqueue_script( 'portfolioLightboxScript', plugins_url( 'pretty_photo/js/jquery.prettyPhoto.js', __FILE__ ) ); 
-		wp_enqueue_style( 'portfolioLightboxStylesheet', plugins_url( 'pretty_photo/css/prettyPhoto.css', __FILE__ ) );
 	}
 }
 
@@ -584,7 +574,8 @@ if( ! function_exists( 'bws_add_menu_render' ) ) {
 			array( 'portfolio\/portfolio.php', 'Portfolio', 'http://wordpress.org/extend/plugins/portfolio/', 'http://bestwebsoft.com/plugin/portfolio-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Portfolio+bestwebsoft&plugin-search-input=Search+Plugins', '' ),
 			array( 'gallery-plugin\/gallery-plugin.php', 'Gallery', 'http://wordpress.org/extend/plugins/gallery-plugin/', 'http://bestwebsoft.com/plugin/gallery-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Gallery+Plugin+bestwebsoft&plugin-search-input=Search+Plugins', '' ),
 			array( 'adsense-plugin\/adsense-plugin.php', 'Google AdSense Plugin', 'http://wordpress.org/extend/plugins/adsense-plugin/', 'http://bestwebsoft.com/plugin/google-adsense-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Adsense+Plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=adsense-plugin.php' ),
-			array( 'custom-search-plugin\/custom-search-plugin.php', 'Custom Search Plugin', 'http://wordpress.org/extend/plugins/custom-search-plugin/', 'http://bestwebsoft.com/plugin/custom-search-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Custom+Search+plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=custom_search.php' )
+			array( 'custom-search-plugin\/custom-search-plugin.php', 'Custom Search Plugin', 'http://wordpress.org/extend/plugins/custom-search-plugin/', 'http://bestwebsoft.com/plugin/custom-search-plugin/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Custom+Search+plugin+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=custom_search.php' ),
+			array( 'quotes_and_tips\/quotes-and-tips.php', 'Quotes and Tips', 'http://wordpress.org/extend/plugins/quotes-and-tips/', 'http://bestwebsoft.com/plugin/quotes-and-tips/', '/wp-admin/plugin-install.php?tab=search&type=term&s=Quotes+and+Tips+bestwebsoft&plugin-search-input=Search+Plugins', 'admin.php?page=quotes-and-tips.php' )
 		);
 		foreach($array_plugins as $plugins) {
 			if( 0 < count( preg_grep( "/".$plugins[0]."/", $active_plugins ) ) ) {
@@ -892,6 +883,134 @@ if ( ! function_exists( 'prtfl_add_portfolio_ancestor_to_menu' ) ) {
 	}
 }
 
+if ( ! function_exists( 'prtfl_latest_items' ) ) {
+	function prtfl_latest_items( $atts ) {
+		$content = '<div class="prtfl_portfolio_block">';
+		$args = array(
+			'post_type'					=> 'portfolio',
+			'post_status'				=> 'publish',
+			'orderby'						=> 'data',
+			'order'							=> 'ASC',
+			'posts_per_page'		=> $atts['count'],
+			);
+		query_posts( $args );
+				
+		while ( have_posts() ) : the_post(); 
+			$content .= '
+			<div class="portfolio_content">
+				<div class="entry">';
+					global $post;
+					$meta_values				= get_post_custom($post->ID);
+					$post_thumbnail_id	= get_post_thumbnail_id( $post->ID );
+					if( empty ( $post_thumbnail_id ) ) {
+						$args = array(
+							'post_parent' => $post->ID,
+							'post_type' => 'attachment',
+							'post_mime_type' => 'image',
+							'numberposts' => 1
+						);
+						$attachments				= get_children( $args );
+						$post_thumbnail_id	= key($attachments);
+					}
+					$image						= wp_get_attachment_image_src( $post_thumbnail_id, $atts['thumbnail'] );
+					$image_alt				= get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
+					$image_desc 			= get_post($post_thumbnail_id);
+					$image_desc				= $image_desc->post_content;
+					if( get_option( 'prtfl_postmeta_update' ) == '1' ) {
+						$post_meta		= get_post_meta( $post->ID, 'prtfl_information', true);
+						$date_compl		= $post_meta['_prtfl_date_compl'];
+						if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
+							$date_compl		= explode( "/", $date_compl );
+							$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+						}
+						$link					= $post_meta['_prtfl_link'];
+						$short_descr	= $post_meta['_prtfl_short_descr'];
+					}
+					else{
+						$date_compl		= get_post_meta( $post->ID, '_prtfl_date_compl', true );
+						if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
+							$date_compl		= explode( "/", $date_compl );
+							$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+						}
+						$link					= get_post_meta($post->ID, '_prtfl_link', true);
+						$short_descr	= get_post_meta($post->ID, '_prtfl_short_descr', true); 
+					} 
+
+					$content .= '<div class="portfolio_thumb" style="width:165px">
+							<img src="'.$image[0].'" width="'.$image[1].'" alt="'.$image_alt.'" />
+					</div>
+					<div class="portfolio_short_content">
+						<div class="item_title">
+							<p>
+								<a href="'.get_permalink().'" rel="bookmark">'.get_the_title().'</a>
+							</p>
+						</div> <!-- .item_title -->';
+						$content .= '<p>'.$short_descr.'</p>
+					</div> <!-- .portfolio_short_content -->
+				</div> <!-- .entry -->
+				<div class="read_more">
+					<a href="'.get_permalink().'" rel="bookmark">'.__( 'Read more', 'portfolio' ).'</a>
+				</div> <!-- .read_more -->
+				<div class="portfolio_terms">';
+				$terms = wp_get_object_terms( $post->ID, 'portfolio_technologies' ) ;			
+				if ( is_array( $terms ) && count( $terms ) > 0) { 
+					$content .= __( 'Technologies', 'portfolio' ).':';
+					$count = 0;
+					foreach ( $terms as $term ) {
+						if( $count > 0 ) 
+							$content .= ', '; 
+						$content .= '<a href="'. get_term_link( $term->slug, 'portfolio_technologies') . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name.'</a>';
+						$count++;
+					}
+				}
+				else {
+					$content .= '&nbsp;';
+				}
+				$content .= '</div><!-- .portfolio_terms -->';
+			$content .= '<div class="prtfl_clear"></div></div> <!-- .portfolio_content -->';
+		endwhile; 		
+		$content .= '</div> <!-- .prtfl_portfolio_block -->';
+		wp_reset_query();
+		return $content;
+	}
+}
+
+if( ! function_exists( 'prtfl_add_script' ) ){
+	function prtfl_add_script() { ?>
+		<script type="text/javascript">
+		if ( ! window.jQuery ) {
+			document.write('<s'+'cript src="http://code.jquery.com/jquery-latest.js"></s'+'cript>');
+		}
+		</script>
+	<?php }
+}
+
+/* Register style and script files */
+if ( ! function_exists ( 'prtfl_admin_head' ) ) {
+	function prtfl_admin_head() {
+		wp_register_style( 'portfolioStylesheet', plugins_url( 'css/stylesheet.css', __FILE__ ) );
+		wp_enqueue_style( 'portfolioStylesheet' );
+		wp_register_script( 'portfolioScript', plugins_url( 'js/script.js', __FILE__ ) );
+		wp_enqueue_script( 'portfolioScript' );
+		wp_enqueue_script( 'portfolioDatepickerScript', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );  
+		wp_enqueue_style( 'portfolioDatepickerStylesheet', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
+	}
+}
+
+if ( ! function_exists ( 'prtfl_wp_head' ) ) {
+	function prtfl_wp_head() {
+		wp_enqueue_script( 'jquery' );
+		wp_register_style( 'portfolioStylesheet', plugins_url( 'css/stylesheet.css', __FILE__ ) );
+		wp_enqueue_style( 'portfolioStylesheet' );
+		wp_register_script( 'portfolioScript', plugins_url( 'js/script.js', __FILE__ ) );
+		wp_enqueue_script( 'portfolioScript' );
+		wp_enqueue_script( 'portfolioLightboxScript', plugins_url( 'pretty_photo/js/jquery.prettyPhoto.js', __FILE__ ) ); 
+		wp_enqueue_style( 'portfolioLightboxStylesheet', plugins_url( 'pretty_photo/css/prettyPhoto.css', __FILE__ ) );
+	}
+}
+		
+
+
 register_activation_hook( __FILE__, 'prtfl_plugin_install' ); // activate plugin
 register_uninstall_hook( __FILE__, 'prtfl_plugin_uninstall' ); // deactivate plugin
 
@@ -918,5 +1037,12 @@ add_action( 'after_setup_theme', 'prtfl_add_template_in_new_theme' ); // add tem
 
 //Additional links on the plugin page
 add_filter( 'plugin_row_meta', 'prtfl_register_plugin_links', 10, 2 );
+
+add_shortcode('latest_portfolio_items', 'prtfl_latest_items');
+
+//add_action( 'wp_head', 'prtfl_add_script' );
+
+add_action( 'admin_enqueue_scripts', 'prtfl_admin_head' );
+add_action( 'wp_enqueue_scripts', 'prtfl_wp_head' );
 
 ?>
