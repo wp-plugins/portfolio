@@ -8,7 +8,7 @@ get_header(); ?>
 		<div id="container">
 			<div id="content" role="main">
 				<div class="breadcrumbs">
-				<?php if( $wp_query->query_vars["technologies"] ) {
+				<?php if( isset( $wp_query->query_vars["technologies"] ) ) {
 					$term = get_term_by('slug', $wp_query->query_vars["technologies"], 'portfolio_technologies');
 					echo __('Technologies', 'portfolio').": ".( $term->name );
 				}
@@ -18,15 +18,14 @@ get_header(); ?>
 				</div>
 			
 				<?php global $wp_query;
-				$paged = ( $wp_query->query_vars['paged'] ) ? $wp_query->query_vars['paged'] : 1;
-				$technologies = ( $wp_query->query_vars["technologies"] ) ? $wp_query->query_vars["technologies"] : "";
+				$paged = isset( $wp_query->query_vars['paged'] ) ? $wp_query->query_vars['paged'] : 1;
+				$technologies = isset( $wp_query->query_vars["technologies"] ) ? $wp_query->query_vars["technologies"] : "";
 				if( $technologies != "" ) {
 					$args = array(
 						'post_type'					=> 'portfolio',
 						'post_status'				=> 'publish',
 						'orderby'						=> 'menu_order',
-						'caller_get_posts'  => 1,
-						'posts_per_page'		=> get_option('posts_per_page'),
+						'posts_per_page'		=> get_option( 'posts_per_page' ),
 						'paged'							=> $paged,
 						'tax_query' => array(
 								array(
@@ -42,8 +41,7 @@ get_header(); ?>
 						'post_type'					=> 'portfolio',
 						'post_status'				=> 'publish',
 						'orderby'						=> 'menu_order',
-						'caller_get_posts'  => 1,
-						'posts_per_page'		=> get_option('posts_per_page'),
+						'posts_per_page'		=> get_option( 'posts_per_page' ),
 						'paged'							=> $paged
 						);
 				}
@@ -67,27 +65,32 @@ get_header(); ?>
 								$post_thumbnail_id	= key($attachments);
 							}
 							$image						= wp_get_attachment_image_src( $post_thumbnail_id, 'portfolio-thumb' );
+							$image_large			= wp_get_attachment_image_src( $post_thumbnail_id, 'large' );
 							$image_alt				= get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
 							$image_desc 			= get_post($post_thumbnail_id);
 							$image_desc				= $image_desc->post_content;
 							if( get_option( 'prtfl_postmeta_update' ) == '1' ) {
 								$post_meta		= get_post_meta( $post->ID, 'prtfl_information', true);
 								$date_compl		= $post_meta['_prtfl_date_compl'];
-								$date_compl		= explode( "/", $date_compl );
-								$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
+									$date_compl		= explode( "/", $date_compl );
+									$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								}
 								$link					= $post_meta['_prtfl_link'];
 								$short_descr	= $post_meta['_prtfl_short_descr'];
 							}
 							else{
 								$date_compl		= get_post_meta( $post->ID, '_prtfl_date_compl', true );
-								$date_compl		= explode( "/", $date_compl );
-								$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
+									$date_compl		= explode( "/", $date_compl );
+									$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1]."-".$date_compl[0].'-'.$date_compl[2] ) );
+								}
 								$link					= get_post_meta($post->ID, '_prtfl_link', true);
 								$short_descr	= get_post_meta($post->ID, '_prtfl_short_descr', true); 
 							} ?>
 
 							<div class="portfolio_thumb">
-								<a class="lightbox" rel="lightbox" href="<?php echo $image[0]; ?>" title="<?php echo $image_desc; ?>">
+								<a class="lightbox" rel="portfolio_fancybox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
 									<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
 								</a>
 							</div>
@@ -134,18 +137,27 @@ get_header(); ?>
 			$portfolio_options = get_option( 'prtfl_options' ); ?>
 			
 				<script type="text/javascript">
-					var $j = jQuery.noConflict();
-					$j(document).ready(function(){
-						$j("a[rel^='lightbox']").prettyPhoto({theme: '<?php echo $portfolio_options["prtfl_prettyPhoto_style"]; ?>'});
+				(function($){
+					$(document).ready(function(){
+						$("a[rel=portfolio_fancybox]").fancybox({
+							'transitionIn'		: 'elastic',
+							'transitionOut'		: 'elastic',
+							'titlePosition' 	: 'inside',
+							'speedIn'					:	500, 
+							'speedOut'				:	300,
+							'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+								return '<span id="fancybox-title-inside">' + (title.length ? title + '<br />' : '') + 'Image ' + (currentIndex + 1) + ' / ' + currentArray.length + '</span>';
+							}
+						});
 					});
+				})(jQuery);
 				</script>
 			</div><!-- #content -->
 			<div id="portfolio_pagenation">
 			<?php if( function_exists( 'prtfl_pagination' ) ) prtfl_pagination(); ?>
-			<input type="hidden" value="Version=2.03" />
+			<input type="hidden" value="Version=2.04" />
 			</div>
 		</div><!-- #container -->
-		<div id="jquery-overlay"></div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

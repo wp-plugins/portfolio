@@ -18,10 +18,12 @@ get_header(); ?>
 							$post_thumbnail_id	= get_post_thumbnail_id( $post->ID );
 							if( empty ( $post_thumbnail_id ) ) {
 								$args = array(
-									'post_parent' => $post->ID,
-									'post_type' => 'attachment',
-									'post_mime_type' => 'image',
-									'numberposts' => 1
+									'post_parent'			=> $post->ID,
+									'post_type'				=> 'attachment',
+									'post_mime_type'	=> 'image',
+									'orderby'					=> 'menu_order',
+									'order'						=> 'ASC',
+									'numberposts'			=> 1
 								);
 								$attachments				= get_children( $args );
 								$post_thumbnail_id	= key($attachments);
@@ -41,7 +43,7 @@ get_header(); ?>
 								$link					= $post_meta['_prtfl_link'];
 								$short_descr	= $post_meta['_prtfl_short_descr'];
 								$full_descr		= $post->post_content != "" ? $post->post_content : $post_meta['_prtfl_descr'];
-								$svn					= $post_meta['_prtf_svn'];
+								$svn					= $post_meta['_prtfl_svn'];
 							}
 							else{
 								$date_compl		= get_post_meta( $post->ID, '_prtfl_date_compl', true );
@@ -52,12 +54,12 @@ get_header(); ?>
 								$link					= get_post_meta($post->ID, '_prtfl_link', true);
 								$short_descr	= get_post_meta($post->ID, '_prtfl_short_descr', true); 
 								$full_descr		= $post->post_content != "" ? $post->post_content : get_post_meta($post->ID, '_prtfl_descr', true);
-								$svn					= get_post_meta($post->ID, '_prtf_svn', true);
+								$svn					= get_post_meta($post->ID, '_prtfl_svn', true);
 							} ?>
 
 
 							<div class="portfolio_thumb">
-								<a class="lightbox" rel="lightbox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
+								<a class="lightbox" rel="portfolio_fancybox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
 									<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
 								</a>
 							</div>
@@ -75,7 +77,7 @@ get_header(); ?>
 								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <?php echo $link; ?></p>
 								<?php } ?>
 								<p><span class="lable"><?php _e( 'Description', 'portfolio' ); ?>:</span> <?php echo str_replace("\n", "<br />", $full_descr); ?></p>
-								<?php if ( 0 != $user_id && $prtfl_options ) {
+								<?php if ( 0 != $user_id && $portfolio_options ) {
 									if( 1 == $portfolio_options['prtfl_svn_additional_field'] ) { ?>
 										<p><span class="lable"><?php _e( 'SVN', 'portfolio' ); ?>:</span> <?php echo $svn; ?></p>
 									<?php }
@@ -96,11 +98,13 @@ get_header(); ?>
 							<div class="portfolio_images_block">
 								<?php 
 								$args = array(
-									'post_parent' => $post->ID,
-									'post_type' => 'attachment',
+									'post_parent'		=> $post->ID,
+									'post_type'			=> 'attachment',
 									'post_mime_type' => 'image',
-									'numberposts' => -1,
-									'exclude'	=> $post_thumbnail_id
+									'numberposts'		=> -1,
+									'orderby'				=> 'menu_order',
+									'order'					=> 'ASC',
+									'exclude'				=> $post_thumbnail_id
 								);
 								$attachments				= get_children( $args );
 								$array_post_thumbnail_id	= array_keys($attachments);
@@ -119,7 +123,7 @@ get_header(); ?>
 										<div class="portfolio_images_rows">
 									<?php } ?>
 										<div class="portfolio_images_gallery">
-											<a class="lightbox" rel="lightbox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
+											<a class="lightbox" rel="portfolio_fancybox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
 												<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
 											</a>
 											<br /><?php echo $image_title; ?>
@@ -153,15 +157,24 @@ get_header(); ?>
 			<?php endwhile; ?>
 			
 				<script type="text/javascript">
-					var $j = jQuery.noConflict();
-					$j(document).ready(function(){
-						$j("a[rel^='lightbox']").prettyPhoto({theme: '<?php echo $portfolio_options["prtfl_prettyPhoto_style"]; ?>'});
+				(function($){
+					$(document).ready(function(){
+						$("a[rel=portfolio_fancybox]").fancybox({
+							'transitionIn'		: 'elastic',
+							'transitionOut'		: 'elastic',
+							'titlePosition' 	: 'inside',
+							'speedIn'					:	500, 
+							'speedOut'				:	300,
+							'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+								return '<span id="fancybox-title-inside">' + (title.length ? title + '<br />' : '') + 'Image ' + (currentIndex + 1) + ' / ' + currentArray.length + '</span>';
+							}						
+						});
 					});
+				})(jQuery);
 				</script>
 			</div><!-- #content -->
 		</div><!-- #container -->
-		<input type="hidden" value="Version=2.03" />
-		<div id="jquery-overlay"></div>
+		<input type="hidden" value="Version=2.04" />
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

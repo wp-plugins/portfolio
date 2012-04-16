@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 2.03
+Stable tag: 2.04
 
 Portfolio plugin allows you to create a page with information about your past projects.
 
@@ -30,6 +30,10 @@ Also it allows adding of additional screenshots (multiple additional screenshots
 
 If you create your own language pack or update an existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> for <a href="http://bestwebsoft.com/" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
+= Technical support =
+
+Dear users, if you have any questions or propositions regarding our plugins (current options, new options, current issues) please feel free to contact us. Please note that we accept requests in English only. All messages on another languages wouldn't be accepted. 
+
 == Installation ==
 
 1. Upload `portfolio` folder to the `/wp-content/plugins/` directory
@@ -48,7 +52,7 @@ If you create your own language pack or update an existing one, you can send <a 
 
 = How to use a plugin? =
 
-1. Create necessary technologies using this page http://example.com/wp-admin/edit-tags.php?taxonomy=post_tag&post_type=portfolio
+1. Create necessary technologies using this page http://example.com/wp-admin/edit-tags.php?taxonomy=portfolio_technologies&post_type=portfolio
 2. This is optional. Fill in this page http://example.com/wp-admin/edit-tags.php?taxonomy=portfolio_executor_profile&post_type=portfolio - create a profile of executor. Fill in 'Name' and 'Description' fields. 'Description' field contains link to a personal executor's page.
 3. Choose 'Add New' from the 'Portfolio' menu and fill out your page. Set necessary values for the ‘Technologies’ and 'Executors Profile' widgets.
 
@@ -70,6 +74,10 @@ Sometimes when updating the plugin the templates of the the plugin are updated i
 6. Portfolio single frontend page.
 
 == Changelog ==
+
+= V2.04 - 13.04.2012 =
+* Change: Replace prettyPhoto library to fancybox library.
+* Change: Code that is used to display a lightbox for images in `portfolio.php` and `portfolio-post.php` template files is changed.
 
 = V2.03 - 07.03.2012 =
 * NEW : Shortcode for displaying of latest portfolio items is added.
@@ -102,6 +110,9 @@ Sometimes when updating the plugin the templates of the the plugin are updated i
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.04 =
+Replace prettyPhoto library to fancybox library. Code that is used to display a lightbox for images in `portfolio.php` and `portfolio-post.php` template files is changed.
 
 = V2.03 =
 Shortcode for displaying of the latest portfolio items is added. BWS plugins section has been changed. 
