@@ -21,12 +21,19 @@ Also it allows adding of additional screenshots (multiple additional screenshots
 * Actions: Create a template page to display all portfolio items with paging navigation. 
 * Actions: Possibility to regenerate thumbnails for an image after changing of its size. 
 * Options: Provides a possibility to adjust images size and a number of images displayed in a row. 
+* Actions: Possibility to change caption to additional fields.
 * Display: Includes a possibility to turn off displaying of additional fields. 
 
 = Translation =
 
-* Dutch (nl_NL) (thanks to <a href="ronald@hostingu.nl">HostingU, Ronald Verheul</a> )
+* Brazilian Portuguese (pt_BR) (thanks to DJIO, www.djio.com.br)
+* Dutch (nl_NL) (thanks to <a href="mailto:ronald@hostingu.nl">HostingU, Ronald Verheul</a>)
+* Hebrew (he_IL) (thanks to Sagive SEO)
+* Hindi (hi_IN) (thanks to <a href="mailto:ash.pr@outshinesolutions.com">Outshine Solutions</a>, outshinesolutions.com )
+* Italian (it_IT)
+* Persian (fa_IR) (thanks to <a href="mailto:AmirMaskani@gmail.com">Amir Maskani</a>)
 * Russian (ru_RU)
+* Spain (es_ES) (thanks to Grupo Gomariz, S.L. www.grupogomariz.com)
 
 If you create your own language pack or update an existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> for <a href="http://bestwebsoft.com/" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
@@ -72,8 +79,16 @@ Sometimes when updating the plugin the templates of the the plugin are updated i
 4. This screenshot for Add New Portfolio items.
 5. Portfolio frontend page (for all portfolios).
 6. Portfolio single frontend page.
+7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.05 - 10.07.2012 =
+* NEW : Brazilian Portuguese, Hebrew, Hindi, Italian, Persian, Spain language files are added to the plugin.
+* NEW : Add possibility to change caption to additional fields.
+* NEW : Add possibility to select additional fields to display them on main and single portfolio pages.
+* Changed : Template to display portfolio is changed. Changes were done to both main page and single portfolio page.
+* Update : We updated all functionality for wordpress 3.4.1.
 
 = V2.04 - 13.04.2012 =
 * Change: Replace prettyPhoto library to fancybox library.
@@ -110,6 +125,9 @@ Sometimes when updating the plugin the templates of the the plugin are updated i
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.05 =
+Brazilian Portuguese, Hebrew, Hindi, Italian, Persian, Spain language files are added to the plugin. Add possibility to change caption to additional fields. Add possibility to select additional fields to display them on main and single portfolio pages. Template to display portfolio is changed. Changes were done to both main page and single portfolio page. We updated all functionality for wordpress 3.4.1.
 
 = V2.04 =
 Replace prettyPhoto library to fancybox library. Code that is used to display a lightbox for images in `portfolio.php` and `portfolio-post.php` template files is changed.

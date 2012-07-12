@@ -227,10 +227,14 @@
 	float:left;
 }
 
-#prtfl_svn_additional_field, #prtfl_executor_additional_field {
+#prtfl_date_additional_field, #prtfl_link_additional_field, 
+#prtfl_shrdescription_additional_field, #prtfl_description_additional_field,
+#prtfl_svn_additional_field, #prtfl_executor_additional_field,
+#prtfl_technologies_additional_field {
 	float:left;
 	position:relative;
 	top:2px;
+	margin-right: 3px;
 }
 
 #content {

@@ -661,8 +661,21 @@ if( ! function_exists( 'register_prtfl_settings' ) ) {
 			'prtfl_custom_size_name'	=> array( 'portfolio-thumb', 'portfolio-photo-thumb' ),
 			'prtfl_custom_size_px'		=> array( array( 280, 300 ), array( 240, 260 ) ),
 			'prtfl_custom_image_row_count'	=> 3,
+			'prtfl_date_additional_field' => 1,
+			'prtfl_link_additional_field' => 1,
+			'prtfl_shrdescription_additional_field' => 1,
+			'prtfl_description_additional_field' => 1,
 			'prtfl_svn_additional_field' => 1,
-			'prtfl_executor_additional_field' => 1
+			'prtfl_executor_additional_field' => 1,
+			'prtfl_technologies_additional_field' => 1,
+			'prtfl_date_text_field'												=> __( 'Date of completion:', 'portfolio' ),
+			'prtfl_link_text_field'												=> __( 'Link:', 'portfolio' ),
+			'prtfl_shrdescription_text_field'		=> __( 'Short description:', 'portfolio' ),
+			'prtfl_description_text_field'					=> __( 'Description:', 'portfolio' ),
+			'prtfl_svn_text_field'													=> __( 'SVN:', 'portfolio' ),
+			'prtfl_executor_text_field'								=> __( 'Executors Profile:', 'portfolio' ),
+			'prtfl_screenshot_text_field'						=> __( 'More screenshots:', 'portfolio' ),
+			'prtfl_technologies_text_field'				=> __( 'Technologies:', 'portfolio' )
 		);
 
 		// install the option defaults
@@ -714,9 +727,23 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 			$prtfl_request_options["prtfl_custom_image_row_count"] =  intval( trim( $_REQUEST['prtfl_custom_image_row_count'] ) );
 			if( $prtfl_request_options["prtfl_custom_image_row_count"] == "" || $prtfl_request_options["prtfl_custom_image_row_count"] < 1 )
 				$prtfl_request_options["prtfl_custom_image_row_count"] = 1;
-
+			
+			$prtfl_request_options["prtfl_date_additional_field"] = isset( $_REQUEST["prtfl_date_additional_field"] ) ? $_REQUEST["prtfl_date_additional_field"] : 0;
+			$prtfl_request_options["prtfl_link_additional_field"] = isset( $_REQUEST["prtfl_link_additional_field"] ) ? $_REQUEST["prtfl_link_additional_field"] : 0;
+			$prtfl_request_options["prtfl_shrdescription_additional_field"] = isset( $_REQUEST["prtfl_shrdescription_additional_field"] ) ? $_REQUEST["prtfl_shrdescription_additional_field"] : 0;
+			$prtfl_request_options["prtfl_description_additional_field"] = isset( $_REQUEST["prtfl_description_additional_field"] ) ? $_REQUEST["prtfl_description_additional_field"] : 0;
 			$prtfl_request_options["prtfl_svn_additional_field"] = isset( $_REQUEST["prtfl_svn_additional_field"] ) ? $_REQUEST["prtfl_svn_additional_field"] : 0;
 			$prtfl_request_options["prtfl_executor_additional_field"] = isset( $_REQUEST["prtfl_executor_additional_field"] ) ? $_REQUEST["prtfl_executor_additional_field"] : 0;
+			$prtfl_request_options["prtfl_technologies_additional_field"] = isset( $_REQUEST["prtfl_technologies_additional_field"] ) ? $_REQUEST["prtfl_technologies_additional_field"] : 0;
+			
+			$prtfl_request_options["prtfl_date_text_field"] = $_REQUEST["prtfl_date_text_field"];
+			$prtfl_request_options["prtfl_link_text_field"] = $_REQUEST["prtfl_link_text_field"];
+			$prtfl_request_options["prtfl_shrdescription_text_field"] = $_REQUEST["prtfl_shrdescription_text_field"];
+			$prtfl_request_options["prtfl_description_text_field"] = $_REQUEST["prtfl_description_text_field"];
+			$prtfl_request_options["prtfl_svn_text_field"] = $_REQUEST["prtfl_svn_text_field"];
+			$prtfl_request_options["prtfl_executor_text_field"] = $_REQUEST["prtfl_executor_text_field"];
+			$prtfl_request_options["prtfl_screenshot_text_field"] = $_REQUEST["prtfl_screenshot_text_field"];
+			$prtfl_request_options["prtfl_technologies_text_field"] = $_REQUEST["prtfl_technologies_text_field"];
 
 			// array merge incase this version has added new options
 			$prtfl_options = array_merge( $prtfl_options, $prtfl_request_options );
@@ -767,11 +794,29 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 				<tr valign="top">
 					<th scope="row"><?php _e( 'Display additional fields', 'portfolio' ); ?> </th>
 					<td>
-						<input type="checkbox" name="prtfl_svn_additional_field" value="1" id="prtfl_svn_additional_field" <?php if( 1 == $prtfl_options['prtfl_svn_additional_field'] ) echo "checked=\"checked\""; ?> /><label for="prtfl_svn_additional_field" style="float:none;"><?php _e( 'SVN', 'portfolio' ); ?></label>
-						<input type="checkbox" name="prtfl_executor_additional_field" value="1" id="prtfl_executor_additional_field" <?php if( 1 == $prtfl_options['prtfl_executor_additional_field'] ) echo "checked=\"checked\""; ?> /><label for="prtfl_executor_additional_field" style="float:none;"><?php _e( 'Executor', 'portfolio' ); ?></label>
+					 <input type="checkbox" name="prtfl_date_additional_field" value="1" id="prtfl_date_additional_field" <?php if( 1 == $prtfl_options['prtfl_date_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_date_additional_field" style="float:none;"><?php _e( 'Date', 'portfolio' ); ?></label>
+					 <input type="checkbox" name="prtfl_link_additional_field" value="1" id="prtfl_link_additional_field" <?php if( 1 == $prtfl_options['prtfl_link_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_link_additional_field" style="float:none;"><?php _e( 'Link', 'portfolio' ); ?></label>
+						<input type="checkbox" name="prtfl_shrdescription_additional_field" value="1" id="prtfl_shrdescription_additional_field" <?php if( 1 == $prtfl_options['prtfl_shrdescription_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_shrdescription_additional_field" style="float:none;"><?php _e( 'Short Description', 'portfolio' ); ?></label>
+					 <input type="checkbox" name="prtfl_description_additional_field" value="1" id="prtfl_description_additional_field" <?php if( 1 == $prtfl_options['prtfl_description_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_description_additional_field" style="float:none;"><?php _e( 'Description', 'portfolio' ); ?></label>
+						<input type="checkbox" name="prtfl_svn_additional_field" value="1" id="prtfl_svn_additional_field" <?php if( 1 == $prtfl_options['prtfl_svn_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_svn_additional_field" style="float:none;"><?php _e( 'SVN', 'portfolio' ); ?></label>
+						<input type="checkbox" name="prtfl_executor_additional_field" value="1" id="prtfl_executor_additional_field" <?php if( 1 == $prtfl_options['prtfl_executor_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_executor_additional_field" style="float:none;"><?php _e( 'Executor', 'portfolio' ); ?></label>
+						<input type="checkbox" name="prtfl_technologies_additional_field" value="1" id="prtfl_technologies_additional_field" <?php if( 1 == $prtfl_options['prtfl_technologies_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_technologies_additional_field" style="float:none;"><?php _e( 'Technologies', 'portfolio' ); ?></label>
 					</td>
 				</tr>
-			</table>    
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Text for additional fields', 'portfolio' ); ?> </th>
+					<td>
+					 <label for="prtfl_date_text_field"><?php _e( 'Date of completion:', 'portfolio' ); ?></label> <input type="text" name="prtfl_date_text_field" value="<?php echo $prtfl_options["prtfl_date_text_field"]; ?>" /><br />
+						<label for="prtfl_link_text_field"><?php _e( 'Link:', 'portfolio' ); ?></label> <input type="text" name="prtfl_link_text_field" value="<?php echo $prtfl_options["prtfl_link_text_field"]; ?>" /><br />
+						<label for="prtfl_shrdescription_text_field"><?php _e( 'Short description:', 'portfolio' ); ?></label> <input type="text" name="prtfl_shrdescription_text_field" value="<?php echo $prtfl_options["prtfl_shrdescription_text_field"]; ?>" /><br />
+						<label for="prtfl_description_text_field"><?php _e( 'Description:', 'portfolio' ); ?></label> <input type="text" name="prtfl_description_text_field" value="<?php echo $prtfl_options["prtfl_description_text_field"]; ?>" /><br />
+						<label for="prtfl_svn_text_field"><?php _e( 'SVN:', 'portfolio' ); ?></label> <input type="text" name="prtfl_svn_text_field" value="<?php echo $prtfl_options["prtfl_svn_text_field"]; ?>" /><br />
+						<label for="prtfl_executor_text_field"><?php _e( 'Executors Profile:', 'portfolio' ); ?></label> <input type="text" name="prtfl_executor_text_field" value="<?php echo $prtfl_options["prtfl_executor_text_field"]; ?>" /><br />
+						<label for="prtfl_screenshot_text_field"><?php _e( 'More screenshots:', 'portfolio' ); ?></label> <input type="text" name="prtfl_screenshot_text_field" value="<?php echo $prtfl_options["prtfl_screenshot_text_field"]; ?>" /><br />
+						<label for="prtfl_technologies_text_field"><?php _e( 'Technologies:', 'portfolio' ); ?></label> <input type="text" name="prtfl_technologies_text_field" value="<?php echo $prtfl_options["prtfl_technologies_text_field"]; ?>" />
+					</td>
+				</tr>
+			</table>  
 			<input type="hidden" name="prtfl_form_submit" value="submit" />
 			<p class="submit">
 				<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
@@ -978,22 +1023,23 @@ if ( ! function_exists( 'prtfl_latest_items' ) ) {
 /* Register style and script files */
 if ( ! function_exists ( 'prtfl_admin_head' ) ) {
 	function prtfl_admin_head() {
-		wp_enqueue_style( 'portfolioStylesheet', plugins_url( 'css/stylesheet.css', __FILE__ ) );
-		wp_enqueue_style( 'portfolioDatepickerStylesheet', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
-		wp_enqueue_script( 'portfolioScript', plugins_url( 'js/script.js', __FILE__ ) );
-		wp_enqueue_script( 'portfolioDatepickerScript', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );  
+		wp_enqueue_style( 'prtflStylesheet', plugins_url( 'css/stylesheet.css', __FILE__ ) );
+		wp_enqueue_style( 'prtflDatepickerStylesheet', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'prtflScript', plugins_url( 'js/script.js', __FILE__ ) );
+		wp_enqueue_script( 'prtflDatepickerScript', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );  
 	}
 }
 
 if ( ! function_exists ( 'prtfl_wp_head' ) ) {
 	function prtfl_wp_head() {
-		wp_enqueue_style( 'portfolioLightboxStylesheet', plugins_url( 'fancybox/jquery.fancybox-1.3.4.css', __FILE__ ) );
-		wp_enqueue_style( 'portfolioStylesheet', plugins_url( 'css/stylesheet.css', __FILE__ ) );
+		wp_enqueue_style( 'prtflLightboxStylesheet', plugins_url( 'fancybox/jquery.fancybox-1.3.4.css', __FILE__ ) );
+		wp_enqueue_style( 'prtflStylesheet', plugins_url( 'css/stylesheet.css', __FILE__ ) );
 
 		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script( 'portfolioScript', plugins_url( 'js/script.js', __FILE__ ) );
-		wp_enqueue_script( 'portfolioFancyboxMousewheelJs', plugins_url( 'fancybox/jquery.mousewheel-3.0.4.pack.js', __FILE__ ), array( 'jquery' ) ); 
-		wp_enqueue_script( 'portfolioFancyboxJs', plugins_url( 'fancybox/jquery.fancybox-1.3.4.pack.js', __FILE__ ), array( 'jquery' ) ); 
+		wp_enqueue_script( 'prtflScript', plugins_url( 'js/script.js', __FILE__ ) );
+		wp_enqueue_script( 'prtflFancyboxMousewheelJs', plugins_url( 'fancybox/jquery.mousewheel-3.0.4.pack.js', __FILE__ ), array( 'jquery' ) ); 
+		wp_enqueue_script( 'prtflFancyboxJs', plugins_url( 'fancybox/jquery.fancybox-1.3.4.pack.js', __FILE__ ), array( 'jquery' ) ); 
 	}
 }
 

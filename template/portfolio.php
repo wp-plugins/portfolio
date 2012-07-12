@@ -18,6 +18,7 @@ get_header(); ?>
 				</div>
 			
 				<?php global $wp_query;
+				$portfolio_options = get_option( 'prtfl_options' );
 				$paged = isset( $wp_query->query_vars['paged'] ) ? $wp_query->query_vars['paged'] : 1;
 				$technologies = isset( $wp_query->query_vars["technologies"] ) ? $wp_query->query_vars["technologies"] : "";
 				if( $technologies != "" ) {
@@ -100,28 +101,34 @@ get_header(); ?>
 										<a href="<?php echo get_permalink(); ?>" rel="bookmark"><?php echo get_the_title(); ?></a>
 									</p>
 								</div> <!-- .item_title -->
-								<p>
-									<span class="lable"><?php _e( 'Date of completion', 'portfolio' ); ?>:</span> <?php echo $date_compl; ?>
-								</p>
-								<?php $user_id = get_current_user_id();
-								if ( $user_id == 0 ) { ?>
-								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <?php echo $link; ?></p>
+								<?php if( 1 == $portfolio_options['prtfl_date_additional_field'] ) { ?>
+										<p>
+											<span class="lable"><?php echo $portfolio_options['prtfl_date_text_field']; ?></span> <?php echo $date_compl; ?>
+										</p>
+								<?php } 
+								$user_id = get_current_user_id();
+								if( 1 == $portfolio_options['prtfl_link_additional_field'] ) { ?>
+										<?php if ( $user_id == 0 ) { ?>
+												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <?php echo $link; ?></p>
+										<?php }
+										else if( parse_url( $link ) !== false ) { ?>
+												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
+										<?php } else { ?>
+												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <?php echo $link; ?></p>
+										<?php } ?>
 								<?php }
-								else if( parse_url( $link ) !== false ) { ?>
-								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
-								<?php } else { ?>
-								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <?php echo $link; ?></p>
+								if( 1 == $portfolio_options['prtfl_shrdescription_additional_field'] ) { ?>
+										<p><span class="lable"><?php echo $portfolio_options['prtfl_shrdescription_text_field']; ?></span> <?php echo $short_descr; ?></p>
 								<?php } ?>
-								<p><span class="lable"><?php _e( 'Short description', 'portfolio' ); ?>:</span> <?php echo $short_descr; ?></p>
 							</div> <!-- .portfolio_short_content -->
 						</div> <!-- .entry -->
 						<div class="entry_footer">
 							<div class="read_more">
 								<a href="<?php the_permalink(); ?>" rel="bookmark"><?php _e( 'Read more', 'portfolio' ); ?></a>
 							</div> <!-- .read_more -->
-							<?php $terms = wp_get_object_terms( $post->ID, 'portfolio_technologies' ) ;			
+							<?php $terms = wp_get_object_terms( $post->ID, 'portfolio_technologies' ) ;
 							if ( is_array( $terms ) && count( $terms ) > 0) { ?>
-								<div class="portfolio_terms"><?php _e( 'Technologies', 'portfolio' ); ?>:
+								<div class="portfolio_terms"><?php echo $portfolio_options['prtfl_technologies_text_field']; ?>
 								<?php $count = 0;
 								foreach ( $terms as $term ) {
 									if( $count > 0 ) 
@@ -155,7 +162,7 @@ get_header(); ?>
 			</div><!-- #content -->
 			<div id="portfolio_pagenation">
 			<?php if( function_exists( 'prtfl_pagination' ) ) prtfl_pagination(); ?>
-			<input type="hidden" value="Version=2.04" />
+			<input type="hidden" value="Version=2.05" />
 			</div>
 		</div><!-- #container -->
 

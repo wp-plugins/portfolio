@@ -1,26 +1,5 @@
-(function($){
-	$(document).ready(function()
-	{
-		$('#addimageinfo').click(function()
-		{
-			var str = '<div class="portfolio_admin_subbox">'+
-				'<p><label for="'+profile_images_key+'_'+profile_images_count+'"><strong>'+profile_images_label+'</strong></label></p>'+
-				'<p><input type="file" id="'+profile_images_key+'_'+profile_images_count+'" name="'+profile_images_key+'_'+profile_images_count+'"></p>'+
-				'<p><em></em></p>'+
-				'<p><label for="'+profile_images_key+'_title_'+profile_images_count+'"><strong>'+profile_images_title_label+'</strong></label></p>'+
-				'<p><input style="width: 80%;" type="text" name="'+profile_images_key+'_title_'+profile_images_count+'" id="'+profile_images_key+'_title_'+profile_images_count+'" value="" /></p>'+
-				'<p><em>'+profile_images_title_text+'</em></p>'+
-				'<p><label for="'+profile_images_key+'_description_'+profile_images_count+'"><strong>'+profile_images_descr_label+'</strong></label></p>'+
-				'<p><input style="width: 80%;" type="text" name="'+profile_images_key+'_description_'+profile_images_count+'" id="'+profile_images_key+'_description_'+profile_images_count+'" value="" /></p>'+
-				'<p><em>'+profile_images_descr_text+'</em></p>'+
-				'</div>';
-			$('#addimageinfo').before(str);
-			//profile_images_count++;
-		});	
-	});
-
-	function update_postmeta() {
-		//$("#ajax_update_postmeta").attr("disabled", true);
+function update_postmeta() {
+	(function($){
 		setMessage("<p>"+update_message+"</p>");
 		var curr = 0;
 		$.ajax({
@@ -69,10 +48,11 @@
 				setError( "<p>"+error + request.status+"</p>" );
 			}
 		});
-	}
+	})(jQuery);
+}
 
-	function update_images() {
-		//$("#ajax_update_images").attr("disabled", true);
+function update_images() {
+	(function($){
 		setMessage("<p>"+update_img_message+"</p>");
 		var curr = 0;
 		$.ajax({
@@ -121,17 +101,21 @@
 				setError( "<p>"+img_error + request.status+"</p>" );
 			}
 		});
-	}
+	})(jQuery);
+}
 
-	function setMessage(msg) {
+function setMessage(msg) {
+	(function($){
 		$(".error").hide();
 		$(".updated").html(msg);
 		$(".updated").show();
-	}
+	})(jQuery);
+}
 
-	function setError(msg) {
+function setError(msg) {
+	(function($){
 		$(".updated").hide();
 		$(".error").html(msg);
 		$(".error").show();
-	}
-})(jQuery);
+	})(jQuery);
+}

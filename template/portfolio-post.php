@@ -64,26 +64,32 @@ get_header(); ?>
 								</a>
 							</div>
 							<div class="portfolio_short_content">
-								<p>
-									<span class="lable"><?php _e( 'Date of completion', 'portfolio' ); ?>:</span> <?php echo $date_compl; ?>
-								</p>
-								<?php $user_id = get_current_user_id();
-								if ( $user_id == 0 ) { ?>
-								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <?php echo $link; ?></p>
+								<?php if( 1 == $portfolio_options['prtfl_date_additional_field'] ) { ?>
+										<p>
+											<span class="lable"><?php echo $portfolio_options['prtfl_date_text_field']; ?></span> <?php echo $date_compl; ?>
+										</p>
 								<?php }
-								else if( parse_url( $link ) !== false ) { ?>
-								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
-								<?php } else { ?>
-								<p><span class="lable"><?php _e( 'Link', 'portfolio' ); ?>:</span> <?php echo $link; ?></p>
+								$user_id = get_current_user_id();
+								if( 1 == $portfolio_options['prtfl_link_additional_field'] ) { ?>
+										<?php if ( $user_id == 0 ) { ?>
+												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <?php echo $link; ?></p>
+										<?php }
+										else if( parse_url( $link ) !== false ) { ?>
+												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
+										<?php } else { ?>
+												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <?php echo $link; ?></p>
+										<?php } ?>
+								<?php }
+								if( 1 == $portfolio_options['prtfl_description_additional_field'] ) { ?>
+										<p><span class="lable"><?php echo $portfolio_options['prtfl_description_text_field']; ?></span> <?php echo str_replace("\n", "<br />", $full_descr); ?></p>
 								<?php } ?>
-								<p><span class="lable"><?php _e( 'Description', 'portfolio' ); ?>:</span> <?php echo str_replace("\n", "<br />", $full_descr); ?></p>
 								<?php if ( 0 != $user_id && $portfolio_options ) {
 									if( 1 == $portfolio_options['prtfl_svn_additional_field'] ) { ?>
-										<p><span class="lable"><?php _e( 'SVN', 'portfolio' ); ?>:</span> <?php echo $svn; ?></p>
+										<p><span class="lable"><?php echo $portfolio_options['prtfl_svn_text_field']; ?></span> <?php echo $svn; ?></p>
 									<?php }
 									if( 1 == $portfolio_options['prtfl_executor_additional_field'] ) {
 										$executors_profile = wp_get_object_terms( $post->ID, 'portfolio_executor_profile' ); ?>
-										<p><span class="lable"><?php _e( 'Executors Profile', 'portfolio' ); ?>:</span>
+										<p><span class="lable"><?php echo $portfolio_options['prtfl_executor_text_field']; ?></span>
 										<?php $count = 0;
 										foreach($executors_profile as $profile) {
 											if($count > 0)
@@ -119,7 +125,7 @@ get_header(); ?>
 									$image_desc		= $image_desc->post_content;
 									
 									if( 0 == $key ) { ?>
-										<span class="lable"><?php _e('More screenshots', 'portfolio' ); ?>:</span> 
+										<span class="lable"><?php echo $portfolio_options['prtfl_screenshot_text_field']; ?></span> 
 										<div class="portfolio_images_rows">
 									<?php } ?>
 										<div class="portfolio_images_gallery">
@@ -142,7 +148,7 @@ get_header(); ?>
 							<div class="read_more">&nbsp;</div>
 							<?php $terms = wp_get_object_terms( $post->ID, 'portfolio_technologies' ) ;			
 							if ( is_array( $terms ) && count( $terms ) > 0) { ?>
-								<div class="portfolio_terms"><?php _e( 'Technologies', 'portfolio' ); ?>:
+								<div class="portfolio_terms"><?php echo $portfolio_options['prtfl_technologies_text_field']; ?>
 								<?php $count = 0;
 								foreach ( $terms as $term ) {
 									if( $count > 0 ) 
@@ -174,7 +180,7 @@ get_header(); ?>
 				</script>
 			</div><!-- #content -->
 		</div><!-- #container -->
-		<input type="hidden" value="Version=2.04" />
+		<input type="hidden" value="Version=2.05" />
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
