@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: portfolio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-12 13:06+0300\n"
-"PO-Revision-Date: 2012-07-12 13:07+0300\n"
+"POT-Creation-Date: 2012-07-24 19:52+0300\n"
+"PO-Revision-Date: 2012-07-24 19:52+0300\n"
 "Last-Translator: zos <zos@bestwebsoft.com>\n"
 "Language-Team: Outshine Solutions <ash.pr@outshinesolutions.com>\n"
 "Language: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: portfolio.php:57
-#: portfolio.php:757
+#: portfolio.php:751
 msgid "The following files \"portfolio.php\" and \"portfolio-post.php\" were not found in the directory of your theme. Please copy them from the directory `/wp-content/plugins/portfolio/template/` to the directory of your theme for the correct work of the Portfolio plugin"
 msgstr "निम्न फ़ाइलें  \"portfolio.php \" और \"पोर्टफोलियो post.php \" अपने विषय की निर्देशिका में नहीं पाए गए. उन्हें `wp-content/plugins/portfolio/template /  पोर्टफोलियो प्लगइन का सही काम के लिए अपने विषय की निर्देशिका में` निर्देशिका से कॉपी करें"
 
@@ -39,7 +39,7 @@ msgid "The date when the task was completed"
 msgstr "जब कार्य पूरा किया गया दिनांक"
 
 #: portfolio.php:90
-#: portfolio.php:798
+#: portfolio.php:792
 msgid "Link"
 msgstr "लिंक"
 
@@ -48,7 +48,7 @@ msgid "A link to the site"
 msgstr "साइट के लिए एक लिंक"
 
 #: portfolio.php:91
-#: portfolio.php:801
+#: portfolio.php:795
 msgid "SVN"
 msgstr "SVN"
 
@@ -58,7 +58,7 @@ msgstr "SVN का URL"
 
 #: portfolio.php:106
 #: portfolio.php:107
-#: portfolio.php:647
+#: portfolio.php:641
 msgid "Portfolio"
 msgstr "पोर्टफोलियो"
 
@@ -171,8 +171,8 @@ msgstr "निष्पादक प्रोफ़ाइल"
 #: portfolio.php:196
 #: portfolio.php:223
 #: portfolio.php:231
-#: portfolio.php:803
-#: portfolio.php:1001
+#: portfolio.php:797
+#: portfolio.php:996
 #: template/portfolio.php:13
 msgid "Technologies"
 msgstr "टेक्नोलॉजीज"
@@ -237,216 +237,216 @@ msgstr "अपने सबसे अधिक इस्तेमाल बा�
 msgid "Title"
 msgstr "शीर्षक"
 
-#: portfolio.php:349
+#: portfolio.php:361
 msgid "Portfolio Info"
 msgstr "पोर्टफोलियो की जानकारी"
 
-#: portfolio.php:523
-#: portfolio.php:907
+#: portfolio.php:517
+#: portfolio.php:902
 msgid "FAQ"
 msgstr "अक्सर पूछे जाने वाले प्रश्न"
 
-#: portfolio.php:524
-#: portfolio.php:908
+#: portfolio.php:518
+#: portfolio.php:903
 msgid "Support"
 msgstr "समर्थन"
 
-#: portfolio.php:616
+#: portfolio.php:610
 msgid "Activated plugins"
 msgstr "सक्रिय प्लगिन"
 
-#: portfolio.php:618
-#: portfolio.php:626
-#: portfolio.php:634
-#: portfolio.php:996
+#: portfolio.php:612
+#: portfolio.php:620
+#: portfolio.php:628
+#: portfolio.php:991
 #: template/portfolio.php:127
 msgid "Read more"
 msgstr "और अधिक पढ़ें"
 
-#: portfolio.php:618
-#: portfolio.php:895
-#: portfolio.php:906
+#: portfolio.php:612
+#: portfolio.php:890
+#: portfolio.php:901
 msgid "Settings"
 msgstr "Settings"
 
-#: portfolio.php:624
+#: portfolio.php:618
 msgid "Installed plugins"
 msgstr "स्थापित plugins"
 
-#: portfolio.php:632
+#: portfolio.php:626
 msgid "Recommended plugins"
 msgstr "अनुशंसित प्लगिन"
 
-#: portfolio.php:634
+#: portfolio.php:628
 msgid "Download"
 msgstr "डाउनलोड"
 
-#: portfolio.php:634
+#: portfolio.php:628
 #, php-format
 msgid "Install %s"
 msgstr "स्थापित%s"
 
-#: portfolio.php:634
+#: portfolio.php:628
 msgid "Install now from wordpress.org"
 msgstr "Wordpress.org से अब स्थापित"
 
-#: portfolio.php:636
+#: portfolio.php:630
 msgid "If you have any questions, please contact us via plugin@bestwebsoft.com or fill in our contact form on our site"
 msgstr "यदि आप कोई प्रश्न हैं, हमें plugin@bestwebsoft.com के माध्यम से संपर्क करें या हमारी साइट पर हमारे संपर्क फार्म में भरें कृपया"
 
-#: portfolio.php:671
-#: portfolio.php:809
+#: portfolio.php:665
+#: portfolio.php:803
 msgid "Date of completion:"
 msgstr "पूरा होने की तिथि"
 
-#: portfolio.php:672
-#: portfolio.php:810
+#: portfolio.php:666
+#: portfolio.php:804
 msgid "Link:"
 msgstr "लिंक"
 
-#: portfolio.php:673
-#: portfolio.php:811
+#: portfolio.php:667
+#: portfolio.php:805
 msgid "Short description:"
 msgstr "छोटा वर्णन"
 
-#: portfolio.php:674
-#: portfolio.php:812
+#: portfolio.php:668
+#: portfolio.php:806
 msgid "Description:"
 msgstr "विवरण"
 
-#: portfolio.php:675
-#: portfolio.php:813
+#: portfolio.php:669
+#: portfolio.php:807
 msgid "SVN:"
 msgstr "SVN:"
 
-#: portfolio.php:676
-#: portfolio.php:814
+#: portfolio.php:670
+#: portfolio.php:808
 msgid "Executors Profile:"
 msgstr "executors प्रोफ़ाइल"
 
-#: portfolio.php:677
-#: portfolio.php:815
+#: portfolio.php:671
+#: portfolio.php:809
 msgid "More screenshots:"
 msgstr "अधिक स्क्रीनशॉट"
 
-#: portfolio.php:678
-#: portfolio.php:816
+#: portfolio.php:672
+#: portfolio.php:810
 msgid "Technologies:"
 msgstr "टेक्नोलॉजीज"
 
-#: portfolio.php:753
+#: portfolio.php:747
 msgid "Options saved."
 msgstr "विकल्प बचाया."
 
-#: portfolio.php:764
+#: portfolio.php:758
 msgid "Portfolio Options"
 msgstr "पोर्टफोलियो विकल्प"
 
-#: portfolio.php:770
+#: portfolio.php:764
 msgid "The size of the cover album for portfolio"
 msgstr "पोर्टफोलियो के लिए कवर एल्बम का आकार"
 
-#: portfolio.php:772
-#: portfolio.php:780
+#: portfolio.php:766
+#: portfolio.php:774
 msgid "Image size name"
 msgstr "छवि आकार नाम"
 
-#: portfolio.php:773
-#: portfolio.php:781
+#: portfolio.php:767
+#: portfolio.php:775
 msgid "Width (in px)"
 msgstr "चौड़ाई (पिक्सेल में)"
 
-#: portfolio.php:774
-#: portfolio.php:782
+#: portfolio.php:768
+#: portfolio.php:776
 msgid "Height (in px)"
 msgstr "ऊँचाई (पिक्सेल में)"
 
-#: portfolio.php:778
+#: portfolio.php:772
 msgid "Size for portfolio image"
 msgstr "पोर्टफोलियो छवि के लिए आकार"
 
-#: portfolio.php:786
+#: portfolio.php:780
 msgid "WordPress will create a copy of the post thumbnail with the specified dimensions when you upload a new photo. It is necessary to click on the button Update images at the bottom of this page in order to generate new images according to new dimensions "
 msgstr "WordPress के निर्दिष्ट आयामों के साथ पोस्ट थंबनेल की एक प्रतिलिपि बनाने के लिए जब आप एक नया फोटो अपलोड करेंगे. यह आवश्यक है नए आयाम के अनुसार इस पृष्ठ के नीचे के क्रम में नई छवियों को उत्पन्न बटन अपडेट करें छवियों पर क्लिक करें"
 
-#: portfolio.php:789
+#: portfolio.php:783
 msgid "Count images in row"
 msgstr "पंक्ति में छवियों गिनती"
 
-#: portfolio.php:795
+#: portfolio.php:789
 msgid "Display additional fields"
 msgstr "अतिरिक्त फ़ील्ड्स प्रदर्शित करना"
 
-#: portfolio.php:797
+#: portfolio.php:791
 msgid "Date"
 msgstr ""
 
-#: portfolio.php:799
+#: portfolio.php:793
 msgid "Short Description"
 msgstr "छोटा वर्णन"
 
-#: portfolio.php:800
+#: portfolio.php:794
 msgid "Description"
 msgstr "विवरण"
 
-#: portfolio.php:802
+#: portfolio.php:796
 msgid "Executor"
 msgstr "निष्पादक"
 
-#: portfolio.php:807
+#: portfolio.php:801
 msgid "Text for additional fields"
 msgstr ""
 
-#: portfolio.php:822
+#: portfolio.php:816
 msgid "Save Changes"
 msgstr "परिवर्तन सहेजें"
 
-#: portfolio.php:833
+#: portfolio.php:828
 msgid "Update the way storage your post_meta information for portfolio"
 msgstr "जिस तरह से भंडारण अपडेट करें आपके पोर्टफोलियो के लिए post_meta जानकारी"
 
-#: portfolio.php:835
+#: portfolio.php:830
 msgid "Update All Info"
 msgstr "सभी जानकारी को अपडेट करें"
 
-#: portfolio.php:840
+#: portfolio.php:835
 msgid "Update post_meta information..."
 msgstr "अपडेट करें post_meta जानकारी ..."
 
-#: portfolio.php:842
+#: portfolio.php:837
 msgid "No informations found."
 msgstr "Informations  नहीं पाया गया."
 
-#: portfolio.php:843
+#: portfolio.php:838
 msgid "All information was updated."
 msgstr "सभी जानकारी को अपडेट किया गया."
 
-#: portfolio.php:844
-#: portfolio.php:860
+#: portfolio.php:839
+#: portfolio.php:855
 msgid "Error."
 msgstr "त्रुटि."
 
-#: portfolio.php:849
+#: portfolio.php:844
 msgid "Update images for portfolio"
 msgstr "पोर्टफोलियो के लिए छवियों को अपडेट करें"
 
-#: portfolio.php:851
+#: portfolio.php:846
 msgid "Update images"
 msgstr "छवियों अपडेट करें"
 
-#: portfolio.php:856
+#: portfolio.php:851
 msgid "Update images..."
 msgstr "छवियों अपडेट करें ..."
 
-#: portfolio.php:858
+#: portfolio.php:853
 msgid "No images found."
 msgstr "कोई छवियां नहीं मिलीं."
 
-#: portfolio.php:859
+#: portfolio.php:854
 msgid "All images was updated."
 msgstr "सभी छवियों को अपडेट किया गया."
 
-#: portfolio.php:1006
+#: portfolio.php:1001
 #: template/portfolio.php:136
 #: template/portfolio-post.php:156
 #, php-format

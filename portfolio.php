@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Portfolio
- * @version 1
+ * @version 2.06
  */
 /*
 Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.04
+Version: 2.06
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -335,12 +335,24 @@ if( ! function_exists( 'prtfl_widget_portfolio_technologies_update' ) ) {
 
 // Create custom permalinks for portfolio post type
 if( ! function_exists( 'prtfl_custom_permalinks' ) ) {
-	function prtfl_custom_permalinks() {
-		global $wp_rewrite;
-		$wp_rewrite->add_rule( 'portfolio/page/([^/]+)/?$', 'index.php?pagename=portfolio&paged=$matches[1]', 'top' );
-		$wp_rewrite->add_rule( 'portfolio/page/([^/]+)?$', 'index.php?pagename=portfolio&paged=$matches[1]', 'top' );
-    $wp_rewrite->flush_rules();
+	function prtfl_custom_permalinks( $rules ) {
+ 	$newrules = array();
+		$newrules['portfolio/page/([^/]+)/?$'] = 'index.php?pagename=portfolio&paged=$matches[1]';
+		$newrules['portfolio/page/([^/]+)?$'] = 'index.php?pagename=portfolio&paged=$matches[1]';
+  return $newrules + $rules;
 	}
+}
+
+// flush_rules() if our rules are not yet included
+if ( ! function_exists( 'prtfl_flush_rules' ) ) {
+		function prtfl_flush_rules(){
+				$rules = get_option( 'rewrite_rules' );
+
+				if ( ! isset( $rules['portfolio/page/([^/]+)/?$'] ) ) {
+						global $wp_rewrite;
+						$wp_rewrite->flush_rules();
+				}
+		}
 }
 
 // Initialization of all metaboxes on the 'Add Portfolio' and Edit Portfolio pages
@@ -354,12 +366,6 @@ if ( ! function_exists( 'prtfl_init_metaboxes' ) ) {
 if ( ! function_exists( 'prtfl_post_custom_box' ) ) {
 	function prtfl_post_custom_box( $obj = '', $box = '' ) {
 		global $prtfl_boxes;
-		static $sp_nonce_flag = false;
-		// Run once
-		if( ! $sp_nonce_flag ) {
-			prtfl_echo_nonce();
-			$sp_nonce_flag = true;
-		}
 		// Generate box contents
 		foreach( $prtfl_boxes[ $box[ 'id' ] ] as $prtfl_box ) {
 			echo prtfl_text_field( $prtfl_box );
@@ -407,18 +413,6 @@ if( ! function_exists( 'prtfl_prtfl_text_area' ) ) {
 			'<p><em>'. $description .'</em></p>'.
 			'</div>';
 		return vsprintf( $label_format, $args );
-	}
-}
-
-
-// Use nonce for verification ...
-if( ! function_exists ( 'prtfl_echo_prtfl_nonce' ) ) {
-	function prtfl_echo_nonce () {
-		echo sprintf(
-			'<input type="hidden" name="%1$s" id="%1$s" value="%2$s" />',
-			'prtfl_nonce_name',
-			wp_create_nonce( plugin_basename(__FILE__) )
-		);
 	}
 }
 
@@ -716,7 +710,7 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 		$error = "";
 		
 		// Save data for settings page
-		if( isset( $_REQUEST['prtfl_form_submit'] ) ) {
+		if( isset( $_REQUEST['prtfl_form_submit'] ) && check_admin_referer( plugin_basename(__FILE__), 'prtfl_nonce_name' ) ) {
 			$prtfl_request_options = array();
 			$prtfl_request_options["prtfl_custom_size_name"] = $prtfl_options["prtfl_custom_size_name"];
 
@@ -821,6 +815,7 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 			<p class="submit">
 				<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 			</p>
+			<?php wp_nonce_field( plugin_basename(__FILE__), 'prtfl_nonce_name' ); ?>
 		</form>
 		<?php global $wpdb; 
 		if( get_option( 'prtfl_tag_update' ) == '1' )
@@ -1064,8 +1059,10 @@ add_action( 'init', 'prtfl_register_widget' ); // add widget for portfolio techn
 add_action( 'save_post', 'prtfl_save_postdata', 1, 2 ); // save custom data from admin 
 add_filter( 'pre_get_posts', 'prtfl_technologies_get_posts' ); // display tachnologies taxonomy
 add_action( 'template_redirect', 'prtfl_template_redirect' ); // add template for single gallery page
-add_action( 'init', 'prtfl_custom_permalinks' ); // add custom permalink for portfolio
 
+//add_action( 'init', 'prtfl_custom_permalinks' ); // add custom permalink for portfolio
+add_filter( 'rewrite_rules_array', 'prtfl_custom_permalinks' ); // add custom permalink for gallery
+add_action( 'wp_loaded', 'prtfl_flush_rules' );
 
 add_action( 'after_setup_theme', 'prtfl_add_template_in_new_theme' ); // add template in theme after activate new theme
 

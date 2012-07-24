@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portfolio v2.04\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-12 13:05+0300\n"
-"PO-Revision-Date: 2012-07-12 13:06+0300\n"
+"POT-Creation-Date: 2012-07-24 19:52+0300\n"
+"PO-Revision-Date: 2012-07-24 19:52+0300\n"
 "Last-Translator: zos <zos@bestwebsoft.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -21,7 +21,7 @@ msgstr ""
 
 # @ portfolio
 #: portfolio.php:57
-#: portfolio.php:757
+#: portfolio.php:751
 msgid "The following files \"portfolio.php\" and \"portfolio-post.php\" were not found in the directory of your theme. Please copy them from the directory `/wp-content/plugins/portfolio/template/` to the directory of your theme for the correct work of the Portfolio plugin"
 msgstr "הקבצים \"portfolio.php\" ו \"portfolio-post.php\" לא נמצאו בספריית התבנית שלך. בבקשה, העתק אותם מן הספריה `/wp-content/plugins/portfolio/template/` אל ספריית התבנית שלך כדי שהתוסף יעבוד באופן תקין."
 
@@ -47,7 +47,7 @@ msgstr "התאריך בו הושלמה המשימה"
 
 # @ portfolio
 #: portfolio.php:90
-#: portfolio.php:798
+#: portfolio.php:792
 msgid "Link"
 msgstr "קישור"
 
@@ -58,7 +58,7 @@ msgstr "קישור לאתר"
 
 # @ portfolio
 #: portfolio.php:91
-#: portfolio.php:801
+#: portfolio.php:795
 msgid "SVN"
 msgstr "SVN"
 
@@ -70,7 +70,7 @@ msgstr "כתובת URL של SVN"
 # @ portfolio
 #: portfolio.php:106
 #: portfolio.php:107
-#: portfolio.php:647
+#: portfolio.php:641
 msgid "Portfolio"
 msgstr "פורטפוליו"
 
@@ -210,8 +210,8 @@ msgstr "פרופילים "
 #: portfolio.php:196
 #: portfolio.php:223
 #: portfolio.php:231
-#: portfolio.php:803
-#: portfolio.php:1001
+#: portfolio.php:797
+#: portfolio.php:996
 #: template/portfolio.php:13
 msgid "Technologies"
 msgstr "טכנולוגיות"
@@ -292,261 +292,261 @@ msgid "Title"
 msgstr "כותרת"
 
 # @ portfolio
-#: portfolio.php:349
+#: portfolio.php:361
 msgid "Portfolio Info"
 msgstr "מידע פורטפוליו"
 
 # @ portfolio
-#: portfolio.php:523
-#: portfolio.php:907
+#: portfolio.php:517
+#: portfolio.php:902
 msgid "FAQ"
 msgstr "שאלות ותשובות"
 
 # @ portfolio
-#: portfolio.php:524
-#: portfolio.php:908
+#: portfolio.php:518
+#: portfolio.php:903
 msgid "Support"
 msgstr "תמיכה"
 
 # @ portfolio
-#: portfolio.php:616
+#: portfolio.php:610
 msgid "Activated plugins"
 msgstr "תוספים פעילים"
 
 # @ portfolio
-#: portfolio.php:618
-#: portfolio.php:626
-#: portfolio.php:634
-#: portfolio.php:996
+#: portfolio.php:612
+#: portfolio.php:620
+#: portfolio.php:628
+#: portfolio.php:991
 #: template/portfolio.php:127
 msgid "Read more"
 msgstr "קרא עוד"
 
 # @ portfolio
-#: portfolio.php:618
-#: portfolio.php:895
-#: portfolio.php:906
+#: portfolio.php:612
+#: portfolio.php:890
+#: portfolio.php:901
 msgid "Settings"
 msgstr "הגדרות"
 
 # @ portfolio
-#: portfolio.php:624
+#: portfolio.php:618
 msgid "Installed plugins"
 msgstr "תוספים מותקנים"
 
 # @ portfolio
-#: portfolio.php:632
+#: portfolio.php:626
 msgid "Recommended plugins"
 msgstr "תוספים מומלצים"
 
 # @ portfolio
-#: portfolio.php:634
+#: portfolio.php:628
 msgid "Download"
 msgstr "הורד"
 
 # @ default
-#: portfolio.php:634
+#: portfolio.php:628
 #, php-format
 msgid "Install %s"
 msgstr "התקן %s"
 
 # @ portfolio
-#: portfolio.php:634
+#: portfolio.php:628
 msgid "Install now from wordpress.org"
 msgstr "התקן כעת מ wordpress.org"
 
 # @ portfolio
-#: portfolio.php:636
+#: portfolio.php:630
 msgid "If you have any questions, please contact us via plugin@bestwebsoft.com or fill in our contact form on our site"
 msgstr "אם יש לך שאלות כלשהן, אנא צור עמנו קשר דרך plugin@bestwebsoft.com או שתמלא את טופס יצירת הקשר באתר שלנו"
 
 # @ portfolio
-#: portfolio.php:671
-#: portfolio.php:809
+#: portfolio.php:665
+#: portfolio.php:803
 msgid "Date of completion:"
 msgstr "תאריך סיום"
 
 # @ portfolio
-#: portfolio.php:672
-#: portfolio.php:810
+#: portfolio.php:666
+#: portfolio.php:804
 msgid "Link:"
 msgstr "קישור"
 
 # @ portfolio
-#: portfolio.php:673
-#: portfolio.php:811
+#: portfolio.php:667
+#: portfolio.php:805
 msgid "Short description:"
 msgstr "תיאור קצר"
 
 # @ portfolio
-#: portfolio.php:674
-#: portfolio.php:812
+#: portfolio.php:668
+#: portfolio.php:806
 msgid "Description:"
 msgstr "תיאור"
 
-#: portfolio.php:675
-#: portfolio.php:813
+#: portfolio.php:669
+#: portfolio.php:807
 msgid "SVN:"
 msgstr "SVN:"
 
 # @ portfolio
-#: portfolio.php:676
-#: portfolio.php:814
+#: portfolio.php:670
+#: portfolio.php:808
 msgid "Executors Profile:"
 msgstr "פרופיל"
 
 # @ portfolio
-#: portfolio.php:677
-#: portfolio.php:815
+#: portfolio.php:671
+#: portfolio.php:809
 msgid "More screenshots:"
 msgstr "עוד צילומי מסך"
 
 # @ portfolio
-#: portfolio.php:678
-#: portfolio.php:816
+#: portfolio.php:672
+#: portfolio.php:810
 msgid "Technologies:"
 msgstr "טכנולוגיות"
 
 # @ portfolio
-#: portfolio.php:753
+#: portfolio.php:747
 msgid "Options saved."
 msgstr "האפשרויות נשמרו."
 
 # @ portfolio
-#: portfolio.php:764
+#: portfolio.php:758
 msgid "Portfolio Options"
 msgstr "אפשרויות פורטפוליו"
 
 # @ portfolio
-#: portfolio.php:770
+#: portfolio.php:764
 msgid "The size of the cover album for portfolio"
 msgstr "גודל כריכת האלבום לפורטפוליו"
 
 # @ portfolio
-#: portfolio.php:772
-#: portfolio.php:780
+#: portfolio.php:766
+#: portfolio.php:774
 msgid "Image size name"
 msgstr "שם גודל התמונה"
 
 # @ portfolio
-#: portfolio.php:773
-#: portfolio.php:781
+#: portfolio.php:767
+#: portfolio.php:775
 msgid "Width (in px)"
 msgstr "רוחב (בפיקסלים)"
 
 # @ portfolio
-#: portfolio.php:774
-#: portfolio.php:782
+#: portfolio.php:768
+#: portfolio.php:776
 msgid "Height (in px)"
 msgstr "גובה (בפיקסלים)"
 
 # @ portfolio
-#: portfolio.php:778
+#: portfolio.php:772
 msgid "Size for portfolio image"
 msgstr "גודל תמונת הפורטפוליו"
 
 # @ portfolio
-#: portfolio.php:786
+#: portfolio.php:780
 msgid "WordPress will create a copy of the post thumbnail with the specified dimensions when you upload a new photo. It is necessary to click on the button Update images at the bottom of this page in order to generate new images according to new dimensions "
 msgstr "וורדפרס ייצור עותק של התמונה הממוזערת של הפוסט עם המידות שצוינו, כאשר אתה מעלה תמונה חדשה. זה הכרחי ללחוץ על כפתור עדכון תמונות בתחתית דף זה כדי לייצר תמונות חדשות בהתאם למידות החדשות "
 
 # @ portfolio
-#: portfolio.php:789
+#: portfolio.php:783
 msgid "Count images in row"
 msgstr "מספר תמונות בשורה"
 
 # @ portfolio
-#: portfolio.php:795
+#: portfolio.php:789
 msgid "Display additional fields"
 msgstr "הצג שדות נוספים"
 
-#: portfolio.php:797
+#: portfolio.php:791
 msgid "Date"
 msgstr ""
 
 # @ portfolio
-#: portfolio.php:799
+#: portfolio.php:793
 msgid "Short Description"
 msgstr "תיאור קצר"
 
 # @ portfolio
-#: portfolio.php:800
+#: portfolio.php:794
 msgid "Description"
 msgstr "תיאור"
 
 # @ portfolio
-#: portfolio.php:802
+#: portfolio.php:796
 msgid "Executor"
 msgstr "מחולל"
 
 # @ portfolio
-#: portfolio.php:807
+#: portfolio.php:801
 msgid "Text for additional fields"
 msgstr ""
 
 # @ default
-#: portfolio.php:822
+#: portfolio.php:816
 msgid "Save Changes"
 msgstr "שמור שינויים"
 
 # @ portfolio
-#: portfolio.php:833
+#: portfolio.php:828
 msgid "Update the way storage your post_meta information for portfolio"
 msgstr "עדכן את אופן אחסון מידע post_meta לפורטפוליו"
 
 # @ default
-#: portfolio.php:835
+#: portfolio.php:830
 msgid "Update All Info"
 msgstr "עדכן את כל המידע"
 
 # @ portfolio
-#: portfolio.php:840
+#: portfolio.php:835
 msgid "Update post_meta information..."
 msgstr "מעדכן מידע post_meta..."
 
 # @ portfolio
-#: portfolio.php:842
+#: portfolio.php:837
 msgid "No informations found."
 msgstr "לא נמצא מידע."
 
 # @ portfolio
-#: portfolio.php:843
+#: portfolio.php:838
 msgid "All information was updated."
 msgstr "כל המידע עודכן."
 
 # @ portfolio
-#: portfolio.php:844
-#: portfolio.php:860
+#: portfolio.php:839
+#: portfolio.php:855
 msgid "Error."
 msgstr "שגיאה."
 
 # @ portfolio
-#: portfolio.php:849
+#: portfolio.php:844
 msgid "Update images for portfolio"
 msgstr "עדכן תמונות לפורטפוליו"
 
 # @ default
-#: portfolio.php:851
+#: portfolio.php:846
 msgid "Update images"
 msgstr "עדכן תמונות"
 
 # @ portfolio
-#: portfolio.php:856
+#: portfolio.php:851
 msgid "Update images..."
 msgstr "מעדכן תמונות..."
 
 # @ portfolio
-#: portfolio.php:858
+#: portfolio.php:853
 msgid "No images found."
 msgstr "לא נמצאו תמונות."
 
 # @ portfolio
-#: portfolio.php:859
+#: portfolio.php:854
 msgid "All images was updated."
 msgstr "כל התמונות עודכנו."
 
 # @ default
-#: portfolio.php:1006
+#: portfolio.php:1001
 #: template/portfolio.php:136
 #: template/portfolio-post.php:156
 #, php-format

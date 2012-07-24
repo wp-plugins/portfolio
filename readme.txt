@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=13
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
-Tested up to: 3.3.1
-Stable tag: 2.04
+Tested up to: 3.4.1
+Stable tag: 2.06
 
 Portfolio plugin allows you to create a page with information about your past projects.
 
@@ -83,6 +83,9 @@ Sometimes when updating the plugin the templates of the the plugin are updated i
 
 == Changelog ==
 
+= V2.06 - 24.07.2012 =
+* Bugfix : Cross Site Request Forgery bug was fixed. 
+
 = V2.05 - 10.07.2012 =
 * NEW : Brazilian Portuguese, Hebrew, Hindi, Italian, Persian, Spain language files are added to the plugin.
 * NEW : Add possibility to change caption to additional fields.
@@ -125,6 +128,9 @@ Sometimes when updating the plugin the templates of the the plugin are updated i
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.06 =
+Cross Site Request Forgery bug was fixed. 
 
 = V2.05 =
 Brazilian Portuguese, Hebrew, Hindi, Italian, Persian, Spain language files are added to the plugin. Add possibility to change caption to additional fields. Add possibility to select additional fields to display them on main and single portfolio pages. Template to display portfolio is changed. Changes were done to both main page and single portfolio page. We updated all functionality for wordpress 3.4.1.

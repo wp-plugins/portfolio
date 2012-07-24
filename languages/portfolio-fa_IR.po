@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: portfolio.2.04 Parsi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-12 13:03+0300\n"
-"PO-Revision-Date: 2012-07-12 13:05+0300\n"
+"POT-Creation-Date: 2012-07-24 19:52+0300\n"
+"PO-Revision-Date: 2012-07-24 19:52+0300\n"
 "Last-Translator: zos <zos@bestwebsoft.com>\n"
 "Language-Team: Amir Maskani <AmirMaskani@gmail.com>\n"
 "Language: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: portfolio.php:57
-#: portfolio.php:757
+#: portfolio.php:751
 msgid "The following files \"portfolio.php\" and \"portfolio-post.php\" were not found in the directory of your theme. Please copy them from the directory `/wp-content/plugins/portfolio/template/` to the directory of your theme for the correct work of the Portfolio plugin"
 msgstr "فایلهای\"portfolio.php\"   و \"portfolio-post.php\" در پوشه ی پوسته شما پیدا نشد.برای درست کار کردن افزونه لطفاً آنها را از شاخه`/wp-content/plugins/portfolio/template/` به پوشه پوسته ی خود کپی کنید."
 
@@ -39,7 +39,7 @@ msgid "The date when the task was completed"
 msgstr "تاریخی که کار ​​تکمیل شد"
 
 #: portfolio.php:90
-#: portfolio.php:798
+#: portfolio.php:792
 msgid "Link"
 msgstr "پیوند"
 
@@ -48,7 +48,7 @@ msgid "A link to the site"
 msgstr "پیوند به تارنما"
 
 #: portfolio.php:91
-#: portfolio.php:801
+#: portfolio.php:795
 msgid "SVN"
 msgstr "(SVN) مهار نگارش زیر نگارش"
 
@@ -58,7 +58,7 @@ msgstr "URL of the SVN"
 
 #: portfolio.php:106
 #: portfolio.php:107
-#: portfolio.php:647
+#: portfolio.php:641
 msgid "Portfolio"
 msgstr "نمونه کارها"
 
@@ -171,8 +171,8 @@ msgstr "شناسنامه های مجریان"
 #: portfolio.php:196
 #: portfolio.php:223
 #: portfolio.php:231
-#: portfolio.php:803
-#: portfolio.php:1001
+#: portfolio.php:797
+#: portfolio.php:996
 #: template/portfolio.php:13
 msgid "Technologies"
 msgstr "فن آوری ها"
@@ -237,216 +237,216 @@ msgstr "استفاده از فن آوری نمونه کارها خود را در
 msgid "Title"
 msgstr "عنوان"
 
-#: portfolio.php:349
+#: portfolio.php:361
 msgid "Portfolio Info"
 msgstr "مشخصات نمونه کار"
 
-#: portfolio.php:523
-#: portfolio.php:907
+#: portfolio.php:517
+#: portfolio.php:902
 msgid "FAQ"
 msgstr "سوالات متداول"
 
-#: portfolio.php:524
-#: portfolio.php:908
+#: portfolio.php:518
+#: portfolio.php:903
 msgid "Support"
 msgstr "پشتیبانی"
 
-#: portfolio.php:616
+#: portfolio.php:610
 msgid "Activated plugins"
 msgstr "افزونه های فعال"
 
-#: portfolio.php:618
-#: portfolio.php:626
-#: portfolio.php:634
-#: portfolio.php:996
+#: portfolio.php:612
+#: portfolio.php:620
+#: portfolio.php:628
+#: portfolio.php:991
 #: template/portfolio.php:127
 msgid "Read more"
 msgstr "بیشتر"
 
-#: portfolio.php:618
-#: portfolio.php:895
-#: portfolio.php:906
+#: portfolio.php:612
+#: portfolio.php:890
+#: portfolio.php:901
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: portfolio.php:624
+#: portfolio.php:618
 msgid "Installed plugins"
 msgstr "افزونه های نصب شده"
 
-#: portfolio.php:632
+#: portfolio.php:626
 msgid "Recommended plugins"
 msgstr "افزونه های پیشنهادی"
 
-#: portfolio.php:634
+#: portfolio.php:628
 msgid "Download"
 msgstr "دانلود"
 
-#: portfolio.php:634
+#: portfolio.php:628
 #, php-format
 msgid "Install %s"
 msgstr "نصب %s "
 
-#: portfolio.php:634
+#: portfolio.php:628
 msgid "Install now from wordpress.org"
 msgstr "نصب از wordpress.org"
 
-#: portfolio.php:636
+#: portfolio.php:630
 msgid "If you have any questions, please contact us via plugin@bestwebsoft.com or fill in our contact form on our site"
 msgstr "اگر سوالی داشتید ؛ می توانید از فرم تماس ما در سایتمان اتفاده کنید و یا با این ایمیل ارتباط داشته باشید plugin@bestwebsoft.com"
 
-#: portfolio.php:671
-#: portfolio.php:809
+#: portfolio.php:665
+#: portfolio.php:803
 msgid "Date of completion:"
 msgstr "زمان اتمام"
 
-#: portfolio.php:672
-#: portfolio.php:810
+#: portfolio.php:666
+#: portfolio.php:804
 msgid "Link:"
 msgstr "پیوند"
 
-#: portfolio.php:673
-#: portfolio.php:811
+#: portfolio.php:667
+#: portfolio.php:805
 msgid "Short description:"
 msgstr "توضیح کوتاه"
 
-#: portfolio.php:674
-#: portfolio.php:812
+#: portfolio.php:668
+#: portfolio.php:806
 msgid "Description:"
 msgstr "توضیحات"
 
-#: portfolio.php:675
-#: portfolio.php:813
+#: portfolio.php:669
+#: portfolio.php:807
 msgid "SVN:"
 msgstr "(SVN) مهار نگارش زیر نگارش"
 
-#: portfolio.php:676
-#: portfolio.php:814
+#: portfolio.php:670
+#: portfolio.php:808
 msgid "Executors Profile:"
 msgstr "شناسنامه  مجریان"
 
-#: portfolio.php:677
-#: portfolio.php:815
+#: portfolio.php:671
+#: portfolio.php:809
 msgid "More screenshots:"
 msgstr "تصاویر بیشتر"
 
-#: portfolio.php:678
-#: portfolio.php:816
+#: portfolio.php:672
+#: portfolio.php:810
 msgid "Technologies:"
 msgstr "فن آوری ها"
 
-#: portfolio.php:753
+#: portfolio.php:747
 msgid "Options saved."
 msgstr "تنظیمات ذخیره شد"
 
-#: portfolio.php:764
+#: portfolio.php:758
 msgid "Portfolio Options"
 msgstr "تنظیمات نمونه کار"
 
-#: portfolio.php:770
+#: portfolio.php:764
 msgid "The size of the cover album for portfolio"
 msgstr "اندازه کاور آلبوم نمونه کار"
 
-#: portfolio.php:772
-#: portfolio.php:780
+#: portfolio.php:766
+#: portfolio.php:774
 msgid "Image size name"
 msgstr "Image size name"
 
-#: portfolio.php:773
-#: portfolio.php:781
+#: portfolio.php:767
+#: portfolio.php:775
 msgid "Width (in px)"
 msgstr "(in px) پهنا"
 
-#: portfolio.php:774
-#: portfolio.php:782
+#: portfolio.php:768
+#: portfolio.php:776
 msgid "Height (in px)"
 msgstr "(in px) بلندی"
 
-#: portfolio.php:778
+#: portfolio.php:772
 msgid "Size for portfolio image"
 msgstr "حجم عکس نمونه کار"
 
-#: portfolio.php:786
+#: portfolio.php:780
 msgid "WordPress will create a copy of the post thumbnail with the specified dimensions when you upload a new photo. It is necessary to click on the button Update images at the bottom of this page in order to generate new images according to new dimensions "
 msgstr "هنگامی که شما یک عکس تازه بارگذاری می کنید وردپرس یک کپی از تصویر بند انگشتی پست با ابعاد مشخص می کند ایجاد می کند.برای این کار لازم است شما بر روی دکمه به روز رسانی تصویر ؛ در پایین این صفحه برای ساخت تصویر، مطابق ابعاد جدید کلیک کنید. "
 
-#: portfolio.php:789
+#: portfolio.php:783
 msgid "Count images in row"
 msgstr "تعداد مشاهدات تصویر در سطر"
 
-#: portfolio.php:795
+#: portfolio.php:789
 msgid "Display additional fields"
 msgstr "نمایش فیلد اضافی"
 
-#: portfolio.php:797
+#: portfolio.php:791
 msgid "Date"
 msgstr ""
 
-#: portfolio.php:799
+#: portfolio.php:793
 msgid "Short Description"
 msgstr "توضیح کوتاه"
 
-#: portfolio.php:800
+#: portfolio.php:794
 msgid "Description"
 msgstr "توضیحات"
 
-#: portfolio.php:802
+#: portfolio.php:796
 msgid "Executor"
 msgstr "مجری کار"
 
-#: portfolio.php:807
+#: portfolio.php:801
 msgid "Text for additional fields"
 msgstr ""
 
-#: portfolio.php:822
+#: portfolio.php:816
 msgid "Save Changes"
 msgstr "ذخیره تغییرات"
 
-#: portfolio.php:833
+#: portfolio.php:828
 msgid "Update the way storage your post_meta information for portfolio"
 msgstr "به روز رسانی مسیر ذخیره سازی اطلاعات  post_meta برای نمونه کارها"
 
-#: portfolio.php:835
+#: portfolio.php:830
 msgid "Update All Info"
 msgstr "به روزرسانی تمام اطلاعات"
 
-#: portfolio.php:840
+#: portfolio.php:835
 msgid "Update post_meta information..."
 msgstr "به روز رسانی اطلاعات post_meta"
 
-#: portfolio.php:842
+#: portfolio.php:837
 msgid "No informations found."
 msgstr "هیچ اطلاعاتی پیدا نشد."
 
-#: portfolio.php:843
+#: portfolio.php:838
 msgid "All information was updated."
 msgstr "تمامی اطلاعات به روز شد."
 
-#: portfolio.php:844
-#: portfolio.php:860
+#: portfolio.php:839
+#: portfolio.php:855
 msgid "Error."
 msgstr "خطا."
 
-#: portfolio.php:849
+#: portfolio.php:844
 msgid "Update images for portfolio"
 msgstr "به روز رسانی تصاویر برای نمونه کارها"
 
-#: portfolio.php:851
+#: portfolio.php:846
 msgid "Update images"
 msgstr "به روز رسانی تصاویر"
 
-#: portfolio.php:856
+#: portfolio.php:851
 msgid "Update images..."
 msgstr "به روز رسانی تصاویر ..."
 
-#: portfolio.php:858
+#: portfolio.php:853
 msgid "No images found."
 msgstr "هیچ تصویری پیدا نشد."
 
-#: portfolio.php:859
+#: portfolio.php:854
 msgid "All images was updated."
 msgstr "تمامی تصاویر به روز شدند."
 
-#: portfolio.php:1006
+#: portfolio.php:1001
 #: template/portfolio.php:136
 #: template/portfolio-post.php:156
 #, php-format
