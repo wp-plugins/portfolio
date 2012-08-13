@@ -57,7 +57,6 @@ get_header(); ?>
 								$svn					= get_post_meta($post->ID, '_prtfl_svn', true);
 							} ?>
 
-
 							<div class="portfolio_thumb">
 								<a class="lightbox" rel="portfolio_fancybox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
 									<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />

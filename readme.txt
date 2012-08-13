@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.4.1
-Stable tag: 2.06
+Stable tag: 2.07
 
 Portfolio plugin allows you to create a page with information about your past projects.
 
@@ -28,6 +28,7 @@ Also it allows adding of additional screenshots (multiple additional screenshots
 
 * Brazilian Portuguese (pt_BR) (thanks to DJIO, www.djio.com.br)
 * Dutch (nl_NL) (thanks to <a href="mailto:ronald@hostingu.nl">HostingU, Ronald Verheul</a>)
+* German (de_DE) (thanks to Felix Griewald, felix-griewald.de)
 * Hebrew (he_IL) (thanks to Sagive SEO)
 * Hindi (hi_IN) (thanks to <a href="mailto:ash.pr@outshinesolutions.com">Outshine Solutions</a>, outshinesolutions.com )
 * Italian (it_IT)
@@ -61,7 +62,7 @@ Dear users, if you have any questions or propositions regarding our plugins (cur
 
 1. Create necessary technologies using this page http://example.com/wp-admin/edit-tags.php?taxonomy=portfolio_technologies&post_type=portfolio
 2. This is optional. Fill in this page http://example.com/wp-admin/edit-tags.php?taxonomy=portfolio_executor_profile&post_type=portfolio - create a profile of executor. Fill in 'Name' and 'Description' fields. 'Description' field contains link to a personal executor's page.
-3. Choose 'Add New' from the 'Portfolio' menu and fill out your page. Set necessary values for the ‘Technologies’ and 'Executors Profile' widgets.
+3. Choose 'Add New' from the 'Portfolio' menu and fill out your page. Set necessary values for the Technologies and 'Executors Profile' widgets.
 
 = How to add an image? =
 
@@ -70,6 +71,56 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 = You have updated the plugin, the template was changed, but you want to get back everything as it was? What you should do?=
 
 Sometimes when updating the plugin the templates of the the plugin are updated in the theme herewith the back ups for the old versions of the templates are performed. There will be the files `portfolio-post.php.bak` and `portfolio.php.bak`in the theme. It is necessary to compare the old files and the new files, implement the required changes in the new files form the old files.
+
+= i get the error listed on subject line - Call to undefined function get_post_thumbnail_id() =
+
+       the theme don't supports thumbnails. 
+         functions.php       
+`add_action( 'after_setup_theme', 'theme_setup' );`
+`function theme_setup() { 
+	add_theme_support( 'post-thumbnails' ); 
+}`
+    thumbnail   .
+     http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+
+= I was wondering what determines the order of portfolio posts on the Portfolio page =
+     'orderby'                        => 'menu_order',  menu_order  
+
+    orderby (string) - Sort retrieved posts by parameter. Defaults to 'date'.
+        'none' - No order (available with Version 2.8).
+        'ID' - Order by post id. Note the captialization.
+        'author' - Order by author.
+        'title' - Order by title.
+        'date' - Order by date.
+        'modified' - Order by last modified date.
+        'parent' - Order by post/page parent id.
+        'rand' - Random order.
+        'comment_count' - Order by number of comments (available with Version 2.9).
+        'menu_order' - Order by Page Order. Used most often for Pages (Order field in the Edit Page Attributes box) and for Attachments (the integer fields in the Insert / Upload Media Gallery dialog), but could be used for any post type with distinct 'menu_order' values (they all default to 0).
+        'meta_value' - Note that a 'meta_key=keyname' must also be present in the query. Note also that the sorting will be alphabetical which is fine for strings (i.e. words), but can be unexpected for numbers (e.g. 1, 3, 34, 4, 56, 6, etc, rather than 1, 3, 4, 6, 34, 56 as you might naturally expect).
+        'meta_value_num' - Order by numeric meta value (available with Version 2.8). Also note that a 'meta_key=keyname' must also be present in the query. This value allows for numerical sorting as noted above in 'meta_value'. 
+
+      
+
+'order'=>'ASC',  'order'=>'DESC', - 
+
+    'ASC' - ascending order from lowest to highest values (1, 2, 3; a, b, c).
+    'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a). 
+
+= i'm getting the following error: Fatal error: Call to undefined function get_post_thumbnail_id() =
+
+This error says that your theme doesn't support thumbnail option, in
+order to add this option please find 'functions.php' file in your
+theme and add strings below to this file:
+
+add_action( 'after_setup_theme', 'theme_setup' );
+
+function theme_setup() {
+    add_theme_support( 'post-thumbnails' );
+}
+
+After that your theme will support thumbnail option and the error
+wouldn't display again.
 
 == Screenshots ==
 
@@ -82,6 +133,9 @@ Sometimes when updating the plugin the templates of the the plugin are updated i
 7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.07 - 13.08.2012 =
+* Bugfix : German language file is added to the plugin.
 
 = V2.06 - 24.07.2012 =
 * Bugfix : Cross Site Request Forgery bug was fixed. 
@@ -128,6 +182,9 @@ Sometimes when updating the plugin the templates of the the plugin are updated i
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.07 =
+German language file is added to the plugin.
 
 = V2.06 =
 Cross Site Request Forgery bug was fixed. 

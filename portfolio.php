@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Portfolio
- * @version 2.06
+ * @version 2.07
  */
 /*
 Plugin Name: Portfolio
