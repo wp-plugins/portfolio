@@ -1,0 +1,433 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio.2.04 Parsi\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-19 06:51+0330\n"
+"PO-Revision-Date: 2012-05-21 09:51+0200\n"
+"Last-Translator: BWS <zos@bestwebsoft.com>\n"
+"Language-Team: Amir Maskani <AmirMaskani@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: D:\\CMS\\Wordpress\\Plugins\\portfolio\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: IRAN, ISLAMIC REPUBLIC OF\n"
+"X-Poedit-SearchPath-0: D:\\CMS\\Wordpress\\Plugins\\portfolio\n"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:57
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:730
+msgid "The following files \"portfolio.php\" and \"portfolio-post.php\" were not found in the directory of your theme. Please copy them from the directory `/wp-content/plugins/portfolio/template/` to the directory of your theme for the correct work of the Portfolio plugin"
+msgstr "فایلهای\"portfolio.php\"   و \"portfolio-post.php\" در پوشه ی پوسته شما پیدا نشد.برای درست کار کردن افزونه لطفاً آنها را از شاخه`/wp-content/plugins/portfolio/template/` به پوشه پوسته ی خود کپی کنید."
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:88
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:115
+msgid "Short description"
+msgstr "توضیح کوتاه"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:88
+msgid "A short description which you'd like to be displayed on your portfolio page"
+msgstr "توضیحی کوتاه از آنچه شما می خواهید در برگه نمونه کارتان نمایش داده شود"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:89
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:68
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:104
+msgid "Date of completion"
+msgstr "زمان اتمام"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:89
+msgid "The date when the task was completed"
+msgstr "تاریخی که کار ​​تکمیل شد"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:90
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:72
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:75
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:77
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:108
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:111
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:113
+msgid "Link"
+msgstr "پیوند"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:90
+msgid "A link to the site"
+msgstr "پیوند به تارنما"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:91
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:770
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:82
+msgid "SVN"
+msgstr "(SVN) مهار نگارش زیر نگارش"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:91
+msgid "URL of the SVN"
+msgstr "URL of the SVN"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:106
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:107
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:647
+msgid "Portfolio"
+msgstr "نمونه کارها"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:108
+msgid "Add New"
+msgstr "افزودن"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:109
+msgid "Add New Portfolio"
+msgstr "افزودن نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:110
+msgid "Edit"
+msgstr "ویرایش"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:111
+msgid "Edit Portfolio"
+msgstr "ویرایش نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:112
+msgid "New Portfolio"
+msgstr "نمونه کار تازه"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:113
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:114
+msgid "View Portfolio"
+msgstr "دیدن نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:115
+msgid "Search Portfolio"
+msgstr "جستجوی نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:116
+msgid "No portfolio found"
+msgstr "هیچ نمونه کاری پیدا نشد"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:117
+msgid "No portfolio found in Trash"
+msgstr "هیچ نمونه کاری در زباله دان پیدا نشد"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:118
+msgid "Parent Portfolio"
+msgstr "نمونه مرجع"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:120
+msgid "Create a Portfolio."
+msgstr "ساخت یگ نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:152
+msgid "Executor Profiles"
+msgstr "شناسنامه های مجریان"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:153
+msgid "Executor Profile"
+msgstr "شناسنامه مجری کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:154
+msgid "Search Executor Profiles"
+msgstr "جستجوی شناسنامه مجریان"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:155
+msgid "Popular Executor Profiles"
+msgstr "شناسنامه مجریان پر طرفدار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:156
+msgid "All Executor Profiles"
+msgstr "تمام شناسنامه های مجریان"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:157
+msgid "Parent Executor Profile"
+msgstr "شناسنامه مجری مرجع"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:158
+msgid "Parent Executor Profile:"
+msgstr "شناسنامه مجری مرجع :"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:159
+msgid "Edit Executor Profile"
+msgstr "ویرایش شناسنامه مجری کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:160
+msgid "Update Executor Profile"
+msgstr "به روزرسانی شناسنامه مجری کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:161
+msgid "Add New Executor Profile"
+msgstr "افزودن شناسنامه مجری کار "
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:162
+msgid "New Executor Profile Name"
+msgstr "شناسنامه تازه مجری"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:163
+msgid "Separate Executor Profiles with commas"
+msgstr "شناسنامه های مجریان را با کاما جدا کنید"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:164
+msgid "Add or remove Executor Profile"
+msgstr "افزودن یا پاک کردن شناسنامه مجری کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:165
+msgid "Choose from the most used Executor Profile"
+msgstr "گزینش از میان  پر کاربردترین شناسنامه های مجریان "
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:166
+msgid "Executor Profiles "
+msgstr "شناسنامه های مجریان"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:182
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:196
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:223
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:231
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:956
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:145
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:13
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:124
+msgid "Technologies"
+msgstr "فن آوری ها"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:183
+msgid "Technology"
+msgstr "فن آوری"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:184
+msgid "Search Technologies"
+msgstr "جستجوی فن آوری ها"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:185
+msgid "Popular Technologies"
+msgstr "پرکاربردترین فن آوری"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:186
+msgid "All Technologies"
+msgstr "همه فن آوری ها"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:187
+msgid "Parent Technology"
+msgstr "فن آوری مرجع"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:188
+msgid "Parent Technology:"
+msgstr "فن آوری مرجع :"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:189
+msgid "Edit Technology"
+msgstr "ویرایش فن آوری"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:190
+msgid "Update Technology"
+msgstr "به روزرسانی فن آوری"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:191
+msgid "Add New Technology"
+msgstr "افزودن فن آوری تازه"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:192
+msgid "New Technology Name"
+msgstr "نام فن آوری تازه"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:193
+msgid "Separate Technologies with commas"
+msgstr "فن آوری ها را با کاما جدا کنید"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:194
+msgid "Add or remove Technology"
+msgstr "افزودن یا حذف فن آوری"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:195
+msgid "Choose from the most used Technology"
+msgstr "گزینش از میان پرکاربردترین فن آوری ها"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:226
+msgid "Your most used portfolio technologies in cloud format"
+msgstr "استفاده از فن آوری نمونه کارها خود را در قالب ابر"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:294
+msgid "Title"
+msgstr "عنوان"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:349
+msgid "Portfolio Info"
+msgstr "مشخصات نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:523
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:862
+msgid "FAQ"
+msgstr "سوالات متداول"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:524
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:863
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:616
+msgid "Activated plugins"
+msgstr "افزونه های فعال"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:618
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:626
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:634
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:951
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:120
+msgid "Read more"
+msgstr "بیشتر"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:618
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:850
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:861
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:624
+msgid "Installed plugins"
+msgstr "افزونه های نصب شده"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:632
+msgid "Recommended plugins"
+msgstr "افزونه های پیشنهادی"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:634
+msgid "Download"
+msgstr "دانلود"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:634
+#, php-format
+msgid "Install %s"
+msgstr "نصب %s "
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:634
+msgid "Install now from wordpress.org"
+msgstr "نصب از wordpress.org"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:636
+msgid "If you have any questions, please contact us via plugin@bestwebsoft.com or fill in our contact form on our site"
+msgstr "اگر سوالی داشتید ؛ می توانید از فرم تماس ما در سایتمان اتفاده کنید و یا با این ایمیل ارتباط داشته باشید plugin@bestwebsoft.com"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:726
+msgid "Options saved."
+msgstr "تنظیمات ذخیره شد"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:737
+msgid "Portfolio Options"
+msgstr "تنظیمات نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:743
+msgid "The size of the cover album for portfolio"
+msgstr "اندازه کاور آلبوم نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:745
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:753
+msgid "Image size name"
+msgstr "Image size name"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:746
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:754
+msgid "Width (in px)"
+msgstr "(in px) پهنا"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:747
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:755
+msgid "Height (in px)"
+msgstr "(in px) بلندی"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:751
+msgid "Size for portfolio image"
+msgstr "حجم عکس نمونه کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:759
+msgid "WordPress will create a copy of the post thumbnail with the specified dimensions when you upload a new photo. It is necessary to click on the button Update images at the bottom of this page in order to generate new images according to new dimensions "
+msgstr "هنگامی که شما یک عکس تازه بارگذاری می کنید وردپرس یک کپی از تصویر بند انگشتی پست با ابعاد مشخص می کند ایجاد می کند.برای این کار لازم است شما بر روی دکمه به روز رسانی تصویر ؛ در پایین این صفحه برای ساخت تصویر، مطابق ابعاد جدید کلیک کنید. "
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:762
+msgid "Count images in row"
+msgstr "تعداد مشاهدات تصویر در سطر"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:768
+msgid "Display additional fields"
+msgstr "نمایش فیلد اضافی"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:771
+msgid "Executor"
+msgstr "مجری کار"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:777
+msgid "Save Changes"
+msgstr "ذخیره تغییرات"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:788
+msgid "Update the way storage your post_meta information for portfolio"
+msgstr "به روز رسانی مسیر ذخیره سازی اطلاعات  post_meta برای نمونه کارها"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:790
+msgid "Update All Info"
+msgstr "به روزرسانی تمام اطلاعات"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:795
+msgid "Update post_meta information..."
+msgstr "به روز رسانی اطلاعات post_meta"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:797
+msgid "No informations found."
+msgstr "هیچ اطلاعاتی پیدا نشد."
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:798
+msgid "All information was updated."
+msgstr "تمامی اطلاعات به روز شد."
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:799
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:815
+msgid "Error."
+msgstr "خطا."
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:804
+msgid "Update images for portfolio"
+msgstr "به روز رسانی تصاویر برای نمونه کارها"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:806
+msgid "Update images"
+msgstr "به روز رسانی تصاویر"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:811
+msgid "Update images..."
+msgstr "به روز رسانی تصاویر ..."
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:813
+msgid "No images found."
+msgstr "هیچ تصویری پیدا نشد."
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:814
+msgid "All images was updated."
+msgstr "تمامی تصاویر به روز شدند."
+
+#: D:\CMS\Wordpress\Plugins\portfolio/portfolio.php:961
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:150
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio.php:129
+#, php-format
+msgid "View all posts in %s"
+msgstr "مشاهده تمام نوشته ها در %s"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/update_images.php:110
+msgid "Could not read image size"
+msgstr "حجم تصویر قابل خواندن نیست"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/update_images.php:116
+msgid "Could not calculate resized image dimensions"
+msgstr "نمی تواند حجم تصویر ریسایز شده را محاسبه کند"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/update_images.php:145
+#: D:\CMS\Wordpress\Plugins\portfolio/update_images.php:148
+#: D:\CMS\Wordpress\Plugins\portfolio/update_images.php:153
+msgid "Resize path invalid"
+msgstr "مسیر ریسایز اشتباه است"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:79
+msgid "Description"
+msgstr "توضیحات"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:86
+msgid "Executors Profile"
+msgstr "شناسنامه  مجریان"
+
+#: D:\CMS\Wordpress\Plugins\portfolio/template/portfolio-post.php:122
+msgid "More screenshots"
+msgstr "تصاویر بیشتر"
+
