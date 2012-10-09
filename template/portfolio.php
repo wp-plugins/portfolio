@@ -25,7 +25,8 @@ get_header(); ?>
 					$args = array(
 						'post_type'					=> 'portfolio',
 						'post_status'				=> 'publish',
-						'orderby'						=> 'menu_order',
+						'orderby'						=> $portfolio_options['prtfl_order_by'],
+						'order'							=> $portfolio_options['prtfl_order'],
 						'posts_per_page'		=> get_option( 'posts_per_page' ),
 						'paged'							=> $paged,
 						'tax_query' => array(
@@ -41,7 +42,8 @@ get_header(); ?>
 					$args = array(
 						'post_type'					=> 'portfolio',
 						'post_status'				=> 'publish',
-						'orderby'						=> 'menu_order',
+						'orderby'						=> $portfolio_options['prtfl_order_by'],
+						'order'							=> $portfolio_options['prtfl_order'],
 						'posts_per_page'		=> get_option( 'posts_per_page' ),
 						'paged'							=> $paged
 						);
@@ -162,7 +164,7 @@ get_header(); ?>
 			</div><!-- #content -->
 			<div id="portfolio_pagenation">
 			<?php if( function_exists( 'prtfl_pagination' ) ) prtfl_pagination(); ?>
-			<input type="hidden" value="Version=2.05" />
+			<input type="hidden" value="Version=2.08" />
 			</div>
 		</div><!-- #container -->
 

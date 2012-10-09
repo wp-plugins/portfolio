@@ -241,3 +241,15 @@
 	float:left;
 	margin-left:0;
 }
+
+.prtfl_left {
+	float:left;
+	margin-right:5px;
+	position:relative;
+	top:4px;
+}
+
+#prtfl_form_image_size label.prtfl_left{
+	width:50%;
+	top:0;
+}

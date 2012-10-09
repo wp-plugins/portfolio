@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Portfolio
- * @version 2.07
+ * @version 2.08
  */
 /*
 Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.06
+Version: 2.08
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -32,19 +32,67 @@ $prtfl_boxes = array ();
 
 if( ! function_exists( 'prtfl_plugin_install' ) ) {
 	function prtfl_plugin_install() {
-		if ( ! file_exists( get_stylesheet_directory() .'/portfolio.php' ) ) {
-			@copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio.php', get_stylesheet_directory() .'/portfolio.php' );
+		$filename_1 = WP_PLUGIN_DIR .'/portfolio/template/portfolio.php';
+		$filename_2 = WP_PLUGIN_DIR .'/portfolio/template/portfolio-post.php';
+
+		$filename_theme_1 = get_stylesheet_directory() .'/portfolio.php';
+		$filename_theme_2 = get_stylesheet_directory() .'/portfolio-post.php';
+
+		if ( ! file_exists( $filename_theme_1 ) ) {
+			$handle = @fopen( $filename_1, "r" );
+			$contents = @fread( $handle, filesize( $filename_1 ) );
+			@fclose( $handle );
+			if ( ! ( $handle = @fopen( $filename_theme_1, 'w' ) ) )
+				return false;
+			@fwrite( $handle, $contents );
+			@fclose( $handle );
+			chmod( $filename_theme_1, octdec(755) );
 		}
 		else {
-			@copy( get_stylesheet_directory() .'/portfolio.php', get_stylesheet_directory() .'/portfolio.php.bak' );
-			@copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio.php', get_stylesheet_directory() .'/portfolio.php' );
+			$handle = @fopen( $filename_theme_1, "r" );
+			$contents = @fread( $handle, filesize( $filename_theme_1 ) );
+			@fclose( $handle );
+			if ( ! ( $handle = @fopen( $filename_theme_1.'.bak', 'w' ) ) )
+				return false;
+			@fwrite( $handle, $contents );
+			@fclose( $handle );
+			
+			$handle = @fopen( $filename_1, "r" );
+			$contents = @fread( $handle, filesize( $filename_1 ) );
+			@fclose( $handle );
+			if ( ! ( $handle = @fopen( $filename_theme_1, 'w' ) ) )
+				return false;
+			@fwrite( $handle, $contents );
+			@fclose( $handle );
+			chmod( $filename_theme_1, octdec(755) );
 		}
-		if ( ! file_exists( get_stylesheet_directory() .'/portfolio-post.php' ) ) {
-			@copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio-post.php', get_stylesheet_directory() .'/portfolio-post.php' );
+		if ( ! file_exists( $filename_theme_2 ) ) {
+			$handle = @fopen( $filename_2, "r" );
+			$contents = @fread( $handle, filesize( $filename_2 ) );
+			@fclose( $handle );
+			if ( ! ( $handle = @fopen( $filename_theme_2, 'w' ) ) )
+				return false;
+			@fwrite( $handle, $contents );
+			@fclose( $handle );
+			chmod( $filename_theme_2, octdec(755) );
 		}
 		else {
-			@copy( get_stylesheet_directory() .'/portfolio-post.php', get_stylesheet_directory() .'/portfolio-post.php.bak' );
-			@copy( WP_PLUGIN_DIR .'/portfolio/template/portfolio-post.php', get_stylesheet_directory() .'/portfolio-post.php' );
+			$handle = @fopen( $filename_theme_2, "r" );
+			$contents = @fread( $handle, filesize( $filename_theme_2 ) );
+			@fclose( $handle );
+			if ( ! ( $handle = @fopen( $filename_theme_2.'.bak', 'w' ) ) )
+				return false;
+			@fwrite( $handle, $contents );
+			@fclose( $handle );
+			
+			$handle = @fopen( $filename_2, "r" );
+			$contents = @fread( $handle, filesize( $filename_2 ) );
+			@fclose( $handle );
+			if ( ! ( $handle = @fopen( $filename_theme_2, 'w' ) ) )
+				return false;
+			@fwrite( $handle, $contents );
+			@fclose( $handle );
+			chmod( $filename_theme_2, octdec(755) );
 		}
 	}
 }
@@ -654,6 +702,8 @@ if( ! function_exists( 'register_prtfl_settings' ) ) {
 		$prtfl_option_defaults = array(
 			'prtfl_custom_size_name'	=> array( 'portfolio-thumb', 'portfolio-photo-thumb' ),
 			'prtfl_custom_size_px'		=> array( array( 280, 300 ), array( 240, 260 ) ),
+			'prtfl_order_by' => 'menu_order',
+			'prtfl_order' => 'ASC',
 			'prtfl_custom_image_row_count'	=> 3,
 			'prtfl_date_additional_field' => 1,
 			'prtfl_link_additional_field' => 1,
@@ -721,6 +771,9 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 			$prtfl_request_options["prtfl_custom_image_row_count"] =  intval( trim( $_REQUEST['prtfl_custom_image_row_count'] ) );
 			if( $prtfl_request_options["prtfl_custom_image_row_count"] == "" || $prtfl_request_options["prtfl_custom_image_row_count"] < 1 )
 				$prtfl_request_options["prtfl_custom_image_row_count"] = 1;
+
+			$prtfl_request_options["prtfl_order_by"] = $_REQUEST['prtfl_order_by'];
+			$prtfl_request_options["prtfl_order"] = $_REQUEST['prtfl_order'];
 			
 			$prtfl_request_options["prtfl_date_additional_field"] = isset( $_REQUEST["prtfl_date_additional_field"] ) ? $_REQUEST["prtfl_date_additional_field"] : 0;
 			$prtfl_request_options["prtfl_link_additional_field"] = isset( $_REQUEST["prtfl_link_additional_field"] ) ? $_REQUEST["prtfl_link_additional_field"] : 0;
@@ -780,6 +833,23 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 					<td colspan="2"><span style="color: #888888;font-size: 10px;"><?php _e( 'WordPress will create a copy of the post thumbnail with the specified dimensions when you upload a new photo. It is necessary to click on the button Update images at the bottom of this page in order to generate new images according to new dimensions ', 'portfolio' ); ?></span></th>
 				</tr>
 				<tr valign="top">
+					<th scope="row"><?php _e('Portfolio order by', 'portfolio' ); ?> </th>
+					<td>
+						<input class="prtfl_left" type="radio" name="prtfl_order_by" value="ID" <?php if( $prtfl_options["prtfl_order_by"] == 'ID' ) echo 'checked="checked"'; ?> /> <label class="label_radio prtfl_left" for="prtfl_order_by"><?php _e( 'portfolio id', 'gallery' ); ?></label><br />
+						<input class="prtfl_left" type="radio" name="prtfl_order_by" value="title" <?php if( $prtfl_options["prtfl_order_by"] == 'title' ) echo 'checked="checked"'; ?> /> <label class="label_radio prtfl_left" for="prtfl_order_by"><?php _e( 'portfolio title', 'gallery' ); ?></label><br />
+						<input class="prtfl_left" type="radio" name="prtfl_order_by" value="date" <?php if( $prtfl_options["prtfl_order_by"] == 'date' ) echo 'checked="checked"'; ?> /> <label class="label_radio prtfl_left" for="prtfl_order_by"><?php _e( 'date', 'gallery' ); ?></label><br />
+						<input class="prtfl_left" type="radio" name="prtfl_order_by" value="menu_order" <?php if( $prtfl_options["prtfl_order_by"] == 'menu_order' ) echo 'checked="checked"'; ?> /> <label class="label_radio prtfl_left" for="prtfl_order_by"><?php _e( 'menu order', 'gallery' ); ?></label><br />
+						<input class="prtfl_left" type="radio" name="prtfl_order_by" value="rand" <?php if( $prtfl_options["prtfl_order_by"] == 'rand' ) echo 'checked="checked"'; ?> /> <label class="label_radio prtfl_left" for="prtfl_order_by"><?php _e( 'random', 'gallery' ); ?></label>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e('Portfolio order', 'portfolio' ); ?> </th>
+					<td>
+						<input class="prtfl_left" type="radio" name="prtfl_order" value="ASC" <?php if( $prtfl_options["prtfl_order"] == 'ASC' ) echo 'checked="checked"'; ?> /> <label class="label_radio prtfl_left" for="prtfl_order"><?php _e( 'ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)', 'gallery' ); ?></label><br />
+						<input class="prtfl_left" type="radio" name="prtfl_order" value="DESC" <?php if( $prtfl_options["prtfl_order"] == 'DESC' ) echo 'checked="checked"'; ?> /> <label class="label_radio prtfl_left" for="prtfl_order"><?php _e( 'DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)', 'gallery' ); ?></label>
+					</td>
+				</tr>
+				<tr valign="top">
 					<th scope="row"><?php _e( 'Count images in row', 'portfolio' ); ?> </th>
 					<td>
 						<input type="text" name="prtfl_custom_image_row_count" value="<?php echo $prtfl_options["prtfl_custom_image_row_count"]; ?>" />
@@ -833,7 +903,6 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 		</table>
 		<script type="text/javascript">
 			var update_message = "<?php _e( 'Update post_meta information...', 'portfolio' ) ?>";
-			var update_url = "<?php echo plugins_url( 'update_info.php', __FILE__ ); ?>";
 			var not_found_info = "<?php _e( 'No informations found.', 'portfolio'); ?>";
 			var success = "<?php _e( 'All information was updated.', 'portfolio' ); ?>";
 			var error = "<?php _e( 'Error.', 'portfolio' ); ?>";
@@ -849,7 +918,6 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 		</table>
 		<script type="text/javascript">
 			var update_img_message = "<?php _e( 'Update images...', 'portfolio' ) ?>";
-			var update_img_url = "<?php echo plugins_url( 'update_images.php', __FILE__ ); ?>";
 			var not_found_img_info = "<?php _e( 'No images found.', 'portfolio'); ?>";
 			var img_success = "<?php _e( 'All images was updated.', 'portfolio' ); ?>";
 			var img_error = "<?php _e( 'Error.', 'portfolio' ); ?>";
@@ -1038,6 +1106,258 @@ if ( ! function_exists ( 'prtfl_wp_head' ) ) {
 	}
 }
 
+if ( ! function_exists ( 'prtfl_update_info' ) ) {
+	function prtfl_update_info(){
+		global $wpdb;
+		$action = isset( $_REQUEST['action1'] ) ? $_REQUEST['action1'] : "";
+		$id = isset( $_REQUEST['id'] ) ? $_REQUEST['id'] : "";
+		switch($action) {
+			case 'get_portfolio_id':
+				$result = $wpdb->get_results( "SELECT ID FROM " . $wpdb->posts . " WHERE post_type = 'portfolio'" );
+				echo json_encode( $result );
+				break;
+			case 'update_info':
+				if( $id != "" && is_numeric( $id ) ) {
+					$result = $wpdb->get_results( "SELECT * FROM " . $wpdb->postmeta . " WHERE meta_key LIKE '_prtf%' AND post_id = " . $id );
+					if( ! empty( $result ) ) {
+						$new_post_meta = array();
+						foreach( $result as $value ) {
+							$new_post_meta[ $value->meta_key ] = $value->meta_value;
+						}
+						add_post_meta($id, 'prtfl_information', $new_post_meta);
+						$wpdb->query( "DELETE FROM " . $wpdb->postmeta . " WHERE meta_key LIKE '_prtf%' AND post_id = " . $id );				
+					}
+					$post_meta = get_post_meta($id, 'prtfl_information', true);
+					$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->posts . " SET post_content = '%s' WHERE ID = " . $id, $post_meta["_prtfl_descr"] ) );
+				}
+				break;
+			case 'update_options':
+				add_option( 'prtfl_postmeta_update', '1', '', 'no' );
+				break;
+		}
+		die();
+	}
+}
+
+if ( ! function_exists ( 'prtfl_update_image' ) ) {
+	function prtfl_update_image(){	
+		global $wpdb;
+		$action = isset( $_REQUEST['action1'] ) ? $_REQUEST['action1'] : "";
+		$id = isset( $_REQUEST['id'] ) ? $_REQUEST['id'] : "";
+		switch($action) {
+			case 'get_all_attachment':
+				$result_parent_id = $wpdb->get_results( $wpdb->prepare( "SELECT ID FROM " . $wpdb->posts . " WHERE post_type = 'portfolio'" ) , ARRAY_N );
+				$array_parent_id = array();
+				
+				while(list($key, $val) = each($result_parent_id))
+					$array_parent_id[] = $val[0];
+
+				$string_parent_id = implode( ",", $array_parent_id );
+				
+				$result_attachment_id = $wpdb->get_results( "SELECT ID FROM " . $wpdb->posts . " WHERE post_type = 'attachment' AND post_mime_type LIKE 'image%' AND post_parent IN (".$string_parent_id.")" );
+				echo json_encode( $result_attachment_id );
+				break;
+			case 'update_image':
+				$metadata = wp_get_attachment_metadata( $id );
+				$uploads = wp_upload_dir();
+				$path = $uploads['basedir']."/".$metadata['file'];
+				require_once( ABSPATH . 'wp-admin/includes/image.php' );
+				$metadata_new = prtfl_wp_generate_attachment_metadata( $id, $path, $metadata );
+				wp_update_attachment_metadata( $id, array_merge($metadata, $metadata_new) );
+				break;
+			case 'update_options':
+				add_option( 'prtfl_images_update', '1', '', 'no' );
+				break;
+		}
+		die();
+	}
+}
+
+function prtfl_wp_generate_attachment_metadata( $attachment_id, $file, $metadata ) {
+	$attachment = get_post( $attachment_id );
+	$prtfl_options = get_option( 'prtfl_options' );
+
+	add_image_size( 'portfolio-thumb', $prtfl_options['prtfl_custom_size_px'][0][0], $prtfl_options['prtfl_custom_size_px'][0][1], true );
+	add_image_size( 'portfolio-photo-thumb', $prtfl_options['prtfl_custom_size_px'][1][0], $prtfl_options['prtfl_custom_size_px'][1][1], true );
+
+	$metadata = array();
+	if ( preg_match('!^image/!', get_post_mime_type( $attachment )) && file_is_displayable_image($file) ) {
+		$imagesize = getimagesize( $file );
+		$metadata['width'] = $imagesize[0];
+		$metadata['height'] = $imagesize[1];
+		list($uwidth, $uheight) = wp_constrain_dimensions($metadata['width'], $metadata['height'], 128, 96);
+		$metadata['hwstring_small'] = "height='$uheight' width='$uwidth'";
+
+		// Make the file path relative to the upload dir
+		$metadata['file'] = _wp_relative_upload_path($file);
+
+		// make thumbnails and other intermediate sizes
+		global $_wp_additional_image_sizes;
+		
+		$image_size = array( 'portfolio-thumb', 'portfolio-photo-thumb' );//get_intermediate_image_sizes();
+		
+		foreach ( $image_size as $s ) {
+			$sizes[$s] = array( 'width' => '', 'height' => '', 'crop' => FALSE );
+			if ( isset( $_wp_additional_image_sizes[$s]['width'] ) )
+				$sizes[$s]['width'] = intval( $_wp_additional_image_sizes[$s]['width'] ); // For theme-added sizes
+			else
+				$sizes[$s]['width'] = get_option( "{$s}_size_w" ); // For default sizes set in options
+			if ( isset( $_wp_additional_image_sizes[$s]['height'] ) )
+				$sizes[$s]['height'] = intval( $_wp_additional_image_sizes[$s]['height'] ); // For theme-added sizes
+			else
+				$sizes[$s]['height'] = get_option( "{$s}_size_h" ); // For default sizes set in options
+			if ( isset( $_wp_additional_image_sizes[$s]['crop'] ) )
+				$sizes[$s]['crop'] = intval( $_wp_additional_image_sizes[$s]['crop'] ); // For theme-added sizes
+			else
+				$sizes[$s]['crop'] = get_option( "{$s}_crop" ); // For default sizes set in options
+		}
+
+		$sizes = apply_filters( 'intermediate_image_sizes_advanced', $sizes );
+		foreach ($sizes as $size => $size_data ) {
+			$resized = prtfl_image_make_intermediate_size( $file, $size_data['width'], $size_data['height'], $size_data['crop'] );
+			if ( $resized )
+				$metadata['sizes'][$size] = $resized;
+		}
+
+		// fetch additional metadata from exif/iptc
+		$image_meta = wp_read_image_metadata( $file );
+		if ( $image_meta )
+			$metadata['image_meta'] = $image_meta;
+
+	}
+
+	return apply_filters( 'wp_generate_attachment_metadata', $metadata, $attachment_id );
+}
+
+function prtfl_image_make_intermediate_size($file, $width, $height, $crop=false) {
+	if ( $width || $height ) {
+		$resized_file = prtfl_image_resize($file, $width, $height, $crop);
+		if ( !is_wp_error($resized_file) && $resized_file && $info = getimagesize($resized_file) ) {
+			$resized_file = apply_filters('image_make_intermediate_size', $resized_file);
+			return array(
+				'file' => wp_basename( $resized_file ),
+				'width' => $info[0],
+				'height' => $info[1],
+			);
+		}
+	}
+	return false;
+}
+
+function prtfl_image_resize( $file, $max_w, $max_h, $crop = false, $suffix = null, $dest_path = null, $jpeg_quality = 90 ) {
+
+	$image = wp_load_image( $file );
+	if ( !is_resource( $image ) )
+		return new WP_Error( 'error_loading_image', $image, $file );
+
+	$size = @getimagesize( $file );
+	if ( !$size )
+		return new WP_Error('invalid_image', __('Could not read image size'), $file);
+	list($orig_w, $orig_h, $orig_type) = $size;
+
+	$dims = prtfl_image_resize_dimensions($orig_w, $orig_h, $max_w, $max_h, $crop);
+
+	if ( !$dims )
+		return new WP_Error( 'error_getting_dimensions', __('Could not calculate resized image dimensions') );
+	list($dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) = $dims;
+
+	$newimage = wp_imagecreatetruecolor( $dst_w, $dst_h );
+
+	imagecopyresampled( $newimage, $image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h);
+
+	// convert from full colors to index colors, like original PNG.
+	if ( IMAGETYPE_PNG == $orig_type && function_exists('imageistruecolor') && !imageistruecolor( $image ) )
+		imagetruecolortopalette( $newimage, false, imagecolorstotal( $image ) );
+
+	// we don't need the original in memory anymore
+	imagedestroy( $image );
+
+	// $suffix will be appended to the destination filename, just before the extension
+	if ( !$suffix )
+		$suffix = "{$dst_w}x{$dst_h}";
+
+	$info = pathinfo($file);
+	$dir = $info['dirname'];
+	$ext = $info['extension'];
+	$name = wp_basename($file, ".$ext");
+
+	if ( !is_null($dest_path) and $_dest_path = realpath($dest_path) )
+		$dir = $_dest_path;
+	$destfilename = "{$dir}/{$name}-{$suffix}.{$ext}";
+
+	if ( IMAGETYPE_GIF == $orig_type ) {
+		if ( !imagegif( $newimage, $destfilename ) )
+			return new WP_Error('resize_path_invalid', __( 'Resize path invalid' ));
+	} elseif ( IMAGETYPE_PNG == $orig_type ) {
+		if ( !imagepng( $newimage, $destfilename ) )
+			return new WP_Error('resize_path_invalid', __( 'Resize path invalid' ));
+	} else {
+		// all other formats are converted to jpg
+		$destfilename = "{$dir}/{$name}-{$suffix}.jpg";
+		if ( !imagejpeg( $newimage, $destfilename, apply_filters( 'jpeg_quality', $jpeg_quality, 'image_resize' ) ) )
+			return new WP_Error('resize_path_invalid', __( 'Resize path invalid' ));
+	}
+
+	imagedestroy( $newimage );
+
+	// Set correct file permissions
+	$stat = stat( dirname( $destfilename ));
+	$perms = $stat['mode'] & 0000666; //same permissions as parent folder, strip off the executable bits
+	@ chmod( $destfilename, $perms );
+
+	return $destfilename;
+}
+
+function prtfl_image_resize_dimensions($orig_w, $orig_h, $dest_w, $dest_h, $crop = false) {
+
+	if ($orig_w <= 0 || $orig_h <= 0)
+		return false;
+	// at least one of dest_w or dest_h must be specific
+	if ($dest_w <= 0 && $dest_h <= 0)
+		return false;
+
+	if ( $crop ) {
+		// crop the largest possible portion of the original image that we can size to $dest_w x $dest_h
+		$aspect_ratio = $orig_w / $orig_h;
+		$new_w = min($dest_w, $orig_w);
+		$new_h = min($dest_h, $orig_h);
+
+		if ( !$new_w ) {
+			$new_w = intval($new_h * $aspect_ratio);
+		}
+
+		if ( !$new_h ) {
+			$new_h = intval($new_w / $aspect_ratio);
+		}
+
+		$size_ratio = max($new_w / $orig_w, $new_h / $orig_h);
+
+		$crop_w = round($new_w / $size_ratio);
+		$crop_h = round($new_h / $size_ratio);
+
+		$s_x = floor( ($orig_w - $crop_w) / 2 );
+		$s_y = 0;
+	} else {
+		// don't crop, just resize using $dest_w x $dest_h as a maximum bounding box
+		$crop_w = $orig_w;
+		$crop_h = $orig_h;
+
+		$s_x = 0;
+		$s_y = 0;
+
+		list( $new_w, $new_h ) = wp_constrain_dimensions( $orig_w, $orig_h, $dest_w, $dest_h );
+	}
+
+	// if the resulting image would be the same size or larger we don't want to resize it
+	if ( $new_w >= $orig_w && $new_h >= $orig_h )
+		return false;
+
+	// the return array matches the parameters to imagecopyresampled()
+	// int dst_x, int dst_y, int src_x, int src_y, int dst_w, int dst_h, int src_w, int src_h
+	return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
+
+}
+
 register_activation_hook( __FILE__, 'prtfl_plugin_install'); // activate plugin
 register_uninstall_hook( __FILE__, 'prtfl_plugin_uninstall' ); // deactivate plugin
 
@@ -1073,5 +1393,8 @@ add_shortcode('latest_portfolio_items', 'prtfl_latest_items');
 
 add_action( 'admin_enqueue_scripts', 'prtfl_admin_head' );
 add_action( 'wp_enqueue_scripts', 'prtfl_wp_head' );
+
+add_action( 'wp_ajax_prtfl_update_info', 'prtfl_update_info' );
+add_action( 'wp_ajax_prtfl_update_image', 'prtfl_update_image' );
 
 ?>

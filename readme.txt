@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=13
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
-Tested up to: 3.4.1
-Stable tag: 2.07
+Tested up to: 3.4.2
+Stable tag: 2.08
 
 Portfolio plugin allows you to create a page with information about your past projects.
 
@@ -134,6 +134,9 @@ wouldn't display again.
 
 == Changelog ==
 
+= V2.08 - 09.10.2012 =
+* NEW : The ordering of Portfolio Items was added to Settings page.
+
 = V2.07 - 13.08.2012 =
 * Bugfix : German language file is added to the plugin.
 
@@ -182,6 +185,9 @@ wouldn't display again.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.08 =
+The ordering of Portfolio Items was added to Settings page.
 
 = V2.07 =
 German language file is added to the plugin.
