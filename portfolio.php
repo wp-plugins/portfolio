@@ -8,7 +8,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.08
+Version: 2.09
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -812,6 +812,7 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 		<h2><?php _e( 'Portfolio Options', 'portfolio' ); ?></h2>
 		<div class="updated fade" <?php if( ! isset( $_REQUEST['prtfl_form_submit'] ) || $error != "" ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 		<div class="error" <?php if( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
+		<p><?php _e( "If you would like to add a Latest Portfolio Items to your page or post, just copy and put this shortcode onto your post or page content:", 'portfolio' ); ?> [latest_portfolio_items count=3], <?php _e( 'where count=3 - the number of posts in the portfolio that are displayed.', 'portfolio' ); ?></p>
 		<form method="post" action="admin.php?page=portfolio.php" id="prtfl_form_image_size">
 			<table class="form-table">
 				<tr valign="top">
@@ -997,8 +998,8 @@ if ( ! function_exists( 'prtfl_latest_items' ) ) {
 		$args = array(
 			'post_type'					=> 'portfolio',
 			'post_status'				=> 'publish',
-			'orderby'						=> 'data',
-			'order'							=> 'ASC',
+			'orderby'						=> 'date',
+			'order'							=> 'DESC',
 			'posts_per_page'		=> $atts['count'],
 			);
 		query_posts( $args );
@@ -1020,7 +1021,7 @@ if ( ! function_exists( 'prtfl_latest_items' ) ) {
 						$attachments				= get_children( $args );
 						$post_thumbnail_id	= key($attachments);
 					}
-					$image						= wp_get_attachment_image_src( $post_thumbnail_id, $atts['thumbnail'] );
+					$image						= wp_get_attachment_image_src( $post_thumbnail_id, 'portfolio-thumb' );
 					$image_alt				= get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
 					$image_desc 			= get_post($post_thumbnail_id);
 					$image_desc				= $image_desc->post_content;

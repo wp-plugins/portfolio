@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=13
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
-Tested up to: 3.4.2
-Stable tag: 2.08
+Tested up to: 3.5.1
+Stable tag: 2.09
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,7 @@ Also it allows adding of additional screenshots (multiple additional screenshots
 * Options: Provides a possibility to adjust images size and a number of images displayed in a row. 
 * Actions: Possibility to change caption to additional fields.
 * Display: Includes a possibility to turn off displaying of additional fields. 
+* Actions: Possibility to display Latest Portfolio Items on your page or post with shortcode [latest_portfolio_items count=3].
 
 = Translation =
 
@@ -74,55 +75,36 @@ Use Wordpress meta box to upload images from URL or your local storage. Note tha
 
 Sometimes when updating the plugin the templates of the the plugin are updated in the theme herewith the back ups for the old versions of the templates are performed. There will be the files `portfolio-post.php.bak` and `portfolio.php.bak`in the theme. It is necessary to compare the old files and the new files, implement the required changes in the new files form the old files.
 
-= i get the error listed on subject line - Call to undefined function get_post_thumbnail_id() =
-
-       the theme don't supports thumbnails. 
-         functions.php       
-`add_action( 'after_setup_theme', 'theme_setup' );`
-`function theme_setup() { 
-	add_theme_support( 'post-thumbnails' ); 
-}`
-    thumbnail   .
-     http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-
 = I was wondering what determines the order of portfolio posts on the Portfolio page =
-     'orderby'                        => 'menu_order',  menu_order  
+'orderby'                        => 'menu_order',  menu_order  
 
-    orderby (string) - Sort retrieved posts by parameter. Defaults to 'date'.
-        'none' - No order (available with Version 2.8).
-        'ID' - Order by post id. Note the captialization.
-        'author' - Order by author.
-        'title' - Order by title.
-        'date' - Order by date.
-        'modified' - Order by last modified date.
-        'parent' - Order by post/page parent id.
-        'rand' - Random order.
-        'comment_count' - Order by number of comments (available with Version 2.9).
-        'menu_order' - Order by Page Order. Used most often for Pages (Order field in the Edit Page Attributes box) and for Attachments (the integer fields in the Insert / Upload Media Gallery dialog), but could be used for any post type with distinct 'menu_order' values (they all default to 0).
-        'meta_value' - Note that a 'meta_key=keyname' must also be present in the query. Note also that the sorting will be alphabetical which is fine for strings (i.e. words), but can be unexpected for numbers (e.g. 1, 3, 34, 4, 56, 6, etc, rather than 1, 3, 4, 6, 34, 56 as you might naturally expect).
-        'meta_value_num' - Order by numeric meta value (available with Version 2.8). Also note that a 'meta_key=keyname' must also be present in the query. This value allows for numerical sorting as noted above in 'meta_value'. 
-
-      
-
+orderby (string) - Sort retrieved posts by parameter. Defaults to 'date'.
+	'none' - No order (available with Version 2.8).
+	'ID' - Order by post id. Note the captialization.
+	'author' - Order by author.
+	'title' - Order by title.
+	'date' - Order by date.
+	'modified' - Order by last modified date.
+	'parent' - Order by post/page parent id.
+	'rand' - Random order.
+	'comment_count' - Order by number of comments (available with Version 2.9).
+	'menu_order' - Order by Page Order. Used most often for Pages (Order field in the Edit Page Attributes box) and for Attachments (the integer fields in the Insert / Upload Media Gallery dialog), but could be used for any post type with distinct 'menu_order' values (they all default to 0).
+	'meta_value' - Note that a 'meta_key=keyname' must also be present in the query. Note also that the sorting will be alphabetical which is fine for strings (i.e. words), but can be unexpected for numbers (e.g. 1, 3, 34, 4, 56, 6, etc, rather than 1, 3, 4, 6, 34, 56 as you might naturally expect).
+	'meta_value_num' - Order by numeric meta value (available with Version 2.8). Also note that a 'meta_key=keyname' must also be present in the query. This value allows for numerical sorting as noted above in 'meta_value'. 
 'order'=>'ASC',  'order'=>'DESC', - 
-
     'ASC' - ascending order from lowest to highest values (1, 2, 3; a, b, c).
     'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a). 
 
-= i'm getting the following error: Fatal error: Call to undefined function get_post_thumbnail_id() =
+= I'm getting the following error: Fatal error: Call to undefined function get_post_thumbnail_id() =
 
-This error says that your theme doesn't support thumbnail option, in
-order to add this option please find 'functions.php' file in your
-theme and add strings below to this file:
-
+This error says that your theme doesn't support thumbnail option, in order to add this option please find 'functions.php' file in your theme and add strings below to this file:
 add_action( 'after_setup_theme', 'theme_setup' );
 
 function theme_setup() {
     add_theme_support( 'post-thumbnails' );
 }
 
-After that your theme will support thumbnail option and the error
-wouldn't display again.
+After that your theme will support thumbnail option and the error wouldn't display again.
 
 == Screenshots ==
 
@@ -135,6 +117,10 @@ wouldn't display again.
 7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.09 - 29.01.2013 =
+* NEW : Add possibility to display Latest Portfolio Items on your page or post with shortcode [latest_portfolio_items count=3].
+* Update : We updated all functionality for wordpress 3.5.1.
 
 = V2.08 - 09.10.2012 =
 * NEW : The ordering of Portfolio Items was added to Settings page.
@@ -187,6 +173,9 @@ wouldn't display again.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.09 =
+Add possibility to display Latest Portfolio Items on your page or post with shortcode [latest_portfolio_items count=3]. We updated all functionality for wordpress 3.5.1.
 
 = V2.08 =
 The ordering of Portfolio Items was added to Settings page.

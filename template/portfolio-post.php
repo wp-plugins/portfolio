@@ -179,7 +179,7 @@ get_header(); ?>
 				</script>
 			</div><!-- #content -->
 		</div><!-- #container -->
-		<input type="hidden" value="Version=2.08" />
+		<input type="hidden" value="Version=2.09" />
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

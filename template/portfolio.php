@@ -164,7 +164,7 @@ get_header(); ?>
 			</div><!-- #content -->
 			<div id="portfolio_pagenation">
 			<?php if( function_exists( 'prtfl_pagination' ) ) prtfl_pagination(); ?>
-			<input type="hidden" value="Version=2.08" />
+			<input type="hidden" value="Version=2.09" />
 			</div>
 		</div><!-- #container -->
 
