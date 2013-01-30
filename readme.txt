@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 2.09
+Stable tag: 2.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,7 @@ Also it allows adding of additional screenshots (multiple additional screenshots
 
 * Brazilian Portuguese (pt_BR) (thanks to DJIO, www.djio.com.br)
 * Dutch (nl_NL) (thanks to <a href="mailto:ronald@hostingu.nl">HostingU, Ronald Verheul</a>)
+* French (fr_FR) (thanks to <a href="mailto:paillat.jeff@gmail.com">Jeff</a>)
 * German (de_DE) (thanks to Felix Griewald, felix-griewald.de)
 * Hebrew (he_IL) (thanks to Sagive SEO)
 * Hindi (hi_IN) (thanks to <a href="mailto:ash.pr@outshinesolutions.com">Outshine Solutions</a>, outshinesolutions.com )
@@ -118,6 +119,9 @@ After that your theme will support thumbnail option and the error wouldn't displ
 
 == Changelog ==
 
+= V2.10 - 30.01.2013 =
+* NEW: French language file was added to the plugin.
+
 = V2.09 - 29.01.2013 =
 * NEW : Add possibility to display Latest Portfolio Items on your page or post with shortcode [latest_portfolio_items count=3].
 * Update : We updated all functionality for wordpress 3.5.1.
@@ -173,6 +177,9 @@ After that your theme will support thumbnail option and the error wouldn't displ
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.10 =
+French language file was added to the plugin.
 
 = V2.09 =
 Add possibility to display Latest Portfolio Items on your page or post with shortcode [latest_portfolio_items count=3]. We updated all functionality for wordpress 3.5.1.

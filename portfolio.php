@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Portfolio
- * @version 2.08
+ * @version 2.10
  */
 /*
 Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.09
+Version: 2.10
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
