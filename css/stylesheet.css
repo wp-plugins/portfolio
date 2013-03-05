@@ -1,0 +1,255 @@
+#prtfl_form_image_size label{
+	display: block;
+    float: left;
+    width: 130px;
+}
+
+#prtfl_form_image_size select{
+	width: 140px;
+}
+
+.portfolio_images_block {
+    clear: both;
+}
+
+.portfolio_images_gallery {
+    float: left;
+    padding-bottom: 10px;
+    padding-right: 6px;
+}
+
+.portfolio_images_rows
+{
+	clear:both;
+	border-top: 1px dotted #939393;
+	height:100px;
+	padding-top:10px;
+}
+
+.portfolio_admin_box
+{
+	width: 98%; 
+	margin: 10px auto 10px auto; 
+	background-color: #F9F9F9; 
+	border: 1px solid #DFDFDF; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	padding: 10px;
+}
+
+.portfolio_admin_subbox
+{
+	border-bottom: 4px double #DFDFDF;
+	padding-bottom:5px;
+	padding-top:5px;
+}
+
+.wrap #icon-edit.icon32-posts-portfolio
+{
+ background: url("../images/icons_32.png") no-repeat scroll left top transparent;
+}
+
+.admin-color-classic .wrap #icon-edit.icon32-posts-portfolio
+{
+ background: url("../images/icons_32_b.png") no-repeat scroll left top transparent;
+}
+
+#adminmenu #menu-posts-portfolio:hover div.wp-menu-image, #adminmenu #menu-posts-portfolio.wp-has-current-submenu div.wp-menu-image
+{
+ background: url("../images/menu.png") no-repeat scroll left top transparent;
+}
+
+.admin-color-classic #adminmenu #menu-posts-portfolio:hover div.wp-menu-image, #adminmenu #menu-posts-portfolio.wp-has-current-submenu div.wp-menu-image
+{
+ background: url("../images/menu_b.png") no-repeat scroll left top transparent;
+}
+
+#adminmenu #menu-posts-portfolio div.wp-menu-image {
+    background: url("../images/menu.png?ver=20100531") no-repeat scroll left -32px transparent;
+}
+
+.admin-color-classic #adminmenu #menu-posts-portfolio div.wp-menu-image {
+    background: url("../images/menu_b.png?ver=20100531") no-repeat scroll left -32px transparent;
+}
+
+#adminmenu #toplevel_page_bws_plugins div.wp-menu-image
+{
+	background: url("../images/icon_16.png") no-repeat scroll center center transparent;
+}
+.admin-color-classic #adminmenu #toplevel_page_bws_plugins div.wp-menu-image
+{
+	background: url("../images/icon_16_b.png") no-repeat scroll center center transparent;
+}
+#adminmenu #toplevel_page_bws_plugins:hover div.wp-menu-image, #adminmenu #toplevel_page_bws_plugins.wp-has-current-submenu div.wp-menu-image
+{
+	background: url("../images/icon_16_c.png") no-repeat scroll center center transparent;
+}	
+.wrap #icon-options-general.icon32-bws
+{
+	background: url("../images/icon_36.png") no-repeat scroll left top transparent;
+}
+.admin-color-classic .wrap #icon-options-general.icon32-bws
+{
+	background: url("../images/icon_36_b.png") no-repeat scroll left top transparent;
+}
+#toplevel_page_bws_plugins .wp-submenu .wp-first-item
+{
+	display:none;
+}
+
+#container {
+	color: #686868;
+}
+
+#container .breadcrumbs {
+    border-bottom: 1px solid #D8D8D8;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.portfolio_thumb{
+	float:left;
+	width:300px;
+}
+
+.portfolio_content .read_more{
+	clear: both;
+    float: right;
+    text-align: center;
+	z-index:100;
+	position:relative;
+
+}
+
+.portfolio_content .read_more a{
+	display:block;
+	width:80px;
+	font-size:14px;
+	color:#FFF;
+	background-color:#555;
+	padding:3px 0;
+}
+
+.portfolio_content .read_more a:hover{
+	background-color:#2484c6;
+}
+
+.portfolio_short_content{
+	float:right;
+	width:335px;
+}
+
+.entry_footer {
+	clear:both;
+	position:relative;
+	height:30px;
+	padding-bottom:15px;
+}
+.portfolio_terms{
+	border-bottom: 1px solid #D8D8D8;
+    clear: both;
+    font-size: 13px;
+    margin: 0;
+    position: relative;
+    top: -25px;
+	z-index:99;
+}
+
+.portfolio_terms a{
+	font-size:13px;
+}
+
+.portfolio_short_content p, .portfolio_images_block{
+	padding-bottom:10px;
+	font-size:15px;
+	margin-bottom: 0 !important;
+}
+
+.portfolio_short_content p .lable{
+	font-weight:normal;
+}
+
+.portfolio_short_content .item_title{
+	padding:0 0 15px;
+}
+
+.portfolio_short_content .item_title a{
+	font-size:20px;
+}
+
+.portfolio_short_content .item_title a:hover{
+}
+
+.portfolio_images_block{
+	font-size:15px;
+}
+
+.portfolio_images_block .lable{
+	font-weight:normal;
+}
+
+.portfolio_images_rows{
+	border:0;
+	padding:0;
+}
+
+.portfolio_thumb img, .portfolio_images_gallery img {
+	padding:4px;
+	border:1px solid #D8D8D8;
+}
+
+#portfolio_pagenation {
+	margin:10px 0;
+}
+
+.pagination .current, .pagination a {
+	padding:5px;
+}
+
+.pagination a {
+	padding:5px;
+	margin: 0 2px;
+	background-color: #555555;
+	color: #fff;
+}
+.pagination a:hover {
+	background-color: #2484C6;
+}
+
+#prtfl_loader, #prtfl_img_loader {
+	float: left;
+    position: relative;
+    display:none;
+}
+
+#ajax_update_postmeta, #ajax_update_images {
+	float:left;
+}
+
+#prtfl_date_additional_field, #prtfl_link_additional_field, 
+#prtfl_shrdescription_additional_field, #prtfl_description_additional_field,
+#prtfl_svn_additional_field, #prtfl_executor_additional_field,
+#prtfl_technologies_additional_field {
+	float:left;
+	position:relative;
+	top:2px;
+	margin-right: 3px;
+}
+
+#content {
+	float:left;
+	margin-left:0;
+}
+
+.prtfl_left {
+	float:left;
+	margin-right:5px !important;
+	position:relative;
+	top:4px;
+}
+
+#prtfl_form_image_size label.prtfl_left{
+	width:50%;
+	top:0;
+}
