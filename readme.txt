@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 2.10
+Stable tag: 2.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,7 @@ Also it allows adding of additional screenshots (multiple additional screenshots
 * Persian (fa_IR) (thanks to <a href="mailto:AmirMaskani@gmail.com">Amir Maskani</a>)
 * Russian (ru_RU)
 * Spain (es_ES) (thanks to Grupo Gomariz, S.L. www.grupogomariz.com)
+* Ukrainian (uk) (thanks to <a href="http://www.cmd-soft.com">Cmd Soft</a>)
 
 If you create your own language pack or update an existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> for <a href="http://bestwebsoft.com/" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
@@ -119,6 +120,9 @@ After that your theme will support thumbnail option and the error wouldn't displ
 
 == Changelog ==
 
+= V2.11 - 05.03.2013 =
+* NEW : Ukrainian language file was added to the plugin.
+
 = V2.10 - 30.01.2013 =
 * NEW: French language file was added to the plugin.
 
@@ -177,6 +181,9 @@ After that your theme will support thumbnail option and the error wouldn't displ
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.11 =
+Ukrainian language file was added to the plugin.
 
 = V2.10 =
 French language file was added to the plugin.
