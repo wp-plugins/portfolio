@@ -4,78 +4,82 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 2.11
+Stable tag: 2.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Portfolio plugin allows you to create a page with information about your past projects.
+Portfolio plugin allows you to create a page containing the information about your past projects.
 
 == Description ==
 
-Portfolio plugin provides a possibility to create a unique page for displaying portfolio items consisting of screenshots and additional information such as description, short description, URL, date of completion, etc.
-Also it allows adding of additional screenshots (multiple additional screenshots per 1 portfolio item).
+With the Portfolio plugin you can create a unique page for displaying portfolio items consisting of screenshots and additional information such as description, short description, URL, date of completion, etc.
+Moreover you can add not just one, but many screenshots to one portfolio item for better visual guidance. 
 
 <a href="http://wordpress.org/extend/plugins/portfolio/faq/" target="_blank">FAQ</a>
 <a href="http://bestwebsoft.com/plugin/portfolio-plugin/" target="_blank">Support</a>
 
 = Features =
 
-* Actions: Create a template page to display all portfolio items with paging navigation. 
-* Actions: Possibility to regenerate thumbnails for an image after changing of its size. 
-* Options: Provides a possibility to adjust images size and a number of images displayed in a row. 
-* Actions: Possibility to change caption to additional fields.
-* Display: Includes a possibility to turn off displaying of additional fields. 
-* Actions: Possibility to display Latest Portfolio Items on your page or post with shortcode [latest_portfolio_items count=3].
+* Actions: Create a template with page navigation to display all portfolio items. 
+* Actions: Regenerate thumbnails after changing their size. 
+* Options: Change image size and a number of images displayed in the row. 
+* Actions: Edit labels of additional fields.
+* Display: Enable/disable the option of additional fields displaying. 
+* Actions: Display the latest portfolio items on your page or post using the shortcode [latest_portfolio_items count=3].
 
 = Translation =
 
 * Brazilian Portuguese (pt_BR) (thanks to DJIO, www.djio.com.br)
 * Dutch (nl_NL) (thanks to <a href="mailto:ronald@hostingu.nl">HostingU, Ronald Verheul</a>)
 * French (fr_FR) (thanks to <a href="mailto:paillat.jeff@gmail.com">Jeff</a>)
-* German (de_DE) (thanks to Felix Griewald, felix-griewald.de)
+* German (de_DE) (thanks to Felix Griewald, www.felix-griewald.de)
 * Hebrew (he_IL) (thanks to Sagive SEO)
-* Hindi (hi_IN) (thanks to <a href="mailto:ash.pr@outshinesolutions.com">Outshine Solutions</a>, outshinesolutions.com )
+* Hindi (hi_IN) (thanks to <a href="mailto:ash.pr@outshinesolutions.com">Outshine Solutions</a>, www.outshinesolutions.com )
 * Italian (it_IT)
-* Persian (fa_IR) (thanks to <a href="mailto:AmirMaskani@gmail.com">Amir Maskani</a>)
+* Persian (fa_IR) (thanks to <a href="mailto:AmirMaskani@gmail.com">Amir Maskani</a>, www.emir.ir)
 * Russian (ru_RU)
 * Spain (es_ES) (thanks to Grupo Gomariz, S.L. www.grupogomariz.com)
-* Ukrainian (uk) (thanks to <a href="http://www.cmd-soft.com">Cmd Soft</a>)
+* Ukrainian (uk) (thanks to Cmd Soft, www.cmd-soft.com)
 
-If you create your own language pack or update an existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text in PO and MO files</a> for <a href="http://bestwebsoft.com/" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://bestwebsoft.com/" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
-Dear users, if you have any questions or propositions regarding our plugins (current options, new options, current issues) please feel free to contact us. Please note that we accept requests in English only. All messages on another languages wouldn't be accepted. 
+Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in another languages won't be accepted.
+
+If you notice any bugs in the plugins, you can notify us about it and we'll investigate and fix the issue then. Your request should contain URL of the website, issues description and WordPress admin panel credentials.
+Moreover we can customize the plugin according to your requirements. It's a paid service (as a rule it costs $40, but the price can vary depending on the amount of the necessary changes and their complexity). Please note that we could also include this or that feature (developed for you) in the next release and share with the other users then. 
+We can fix some things for free for the users who provide translation of our plugin into their native language (this should be a new translation of a certain plugin, you can check available translations on the official plugin page).
 
 == Installation ==
 
-1. Upload `portfolio` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Please check if you have the 'portfolio.php' and 'portfolio-post.php' template files in your templates directory. If you are not able to find these files, then just copy them from '/wp-content/plugins/portfolio/template/' directory to your templates directory.
-4. Create a page and select Portfolio template for it in the Page Attributes block.
+1. Upload the folder `portfolio` to the directory `/wp-content/plugins/` 
+2. Activate the plugin via the 'Plugins' menu in WordPress
+3. Please check if you have the template files 'portfolio.php' and 'portfolio-post.php' in your templates directory. If you can't find these files, then just copy them from the directory '/wp-content/plugins/portfolio/template/' to your templates directory.
+4. Create a page and select a template in the Page Attributes block.
 5. Create (if necessary) Technologies and Executor profiles.
-6. Create portfolio, add title, description, short description, and upload images one of which must be marked as featured. Publish portfolio.
+6. Create portfolio item, add title, description, short description, and upload the images one of which should be set as featured. Publish portfolio then.
 
 == Frequently Asked Questions ==
 
-= I cannot view my Portfolio page =
+= I don't see my Portfolio page =
 
-1. First of all, you need to create your first Portfolio page and choose 'Portfolio Template' from a list of available templates (which will be used for displaying of our portfolio).
-2. If you cannot find 'Portfolio Template' in a list of available templates, then just copy it from '/wp-content/plugins/portfolio/template/' directory to your templates directory.
+1. First of all, you should create your first Portfolio page and select 'Portfolio Template' in the list of available templates.
+2. If you cannot find 'Portfolio Template' in the list of available templates, then just copy it from the directory '/wp-content/plugins/portfolio/template/' to your templates directory.
 
 = How to use a plugin? =
 
-1. Create necessary technologies using this page http://example.com/wp-admin/edit-tags.php?taxonomy=portfolio_technologies&post_type=portfolio
-2. This is optional. Fill in this page http://example.com/wp-admin/edit-tags.php?taxonomy=portfolio_executor_profile&post_type=portfolio - create a profile of executor. Fill in 'Name' and 'Description' fields. 'Description' field contains link to a personal executor's page.
-3. Choose 'Add New' from the 'Portfolio' menu and fill out your page. Set necessary values for the Technologies and 'Executors Profile' widgets.
+1. Add necessary technologies using this page http://example.com/wp-admin/edit-tags.php?taxonomy=portfolio_technologies&post_type=portfolio
+2. This is optional. Fill this page http://example.com/wp-admin/edit-tags.php?taxonomy=portfolio_executor_profile&post_type=portfolio - create an executor profile. Fill out the fields 'Name' and 'Description'. The 'Description' field contains a link to the executor page.
+3. Click 'Add New' in the 'Portfolio' menu and fill out your page. Set the necessary values for the Technologies and Executors Profile widgets.
 
 = How to add an image? =
 
-Use Wordpress meta box to upload images from URL or your local storage. Note that one image needs to be selected as 'Featured' - it will be main image of your Portfolio item.
+Use Wordpress meta box to upload images from URL or your local storage. Please note that one of the images should be set as 'Featured' - it will be the main image of your portfolio item.
 
-= You have updated the plugin, the template was changed, but you want to get back everything as it was? What you should do?=
+= I updated the plugin, the template changed, but I would like to revert it back as it was before? What should I do? =
 
-Sometimes when updating the plugin the templates of the the plugin are updated in the theme herewith the back ups for the old versions of the templates are performed. There will be the files `portfolio-post.php.bak` and `portfolio.php.bak`in the theme. It is necessary to compare the old files and the new files, implement the required changes in the new files form the old files.
+Sometimes during the plugin update the plugin template in your theme is also updated. Meanwhile a backup of the previous template verion is created and it contains the files `portfolio-post.php.bak` and `portfolio.php.bak`. You should compare the old files with the new ones and apply the necessary changes to the new files.
 
 = I was wondering what determines the order of portfolio posts on the Portfolio page =
 'orderby'                        => 'menu_order',  menu_order  
@@ -99,32 +103,35 @@ orderby (string) - Sort retrieved posts by parameter. Defaults to 'date'.
 
 = I'm getting the following error: Fatal error: Call to undefined function get_post_thumbnail_id() =
 
-This error says that your theme doesn't support thumbnail option, in order to add this option please find 'functions.php' file in your theme and add strings below to this file:
+This error means that your theme doesn't support thumbnails, in order to add this option please find the file 'functions.php' in your theme and add the following strings to this file:
 add_action( 'after_setup_theme', 'theme_setup' );
 
 function theme_setup() {
     add_theme_support( 'post-thumbnails' );
 }
 
-After that your theme will support thumbnail option and the error wouldn't display again.
+After that your theme will support thumbnails and the error will disappear.
 
 == Screenshots ==
 
 1. Portfolio Settings page.
 2. Add technologies page.
 3. Add executors profile page.
-4. This screenshot for Add New Portfolio items.
+4. Add New Portfolio items.
 5. Portfolio frontend page (for all portfolios).
 6. Portfolio single frontend page.
 7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
 
+= V2.12 - 12.04.2013 =
+* NEW : English language file is updated in the plugin.
+
 = V2.11 - 05.03.2013 =
-* NEW : Ukrainian language file was added to the plugin.
+* NEW : Ukrainian language file is added to the plugin.
 
 = V2.10 - 30.01.2013 =
-* NEW: French language file was added to the plugin.
+* NEW: French language file is added to the plugin.
 
 = V2.09 - 29.01.2013 =
 * NEW : Add possibility to display Latest Portfolio Items on your page or post with shortcode [latest_portfolio_items count=3].
@@ -181,6 +188,9 @@ After that your theme will support thumbnail option and the error wouldn't displ
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.12 =
+English language file is updated in the plugin.
 
 = V2.11 =
 Ukrainian language file was added to the plugin.
