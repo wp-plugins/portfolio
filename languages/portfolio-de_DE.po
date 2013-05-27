@@ -1,0 +1,596 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-27 13:10+0300\n"
+"PO-Revision-Date: 2013-05-27 13:10+0300\n"
+"Last-Translator: \n"
+"Language-Team: Felix Griewald, felix-griewald.de <felix.griewald@arcor.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: portfolio.php:105
+#: portfolio.php:856
+msgid "The files \"portfolio.php\" and \"portfolio-post.php\" are not found in your theme directory. Please copy them from the directory `wp-content/plugins/portfolio/template/` to your theme directory for correct work of the Portfolio plugin"
+msgstr ""
+
+#: portfolio.php:136
+msgid "Short description"
+msgstr "Kurzbeschreibung"
+
+#: portfolio.php:136
+msgid "A short description which you'd like to be displayed on your portfolio page"
+msgstr "Eine kurze Beschreibung, die auf der Portfolio Seite angezeigt werden soll"
+
+#: portfolio.php:137
+msgid "Date of completion"
+msgstr "Datum der Fertigstellung"
+
+#: portfolio.php:137
+msgid "The date when the task was completed"
+msgstr "Datum als die Aufgabe fertiggestellt wurde"
+
+#: portfolio.php:138
+#: portfolio.php:915
+msgid "Link"
+msgstr "Link"
+
+#: portfolio.php:138
+msgid "A link to the site"
+msgstr "Ein Link zur Seite"
+
+#: portfolio.php:139
+#: portfolio.php:918
+msgid "SVN"
+msgstr "SVN"
+
+#: portfolio.php:139
+#, fuzzy
+msgid "SVN URL"
+msgstr "SVN"
+
+#: portfolio.php:154
+#: portfolio.php:155
+#: portfolio.php:741
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: portfolio.php:156
+msgid "Add New"
+msgstr "Hinzufügen"
+
+#: portfolio.php:157
+msgid "Add New Portfolio"
+msgstr "Neues Portfolio hinzufügen"
+
+#: portfolio.php:158
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: portfolio.php:159
+msgid "Edit Portfolio"
+msgstr "Portfolio bearbeiten"
+
+#: portfolio.php:160
+msgid "New Portfolio"
+msgstr "Neues Portfolio"
+
+#: portfolio.php:161
+#: portfolio.php:162
+msgid "View Portfolio"
+msgstr "Portfolio anzeigen"
+
+#: portfolio.php:163
+msgid "Search Portfolio"
+msgstr "Portfolio durchsuchen"
+
+#: portfolio.php:164
+msgid "No portfolio found"
+msgstr "Kein Portfolio gefunden"
+
+#: portfolio.php:165
+msgid "No portfolio found in Trash"
+msgstr "Kein Portfolio im Papierkorb gefunden"
+
+#: portfolio.php:166
+msgid "Parent Portfolio"
+msgstr "Eltern Portfolio"
+
+#: portfolio.php:168
+#, fuzzy
+msgid "Create a portfolio item"
+msgstr "Portfolio erstellen"
+
+#: portfolio.php:200
+msgid "Executor Profiles"
+msgstr "Entwickler Profile"
+
+#: portfolio.php:201
+msgid "Executor Profile"
+msgstr "Entwickler Profil"
+
+#: portfolio.php:202
+msgid "Search Executor Profiles"
+msgstr "Suche Entwickler Profile"
+
+#: portfolio.php:203
+msgid "Popular Executor Profiles"
+msgstr "Beliebte Entwickler Profile"
+
+#: portfolio.php:204
+msgid "All Executor Profiles"
+msgstr "Alle Entwickler Profile"
+
+#: portfolio.php:205
+msgid "Parent Executor Profile"
+msgstr "Eltern Entwickler Profil"
+
+#: portfolio.php:206
+msgid "Parent Executor Profile:"
+msgstr "Eltern Entwickler Profil:"
+
+#: portfolio.php:207
+msgid "Edit Executor Profile"
+msgstr "Bearbeite Entwickler Profil"
+
+#: portfolio.php:208
+msgid "Update Executor Profile"
+msgstr "Aktualisiere Entwickler Profil"
+
+#: portfolio.php:209
+msgid "Add New Executor Profile"
+msgstr "Füge Entwickler Profil hinzu"
+
+#: portfolio.php:210
+#, fuzzy
+msgid "New Executor Name"
+msgstr "Neuer Entwickler Profil Name"
+
+#: portfolio.php:211
+msgid "Separate Executor Profiles with commas"
+msgstr "Getrennte Entwickler Profile durch Kommas"
+
+#: portfolio.php:212
+msgid "Add or remove Executor Profile"
+msgstr "Entwickler Profil hinzufügen oder entfernen"
+
+#: portfolio.php:213
+#, fuzzy
+msgid "Choose from the most used Executor Profiles"
+msgstr "Wähle aus den meist genutzten Entwickler Profilen"
+
+#: portfolio.php:214
+#, fuzzy
+msgid "Executors"
+msgstr "Entwickler"
+
+#: portfolio.php:230
+#: portfolio.php:244
+#: portfolio.php:271
+#: portfolio.php:279
+#: portfolio.php:920
+#: portfolio.php:1105
+#: template/portfolio.php:13
+msgid "Technologies"
+msgstr "Technologien"
+
+#: portfolio.php:231
+msgid "Technology"
+msgstr "Technologie"
+
+#: portfolio.php:232
+msgid "Search Technologies"
+msgstr "Technologien suchen"
+
+#: portfolio.php:233
+msgid "Popular Technologies"
+msgstr "Beliebte Technologien"
+
+#: portfolio.php:234
+msgid "All Technologies"
+msgstr "Alle Technologien"
+
+#: portfolio.php:235
+msgid "Parent Technology"
+msgstr "Eltern Technologie"
+
+#: portfolio.php:236
+msgid "Parent Technology:"
+msgstr "Eltern Technologie:"
+
+#: portfolio.php:237
+msgid "Edit Technology"
+msgstr "Technologie bearbeiten"
+
+#: portfolio.php:238
+msgid "Update Technology"
+msgstr "Technologie aktualisieren"
+
+#: portfolio.php:239
+msgid "Add New Technology"
+msgstr "Technologie hinzufügen"
+
+#: portfolio.php:240
+msgid "New Technology Name"
+msgstr "Neuer Technologie Name"
+
+#: portfolio.php:241
+msgid "Separate Technologies with commas"
+msgstr "Technologien, getrennt durch Kommas"
+
+#: portfolio.php:242
+msgid "Add or remove Technology"
+msgstr "Technologie hinzufügen oder entfernen"
+
+#: portfolio.php:243
+#, fuzzy
+msgid "Choose from the most used technologies"
+msgstr "Wähle eine meist genutzte Technologie"
+
+#: portfolio.php:274
+#, fuzzy
+msgid "Your most used portfolio technologies as a tag cloud"
+msgstr "Deine am meist genutzten Technologien als Cloud"
+
+#: portfolio.php:342
+msgid "Title"
+msgstr "Titel"
+
+#: portfolio.php:409
+msgid "Portfolio Info"
+msgstr "Portfolio Info"
+
+#: portfolio.php:565
+#: portfolio.php:687
+#: portfolio.php:713
+#: portfolio.php:1011
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: portfolio.php:566
+msgid "FAQ"
+msgstr "FAQ"
+
+#: portfolio.php:567
+msgid "Support"
+msgstr "Hilfe"
+
+#: portfolio.php:682
+#, fuzzy
+msgid "Pro plugins"
+msgstr "Empfohlene Plugins"
+
+#: portfolio.php:685
+#: portfolio.php:711
+msgid "Activated plugins"
+msgstr "Aktivierte plugins"
+
+#: portfolio.php:687
+#: portfolio.php:695
+#: portfolio.php:703
+#: portfolio.php:713
+#: portfolio.php:721
+#: portfolio.php:729
+#: portfolio.php:1100
+#: template/portfolio.php:129
+msgid "Read more"
+msgstr "Mehr lesen"
+
+#: portfolio.php:693
+#: portfolio.php:719
+msgid "Installed plugins"
+msgstr "Installierte Plugins"
+
+#: portfolio.php:701
+#: portfolio.php:727
+msgid "Recommended plugins"
+msgstr "Empfohlene Plugins"
+
+#: portfolio.php:703
+msgid "Purchase"
+msgstr ""
+
+#: portfolio.php:708
+#, fuzzy
+msgid "Free plugins"
+msgstr "Empfohlene Plugins"
+
+#: portfolio.php:729
+msgid "Download"
+msgstr "Download"
+
+#: portfolio.php:729
+#, php-format
+msgid "Install %s"
+msgstr "Fortschritt %s"
+
+#: portfolio.php:729
+msgid "Install now from wordpress.org"
+msgstr "Installieren von wordpress.org"
+
+#: portfolio.php:733
+msgid "If you have any questions, please contact us via"
+msgstr ""
+
+#: portfolio.php:767
+#: portfolio.php:926
+#, fuzzy
+msgid "Date of completion:"
+msgstr "Datum der Fertigstellung"
+
+#: portfolio.php:768
+#: portfolio.php:927
+#, fuzzy
+msgid "Link:"
+msgstr "Link"
+
+#: portfolio.php:769
+#: portfolio.php:928
+#, fuzzy
+msgid "Short description:"
+msgstr "Kurzbeschreibung"
+
+#: portfolio.php:770
+#: portfolio.php:929
+#, fuzzy
+msgid "Description:"
+msgstr "Beschreibung"
+
+#: portfolio.php:771
+#: portfolio.php:930
+msgid "SVN:"
+msgstr ""
+
+#: portfolio.php:772
+#: portfolio.php:931
+#, fuzzy
+msgid "Executor Profile:"
+msgstr "Entwickler Profil"
+
+#: portfolio.php:773
+#: portfolio.php:932
+#, fuzzy
+msgid "More screenshots:"
+msgstr "Mehr Screenshots"
+
+#: portfolio.php:774
+#: portfolio.php:933
+#, fuzzy
+msgid "Technologies:"
+msgstr "Technologien"
+
+#: portfolio.php:852
+#, fuzzy
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
+
+#: portfolio.php:863
+#, fuzzy
+msgid "Portfolio Settings"
+msgstr "Portfolio Optionen"
+
+#: portfolio.php:866
+msgid "If you would like to add the Latest Portfolio Items to your page or post, just copy and paste this shortcode into your post or page:"
+msgstr ""
+
+#: portfolio.php:866
+msgid "where count=3 is a number of posts to show up in the portfolio."
+msgstr ""
+
+#: portfolio.php:870
+msgid "The album cover size"
+msgstr ""
+
+#: portfolio.php:872
+#: portfolio.php:880
+msgid "Image size name"
+msgstr "Bildgröße Name"
+
+#: portfolio.php:873
+#: portfolio.php:881
+msgid "Width (in px)"
+msgstr "Breite (in px)"
+
+#: portfolio.php:874
+#: portfolio.php:882
+msgid "Height (in px)"
+msgstr "Höhe (in px)"
+
+#: portfolio.php:878
+#, fuzzy
+msgid "Size of portfolio images"
+msgstr "Größe für Portfolio Bild"
+
+#: portfolio.php:886
+#, fuzzy
+msgid "WordPress will copy thumbnails with the specified dimensions when you upload a new image. It is necessary to click  the Update images button at the bottom of this page in order to generate new images and set new dimensions"
+msgstr "Wordpress wird eine Kopie der Miniatur mit den Einstellungen erstellen."
+
+#: portfolio.php:889
+#, fuzzy
+msgid "Sort portfolio by"
+msgstr "Portfolio"
+
+#: portfolio.php:891
+#, fuzzy
+msgid "portfolio id"
+msgstr "Portfolio"
+
+#: portfolio.php:892
+#, fuzzy
+msgid "portfolio title"
+msgstr "Portfolio Optionen"
+
+#: portfolio.php:893
+msgid "date"
+msgstr ""
+
+#: portfolio.php:894
+msgid "menu order"
+msgstr ""
+
+#: portfolio.php:895
+msgid "random"
+msgstr ""
+
+#: portfolio.php:899
+#, fuzzy
+msgid "Portfolio sorting"
+msgstr "Portfolio Optionen"
+
+#: portfolio.php:901
+msgid "ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)"
+msgstr ""
+
+#: portfolio.php:902
+msgid "DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)"
+msgstr ""
+
+#: portfolio.php:906
+#, fuzzy
+msgid "Number of images in the row"
+msgstr "Anzahl der Bilder pro Reihe"
+
+#: portfolio.php:912
+msgid "Display additional fields"
+msgstr "Zusätzliche Felder anzeigen"
+
+#: portfolio.php:914
+msgid "Date"
+msgstr ""
+
+#: portfolio.php:916
+#, fuzzy
+msgid "Short Description"
+msgstr "Kurzbeschreibung"
+
+#: portfolio.php:917
+msgid "Description"
+msgstr "Beschreibung"
+
+#: portfolio.php:919
+msgid "Executor"
+msgstr "Entwickler"
+
+#: portfolio.php:924
+#, fuzzy
+msgid "Text for additional fields"
+msgstr "Zusätzliche Felder anzeigen"
+
+#: portfolio.php:939
+msgid "Save Changes"
+msgstr "Speichern"
+
+#: portfolio.php:951
+#, fuzzy
+msgid "Change the way to store your post_meta information for portfolio"
+msgstr "Aktualisiere den Speicher der post_meta Informationen für das Portfolio"
+
+#: portfolio.php:953
+msgid "Update All Info"
+msgstr "Aktualisiere alle Informationen"
+
+#: portfolio.php:958
+#, fuzzy
+msgid "Updating post_meta information..."
+msgstr "Aktualisieren post_meta Information..."
+
+#: portfolio.php:959
+#, fuzzy
+msgid "No portfolio item found"
+msgstr "Kein Portfolio gefunden"
+
+#: portfolio.php:960
+#, fuzzy
+msgid "All info is updated"
+msgstr "Alle Informationen wurden aktualisiert."
+
+#: portfolio.php:961
+#: portfolio.php:976
+msgid "Error."
+msgstr "Fehler."
+
+#: portfolio.php:966
+msgid "Update images for portfolio"
+msgstr "Aktualisieren Bilder des Portfolios"
+
+#: portfolio.php:968
+msgid "Update images"
+msgstr "Aktualisieren Bilder"
+
+#: portfolio.php:973
+#, fuzzy
+msgid "Updating images..."
+msgstr "Aktualisiere Bilder..."
+
+#: portfolio.php:974
+#, fuzzy
+msgid "No image found"
+msgstr "Keine Bilder gefunden."
+
+#: portfolio.php:975
+#, fuzzy
+msgid "All images are updated"
+msgstr "Alle Bilder aktualisiert."
+
+#: portfolio.php:1110
+#: template/portfolio-post.php:155
+#: template/portfolio.php:138
+#, php-format
+msgid "View all posts in %s"
+msgstr "Zeige alle Artikel in %s"
+
+#: portfolio.php:1296
+#, fuzzy
+msgid "Image size not defined"
+msgstr "Bildgröße Name"
+
+#: portfolio.php:1302
+msgid "Image size changes not defined"
+msgstr ""
+
+#: portfolio.php:1331
+#: portfolio.php:1334
+#: portfolio.php:1339
+msgid "Invalid path"
+msgstr ""
+
+#, fuzzy
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill out the contact form on our website"
+#~ msgstr ""
+#~ "Wenn du Fragen hast, dann wende dich bitte per Email an "
+#~ "plugin@bestwebsoft.com oder nutze das Kontakt Formular unserer Seite"
+#~ msgid "URL of the SVN"
+#~ msgstr "URL zum SVN"
+#~ msgid "Executor Profiles "
+#~ msgstr "Entwickler Profile"
+#~ msgid "The size of the cover album for portfolio"
+#~ msgstr "Größe des Portfolio Cover Albums"
+
+#, fuzzy
+#~ msgid "Portfolio order by"
+#~ msgstr "Portfolio Info"
+
+#, fuzzy
+#~ msgid "Portfolio order"
+#~ msgstr "Portfolio Info"
+#~ msgid "No informations found."
+#~ msgstr "Keine Informationen gefunden."
+#~ msgid "Could not read image size"
+#~ msgstr "Konnte Bildgröße nicht lesen"
+#~ msgid "Could not calculate resized image dimensions"
+#~ msgstr "Konnte Bildgröße nicht berechnen"
+#~ msgid "Resize path invalid"
+#~ msgstr "Pfad ungültig"
+#~ msgid "Style for lightbox"
+#~ msgstr "Стили для лайтбокса"
+

@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Portfolio v2.04\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-27 13:10+0300\n"
+"PO-Revision-Date: 2013-05-27 13:10+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he_IL\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ portfolio
+#: portfolio.php:105
+#: portfolio.php:856
+#, fuzzy
+msgid "The files \"portfolio.php\" and \"portfolio-post.php\" are not found in your theme directory. Please copy them from the directory `wp-content/plugins/portfolio/template/` to your theme directory for correct work of the Portfolio plugin"
+msgstr "הקבצים \"portfolio.php\" ו \"portfolio-post.php\" לא נמצאו בספריית התבנית שלך. בבקשה, העתק אותם מן הספריה `/wp-content/plugins/portfolio/template/` אל ספריית התבנית שלך כדי שהתוסף יעבוד באופן תקין."
+
+# @ portfolio
+#: portfolio.php:136
+msgid "Short description"
+msgstr "תיאור קצר"
+
+# @ portfolio
+#: portfolio.php:136
+msgid "A short description which you'd like to be displayed on your portfolio page"
+msgstr "תיאור קצר שתרצה שיוצג בדף הפורטפוליו שלך"
+
+# @ portfolio
+#: portfolio.php:137
+msgid "Date of completion"
+msgstr "תאריך סיום"
+
+# @ portfolio
+#: portfolio.php:137
+msgid "The date when the task was completed"
+msgstr "התאריך בו הושלמה המשימה"
+
+# @ portfolio
+#: portfolio.php:138
+#: portfolio.php:915
+msgid "Link"
+msgstr "קישור"
+
+# @ portfolio
+#: portfolio.php:138
+msgid "A link to the site"
+msgstr "קישור לאתר"
+
+# @ portfolio
+#: portfolio.php:139
+#: portfolio.php:918
+msgid "SVN"
+msgstr "SVN"
+
+# @ portfolio
+#: portfolio.php:139
+#, fuzzy
+msgid "SVN URL"
+msgstr "SVN"
+
+# @ portfolio
+#: portfolio.php:154
+#: portfolio.php:155
+#: portfolio.php:741
+msgid "Portfolio"
+msgstr "פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:156
+msgid "Add New"
+msgstr "הוסף"
+
+# @ portfolio
+#: portfolio.php:157
+msgid "Add New Portfolio"
+msgstr "הוסף פורטפוליו חדש"
+
+# @ portfolio
+#: portfolio.php:158
+msgid "Edit"
+msgstr "ערוך"
+
+# @ portfolio
+#: portfolio.php:159
+msgid "Edit Portfolio"
+msgstr "ערוך פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:160
+msgid "New Portfolio"
+msgstr "פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:161
+#: portfolio.php:162
+msgid "View Portfolio"
+msgstr "הצג פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:163
+msgid "Search Portfolio"
+msgstr "חיפוש פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:164
+msgid "No portfolio found"
+msgstr "לא נמצא אף פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:165
+msgid "No portfolio found in Trash"
+msgstr "אף פורטפוליו לא נמצא בפח"
+
+# @ portfolio
+#: portfolio.php:166
+msgid "Parent Portfolio"
+msgstr "פורטפוליו אב"
+
+# @ portfolio
+#: portfolio.php:168
+#, fuzzy
+msgid "Create a portfolio item"
+msgstr "צור פורטפוליו."
+
+# @ portfolio
+#: portfolio.php:200
+msgid "Executor Profiles"
+msgstr "פרופילים"
+
+# @ portfolio
+#: portfolio.php:201
+msgid "Executor Profile"
+msgstr "פרופיל"
+
+# @ portfolio
+#: portfolio.php:202
+msgid "Search Executor Profiles"
+msgstr "חיפוש פרופילים"
+
+# @ portfolio
+#: portfolio.php:203
+msgid "Popular Executor Profiles"
+msgstr "פרופילים פופולריים"
+
+# @ portfolio
+#: portfolio.php:204
+msgid "All Executor Profiles"
+msgstr "כל הפרופילים"
+
+# @ portfolio
+#: portfolio.php:205
+msgid "Parent Executor Profile"
+msgstr "פרופיל אב"
+
+# @ portfolio
+#: portfolio.php:206
+msgid "Parent Executor Profile:"
+msgstr "פרופיל אב:"
+
+# @ portfolio
+#: portfolio.php:207
+msgid "Edit Executor Profile"
+msgstr "ערוך פרופיל"
+
+# @ portfolio
+#: portfolio.php:208
+msgid "Update Executor Profile"
+msgstr "עדכן פרופיל"
+
+# @ portfolio
+#: portfolio.php:209
+msgid "Add New Executor Profile"
+msgstr "הוסף פרופיל חדש"
+
+# @ portfolio
+#: portfolio.php:210
+#, fuzzy
+msgid "New Executor Name"
+msgstr "שם פרופיל חדש"
+
+# @ portfolio
+#: portfolio.php:211
+msgid "Separate Executor Profiles with commas"
+msgstr "הפרד פרופילים עם פסיק"
+
+# @ portfolio
+#: portfolio.php:212
+msgid "Add or remove Executor Profile"
+msgstr "הוסף או הסר פרופיל"
+
+# @ portfolio
+#: portfolio.php:213
+#, fuzzy
+msgid "Choose from the most used Executor Profiles"
+msgstr "בחר מהפרופיל שהכי בשימוש"
+
+# @ portfolio
+#: portfolio.php:214
+#, fuzzy
+msgid "Executors"
+msgstr "מחולל"
+
+# @ portfolio
+#: portfolio.php:230
+#: portfolio.php:244
+#: portfolio.php:271
+#: portfolio.php:279
+#: portfolio.php:920
+#: portfolio.php:1105
+#: template/portfolio.php:13
+msgid "Technologies"
+msgstr "טכנולוגיות"
+
+# @ portfolio
+#: portfolio.php:231
+msgid "Technology"
+msgstr "טכנולוגיה"
+
+# @ portfolio
+#: portfolio.php:232
+msgid "Search Technologies"
+msgstr "חיפוש טכנולוגיות"
+
+# @ portfolio
+#: portfolio.php:233
+msgid "Popular Technologies"
+msgstr "טכנולוגיות פופולריות"
+
+# @ portfolio
+#: portfolio.php:234
+msgid "All Technologies"
+msgstr "כל הטכנולוגיות"
+
+# @ portfolio
+#: portfolio.php:235
+msgid "Parent Technology"
+msgstr "טכנולוגיית אב"
+
+# @ portfolio
+#: portfolio.php:236
+msgid "Parent Technology:"
+msgstr "טכנולוגיית אב:"
+
+# @ portfolio
+#: portfolio.php:237
+msgid "Edit Technology"
+msgstr "ערוך טכנולוגיה"
+
+# @ portfolio
+#: portfolio.php:238
+msgid "Update Technology"
+msgstr "עדכן טכנולוגיה"
+
+# @ portfolio
+#: portfolio.php:239
+msgid "Add New Technology"
+msgstr "הוסף טכנולוגיה חדשה"
+
+# @ portfolio
+#: portfolio.php:240
+msgid "New Technology Name"
+msgstr "שם הטכנולוגיה החדשה"
+
+# @ portfolio
+#: portfolio.php:241
+msgid "Separate Technologies with commas"
+msgstr "הפרד טכנולוגיות עם פסיק"
+
+# @ portfolio
+#: portfolio.php:242
+msgid "Add or remove Technology"
+msgstr "הוסף הסר טכנולוגיה"
+
+# @ portfolio
+#: portfolio.php:243
+#, fuzzy
+msgid "Choose from the most used technologies"
+msgstr "בחר מהטכנולוגיה שהכי בשימוש"
+
+# @ portfolio
+#: portfolio.php:274
+#, fuzzy
+msgid "Your most used portfolio technologies as a tag cloud"
+msgstr "טכנולוגיות הפורטפוליו שלך שהכי בשימוש בצורת ענן"
+
+# @ portfolio
+#: portfolio.php:342
+msgid "Title"
+msgstr "כותרת"
+
+# @ portfolio
+#: portfolio.php:409
+msgid "Portfolio Info"
+msgstr "מידע פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:565
+#: portfolio.php:687
+#: portfolio.php:713
+#: portfolio.php:1011
+msgid "Settings"
+msgstr "הגדרות"
+
+# @ portfolio
+#: portfolio.php:566
+msgid "FAQ"
+msgstr "שאלות ותשובות"
+
+# @ portfolio
+#: portfolio.php:567
+msgid "Support"
+msgstr "תמיכה"
+
+# @ portfolio
+#: portfolio.php:682
+#, fuzzy
+msgid "Pro plugins"
+msgstr "תוספים מומלצים"
+
+# @ portfolio
+#: portfolio.php:685
+#: portfolio.php:711
+msgid "Activated plugins"
+msgstr "תוספים פעילים"
+
+# @ portfolio
+#: portfolio.php:687
+#: portfolio.php:695
+#: portfolio.php:703
+#: portfolio.php:713
+#: portfolio.php:721
+#: portfolio.php:729
+#: portfolio.php:1100
+#: template/portfolio.php:129
+msgid "Read more"
+msgstr "קרא עוד"
+
+# @ portfolio
+#: portfolio.php:693
+#: portfolio.php:719
+msgid "Installed plugins"
+msgstr "תוספים מותקנים"
+
+# @ portfolio
+#: portfolio.php:701
+#: portfolio.php:727
+msgid "Recommended plugins"
+msgstr "תוספים מומלצים"
+
+#: portfolio.php:703
+msgid "Purchase"
+msgstr ""
+
+# @ portfolio
+#: portfolio.php:708
+#, fuzzy
+msgid "Free plugins"
+msgstr "תוספים מומלצים"
+
+# @ portfolio
+#: portfolio.php:729
+msgid "Download"
+msgstr "הורד"
+
+# @ default
+#: portfolio.php:729
+#, php-format
+msgid "Install %s"
+msgstr "התקן %s"
+
+# @ portfolio
+#: portfolio.php:729
+msgid "Install now from wordpress.org"
+msgstr "התקן כעת מ wordpress.org"
+
+#: portfolio.php:733
+msgid "If you have any questions, please contact us via"
+msgstr ""
+
+# @ portfolio
+#: portfolio.php:767
+#: portfolio.php:926
+msgid "Date of completion:"
+msgstr "תאריך סיום"
+
+# @ portfolio
+#: portfolio.php:768
+#: portfolio.php:927
+msgid "Link:"
+msgstr "קישור"
+
+# @ portfolio
+#: portfolio.php:769
+#: portfolio.php:928
+msgid "Short description:"
+msgstr "תיאור קצר"
+
+# @ portfolio
+#: portfolio.php:770
+#: portfolio.php:929
+msgid "Description:"
+msgstr "תיאור"
+
+#: portfolio.php:771
+#: portfolio.php:930
+msgid "SVN:"
+msgstr "SVN:"
+
+# @ portfolio
+#: portfolio.php:772
+#: portfolio.php:931
+#, fuzzy
+msgid "Executor Profile:"
+msgstr "פרופיל"
+
+# @ portfolio
+#: portfolio.php:773
+#: portfolio.php:932
+msgid "More screenshots:"
+msgstr "עוד צילומי מסך"
+
+# @ portfolio
+#: portfolio.php:774
+#: portfolio.php:933
+msgid "Technologies:"
+msgstr "טכנולוגיות"
+
+# @ portfolio
+#: portfolio.php:852
+#, fuzzy
+msgid "Settings saved."
+msgstr "האפשרויות נשמרו."
+
+# @ portfolio
+#: portfolio.php:863
+#, fuzzy
+msgid "Portfolio Settings"
+msgstr "אפשרויות פורטפוליו"
+
+#: portfolio.php:866
+msgid "If you would like to add the Latest Portfolio Items to your page or post, just copy and paste this shortcode into your post or page:"
+msgstr ""
+
+#: portfolio.php:866
+msgid "where count=3 is a number of posts to show up in the portfolio."
+msgstr ""
+
+#: portfolio.php:870
+msgid "The album cover size"
+msgstr ""
+
+# @ portfolio
+#: portfolio.php:872
+#: portfolio.php:880
+msgid "Image size name"
+msgstr "שם גודל התמונה"
+
+# @ portfolio
+#: portfolio.php:873
+#: portfolio.php:881
+msgid "Width (in px)"
+msgstr "רוחב (בפיקסלים)"
+
+# @ portfolio
+#: portfolio.php:874
+#: portfolio.php:882
+msgid "Height (in px)"
+msgstr "גובה (בפיקסלים)"
+
+# @ portfolio
+#: portfolio.php:878
+#, fuzzy
+msgid "Size of portfolio images"
+msgstr "גודל תמונת הפורטפוליו"
+
+# @ portfolio
+#: portfolio.php:886
+#, fuzzy
+msgid "WordPress will copy thumbnails with the specified dimensions when you upload a new image. It is necessary to click  the Update images button at the bottom of this page in order to generate new images and set new dimensions"
+msgstr "וורדפרס ייצור עותק של התמונה הממוזערת של הפוסט עם המידות שצוינו, כאשר אתה מעלה תמונה חדשה. זה הכרחי ללחוץ על כפתור עדכון תמונות בתחתית דף זה כדי לייצר תמונות חדשות בהתאם למידות החדשות "
+
+# @ portfolio
+#: portfolio.php:889
+#, fuzzy
+msgid "Sort portfolio by"
+msgstr "פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:891
+#, fuzzy
+msgid "portfolio id"
+msgstr "פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:892
+#, fuzzy
+msgid "portfolio title"
+msgstr "אפשרויות פורטפוליו"
+
+#: portfolio.php:893
+msgid "date"
+msgstr ""
+
+#: portfolio.php:894
+msgid "menu order"
+msgstr ""
+
+#: portfolio.php:895
+msgid "random"
+msgstr ""
+
+# @ portfolio
+#: portfolio.php:899
+#, fuzzy
+msgid "Portfolio sorting"
+msgstr "אפשרויות פורטפוליו"
+
+#: portfolio.php:901
+msgid "ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)"
+msgstr ""
+
+#: portfolio.php:902
+msgid "DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)"
+msgstr ""
+
+# @ portfolio
+#: portfolio.php:906
+#, fuzzy
+msgid "Number of images in the row"
+msgstr "מספר תמונות בשורה"
+
+# @ portfolio
+#: portfolio.php:912
+msgid "Display additional fields"
+msgstr "הצג שדות נוספים"
+
+#: portfolio.php:914
+msgid "Date"
+msgstr ""
+
+# @ portfolio
+#: portfolio.php:916
+msgid "Short Description"
+msgstr "תיאור קצר"
+
+# @ portfolio
+#: portfolio.php:917
+msgid "Description"
+msgstr "תיאור"
+
+# @ portfolio
+#: portfolio.php:919
+msgid "Executor"
+msgstr "מחולל"
+
+# @ portfolio
+#: portfolio.php:924
+msgid "Text for additional fields"
+msgstr ""
+
+# @ default
+#: portfolio.php:939
+msgid "Save Changes"
+msgstr "שמור שינויים"
+
+# @ portfolio
+#: portfolio.php:951
+#, fuzzy
+msgid "Change the way to store your post_meta information for portfolio"
+msgstr "עדכן את אופן אחסון מידע post_meta לפורטפוליו"
+
+# @ default
+#: portfolio.php:953
+msgid "Update All Info"
+msgstr "עדכן את כל המידע"
+
+# @ portfolio
+#: portfolio.php:958
+#, fuzzy
+msgid "Updating post_meta information..."
+msgstr "מעדכן מידע post_meta..."
+
+# @ portfolio
+#: portfolio.php:959
+#, fuzzy
+msgid "No portfolio item found"
+msgstr "לא נמצא אף פורטפוליו"
+
+# @ portfolio
+#: portfolio.php:960
+#, fuzzy
+msgid "All info is updated"
+msgstr "כל המידע עודכן."
+
+# @ portfolio
+#: portfolio.php:961
+#: portfolio.php:976
+msgid "Error."
+msgstr "שגיאה."
+
+# @ portfolio
+#: portfolio.php:966
+msgid "Update images for portfolio"
+msgstr "עדכן תמונות לפורטפוליו"
+
+# @ default
+#: portfolio.php:968
+msgid "Update images"
+msgstr "עדכן תמונות"
+
+# @ portfolio
+#: portfolio.php:973
+#, fuzzy
+msgid "Updating images..."
+msgstr "מעדכן תמונות..."
+
+# @ portfolio
+#: portfolio.php:974
+#, fuzzy
+msgid "No image found"
+msgstr "לא נמצאו תמונות."
+
+# @ portfolio
+#: portfolio.php:975
+#, fuzzy
+msgid "All images are updated"
+msgstr "כל התמונות עודכנו."
+
+# @ default
+#: portfolio.php:1110
+#: template/portfolio-post.php:155
+#: template/portfolio.php:138
+#, php-format
+msgid "View all posts in %s"
+msgstr "הצג את כל הפוסטים ב %s"
+
+# @ portfolio
+#: portfolio.php:1296
+#, fuzzy
+msgid "Image size not defined"
+msgstr "שם גודל התמונה"
+
+#: portfolio.php:1302
+msgid "Image size changes not defined"
+msgstr ""
+
+#: portfolio.php:1331
+#: portfolio.php:1334
+#: portfolio.php:1339
+msgid "Invalid path"
+msgstr ""
+
+# @ portfolio
+#, fuzzy
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill out the contact form on our website"
+#~ msgstr ""
+#~ "אם יש לך שאלות כלשהן, אנא צור עמנו קשר דרך plugin@bestwebsoft.com או "
+#~ "שתמלא את טופס יצירת הקשר באתר שלנו"
+
+# @ portfolio
+#~ msgid "URL of the SVN"
+#~ msgstr "כתובת URL של SVN"
+# @ portfolio
+#~ msgid "Executor Profiles "
+#~ msgstr "פרופילים "
+# @ portfolio
+#~ msgid "The size of the cover album for portfolio"
+#~ msgstr "גודל כריכת האלבום לפורטפוליו"
+# @ portfolio
+#, fuzzy
+#~ msgid "Portfolio order by"
+#~ msgstr "מידע פורטפוליו"
+
+# @ portfolio
+#, fuzzy
+#~ msgid "Portfolio order"
+#~ msgstr "מידע פורטפוליו"
+

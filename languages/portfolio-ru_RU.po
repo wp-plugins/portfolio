@@ -1,0 +1,556 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-27 13:11+0300\n"
+"PO-Revision-Date: 2013-05-27 13:12+0300\n"
+"Last-Translator: \n"
+"Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: portfolio.php:105
+#: portfolio.php:856
+msgid "The files \"portfolio.php\" and \"portfolio-post.php\" are not found in your theme directory. Please copy them from the directory `wp-content/plugins/portfolio/template/` to your theme directory for correct work of the Portfolio plugin"
+msgstr "Следующие файлы \"portfolio.php \" и \"портфолио-post.php \" не найдены в каталоге вашей темы. Пожалуйста, скопируйте их из каталога `/ wp-content/plugins/portfolio/template /` в каталог с вашей темой для корректной работы плагина Портфолио"
+
+#: portfolio.php:136
+msgid "Short description"
+msgstr "Краткое описание"
+
+#: portfolio.php:136
+msgid "A short description which you'd like to be displayed on your portfolio page"
+msgstr "Краткое описание для Портфолио, которые вы бы хотели видеть на странице Портфолио"
+
+#: portfolio.php:137
+msgid "Date of completion"
+msgstr "Дата окончания выполнения"
+
+#: portfolio.php:137
+msgid "The date when the task was completed"
+msgstr "Дата, когда задание было закончено"
+
+#: portfolio.php:138
+#: portfolio.php:915
+msgid "Link"
+msgstr "Ссылка"
+
+#: portfolio.php:138
+msgid "A link to the site"
+msgstr "Ссылка на сайт"
+
+#: portfolio.php:139
+#: portfolio.php:918
+msgid "SVN"
+msgstr "SVN"
+
+#: portfolio.php:139
+msgid "SVN URL"
+msgstr "Путь для SVN"
+
+#: portfolio.php:154
+#: portfolio.php:155
+#: portfolio.php:741
+msgid "Portfolio"
+msgstr "Портфолио"
+
+#: portfolio.php:156
+msgid "Add New"
+msgstr "Добавить Портфолио"
+
+#: portfolio.php:157
+msgid "Add New Portfolio"
+msgstr "Добавить новое Портфолио"
+
+#: portfolio.php:158
+msgid "Edit"
+msgstr "Редактировать"
+
+#: portfolio.php:159
+msgid "Edit Portfolio"
+msgstr "Редактировать Портфолио"
+
+#: portfolio.php:160
+msgid "New Portfolio"
+msgstr "Новое Портфолио"
+
+#: portfolio.php:161
+#: portfolio.php:162
+msgid "View Portfolio"
+msgstr "Просмотреть Портфолио"
+
+#: portfolio.php:163
+msgid "Search Portfolio"
+msgstr "Поиск Портфолио"
+
+#: portfolio.php:164
+msgid "No portfolio found"
+msgstr "Ни одного Портфолио не найдено"
+
+#: portfolio.php:165
+msgid "No portfolio found in Trash"
+msgstr "Ни одного Портфолио в корзине не найдено"
+
+#: portfolio.php:166
+msgid "Parent Portfolio"
+msgstr "Родительское Портфолио"
+
+#: portfolio.php:168
+msgid "Create a portfolio item"
+msgstr "Создать Портфолио"
+
+#: portfolio.php:200
+msgid "Executor Profiles"
+msgstr "Профили исполнителей"
+
+#: portfolio.php:201
+msgid "Executor Profile"
+msgstr "Профиль исполнителя"
+
+#: portfolio.php:202
+msgid "Search Executor Profiles"
+msgstr "Поиск по Профилю исполнителя"
+
+#: portfolio.php:203
+msgid "Popular Executor Profiles"
+msgstr "Популярные Профили исполнителей"
+
+#: portfolio.php:204
+msgid "All Executor Profiles"
+msgstr "Все Профили исполнителей"
+
+#: portfolio.php:205
+msgid "Parent Executor Profile"
+msgstr "Родительский Профиль исполнителя"
+
+#: portfolio.php:206
+msgid "Parent Executor Profile:"
+msgstr "Родительский Профиль исполнителя:"
+
+#: portfolio.php:207
+msgid "Edit Executor Profile"
+msgstr "Редактировать Профиль исполнителя"
+
+#: portfolio.php:208
+msgid "Update Executor Profile"
+msgstr "Обновить Профиль исполнителя"
+
+#: portfolio.php:209
+msgid "Add New Executor Profile"
+msgstr "Добавить новый профиль исполнителя"
+
+#: portfolio.php:210
+msgid "New Executor Name"
+msgstr "Имя нового Исполнителя"
+
+#: portfolio.php:211
+msgid "Separate Executor Profiles with commas"
+msgstr "Разделяйте Профили исполнителей запятыми"
+
+#: portfolio.php:212
+msgid "Add or remove Executor Profile"
+msgstr "Добавить или удалить Профиль исполнителя"
+
+#: portfolio.php:213
+msgid "Choose from the most used Executor Profiles"
+msgstr "Выберите Профиль исполнителя из наиболее используемых"
+
+#: portfolio.php:214
+msgid "Executors"
+msgstr "Исполнители"
+
+#: portfolio.php:230
+#: portfolio.php:244
+#: portfolio.php:271
+#: portfolio.php:279
+#: portfolio.php:920
+#: portfolio.php:1105
+#: template/portfolio.php:13
+msgid "Technologies"
+msgstr "Технологии"
+
+#: portfolio.php:231
+msgid "Technology"
+msgstr "Технология"
+
+#: portfolio.php:232
+msgid "Search Technologies"
+msgstr "Поиск технологии"
+
+#: portfolio.php:233
+msgid "Popular Technologies"
+msgstr "Популярные Технологии"
+
+#: portfolio.php:234
+msgid "All Technologies"
+msgstr "Все Технологии"
+
+#: portfolio.php:235
+msgid "Parent Technology"
+msgstr "Родительская Технология"
+
+#: portfolio.php:236
+msgid "Parent Technology:"
+msgstr "Родительская Технология:"
+
+#: portfolio.php:237
+msgid "Edit Technology"
+msgstr "Редактировать Технологию"
+
+#: portfolio.php:238
+msgid "Update Technology"
+msgstr "Обновить Технологию"
+
+#: portfolio.php:239
+msgid "Add New Technology"
+msgstr "Добавить новую Технологию"
+
+#: portfolio.php:240
+msgid "New Technology Name"
+msgstr "Название новой Технологии"
+
+#: portfolio.php:241
+msgid "Separate Technologies with commas"
+msgstr "Разделяйте Технологии запятыми"
+
+#: portfolio.php:242
+msgid "Add or remove Technology"
+msgstr "Добавить или удалить Технологию"
+
+#: portfolio.php:243
+msgid "Choose from the most used technologies"
+msgstr "Выбрать из наиболее используемых технологий"
+
+#: portfolio.php:274
+msgid "Your most used portfolio technologies as a tag cloud"
+msgstr "Вы можете использовать Технологии Портфолио как облако тегов"
+
+#: portfolio.php:342
+msgid "Title"
+msgstr "Название"
+
+#: portfolio.php:409
+msgid "Portfolio Info"
+msgstr "Информация о Портфолио"
+
+#: portfolio.php:565
+#: portfolio.php:687
+#: portfolio.php:713
+#: portfolio.php:1011
+msgid "Settings"
+msgstr "Настройки"
+
+#: portfolio.php:566
+msgid "FAQ"
+msgstr "FAQ"
+
+#: portfolio.php:567
+msgid "Support"
+msgstr "Поддержка"
+
+#: portfolio.php:682
+msgid "Pro plugins"
+msgstr "Pro плагины"
+
+#: portfolio.php:685
+#: portfolio.php:711
+msgid "Activated plugins"
+msgstr "Активированные плагины"
+
+#: portfolio.php:687
+#: portfolio.php:695
+#: portfolio.php:703
+#: portfolio.php:713
+#: portfolio.php:721
+#: portfolio.php:729
+#: portfolio.php:1100
+#: template/portfolio.php:129
+msgid "Read more"
+msgstr "Подробнее..."
+
+#: portfolio.php:693
+#: portfolio.php:719
+msgid "Installed plugins"
+msgstr "Установленные плагины"
+
+#: portfolio.php:701
+#: portfolio.php:727
+msgid "Recommended plugins"
+msgstr "Рекомендованные к установке плагины"
+
+#: portfolio.php:703
+msgid "Purchase"
+msgstr "Купить"
+
+#: portfolio.php:708
+msgid "Free plugins"
+msgstr "Бесплатные плагины"
+
+#: portfolio.php:729
+msgid "Download"
+msgstr "Скачать"
+
+#: portfolio.php:729
+#, php-format
+msgid "Install %s"
+msgstr "Установлено %s"
+
+#: portfolio.php:729
+msgid "Install now from wordpress.org"
+msgstr "Установить с wordpress.org"
+
+#: portfolio.php:733
+msgid "If you have any questions, please contact us via"
+msgstr "Если у вас есть какие-то вопросы, обращайтесь на"
+
+#: portfolio.php:767
+#: portfolio.php:926
+msgid "Date of completion:"
+msgstr "Дата окончания выполнения:"
+
+#: portfolio.php:768
+#: portfolio.php:927
+msgid "Link:"
+msgstr "Ссылка:"
+
+#: portfolio.php:769
+#: portfolio.php:928
+msgid "Short description:"
+msgstr "Краткое описание:"
+
+#: portfolio.php:770
+#: portfolio.php:929
+msgid "Description:"
+msgstr "Описание:"
+
+#: portfolio.php:771
+#: portfolio.php:930
+msgid "SVN:"
+msgstr "SVN:"
+
+#: portfolio.php:772
+#: portfolio.php:931
+msgid "Executor Profile:"
+msgstr "Профайл исполнителя:"
+
+#: portfolio.php:773
+#: portfolio.php:932
+msgid "More screenshots:"
+msgstr "Больше скриншотов:"
+
+#: portfolio.php:774
+#: portfolio.php:933
+msgid "Technologies:"
+msgstr "Технологии:"
+
+#: portfolio.php:852
+msgid "Settings saved."
+msgstr "Опции сохранены."
+
+#: portfolio.php:863
+msgid "Portfolio Settings"
+msgstr "Настройки Портфолио"
+
+#: portfolio.php:866
+msgid "If you would like to add the Latest Portfolio Items to your page or post, just copy and paste this shortcode into your post or page:"
+msgstr "Если вы хотели бы добавить Последние Портфолио на вашу страницу или пост, просто скопируйте и поместить этот шорткод в контент вашего поста или страницы:"
+
+#: portfolio.php:866
+msgid "where count=3 is a number of posts to show up in the portfolio."
+msgstr "где count=3 - количество постов портфолио которое будет отображаться."
+
+#: portfolio.php:870
+msgid "The album cover size"
+msgstr "Размер обложки альбома для Портфолио"
+
+#: portfolio.php:872
+#: portfolio.php:880
+msgid "Image size name"
+msgstr "Название размера изображения"
+
+#: portfolio.php:873
+#: portfolio.php:881
+msgid "Width (in px)"
+msgstr "Ширина (в пикселях)"
+
+#: portfolio.php:874
+#: portfolio.php:882
+msgid "Height (in px)"
+msgstr "Высота (в пикселях)"
+
+#: portfolio.php:878
+msgid "Size of portfolio images"
+msgstr "Размер для изображений в Портфолио"
+
+#: portfolio.php:886
+msgid "WordPress will copy thumbnails with the specified dimensions when you upload a new image. It is necessary to click  the Update images button at the bottom of this page in order to generate new images and set new dimensions"
+msgstr "WordPress создаст копию миниатюр с заданными размерами при загрузке нового изображения."
+
+#: portfolio.php:889
+msgid "Sort portfolio by"
+msgstr "Сортировака Портфолио по"
+
+#: portfolio.php:891
+msgid "portfolio id"
+msgstr "портфолио id"
+
+#: portfolio.php:892
+msgid "portfolio title"
+msgstr "названию портфолио"
+
+#: portfolio.php:893
+msgid "date"
+msgstr "дата"
+
+#: portfolio.php:894
+msgid "menu order"
+msgstr "menu order"
+
+#: portfolio.php:895
+msgid "random"
+msgstr "в любом порядке"
+
+#: portfolio.php:899
+msgid "Portfolio sorting"
+msgstr "Сортировка портфолио"
+
+#: portfolio.php:901
+msgid "ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)"
+msgstr "ASC (в порядке возрастания от наименьшего до наибольшего значения - 1, 2, 3, а, б, в)"
+
+#: portfolio.php:902
+msgid "DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)"
+msgstr "ASC (в порядке убывания от наибольшего до наименьшего значения - 3, 2, 1; c, b, a)"
+
+#: portfolio.php:906
+msgid "Number of images in the row"
+msgstr "Количетсво изображений в строке"
+
+#: portfolio.php:912
+msgid "Display additional fields"
+msgstr "Отображать дополнительные поля"
+
+#: portfolio.php:914
+msgid "Date"
+msgstr "Дата"
+
+#: portfolio.php:916
+msgid "Short Description"
+msgstr "Краткое описание:"
+
+#: portfolio.php:917
+msgid "Description"
+msgstr "Описание"
+
+#: portfolio.php:919
+msgid "Executor"
+msgstr "Профиль исполнителя"
+
+#: portfolio.php:924
+msgid "Text for additional fields"
+msgstr "Текст для дополнительных полей"
+
+#: portfolio.php:939
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: portfolio.php:951
+msgid "Change the way to store your post_meta information for portfolio"
+msgstr "Обновить способ хранения post_meta информации для портфолио"
+
+#: portfolio.php:953
+msgid "Update All Info"
+msgstr "Обновить всю информацию"
+
+#: portfolio.php:958
+msgid "Updating post_meta information..."
+msgstr "Обновляется post_meta информация..."
+
+#: portfolio.php:959
+msgid "No portfolio item found"
+msgstr "Ни одного Портфолио не найдено"
+
+#: portfolio.php:960
+msgid "All info is updated"
+msgstr "Вся информация обновлена"
+
+#: portfolio.php:961
+#: portfolio.php:976
+msgid "Error."
+msgstr "Ошибка."
+
+#: portfolio.php:966
+msgid "Update images for portfolio"
+msgstr "Размер для изображений в Портфолио"
+
+#: portfolio.php:968
+msgid "Update images"
+msgstr "Обновить изображения"
+
+#: portfolio.php:973
+msgid "Updating images..."
+msgstr "Обновление изображений..."
+
+#: portfolio.php:974
+msgid "No image found"
+msgstr "Никаких изображений не найдено"
+
+#: portfolio.php:975
+msgid "All images are updated"
+msgstr "Все изображения были обновлены"
+
+#: portfolio.php:1110
+#: template/portfolio-post.php:155
+#: template/portfolio.php:138
+#, php-format
+msgid "View all posts in %s"
+msgstr "Посмотреть все посты в %s"
+
+#: portfolio.php:1296
+msgid "Image size not defined"
+msgstr "Невозможно определить размер изображения"
+
+#: portfolio.php:1302
+msgid "Image size changes not defined"
+msgstr "Не удалось вычислить изменения размеров изображения"
+
+#: portfolio.php:1331
+#: portfolio.php:1334
+#: portfolio.php:1339
+msgid "Invalid path"
+msgstr "Путь к изображению для редактирования некорректный"
+
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill out the contact form on our website"
+#~ msgstr ""
+#~ "Если у вас есть какие-то впросы, обращайтесь на plugin@bestwebsoft.com "
+#~ "или заполните контактную форму на нашем сайте"
+#~ msgid "URL of the SVN"
+#~ msgstr "Путь для SVN"
+#~ msgid "Executor Profiles "
+#~ msgstr "Исполнители"
+#~ msgid "The size of the cover album for portfolio"
+#~ msgstr "Размер обложки альбома для Портфолио"
+#~ msgid "Portfolio order by"
+#~ msgstr "Сортировака Портфолио по"
+#~ msgid "Portfolio order"
+#~ msgstr "сортировка портфолио"
+#~ msgid "No informations found."
+#~ msgstr "Ни одного Портфолио не найдено"
+#~ msgid "Could not read image size"
+#~ msgstr "Невозможно определить размер изображения."
+#~ msgid "Could not calculate resized image dimensions"
+#~ msgstr "Не удалось вычислить изменения размеров изображения"
+#~ msgid "Resize path invalid"
+#~ msgstr "Путь к изображению для редактирования некорректный"
+#~ msgid "Style for lightbox"
+#~ msgstr "Стили для лайтбокса"
+
