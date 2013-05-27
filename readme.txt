@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 2.12
+Stable tag: 2.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ With the Portfolio plugin you can create a unique page for displaying portfolio 
 Moreover you can add not just one, but many screenshots to one portfolio item for better visual guidance. 
 
 <a href="http://wordpress.org/extend/plugins/portfolio/faq/" target="_blank">FAQ</a>
-<a href="http://bestwebsoft.com/plugin/portfolio-plugin/" target="_blank">Support</a>
+<a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 = Features =
 
@@ -41,7 +41,7 @@ Moreover you can add not just one, but many screenshots to one portfolio item fo
 * Spain (es_ES) (thanks to Grupo Gomariz, S.L. www.grupogomariz.com)
 * Ukrainian (uk) (thanks to Cmd Soft, www.cmd-soft.com)
 
-If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://bestwebsoft.com/" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
@@ -124,6 +124,10 @@ After that your theme will support thumbnails and the error will disappear.
 
 == Changelog ==
 
+= V2.13 - 27.05.2013 =
+* Bugfix : The error related to changing the name of the field '_prtfl_descr' to the field '_prtfl_short_descr' is fixed. 
+* Update : BWS plugins section is updated.
+
 = V2.12 - 12.04.2013 =
 * NEW : English language file is updated in the plugin.
 
@@ -188,6 +192,9 @@ After that your theme will support thumbnails and the error will disappear.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.13 =
+The error related to changing the name of the field '_prtfl_descr' to the field '_prtfl_short_descr' is fixed. BWS plugins section is updated.
 
 = V2.12 =
 English language file is updated in the plugin.

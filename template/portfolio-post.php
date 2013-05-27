@@ -42,7 +42,7 @@ get_header(); ?>
 								}
 								$link					= $post_meta['_prtfl_link'];
 								$short_descr	= $post_meta['_prtfl_short_descr'];
-								$full_descr		= $post->post_content != "" ? $post->post_content : $post_meta['_prtfl_descr'];
+								$full_descr		= $post->post_content != "" ? $post->post_content : $post_meta['_prtfl_short_descr'];
 								$svn					= $post_meta['_prtfl_svn'];
 							}
 							else{
@@ -53,7 +53,7 @@ get_header(); ?>
 								}
 								$link					= get_post_meta($post->ID, '_prtfl_link', true);
 								$short_descr	= get_post_meta($post->ID, '_prtfl_short_descr', true); 
-								$full_descr		= $post->post_content != "" ? $post->post_content : get_post_meta($post->ID, '_prtfl_descr', true);
+								$full_descr		= $post->post_content != "" ? $post->post_content : get_post_meta($post->ID, '_prtfl_short_descr', true);
 								$svn					= get_post_meta($post->ID, '_prtfl_svn', true);
 							} ?>
 
