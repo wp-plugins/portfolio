@@ -855,6 +855,12 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 			$prtfl_request_options["prtfl_slug"] = trim(preg_replace("/[\s-]+/", " ", $prtfl_request_options["prtfl_slug"]));
 			$prtfl_request_options["prtfl_slug"] = preg_replace("/\s/", "-", $prtfl_request_options["prtfl_slug"]);
 
+			// for revrite prtfl_slug			
+			global $wp_rewrite;
+			$rules = get_option( 'rewrite_rules' );
+			prtfl_custom_permalinks( $rules );
+			$wp_rewrite->flush_rules();
+
 			// array merge incase this version has added new options
 			$prtfl_options = array_merge( $prtfl_options, $prtfl_request_options );
 
