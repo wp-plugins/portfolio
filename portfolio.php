@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Portfolio
- * @version 2.13
+ * @version 2.14
  */
 /*
 Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.13
+Version: 2.14
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -145,25 +145,27 @@ if ( ! function_exists ( 'prtfl_plugin_init' ) ) {
 // Create post type for portfolio
 if( ! function_exists( 'prtfl_post_type_portfolio' ) ) {
 	function prtfl_post_type_portfolio() {
+		global $wpdb;
 		prtfl_replace_old_post_tag();
-
+		$options = get_site_option( 'prtfl_options' );
+		$slug = isset( $options['prtfl_slug'] ) && ! empty( $options['prtfl_slug'] ) ? $options['prtfl_slug'] : 'portfolio';
 		register_post_type( 
 			'portfolio',
 			array( 
 				'labels' => array(
 					'name' => __( 'Portfolio', 'portfolio' ),
-					'singular_name' => __( 'Portfolio', 'portfolio' ),
-					'add_new'				=> __( 'Add New', 'portfolio' ),
-					'add_new_item'	=> __( 'Add New Portfolio', 'portfolio' ),
-					'edit'					=> __( 'Edit', 'portfolio' ),
+					'singular_name' 	=> __( 'Portfolio', 'portfolio' ),
+					'add_new'			=> __( 'Add New', 'portfolio' ),
+					'add_new_item'		=> __( 'Add New Portfolio', 'portfolio' ),
+					'edit'				=> __( 'Edit', 'portfolio' ),
 					'edit_item'			=> __( 'Edit Portfolio', 'portfolio' ),
 					'new_item'			=> __( 'New Portfolio', 'portfolio' ),
-					'view'					=> __( 'View Portfolio', 'portfolio' ),
+					'view'				=> __( 'View Portfolio', 'portfolio' ),
 					'view_item'			=> __( 'View Portfolio', 'portfolio' ),
-					'search_items'	=> __( 'Search Portfolio', 'portfolio' ),
+					'search_items'		=> __( 'Search Portfolio', 'portfolio' ),
 					'not_found'			=> __( 'No portfolio found', 'portfolio' ),
 					'not_found_in_trash' => __( 'No portfolio found in Trash', 'portfolio' ),
-					'parent'				=> __( 'Parent Portfolio', 'portfolio' ),
+					'parent'			=> __( 'Parent Portfolio', 'portfolio' ),
 				),
 				'description' => __( 'Create a portfolio item', 'portfolio' ), 
 				'public'	=> true,
@@ -174,6 +176,7 @@ if( ! function_exists( 'prtfl_post_type_portfolio' ) ) {
 				'hierarchical'	=> true,
 				'query_var'			=> true,
 				'register_meta_box_cb' => 'prtfl_init_metaboxes',
+				'rewrite'		=> array( 'slug' => $slug ),
 				'supports' => array (
 					'title', //Text input field to create a post title.
 					'editor',
@@ -679,7 +682,7 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
 			<h2><?php echo $title;?></h2>
-			<h3 style="color: red"><?php _e( 'Pro plugins', 'custom-searc' ); ?></h3>
+			<h3 style="color: blue"><?php _e( 'Pro plugins', 'custom-searc' ); ?></h3>
 			<?php if( 0 < $count_activate_pro ) { ?>
 			<div style="padding-left:15px;">
 				<h4><?php _e( 'Activated plugins', 'custom-searc' ); ?></h4>
@@ -753,26 +756,27 @@ if( ! function_exists( 'register_prtfl_settings' ) ) {
 		global $prtfl_options;
 
 		$prtfl_option_defaults = array(
-			'prtfl_custom_size_name'	=> array( 'portfolio-thumb', 'portfolio-photo-thumb' ),
-			'prtfl_custom_size_px'		=> array( array( 280, 300 ), array( 240, 260 ) ),
-			'prtfl_order_by' => 'menu_order',
-			'prtfl_order' => 'ASC',
-			'prtfl_custom_image_row_count'	=> 3,
-			'prtfl_date_additional_field' => 1,
-			'prtfl_link_additional_field' => 1,
+			'prtfl_custom_size_name'				=> array( 'portfolio-thumb', 'portfolio-photo-thumb' ),
+			'prtfl_custom_size_px'					=> array( array( 280, 300 ), array( 240, 260 ) ),
+			'prtfl_order_by' 						=> 'menu_order',
+			'prtfl_order' 							=> 'ASC',
+			'prtfl_custom_image_row_count'			=> 3,
+			'prtfl_date_additional_field' 			=> 1,
+			'prtfl_link_additional_field' 			=> 1,
 			'prtfl_shrdescription_additional_field' => 1,
-			'prtfl_description_additional_field' => 1,
-			'prtfl_svn_additional_field' => 1,
-			'prtfl_executor_additional_field' => 1,
-			'prtfl_technologies_additional_field' => 1,
-			'prtfl_date_text_field'												=> __( 'Date of completion:', 'portfolio' ),
-			'prtfl_link_text_field'												=> __( 'Link:', 'portfolio' ),
+			'prtfl_description_additional_field' 	=> 1,
+			'prtfl_svn_additional_field' 			=> 1,
+			'prtfl_executor_additional_field' 		=> 1,
+			'prtfl_technologies_additional_field'	=> 1,
+			'prtfl_date_text_field'					=> __( 'Date of completion:', 'portfolio' ),
+			'prtfl_link_text_field'					=> __( 'Link:', 'portfolio' ),
 			'prtfl_shrdescription_text_field'		=> __( 'Short description:', 'portfolio' ),
-			'prtfl_description_text_field'					=> __( 'Description:', 'portfolio' ),
-			'prtfl_svn_text_field'													=> __( 'SVN:', 'portfolio' ),
-			'prtfl_executor_text_field'								=> __( 'Executor Profile:', 'portfolio' ),
-			'prtfl_screenshot_text_field'						=> __( 'More screenshots:', 'portfolio' ),
-			'prtfl_technologies_text_field'				=> __( 'Technologies:', 'portfolio' )
+			'prtfl_description_text_field'			=> __( 'Description:', 'portfolio' ),
+			'prtfl_svn_text_field'					=> __( 'SVN:', 'portfolio' ),
+			'prtfl_executor_text_field'				=> __( 'Executor Profile:', 'portfolio' ),
+			'prtfl_screenshot_text_field'			=> __( 'More screenshots:', 'portfolio' ),
+			'prtfl_technologies_text_field'			=> __( 'Technologies:', 'portfolio' ),
+			'prtfl_slug' 							=> 'portfolio'
 		);
 
 		// install the option defaults
@@ -844,6 +848,12 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 			$prtfl_request_options["prtfl_executor_text_field"] = $_REQUEST["prtfl_executor_text_field"];
 			$prtfl_request_options["prtfl_screenshot_text_field"] = $_REQUEST["prtfl_screenshot_text_field"];
 			$prtfl_request_options["prtfl_technologies_text_field"] = $_REQUEST["prtfl_technologies_text_field"];
+
+			$prtfl_request_options["prtfl_slug"] = trim( $_REQUEST['prtfl_slug'] ); 
+			$prtfl_request_options["prtfl_slug"] = strtolower($prtfl_request_options["prtfl_slug"]);
+			$prtfl_request_options["prtfl_slug"] = preg_replace("/[^a-z0-9\s-]/", "", $prtfl_request_options["prtfl_slug"]);
+			$prtfl_request_options["prtfl_slug"] = trim(preg_replace("/[\s-]+/", " ", $prtfl_request_options["prtfl_slug"]));
+			$prtfl_request_options["prtfl_slug"] = preg_replace("/\s/", "-", $prtfl_request_options["prtfl_slug"]);
 
 			// array merge incase this version has added new options
 			$prtfl_options = array_merge( $prtfl_options, $prtfl_request_options );
@@ -932,6 +942,12 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 						<label for="prtfl_executor_text_field"><?php _e( 'Executor Profile:', 'portfolio' ); ?></label> <input type="text" name="prtfl_executor_text_field" value="<?php echo $prtfl_options["prtfl_executor_text_field"]; ?>" /><br />
 						<label for="prtfl_screenshot_text_field"><?php _e( 'More screenshots:', 'portfolio' ); ?></label> <input type="text" name="prtfl_screenshot_text_field" value="<?php echo $prtfl_options["prtfl_screenshot_text_field"]; ?>" /><br />
 						<label for="prtfl_technologies_text_field"><?php _e( 'Technologies:', 'portfolio' ); ?></label> <input type="text" name="prtfl_technologies_text_field" value="<?php echo $prtfl_options["prtfl_technologies_text_field"]; ?>" />
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Slug for portfolio item', 'portfolio' ); ?></th>
+					<td>
+						<input type="text" name="prtfl_slug" value="<?php echo $prtfl_options["prtfl_slug"]; ?>" /> <span style="color: #888888;font-size: 10px;"><?php _e( 'for any structure of permalinks except the default structure', 'portfolio' ); ?></span>
 					</td>
 				</tr>
 			</table>  

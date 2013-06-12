@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.5.1
-Stable tag: 2.13
+Stable tag: 2.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,6 +124,9 @@ After that your theme will support thumbnails and the error will disappear.
 
 == Changelog ==
 
+= V2.14 - 11.06.2013 =
+* NEW : Ability to change slug for portfolio item
+
 = V2.13 - 27.05.2013 =
 * Bugfix : The error related to changing the name of the field '_prtfl_descr' to the field '_prtfl_short_descr' is fixed. 
 * Update : BWS plugins section is updated.
@@ -192,6 +195,9 @@ After that your theme will support thumbnails and the error will disappear.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.14 =
+Ability to change slug for portfolio item
 
 = V2.13 =
 The error related to changing the name of the field '_prtfl_descr' to the field '_prtfl_short_descr' is fixed. BWS plugins section is updated.
