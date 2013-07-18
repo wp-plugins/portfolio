@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=13
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
-Tested up to: 3.5.1
-Stable tag: 2.14
+Tested up to: 3.5.2
+Stable tag: 2.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,7 +41,7 @@ Moreover you can add not just one, but many screenshots to one portfolio item fo
 * Spain (es_ES) (thanks to Grupo Gomariz, S.L. www.grupogomariz.com)
 * Ukrainian (uk) (thanks to Cmd Soft, www.cmd-soft.com)
 
-If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BWS</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
@@ -124,6 +124,10 @@ After that your theme will support thumbnails and the error will disappear.
 
 == Changelog ==
 
+= V2.15 - 18.07.2013 =
+* NEW : Added an ability to view and send system information by mail.
+* Update : We updated all functionality for wordpress 3.5.2.
+
 = V2.14 - 11.06.2013 =
 * NEW : Ability to change slug for portfolio item
 
@@ -195,6 +199,9 @@ After that your theme will support thumbnails and the error will disappear.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.15 =
+Added an ability to view and send system information by mail. We updated all functionality for wordpress 3.5.2.
 
 = V2.14 =
 Ability to change slug for portfolio item

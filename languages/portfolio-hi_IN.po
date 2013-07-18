@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: portfolio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-11 17:49+0300\n"
-"PO-Revision-Date: 2013-06-11 17:49+0300\n"
+"POT-Creation-Date: 2013-07-18 15:19+0300\n"
+"PO-Revision-Date: 2013-07-18 15:19+0300\n"
 "Last-Translator: \n"
 "Language-Team: Outshine Solutions <ash.pr@outshinesolutions.com>\n"
 "MIME-Version: 1.0\n"
@@ -16,22 +16,8 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: update_images.php:110
-msgid "Could not read image size"
-msgstr "छवि का आकार नहीं पढ़ सका"
-
-#: update_images.php:116
-msgid "Could not calculate resized image dimensions"
-msgstr "Resized छवि आयाम की गणना नहीं कर सका"
-
-#: update_images.php:145
-#: update_images.php:148
-#: update_images.php:153
-msgid "Resize path invalid"
-msgstr "अवैध पथ का आकार बदलें"
-
 #: portfolio.php:105
-#: portfolio.php:867
+#: portfolio.php:1084
 #, fuzzy
 msgid "The files \"portfolio.php\" and \"portfolio-post.php\" are not found in your theme directory. Please copy them from the directory `wp-content/plugins/portfolio/template/` to your theme directory for correct work of the Portfolio plugin"
 msgstr "निम्न फ़ाइलें  \"portfolio.php \" और \"पोर्टफोलियो post.php \" अपने विषय की निर्देशिका में नहीं पाए गए. उन्हें `wp-content/plugins/portfolio/template /  पोर्टफोलियो प्लगइन का सही काम के लिए अपने विषय की निर्देशिका में` निर्देशिका से कॉपी करें"
@@ -53,7 +39,7 @@ msgid "The date when the task was completed"
 msgstr "जब कार्य पूरा किया गया दिनांक"
 
 #: portfolio.php:138
-#: portfolio.php:926
+#: portfolio.php:1143
 msgid "Link"
 msgstr "लिंक"
 
@@ -62,7 +48,7 @@ msgid "A link to the site"
 msgstr "साइट के लिए एक लिंक"
 
 #: portfolio.php:139
-#: portfolio.php:929
+#: portfolio.php:1146
 msgid "SVN"
 msgstr "SVN"
 
@@ -73,7 +59,7 @@ msgstr "SVN"
 
 #: portfolio.php:156
 #: portfolio.php:157
-#: portfolio.php:745
+#: portfolio.php:956
 msgid "Portfolio"
 msgstr "पोर्टफोलियो"
 
@@ -190,8 +176,8 @@ msgstr "निष्पादक"
 #: portfolio.php:247
 #: portfolio.php:274
 #: portfolio.php:282
-#: portfolio.php:931
-#: portfolio.php:1122
+#: portfolio.php:1148
+#: portfolio.php:1339
 #: template/portfolio.php:13
 msgid "Technologies"
 msgstr "टेक्नोलॉजीज"
@@ -263,9 +249,9 @@ msgid "Portfolio Info"
 msgstr "पोर्टफोलियो की जानकारी"
 
 #: portfolio.php:568
-#: portfolio.php:690
-#: portfolio.php:716
-#: portfolio.php:1028
+#: portfolio.php:840
+#: portfolio.php:866
+#: portfolio.php:1245
 msgid "Settings"
 msgstr "Settings"
 
@@ -277,306 +263,482 @@ msgstr "अक्सर पूछे जाने वाले प्रश्�
 msgid "Support"
 msgstr "समर्थन"
 
-#: portfolio.php:685
+#: portfolio.php:691
+msgid "Not set"
+msgstr ""
+
+#: portfolio.php:693
+#: portfolio.php:697
+msgid "On"
+msgstr ""
+
+#: portfolio.php:695
+#: portfolio.php:699
+msgid "Off"
+msgstr ""
+
+#: portfolio.php:703
+#: portfolio.php:707
+#: portfolio.php:711
+#: portfolio.php:715
+#: portfolio.php:719
+#: portfolio.php:745
+msgid "N/A"
+msgstr ""
+
+#: portfolio.php:717
+msgid " Mb"
+msgstr ""
+
+#: portfolio.php:721
+#: portfolio.php:725
+#: portfolio.php:729
+#: portfolio.php:740
+msgid "Yes"
+msgstr ""
+
+#: portfolio.php:723
+#: portfolio.php:727
+#: portfolio.php:731
+#: portfolio.php:742
+msgid "No"
+msgstr ""
+
+#: portfolio.php:756
+msgid "Operating System"
+msgstr ""
+
+#: portfolio.php:757
+msgid "Server"
+msgstr ""
+
+#: portfolio.php:758
+msgid "Memory usage"
+msgstr ""
+
+#: portfolio.php:759
+msgid "MYSQL Version"
+msgstr ""
+
+#: portfolio.php:760
+msgid "SQL Mode"
+msgstr ""
+
+#: portfolio.php:761
+msgid "PHP Version"
+msgstr ""
+
+#: portfolio.php:762
+msgid "PHP Safe Mode"
+msgstr ""
+
+#: portfolio.php:763
+msgid "PHP Allow URL fopen"
+msgstr ""
+
+#: portfolio.php:764
+msgid "PHP Memory Limit"
+msgstr ""
+
+#: portfolio.php:765
+msgid "PHP Max Upload Size"
+msgstr ""
+
+#: portfolio.php:766
+msgid "PHP Max Post Size"
+msgstr ""
+
+#: portfolio.php:767
+msgid "PHP Max Script Execute Time"
+msgstr ""
+
+#: portfolio.php:768
+msgid "PHP Exif support"
+msgstr ""
+
+#: portfolio.php:769
+msgid "PHP IPTC support"
+msgstr ""
+
+#: portfolio.php:770
+msgid "PHP XML support"
+msgstr ""
+
+#: portfolio.php:771
+#, fuzzy
+msgid "Site URL"
+msgstr "SVN"
+
+#: portfolio.php:772
+msgid "Home URL"
+msgstr ""
+
+#: portfolio.php:773
+msgid "WordPress Version"
+msgstr ""
+
+#: portfolio.php:774
+msgid "WordPress DB Version"
+msgstr ""
+
+#: portfolio.php:775
+msgid "Multisite"
+msgstr ""
+
+#: portfolio.php:776
+msgid "Active Theme"
+msgstr ""
+
+#: portfolio.php:791
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: portfolio.php:795
+msgid "Email with system info is sent to "
+msgstr ""
+
+#: portfolio.php:799
+msgid "Thank you for contacting us."
+msgstr ""
+
+#: portfolio.php:827
+msgid "Sorry, email message could not be delivered."
+msgstr ""
+
+#: portfolio.php:835
 #, fuzzy
 msgid "Pro plugins"
 msgstr "अनुशंसित प्लगिन"
 
-#: portfolio.php:688
-#: portfolio.php:714
+#: portfolio.php:838
+#: portfolio.php:864
 msgid "Activated plugins"
 msgstr "सक्रिय प्लगिन"
 
-#: portfolio.php:690
-#: portfolio.php:698
-#: portfolio.php:706
-#: portfolio.php:716
-#: portfolio.php:724
-#: portfolio.php:732
-#: portfolio.php:1117
+#: portfolio.php:840
+#: portfolio.php:848
+#: portfolio.php:856
+#: portfolio.php:866
+#: portfolio.php:874
+#: portfolio.php:882
+#: portfolio.php:1334
 #: template/portfolio.php:129
 msgid "Read more"
 msgstr "और अधिक पढ़ें"
 
-#: portfolio.php:696
-#: portfolio.php:722
+#: portfolio.php:846
+#: portfolio.php:872
 msgid "Installed plugins"
 msgstr "स्थापित plugins"
 
-#: portfolio.php:704
-#: portfolio.php:730
+#: portfolio.php:854
+#: portfolio.php:880
 msgid "Recommended plugins"
 msgstr "अनुशंसित प्लगिन"
 
-#: portfolio.php:706
+#: portfolio.php:856
 msgid "Purchase"
 msgstr ""
 
-#: portfolio.php:711
+#: portfolio.php:861
 #, fuzzy
 msgid "Free plugins"
 msgstr "अनुशंसित प्लगिन"
 
-#: portfolio.php:732
+#: portfolio.php:882
 msgid "Download"
 msgstr "डाउनलोड"
 
-#: portfolio.php:732
+#: portfolio.php:882
 #, php-format
 msgid "Install %s"
 msgstr "स्थापित%s"
 
-#: portfolio.php:732
+#: portfolio.php:882
 msgid "Install now from wordpress.org"
 msgstr "Wordpress.org से अब स्थापित"
 
-#: portfolio.php:737
+#: portfolio.php:887
 msgid "If you have any questions, please contact us via"
 msgstr ""
 
-#: portfolio.php:771
-#: portfolio.php:937
+#: portfolio.php:894
+msgid "System status"
+msgstr ""
+
+#: portfolio.php:898
+msgid "Environment"
+msgstr ""
+
+#: portfolio.php:909
+#, fuzzy
+msgid "Active Plugins"
+msgstr "सक्रिय प्लगिन"
+
+#: portfolio.php:920
+#, fuzzy
+msgid "Inactive Plugins"
+msgstr "सक्रिय प्लगिन"
+
+#: portfolio.php:934
+#, fuzzy
+msgid "Send to support"
+msgstr "समर्थन"
+
+#: portfolio.php:941
+msgid "Send to custom email &#187;"
+msgstr ""
+
+#: portfolio.php:982
+#: portfolio.php:1154
 msgid "Date of completion:"
 msgstr "पूरा होने की तिथि"
 
-#: portfolio.php:772
-#: portfolio.php:938
+#: portfolio.php:983
+#: portfolio.php:1155
 msgid "Link:"
 msgstr "लिंक"
 
-#: portfolio.php:773
-#: portfolio.php:939
+#: portfolio.php:984
+#: portfolio.php:1156
 msgid "Short description:"
 msgstr "छोटा वर्णन"
 
-#: portfolio.php:774
-#: portfolio.php:940
+#: portfolio.php:985
+#: portfolio.php:1157
 msgid "Description:"
 msgstr "विवरण"
 
-#: portfolio.php:775
-#: portfolio.php:941
+#: portfolio.php:986
+#: portfolio.php:1158
 msgid "SVN:"
 msgstr "SVN:"
 
-#: portfolio.php:776
-#: portfolio.php:942
+#: portfolio.php:987
+#: portfolio.php:1159
 #, fuzzy
 msgid "Executor Profile:"
 msgstr "executors प्रोफ़ाइल"
 
-#: portfolio.php:777
-#: portfolio.php:943
+#: portfolio.php:988
+#: portfolio.php:1160
 msgid "More screenshots:"
 msgstr "अधिक स्क्रीनशॉट"
 
-#: portfolio.php:778
-#: portfolio.php:944
+#: portfolio.php:989
+#: portfolio.php:1161
 msgid "Technologies:"
 msgstr "टेक्नोलॉजीज"
 
-#: portfolio.php:863
+#: portfolio.php:1080
 #, fuzzy
 msgid "Settings saved."
 msgstr "विकल्प बचाया."
 
-#: portfolio.php:874
+#: portfolio.php:1091
 #, fuzzy
 msgid "Portfolio Settings"
 msgstr "पोर्टफोलियो विकल्प"
 
-#: portfolio.php:877
+#: portfolio.php:1094
 msgid "If you would like to add the Latest Portfolio Items to your page or post, just copy and paste this shortcode into your post or page:"
 msgstr ""
 
-#: portfolio.php:877
+#: portfolio.php:1094
 msgid "where count=3 is a number of posts to show up in the portfolio."
 msgstr ""
 
-#: portfolio.php:881
+#: portfolio.php:1098
 msgid "The album cover size"
 msgstr ""
 
-#: portfolio.php:883
-#: portfolio.php:891
+#: portfolio.php:1100
+#: portfolio.php:1108
 msgid "Image size name"
 msgstr "छवि आकार नाम"
 
-#: portfolio.php:884
-#: portfolio.php:892
+#: portfolio.php:1101
+#: portfolio.php:1109
 msgid "Width (in px)"
 msgstr "चौड़ाई (पिक्सेल में)"
 
-#: portfolio.php:885
-#: portfolio.php:893
+#: portfolio.php:1102
+#: portfolio.php:1110
 msgid "Height (in px)"
 msgstr "ऊँचाई (पिक्सेल में)"
 
-#: portfolio.php:889
+#: portfolio.php:1106
 #, fuzzy
 msgid "Size of portfolio images"
 msgstr "पोर्टफोलियो छवि के लिए आकार"
 
-#: portfolio.php:897
+#: portfolio.php:1114
 #, fuzzy
 msgid "WordPress will copy thumbnails with the specified dimensions when you upload a new image. It is necessary to click  the Update images button at the bottom of this page in order to generate new images and set new dimensions"
 msgstr "WordPress के निर्दिष्ट आयामों के साथ पोस्ट थंबनेल की एक प्रतिलिपि बनाने के लिए जब आप एक नया फोटो अपलोड करेंगे. यह आवश्यक है नए आयाम के अनुसार इस पृष्ठ के नीचे के क्रम में नई छवियों को उत्पन्न बटन अपडेट करें छवियों पर क्लिक करें"
 
-#: portfolio.php:900
+#: portfolio.php:1117
 #, fuzzy
 msgid "Sort portfolio by"
 msgstr "पोर्टफोलियो"
 
-#: portfolio.php:902
+#: portfolio.php:1119
 #, fuzzy
 msgid "portfolio id"
 msgstr "पोर्टफोलियो"
 
-#: portfolio.php:903
+#: portfolio.php:1120
 #, fuzzy
 msgid "portfolio title"
 msgstr "पोर्टफोलियो विकल्प"
 
-#: portfolio.php:904
+#: portfolio.php:1121
 msgid "date"
 msgstr ""
 
-#: portfolio.php:905
+#: portfolio.php:1122
 msgid "menu order"
 msgstr ""
 
-#: portfolio.php:906
+#: portfolio.php:1123
 msgid "random"
 msgstr ""
 
-#: portfolio.php:910
+#: portfolio.php:1127
 #, fuzzy
 msgid "Portfolio sorting"
 msgstr "पोर्टफोलियो विकल्प"
 
-#: portfolio.php:912
+#: portfolio.php:1129
 msgid "ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)"
 msgstr ""
 
-#: portfolio.php:913
+#: portfolio.php:1130
 msgid "DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)"
 msgstr ""
 
-#: portfolio.php:917
+#: portfolio.php:1134
 #, fuzzy
 msgid "Number of images in the row"
 msgstr "पंक्ति में छवियों गिनती"
 
-#: portfolio.php:923
+#: portfolio.php:1140
 msgid "Display additional fields"
 msgstr "अतिरिक्त फ़ील्ड्स प्रदर्शित करना"
 
-#: portfolio.php:925
+#: portfolio.php:1142
 msgid "Date"
 msgstr ""
 
-#: portfolio.php:927
+#: portfolio.php:1144
 msgid "Short Description"
 msgstr "छोटा वर्णन"
 
-#: portfolio.php:928
+#: portfolio.php:1145
 msgid "Description"
 msgstr "विवरण"
 
-#: portfolio.php:930
+#: portfolio.php:1147
 msgid "Executor"
 msgstr "निष्पादक"
 
-#: portfolio.php:935
+#: portfolio.php:1152
 msgid "Text for additional fields"
 msgstr ""
 
-#: portfolio.php:948
+#: portfolio.php:1165
 #, fuzzy
 msgid "Slug for portfolio item"
 msgstr "पोर्टफोलियो"
 
-#: portfolio.php:950
-msgid "for any structure of permalinks except the default sctructure"
+#: portfolio.php:1167
+msgid "for any structure of permalinks except the default structure"
 msgstr ""
 
-#: portfolio.php:956
+#: portfolio.php:1173
 msgid "Save Changes"
 msgstr "परिवर्तन सहेजें"
 
-#: portfolio.php:968
+#: portfolio.php:1185
 #, fuzzy
 msgid "Change the way to store your post_meta information for portfolio"
 msgstr "जिस तरह से भंडारण अपडेट करें आपके पोर्टफोलियो के लिए post_meta जानकारी"
 
-#: portfolio.php:970
+#: portfolio.php:1187
 msgid "Update All Info"
 msgstr "सभी जानकारी को अपडेट करें"
 
-#: portfolio.php:975
+#: portfolio.php:1192
 #, fuzzy
 msgid "Updating post_meta information..."
 msgstr "अपडेट करें post_meta जानकारी ..."
 
-#: portfolio.php:976
+#: portfolio.php:1193
 #, fuzzy
 msgid "No portfolio item found"
 msgstr "पोर्टफोलियो नहीं मिला"
 
-#: portfolio.php:977
+#: portfolio.php:1194
 #, fuzzy
 msgid "All info is updated"
 msgstr "सभी जानकारी को अपडेट किया गया."
 
-#: portfolio.php:978
-#: portfolio.php:993
+#: portfolio.php:1195
+#: portfolio.php:1210
 msgid "Error."
 msgstr "त्रुटि."
 
-#: portfolio.php:983
+#: portfolio.php:1200
 msgid "Update images for portfolio"
 msgstr "पोर्टफोलियो के लिए छवियों को अपडेट करें"
 
-#: portfolio.php:985
+#: portfolio.php:1202
 msgid "Update images"
 msgstr "छवियों अपडेट करें"
 
-#: portfolio.php:990
+#: portfolio.php:1207
 #, fuzzy
 msgid "Updating images..."
 msgstr "छवियों अपडेट करें ..."
 
-#: portfolio.php:991
+#: portfolio.php:1208
 #, fuzzy
 msgid "No image found"
 msgstr "कोई छवियां नहीं मिलीं."
 
-#: portfolio.php:992
+#: portfolio.php:1209
 #, fuzzy
 msgid "All images are updated"
 msgstr "सभी छवियों को अपडेट किया गया."
 
-#: portfolio.php:1127
+#: portfolio.php:1344
 #: template/portfolio-post.php:155
 #: template/portfolio.php:138
 #, php-format
 msgid "View all posts in %s"
 msgstr "सभी प्रविष्टियाँ देखें%s"
 
-#: portfolio.php:1313
+#: portfolio.php:1533
 #, fuzzy
 msgid "Image size not defined"
 msgstr "छवि आकार नाम"
 
-#: portfolio.php:1319
+#: portfolio.php:1539
 msgid "Image size changes not defined"
 msgstr ""
 
-#: portfolio.php:1348
-#: portfolio.php:1351
-#: portfolio.php:1356
+#: portfolio.php:1568
+#: portfolio.php:1571
+#: portfolio.php:1576
 msgid "Invalid path"
 msgstr ""
+
+#~ msgid "Could not read image size"
+#~ msgstr "छवि का आकार नहीं पढ़ सका"
+#~ msgid "Could not calculate resized image dimensions"
+#~ msgstr "Resized छवि आयाम की गणना नहीं कर सका"
+#~ msgid "Resize path invalid"
+#~ msgstr "अवैध पथ का आकार बदलें"
 
 #, fuzzy
 #~ msgid ""
