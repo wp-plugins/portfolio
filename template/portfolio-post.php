@@ -69,15 +69,16 @@ get_header(); ?>
 										</p>
 								<?php }
 								$user_id = get_current_user_id();
-								if( 1 == $portfolio_options['prtfl_link_additional_field'] ) { ?>
-										<?php if ( $user_id == 0 ) { ?>
-												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <?php echo $link; ?></p>
-										<?php }
-										else if( parse_url( $link ) !== false ) { ?>
-												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
+								if ( 1 == $portfolio_options['prtfl_link_additional_field'] ) {
+									if( parse_url( $link ) !== false ) { ?>
+										<?php if ( ( $user_id == 0 && 0 == $portfolio_options['prtfl_link_additional_field_for_non_registered'] ) || $user_id != 0 ) { ?>
+											<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
 										<?php } else { ?>
-												<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <?php echo $link; ?></p>
-										<?php } ?>
+											<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <?php echo $link; ?></p>
+										<?php } ?>										
+									<?php } else { ?>
+											<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <?php echo $link; ?></p>
+									<?php } ?>
 								<?php }
 								if( 1 == $portfolio_options['prtfl_description_additional_field'] ) { ?>
 										<p><span class="lable"><?php echo $portfolio_options['prtfl_description_text_field']; ?></span> <?php echo str_replace("\n", "<br />", $full_descr); ?></p>

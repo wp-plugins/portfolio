@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Portfolio
- * @version 2.15
+ * @version 2.16
  */
 /*
 Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.15
+Version: 2.16
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -387,23 +387,26 @@ if( ! function_exists( 'prtfl_widget_portfolio_technologies_update' ) ) {
 // Create custom permalinks for portfolio post type
 if( ! function_exists( 'prtfl_custom_permalinks' ) ) {
 	function prtfl_custom_permalinks( $rules ) {
- 	$newrules = array();
-		$newrules['portfolio/page/([^/]+)/?$'] = 'index.php?pagename=portfolio&paged=$matches[1]';
-		$newrules['portfolio/page/([^/]+)?$'] = 'index.php?pagename=portfolio&paged=$matches[1]';
-  return $newrules + $rules;
+	 	$newrules = array();
+			$newrules['portfolio/page/([^/]+)/?$'] = 'index.php?pagename=portfolio&paged=$matches[1]';
+			$newrules['portfolio/page/([^/]+)?$'] = 'index.php?pagename=portfolio&paged=$matches[1]';
+		// return $newrules + $rules;
+		if ( $rules ) {
+			return array_merge( $newrules, $rules );
+		}	
 	}
 }
 
 // flush_rules() if our rules are not yet included
 if ( ! function_exists( 'prtfl_flush_rules' ) ) {
-		function prtfl_flush_rules(){
-				$rules = get_option( 'rewrite_rules' );
+	function prtfl_flush_rules(){
+		$rules = get_option( 'rewrite_rules' );
 
-				if ( ! isset( $rules['portfolio/page/([^/]+)/?$'] ) ) {
-						global $wp_rewrite;
-						$wp_rewrite->flush_rules();
-				}
+		if ( ! isset( $rules['portfolio/page/([^/]+)/?$'] ) ) {
+				global $wp_rewrite;
+				$wp_rewrite->flush_rules();
 		}
+	}
 }
 
 // Initialization of all metaboxes on the 'Add Portfolio' and Edit Portfolio pages
@@ -979,6 +982,7 @@ if( ! function_exists( 'register_prtfl_settings' ) ) {
 			'prtfl_svn_additional_field' 			=> 1,
 			'prtfl_executor_additional_field' 		=> 1,
 			'prtfl_technologies_additional_field'	=> 1,
+			'prtfl_link_additional_field_for_non_registered'	=> 1,
 			'prtfl_date_text_field'					=> __( 'Date of completion:', 'portfolio' ),
 			'prtfl_link_text_field'					=> __( 'Link:', 'portfolio' ),
 			'prtfl_shrdescription_text_field'		=> __( 'Short description:', 'portfolio' ),
@@ -1051,6 +1055,8 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 			$prtfl_request_options["prtfl_executor_additional_field"] = isset( $_REQUEST["prtfl_executor_additional_field"] ) ? $_REQUEST["prtfl_executor_additional_field"] : 0;
 			$prtfl_request_options["prtfl_technologies_additional_field"] = isset( $_REQUEST["prtfl_technologies_additional_field"] ) ? $_REQUEST["prtfl_technologies_additional_field"] : 0;
 			
+			$prtfl_request_options["prtfl_link_additional_field_for_non_registered"] = isset( $_REQUEST["prtfl_link_additional_field_for_non_registered"] ) ? $_REQUEST["prtfl_link_additional_field_for_non_registered"] : 0;	
+
 			$prtfl_request_options["prtfl_date_text_field"] = $_REQUEST["prtfl_date_text_field"];
 			$prtfl_request_options["prtfl_link_text_field"] = $_REQUEST["prtfl_link_text_field"];
 			$prtfl_request_options["prtfl_shrdescription_text_field"] = $_REQUEST["prtfl_shrdescription_text_field"];
@@ -1139,13 +1145,19 @@ if( ! function_exists( 'prtfl_settings_page' ) ) {
 				<tr valign="top">
 					<th scope="row"><?php _e( 'Display additional fields', 'portfolio' ); ?> </th>
 					<td>
-					 <input type="checkbox" name="prtfl_date_additional_field" value="1" id="prtfl_date_additional_field" <?php if( 1 == $prtfl_options['prtfl_date_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_date_additional_field" style="float:none;"><?php _e( 'Date', 'portfolio' ); ?></label>
-					 <input type="checkbox" name="prtfl_link_additional_field" value="1" id="prtfl_link_additional_field" <?php if( 1 == $prtfl_options['prtfl_link_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_link_additional_field" style="float:none;"><?php _e( 'Link', 'portfolio' ); ?></label>
+						<input type="checkbox" name="prtfl_date_additional_field" value="1" id="prtfl_date_additional_field" <?php if( 1 == $prtfl_options['prtfl_date_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_date_additional_field" style="float:none;"><?php _e( 'Date', 'portfolio' ); ?></label>
+						<input type="checkbox" name="prtfl_link_additional_field" value="1" id="prtfl_link_additional_field" <?php if( 1 == $prtfl_options['prtfl_link_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_link_additional_field" style="float:none;"><?php _e( 'Link', 'portfolio' ); ?></label>
 						<input type="checkbox" name="prtfl_shrdescription_additional_field" value="1" id="prtfl_shrdescription_additional_field" <?php if( 1 == $prtfl_options['prtfl_shrdescription_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_shrdescription_additional_field" style="float:none;"><?php _e( 'Short Description', 'portfolio' ); ?></label>
-					 <input type="checkbox" name="prtfl_description_additional_field" value="1" id="prtfl_description_additional_field" <?php if( 1 == $prtfl_options['prtfl_description_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_description_additional_field" style="float:none;"><?php _e( 'Description', 'portfolio' ); ?></label>
+						<input type="checkbox" name="prtfl_description_additional_field" value="1" id="prtfl_description_additional_field" <?php if( 1 == $prtfl_options['prtfl_description_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_description_additional_field" style="float:none;"><?php _e( 'Description', 'portfolio' ); ?></label>
 						<input type="checkbox" name="prtfl_svn_additional_field" value="1" id="prtfl_svn_additional_field" <?php if( 1 == $prtfl_options['prtfl_svn_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_svn_additional_field" style="float:none;"><?php _e( 'SVN', 'portfolio' ); ?></label>
 						<input type="checkbox" name="prtfl_executor_additional_field" value="1" id="prtfl_executor_additional_field" <?php if( 1 == $prtfl_options['prtfl_executor_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_executor_additional_field" style="float:none;"><?php _e( 'Executor', 'portfolio' ); ?></label>
 						<input type="checkbox" name="prtfl_technologies_additional_field" value="1" id="prtfl_technologies_additional_field" <?php if( 1 == $prtfl_options['prtfl_technologies_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_technologies_additional_field" style="float:none;"><?php _e( 'Technologies', 'portfolio' ); ?></label>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Display the link field as a text for non-registered users', 'portfolio' ); ?></th>
+					<td>
+						<input type="checkbox" name="prtfl_link_additional_field_for_non_registered" value="1" id="prtfl_link_additional_field_for_non_registered" <?php if( 1 == $prtfl_options['prtfl_link_additional_field_for_non_registered'] ) echo "checked=\"checked\""; ?> />
 					</td>
 				</tr>
 				<tr valign="top">
