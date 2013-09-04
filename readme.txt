@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=13
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
-Tested up to: 3.5.2
-Stable tag: 2.16
+Tested up to: 3.6
+Stable tag: 2.17
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,6 +124,11 @@ After that your theme will support thumbnails and the error will disappear.
 
 == Changelog ==
 
+= V2.17 - 04.09.2013 =
+* Update : We updated all functionality for wordpress 3.6.
+* Update : Function for displaying BWS plugins section placed in a separate file and has own language files.
+* Update : The Brazilian Portuguese language file is updated in the plugin.
+
 = V2.16 - 24.07.2013 =
 * NEW : Added an ability to not display the link as a text for non-registered users.
 * Bugfix : The error related to save settings if WordPress Permalinks are disabled is fixed. 
@@ -140,13 +145,13 @@ After that your theme will support thumbnails and the error will disappear.
 * Update : BWS plugins section is updated.
 
 = V2.12 - 12.04.2013 =
-* NEW : English language file is updated in the plugin.
+* Update : The English language file is updated in the plugin.
 
 = V2.11 - 05.03.2013 =
-* NEW : Ukrainian language file is added to the plugin.
+* NEW : The Ukrainian language file is added to the plugin.
 
 = V2.10 - 30.01.2013 =
-* NEW: French language file is added to the plugin.
+* NEW: The French language file is added to the plugin.
 
 = V2.09 - 29.01.2013 =
 * NEW : Add possibility to display Latest Portfolio Items on your page or post with shortcode [latest_portfolio_items count=3].
@@ -156,7 +161,7 @@ After that your theme will support thumbnails and the error will disappear.
 * NEW : The ordering of Portfolio Items was added to Settings page.
 
 = V2.07 - 13.08.2012 =
-* Bugfix : German language file is added to the plugin.
+* NEW : The German language file is added to the plugin.
 
 = V2.06 - 24.07.2012 =
 * Bugfix : Cross Site Request Forgery bug was fixed. 
@@ -204,6 +209,9 @@ After that your theme will support thumbnails and the error will disappear.
 
 == Upgrade Notice ==
 
+= V2.17 =
+We updated all functionality for wordpress 3.6. Function for displaying BWS plugins section placed in a separate file and has own language files. The Brazilian Portuguese language file is updated in the plugin.
+
 = V2.16 =
 Added an ability to not display the link as a text for non-registered users. The error related to save settings if WordPress Permalinks are disabled is fixed.
 
@@ -217,10 +225,10 @@ Ability to change slug for portfolio item
 The error related to changing the name of the field '_prtfl_descr' to the field '_prtfl_short_descr' is fixed. BWS plugins section is updated.
 
 = V2.12 =
-English language file is updated in the plugin.
+The English language file is updated in the plugin.
 
 = V2.11 =
-Ukrainian language file was added to the plugin.
+The Ukrainian language file was added to the plugin.
 
 = V2.10 =
 French language file was added to the plugin.
@@ -232,7 +240,7 @@ Add possibility to display Latest Portfolio Items on your page or post with shor
 The ordering of Portfolio Items was added to Settings page.
 
 = V2.07 =
-German language file is added to the plugin.
+The German language file is added to the plugin.
 
 = V2.06 =
 Cross Site Request Forgery bug was fixed. 

@@ -35,7 +35,7 @@
 #toplevel_page_bws_plugins .wp-submenu .wp-first-item {
 	display:none;
 }
-.bws_system_info_mata_box {
+.bws_system_info_meta_box {
     width: 850px;
 }
 .bws_system_info {
@@ -97,7 +97,7 @@
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
-.portfolio_thumb{
+.portfolio_thumb {
 	float:left;
 	width:300px;
 }
@@ -122,7 +122,7 @@
 }
 .portfolio_short_content{
 	float:right;
-	width:335px;
+	width:320px;
 }
 .entry_footer {
 	clear:both;
@@ -205,10 +205,6 @@
 	top:2px;
 	margin-right: 3px;
 }
-#content {
-	float:left;
-	margin-left:0;
-}
 .prtfl_left {
 	float:left;
 	margin-right:5px !important;
@@ -218,4 +214,8 @@
 #prtfl_form_image_size label.prtfl_left{
 	width:50%;
 	top:0;
+}
+.page-template-portfolio-php .portfolio_content.entry-content,
+.single-portfolio .portfolio_content.entry-content{
+    max-width: 1080px;
 }

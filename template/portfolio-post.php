@@ -1,28 +1,25 @@
 <?php
-
 get_header(); ?>
-
-		<div id="container">
-			<div id="content" role="main">
-				<div class="breadcrumbs">
+	<div id="container" class="site-content">
+		<div id="content" class="hentry">
+				<div class="breadcrumbs home_page_title entry-header">
 					<?php the_title(); ?>
-				</div>
-			
+				</div>			
 				<?php global $wp_query;
 				while ( have_posts() ) : the_post(); ?>
-					<div class="portfolio_content">
+					<div class="portfolio_content entry-content">
 						<div class="entry">
 							<?php global $post;
 							$portfolio_options = get_option( 'prtfl_options' );
 							$meta_values				= get_post_custom($post->ID);
 							$post_thumbnail_id	= get_post_thumbnail_id( $post->ID );
-							if( empty ( $post_thumbnail_id ) ) {
+							if ( empty ( $post_thumbnail_id ) ) {
 								$args = array(
 									'post_parent'			=> $post->ID,
 									'post_type'				=> 'attachment',
-									'post_mime_type'	=> 'image',
-									'orderby'					=> 'menu_order',
-									'order'						=> 'ASC',
+									'post_mime_type'		=> 'image',
+									'orderby'				=> 'menu_order',
+									'order'					=> 'ASC',
 									'numberposts'			=> 1
 								);
 								$attachments				= get_children( $args );
@@ -33,7 +30,7 @@ get_header(); ?>
 							$image_alt		= get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
 							$image_desc 			= get_post($post_thumbnail_id);
 							$image_desc				= $image_desc->post_content;
-							if( get_option( 'prtfl_postmeta_update' ) == '1' ) {
+							if ( get_option( 'prtfl_postmeta_update' ) == '1' ) {
 								$post_meta		= get_post_meta( $post->ID, 'prtfl_information', true);
 								$date_compl		= $post_meta['_prtfl_date_compl'];
 								if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
@@ -44,8 +41,7 @@ get_header(); ?>
 								$short_descr	= $post_meta['_prtfl_short_descr'];
 								$full_descr		= $post->post_content != "" ? $post->post_content : $post_meta['_prtfl_short_descr'];
 								$svn					= $post_meta['_prtfl_svn'];
-							}
-							else{
+							} else {
 								$date_compl		= get_post_meta( $post->ID, '_prtfl_date_compl', true );
 								if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
 									$date_compl		= explode( "/", $date_compl );
@@ -56,21 +52,20 @@ get_header(); ?>
 								$full_descr		= $post->post_content != "" ? $post->post_content : get_post_meta($post->ID, '_prtfl_short_descr', true);
 								$svn					= get_post_meta($post->ID, '_prtfl_svn', true);
 							} ?>
-
 							<div class="portfolio_thumb">
 								<a class="lightbox" rel="portfolio_fancybox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
 									<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
 								</a>
 							</div>
 							<div class="portfolio_short_content">
-								<?php if( 1 == $portfolio_options['prtfl_date_additional_field'] ) { ?>
+								<?php if ( 1 == $portfolio_options['prtfl_date_additional_field'] ) { ?>
 										<p>
 											<span class="lable"><?php echo $portfolio_options['prtfl_date_text_field']; ?></span> <?php echo $date_compl; ?>
 										</p>
 								<?php }
 								$user_id = get_current_user_id();
 								if ( 1 == $portfolio_options['prtfl_link_additional_field'] ) {
-									if( parse_url( $link ) !== false ) { ?>
+									if ( parse_url( $link ) !== false ) { ?>
 										<?php if ( ( $user_id == 0 && 0 == $portfolio_options['prtfl_link_additional_field_for_non_registered'] ) || $user_id != 0 ) { ?>
 											<p><span class="lable"><?php echo $portfolio_options['prtfl_link_text_field']; ?></span> <a href="<?php echo $link; ?>"><?php echo $link; ?></a></p>
 										<?php } else { ?>
@@ -106,18 +101,18 @@ get_header(); ?>
 								$args = array(
 									'post_parent'		=> $post->ID,
 									'post_type'			=> 'attachment',
-									'post_mime_type' => 'image',
+									'post_mime_type' 	=> 'image',
 									'numberposts'		=> -1,
-									'orderby'				=> 'menu_order',
-									'order'					=> 'ASC',
-									'exclude'				=> $post_thumbnail_id
+									'orderby'			=> 'menu_order',
+									'order'				=> 'ASC',
+									'exclude'			=> $post_thumbnail_id
 								);
 								$attachments				= get_children( $args );
 								$array_post_thumbnail_id	= array_keys($attachments);
 								$count_element = count( $array_post_thumbnail_id );
 								
 								while( list( $key, $value ) = each( $array_post_thumbnail_id ) ) {
-									$image				= wp_get_attachment_image_src( $value, 'portfolio-photo-thumb' );
+									$image			= wp_get_attachment_image_src( $value, 'portfolio-photo-thumb' );
 									$image_large	= wp_get_attachment_image_src( $value, 'large' );
 									$image_alt		= get_post_meta( $value, '_wp_attachment_image_alt', true );
 									$image_title	= get_post_meta( $value, '_wp_attachment_image_title', true );
@@ -160,8 +155,7 @@ get_header(); ?>
 							<?php } ?>
 						</div> <!-- .entry_footer -->
 					</div> <!-- .portfolio_content -->
-			<?php endwhile; ?>
-			
+			<?php endwhile; ?>			
 				<script type="text/javascript">
 				(function($){
 					$(document).ready(function(){
@@ -181,6 +175,5 @@ get_header(); ?>
 			</div><!-- #content -->
 		</div><!-- #container -->
 		<input type="hidden" value="Version=2.09" />
-
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

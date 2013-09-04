@@ -5,30 +5,29 @@ Template Name: Portfolio template
 
 get_header(); ?>
 
-		<div id="container">
-			<div id="content" role="main">
-				<div class="breadcrumbs">
+<?php global $wp_query;
+$portfolio_options = get_option( 'prtfl_options' ); ?>
+		<div id="container" class="site-content">
+			<div id="content" class="hentry">
+				<div class="breadcrumbs home_page_title entry-header">
 				<?php if( isset( $wp_query->query_vars["technologies"] ) ) {
 					$term = get_term_by('slug', $wp_query->query_vars["technologies"], 'portfolio_technologies');
-					echo __('Technologies', 'portfolio').": ".( $term->name );
-				}
-				else {
+					echo $portfolio_options['prtfl_technologies_text_field']." ".( $term->name );
+				} else {
 					the_title(); 
 				} ?>
 				</div>
-			
-				<?php global $wp_query;
-				$portfolio_options = get_option( 'prtfl_options' );
+				<?php				
 				$paged = isset( $wp_query->query_vars['paged'] ) ? $wp_query->query_vars['paged'] : 1;
 				$technologies = isset( $wp_query->query_vars["technologies"] ) ? $wp_query->query_vars["technologies"] : "";
 				if( $technologies != "" ) {
 					$args = array(
 						'post_type'					=> 'portfolio',
 						'post_status'				=> 'publish',
-						'orderby'						=> $portfolio_options['prtfl_order_by'],
-						'order'							=> $portfolio_options['prtfl_order'],
-						'posts_per_page'		=> get_option( 'posts_per_page' ),
-						'paged'							=> $paged,
+						'orderby'					=> $portfolio_options['prtfl_order_by'],
+						'order'						=> $portfolio_options['prtfl_order'],
+						'posts_per_page'			=> get_option( 'posts_per_page' ),
+						'paged'						=> $paged,
 						'tax_query' => array(
 								array(
 									'taxonomy' => 'portfolio_technologies',
@@ -37,27 +36,26 @@ get_header(); ?>
 								)
 							)
 						);
-				}
-				else {
+				} else {
 					$args = array(
 						'post_type'					=> 'portfolio',
 						'post_status'				=> 'publish',
-						'orderby'						=> $portfolio_options['prtfl_order_by'],
-						'order'							=> $portfolio_options['prtfl_order'],
-						'posts_per_page'		=> get_option( 'posts_per_page' ),
-						'paged'							=> $paged
+						'orderby'					=> $portfolio_options['prtfl_order_by'],
+						'order'						=> $portfolio_options['prtfl_order'],
+						'posts_per_page'			=> get_option( 'posts_per_page' ),
+						'paged'						=> $paged
 						);
 				}
 
 				query_posts( $args );
 				
 				while ( have_posts() ) : the_post(); ?>
-					<div class="portfolio_content">
+					<div class="portfolio_content entry-content">
 						<div class="entry">
 							<?php global $post;
 							$meta_values				= get_post_custom($post->ID);
 							$post_thumbnail_id	= get_post_thumbnail_id( $post->ID );
-							if( empty ( $post_thumbnail_id ) ) {
+							if ( empty ( $post_thumbnail_id ) ) {
 								$args = array(
 									'post_parent' => $post->ID,
 									'post_type' => 'attachment',
@@ -72,7 +70,7 @@ get_header(); ?>
 							$image_alt				= get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
 							$image_desc 			= get_post($post_thumbnail_id);
 							$image_desc				= $image_desc->post_content;
-							if( get_option( 'prtfl_postmeta_update' ) == '1' ) {
+							if ( get_option( 'prtfl_postmeta_update' ) == '1' ) {
 								$post_meta		= get_post_meta( $post->ID, 'prtfl_information', true);
 								$date_compl		= $post_meta['_prtfl_date_compl'];
 								if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
@@ -81,8 +79,7 @@ get_header(); ?>
 								}
 								$link					= $post_meta['_prtfl_link'];
 								$short_descr	= $post_meta['_prtfl_short_descr'];
-							}
-							else{
+							} else {
 								$date_compl		= get_post_meta( $post->ID, '_prtfl_date_compl', true );
 								if( ! empty( $date_compl ) && 'in progress' != $date_compl) {
 									$date_compl		= explode( "/", $date_compl );
@@ -144,8 +141,7 @@ get_header(); ?>
 						</div> <!-- .entry_footer -->
 					</div> <!-- .portfolio_content -->
 			<?php endwhile; 
-			$portfolio_options = get_option( 'prtfl_options' ); ?>
-			
+			$portfolio_options = get_option( 'prtfl_options' ); ?>			
 				<script type="text/javascript">
 				(function($){
 					$(document).ready(function(){
