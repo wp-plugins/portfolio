@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=13
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
-Tested up to: 3.6
-Stable tag: 2.17
+Tested up to: 3.6.1
+Stable tag: 2.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,7 @@ Moreover you can add not just one, but many screenshots to one portfolio item fo
 
 = Translation =
 
+* European Portuguese (pt_PT) (thanks to <a href="mailto:catarinavclemente@gmail.com">Catarina Clemente</a> )
 * Brazilian Portuguese (pt_BR) (thanks to DJIO, www.djio.com.br)
 * Dutch (nl_NL) (thanks to <a href="mailto:ronald@hostingu.nl">HostingU, Ronald Verheul</a>)
 * French (fr_FR) (thanks to <a href="mailto:paillat.jeff@gmail.com">Jeff</a>)
@@ -124,6 +125,10 @@ After that your theme will support thumbnails and the error will disappear.
 
 == Changelog ==
 
+= V2.18 - 23.09.2013 =
+* NEW : The European Portuguese language file is added to the plugin.
+* Update : We updated all functionality for wordpress 3.6.1.
+
 = V2.17 - 04.09.2013 =
 * Update : We updated all functionality for wordpress 3.6.
 * Update : Function for displaying BWS plugins section placed in a separate file and has own language files.
@@ -208,6 +213,9 @@ After that your theme will support thumbnails and the error will disappear.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.18 =
+The European Portuguese language file is added to the plugin. We updated all functionality for wordpress 3.6.1.
 
 = V2.17 =
 We updated all functionality for wordpress 3.6. Function for displaying BWS plugins section placed in a separate file and has own language files. The Brazilian Portuguese language file is updated in the plugin.

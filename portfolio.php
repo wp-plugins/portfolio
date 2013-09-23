@@ -4,7 +4,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.17
+Version: 2.18
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -24,7 +24,7 @@ License: GPLv2 or later
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-$prtfl_boxes = array ();
+$prtfl_boxes = array();
 
 if ( ! function_exists( 'prtfl_plugin_install' ) ) {
 	function prtfl_plugin_install() {
@@ -127,7 +127,7 @@ if ( ! function_exists ( 'prtfl_plugin_init' ) ) {
 		load_plugin_textdomain( 'portfolio', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
 		load_plugin_textdomain( 'bestwebsoft', false, dirname( plugin_basename( __FILE__ ) ) . '/bws_menu/languages/' ); 
 		global $prtfl_boxes;
-		$prtfl_boxes['Portfolio-Info'] = array (
+		$prtfl_boxes['Portfolio-Info'] = array(
 			array( '_prtfl_short_descr', __( 'Short description', 'portfolio' ), __( 'A short description which you\'d like to be displayed on your portfolio page', 'portfolio' ), '', '' ),
 			array( '_prtfl_date_compl', __( 'Date of completion', 'portfolio' ), __( 'The date when the task was completed', 'portfolio' ), '', '' ),
 			array( '_prtfl_link', __( 'Link', 'portfolio' ), __( 'A link to the site', 'portfolio' ), '', '' ),
