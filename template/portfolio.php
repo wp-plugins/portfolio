@@ -90,7 +90,7 @@ $portfolio_options = get_option( 'prtfl_options' ); ?>
 							} ?>
 
 							<div class="portfolio_thumb">
-								<a class="lightbox" rel="portfolio_fancybox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
+								<a class="lightbox" rel="portfolio_fancybox" href="<?php echo get_permalink(); ?>" title="<?php echo $image_desc; ?>">
 									<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
 								</a>
 							</div>

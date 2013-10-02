@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: portfolio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-04 16:22+0300\n"
-"PO-Revision-Date: 2013-09-04 16:22+0300\n"
+"POT-Creation-Date: 2013-10-02 12:41+0300\n"
+"PO-Revision-Date: 2013-10-02 12:41+0300\n"
 "Last-Translator: \n"
-"Language-Team: cmd-soft <tmosbyd@gmail.com>\n"
+"Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,9 +18,8 @@ msgstr ""
 
 #: portfolio.php:99
 #: portfolio.php:735
-#, fuzzy
 msgid "The files \"portfolio.php\" and \"portfolio-post.php\" are not found in your theme directory. Please copy them from the directory `wp-content/plugins/portfolio/template/` to your theme directory for correct work of the Portfolio plugin"
-msgstr "Наступні файли \"portfolio.php\" і \"portfolio-post.php\" не були знайдені в директорії вашої теми. Будь ласка, скопіюйте їх з каталогу `/wp-content/plugins/portfolio/template/` в каталог вашої темою для коректної роботи плагіна Портфоліо"
+msgstr "Наступні файли \"portfolio.php\" і \"portfolio-post.php\" не були знайдені в директорії вашої теми. Будь ласка, скопіюйте їх з каталогу `/wp-content/plugins/portfolio/template/` в каталог з вашою темою для коректної роботи плагіна Портфоліо"
 
 #: portfolio.php:131
 msgid "Short description"
@@ -28,7 +27,7 @@ msgstr "Короткий опис"
 
 #: portfolio.php:131
 msgid "A short description which you'd like to be displayed on your portfolio page"
-msgstr "Короткий опис яких ви хотіли б бути відображені на вашому портфоліо"
+msgstr "Короткий опис, який ви хотіли б відображати на сторінці вашого портфоліо"
 
 #: portfolio.php:132
 msgid "Date of completion"
@@ -53,23 +52,22 @@ msgid "SVN"
 msgstr "SVN"
 
 #: portfolio.php:134
-#, fuzzy
 msgid "SVN URL"
-msgstr "SVN"
+msgstr "SVN URL"
 
 #: portfolio.php:151
 #: portfolio.php:152
 #: portfolio.php:606
 msgid "Portfolio"
-msgstr "Портфель"
+msgstr "Портфоліо"
 
 #: portfolio.php:153
 msgid "Add New"
-msgstr "Додати"
+msgstr "Додати нове"
 
 #: portfolio.php:154
 msgid "Add New Portfolio"
-msgstr "Додати Портфоліо"
+msgstr "Додати нове Портфоліо"
 
 #: portfolio.php:155
 msgid "Edit"
@@ -77,7 +75,7 @@ msgstr "Редагувати"
 
 #: portfolio.php:156
 msgid "Edit Portfolio"
-msgstr "Змінити Портфоліо"
+msgstr "Редагувати Портфоліо"
 
 #: portfolio.php:157
 msgid "New Portfolio"
@@ -90,87 +88,83 @@ msgstr "Подивитися портфоліо"
 
 #: portfolio.php:160
 msgid "Search Portfolio"
-msgstr "Пошук Портфель"
+msgstr "Пошук Портфоліо"
 
 #: portfolio.php:161
 msgid "No portfolio found"
-msgstr "Не знайдений портфель"
+msgstr "Не знайдено жодного портфоліо"
 
 #: portfolio.php:162
 msgid "No portfolio found in Trash"
-msgstr "Ні портфель знайдені в корзину"
+msgstr "Не знайдено жодного портфоліо у корзині"
 
 #: portfolio.php:163
 msgid "Parent Portfolio"
-msgstr "Батько Портфоліо"
+msgstr "Батьківське Портфоліо"
 
 #: portfolio.php:165
-#, fuzzy
 msgid "Create a portfolio item"
-msgstr "Створіть портфоліо."
+msgstr "Створити портфоліо"
 
 #: portfolio.php:198
 msgid "Executor Profiles"
-msgstr "Виконавець Профілі"
+msgstr "Профілі Виконавця"
 
 #: portfolio.php:199
 msgid "Executor Profile"
-msgstr "Виконавець профілю"
+msgstr "Профіль Виконавця"
 
 #: portfolio.php:200
 msgid "Search Executor Profiles"
-msgstr "Профілі Пошук виконавця"
+msgstr "Пошук Профілів Виконавця"
 
 #: portfolio.php:201
 msgid "Popular Executor Profiles"
-msgstr "Популярні Профілі Виконавець"
+msgstr "Популярні Профілі Виконавця"
 
 #: portfolio.php:202
 msgid "All Executor Profiles"
-msgstr "Всі Виконавець Профілі"
+msgstr "Всі Профілі Виконавця"
 
 #: portfolio.php:203
 msgid "Parent Executor Profile"
-msgstr "Профіль батька Виконавця"
+msgstr "Батьківський Профіль Виконавця"
 
 #: portfolio.php:204
 msgid "Parent Executor Profile:"
-msgstr "Профіль батька Виконавця:"
+msgstr "Батьківський Профіль Виконавця:"
 
 #: portfolio.php:205
 msgid "Edit Executor Profile"
-msgstr "Змінити Виконавець профілю"
+msgstr "Редагувати Профіль Виконавця"
 
 #: portfolio.php:206
 msgid "Update Executor Profile"
-msgstr "Оновлення Виконавець профілю"
+msgstr "Оновити Профіль Виконавця"
 
 #: portfolio.php:207
 msgid "Add New Executor Profile"
-msgstr "Додати новий профіль Виконавець"
+msgstr "Додати новий Профіль Виконавця"
 
 #: portfolio.php:208
-#, fuzzy
 msgid "New Executor Name"
-msgstr "Нове ім'я профілю Виконавець"
+msgstr "Ім’я нового Виконавця"
 
 #: portfolio.php:209
 msgid "Separate Executor Profiles with commas"
-msgstr "Окремі профілі Виконавець комами"
+msgstr "Відокремити Профілі Виконавців комами"
 
 #: portfolio.php:210
 msgid "Add or remove Executor Profile"
-msgstr "Додати або видалити Виконавець профілю"
+msgstr "Додати або видалити Профіль Виконавця"
 
 #: portfolio.php:211
-#, fuzzy
 msgid "Choose from the most used Executor Profiles"
-msgstr "Виберіть один з найбільш часто використовуваних Виконавцем профілю"
+msgstr "Виберіть одне, що Виконавець профілю використовує найчастіше"
 
 #: portfolio.php:212
-#, fuzzy
 msgid "Executors"
-msgstr "Виконавець"
+msgstr "Виконавці"
 
 #: portfolio.php:228
 #: portfolio.php:242
@@ -187,11 +181,11 @@ msgstr "Технологія"
 
 #: portfolio.php:230
 msgid "Search Technologies"
-msgstr "Пошук Технології"
+msgstr "Пошук Технологій"
 
 #: portfolio.php:231
 msgid "Popular Technologies"
-msgstr "Популярні технологій"
+msgstr "Популярні технології"
 
 #: portfolio.php:232
 msgid "All Technologies"
@@ -199,23 +193,23 @@ msgstr "Всі технології"
 
 #: portfolio.php:233
 msgid "Parent Technology"
-msgstr "Батько технології"
+msgstr "Батьківська технологія"
 
 #: portfolio.php:234
 msgid "Parent Technology:"
-msgstr "Батько технології:"
+msgstr "Батьківська технологія:"
 
 #: portfolio.php:235
 msgid "Edit Technology"
-msgstr "Змінити технології"
+msgstr "Редагувати технологію"
 
 #: portfolio.php:236
 msgid "Update Technology"
-msgstr "Оновлювати технологію"
+msgstr "Оновити технологію"
 
 #: portfolio.php:237
 msgid "Add New Technology"
-msgstr "Додати нові технології"
+msgstr "Додати нову технологію"
 
 #: portfolio.php:238
 msgid "New Technology Name"
@@ -223,21 +217,19 @@ msgstr "Ім'я нової технології"
 
 #: portfolio.php:239
 msgid "Separate Technologies with commas"
-msgstr "Окремі технології комами"
+msgstr "Відокремити технології комами"
 
 #: portfolio.php:240
 msgid "Add or remove Technology"
-msgstr "Додати або видалити технологій"
+msgstr "Додати або видалити технологію"
 
 #: portfolio.php:241
-#, fuzzy
 msgid "Choose from the most used technologies"
-msgstr "Виберіть один з найбільш часто використовуваних технологій"
+msgstr "Виберіть одну з технологій, що використовується найчастіше"
 
 #: portfolio.php:272
-#, fuzzy
 msgid "Your most used portfolio technologies as a tag cloud"
-msgstr "Ваші найбільш часто використовувані портфель технологій в хмарі форматі"
+msgstr "Ваші найбільш часто використовувані технології портфоліо у форматі хмаринки тегів"
 
 #: portfolio.php:336
 msgid "Title"
@@ -245,12 +237,12 @@ msgstr "Назва"
 
 #: portfolio.php:403
 msgid "Portfolio Info"
-msgstr "Портфоліо інформація"
+msgstr "Інформація про Портфоліо"
 
 #: portfolio.php:557
 #: portfolio.php:899
 msgid "Settings"
-msgstr "Налаштування"
+msgstr "Установки"
 
 #: portfolio.php:558
 msgid "FAQ"
@@ -258,7 +250,7 @@ msgstr "Часті питання"
 
 #: portfolio.php:559
 msgid "Support"
-msgstr "Підтримувати"
+msgstr "підтримка"
 
 #: portfolio.php:632
 #: portfolio.php:810
@@ -287,9 +279,8 @@ msgstr "SVN:"
 
 #: portfolio.php:637
 #: portfolio.php:815
-#, fuzzy
 msgid "Executor Profile:"
-msgstr "Виконавці профілю:"
+msgstr "Профіль виконавця:"
 
 #: portfolio.php:638
 #: portfolio.php:816
@@ -302,33 +293,29 @@ msgid "Technologies:"
 msgstr "Технології:"
 
 #: portfolio.php:731
-#, fuzzy
 msgid "Settings saved."
-msgstr "Налаштування збережені."
+msgstr "Установки збережено."
 
 #: portfolio.php:741
-#, fuzzy
 msgid "Portfolio Settings"
-msgstr "Портфоліо параметри"
+msgstr "Установки Портфоліо"
 
 #: portfolio.php:744
-#, fuzzy
 msgid "If you would like to add the Latest Portfolio Items to your page or post, just copy and paste this shortcode into your post or page:"
-msgstr "Якщо ви хотіли б додати Останні товари портфоліо на вашу сторінку або пост, просто скопіювати і помістити цей короткий на вашій пошті або по вмісту сторінки:"
+msgstr "Якщо ви хочете додати Останні Портфоліо на вашу сторінку або пост, просто скопіюйте і помістіть цей шорткод у ваш пост або сторінку:"
 
 #: portfolio.php:744
-#, fuzzy
 msgid "where count=3 is a number of posts to show up in the portfolio."
-msgstr "де count=3 - Кількість повідомлень в портфелі, які будуть відображатися."
+msgstr "де count=3 - Кількість повідомлень, які будуть відображатися в портфоліо."
 
 #: portfolio.php:748
 msgid "The album cover size"
-msgstr ""
+msgstr "Розмір обкладинки альбому"
 
 #: portfolio.php:750
 #: portfolio.php:758
 msgid "Image size name"
-msgstr "Назва Розмір зображення"
+msgstr "Назва Розміру зображення"
 
 #: portfolio.php:751
 #: portfolio.php:759
@@ -341,27 +328,24 @@ msgid "Height (in px)"
 msgstr "Висота (в пікселях)"
 
 #: portfolio.php:756
-#, fuzzy
 msgid "Size of portfolio images"
-msgstr "Розмір портфеля для зображень"
+msgstr "Розмір зображень портфоліо"
 
 #: portfolio.php:764
-#, fuzzy
 msgid "WordPress will copy thumbnails with the specified dimensions when you upload a new image. It is necessary to click  the Update images button at the bottom of this page in order to generate new images and set new dimensions"
-msgstr "WordPress створить копію поста мініатюр із заданими розмірами при завантаженні нової фотографії. Необхідно натиснути на кнопку оновлення зображення в нижній частині цієї сторінки для того, щоб генерувати нові зображення у відповідності з новими розмірами"
+msgstr "WordPress створить копію мініатюр із заданими розмірами при завантаженні нової фотографії. Необхідно натиснути на кнопку Оновлення Зображення в нижній частині цієї сторінки для того, щоб генерувати нові зображення у відповідності з новими розмірами"
 
 #: portfolio.php:767
-#, fuzzy
 msgid "Sort portfolio by"
-msgstr "Портфель ID"
+msgstr "Сортувати портфоліо за"
 
 #: portfolio.php:769
 msgid "portfolio id"
-msgstr "Портфель ID"
+msgstr "ID Портфоліо"
 
 #: portfolio.php:770
 msgid "portfolio title"
-msgstr "Портфель назву"
+msgstr "назва портфоліо"
 
 #: portfolio.php:771
 msgid "date"
@@ -376,26 +360,24 @@ msgid "random"
 msgstr "випадковий"
 
 #: portfolio.php:777
-#, fuzzy
 msgid "Portfolio sorting"
-msgstr "Портфоліо параметри"
+msgstr "Сортування Портфоліо"
 
 #: portfolio.php:779
 msgid "ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)"
-msgstr "ASC (порядку зростання від найменшого до найбільшого значення - 1, 2, 3; a, b, c)"
+msgstr "ASC (за зростанням від найменшого до найбільшого значення - 1, 2, 3; a, b, c)"
 
 #: portfolio.php:780
 msgid "DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)"
 msgstr "DESC (за спаданням від найвищого до найнижчого значення - 3, 2, 1; c, b, a)"
 
 #: portfolio.php:784
-#, fuzzy
 msgid "Number of images in the row"
-msgstr "Кількість фото в рядку"
+msgstr "Кількість зображень в рядку"
 
 #: portfolio.php:790
 msgid "Display additional fields"
-msgstr "Відображення додаткових полів"
+msgstr "Відображати додаткові поля"
 
 #: portfolio.php:792
 msgid "Date"
@@ -415,48 +397,43 @@ msgstr "Виконавець"
 
 #: portfolio.php:802
 msgid "Display the link field as a text for non-registered users"
-msgstr ""
+msgstr "Показувати поле з посиланням як текст для незареєстрованих користувачів"
 
 #: portfolio.php:808
 msgid "Text for additional fields"
 msgstr "Текст для додаткових полів"
 
 #: portfolio.php:821
-#, fuzzy
 msgid "Slug for portfolio item"
-msgstr "Портфель ID"
+msgstr "Логотип для елементів портфоліо"
 
 #: portfolio.php:823
 msgid "for any structure of permalinks except the default structure"
-msgstr ""
+msgstr "для будь-якої структури посилань, окрім стандартної структури"
 
 #: portfolio.php:829
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
 #: portfolio.php:841
-#, fuzzy
 msgid "Change the way to store your post_meta information for portfolio"
-msgstr "Оновіть спосіб зберігання ваших post_meta інформації для портфеля"
+msgstr "Оновити спосіб зберігання ваших post_meta інформації для портфоліо"
 
 #: portfolio.php:843
 msgid "Update All Info"
-msgstr "Оновити всі інформація"
+msgstr "Оновити всю інформацію"
 
 #: portfolio.php:848
-#, fuzzy
 msgid "Updating post_meta information..."
-msgstr "Оновіть post_meta інформація..."
+msgstr "Оновлення post_meta інформації..."
 
 #: portfolio.php:849
-#, fuzzy
 msgid "No portfolio item found"
-msgstr "Не знайдений портфель"
+msgstr "Жодного елементу портфоліо не знайдено"
 
 #: portfolio.php:850
-#, fuzzy
 msgid "All info is updated"
-msgstr "Вся інформація була оновлена."
+msgstr "Вся інформація була оновлена"
 
 #: portfolio.php:851
 #: portfolio.php:866
@@ -465,26 +442,23 @@ msgstr "Помилка."
 
 #: portfolio.php:856
 msgid "Update images for portfolio"
-msgstr "Оновлення зображення для портфеля"
+msgstr "Оновити зображення для портфоліо"
 
 #: portfolio.php:858
 msgid "Update images"
 msgstr "Оновити зображення"
 
 #: portfolio.php:863
-#, fuzzy
 msgid "Updating images..."
-msgstr "Оновлення зображення ..."
+msgstr "Оновлення зображень ..."
 
 #: portfolio.php:864
-#, fuzzy
 msgid "No image found"
-msgstr "Зображення не знайдені."
+msgstr "Жодного зображення не знайдено"
 
 #: portfolio.php:865
-#, fuzzy
 msgid "All images are updated"
-msgstr "Всі зображення були оновлені."
+msgstr "nВсі зображення були оновлені"
 
 #: portfolio.php:985
 #: template/portfolio.php:127
@@ -496,22 +470,21 @@ msgstr "Читати далі"
 #: template/portfolio.php:136
 #, php-format
 msgid "View all posts in %s"
-msgstr "Проглянути всі повідомлення %s"
+msgstr "Проглянути всі повідомлення %"
 
 #: portfolio.php:1187
-#, fuzzy
 msgid "Image size not defined"
-msgstr "Назва Розмір зображення"
+msgstr "Розмір зображення не визначено"
 
 #: portfolio.php:1193
 msgid "Image size changes not defined"
-msgstr ""
+msgstr "Не вдялося обчислити зміни розмірів зображення"
 
 #: portfolio.php:1222
 #: portfolio.php:1225
 #: portfolio.php:1230
 msgid "Invalid path"
-msgstr ""
+msgstr "Шлях до зображення для редагування некоректний"
 
 #, fuzzy
 #~ msgid "Site URL"

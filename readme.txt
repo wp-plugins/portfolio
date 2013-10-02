@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.6.1
-Stable tag: 2.18
+Stable tag: 2.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,7 +40,7 @@ Moreover you can add not just one, but many screenshots to one portfolio item fo
 * Persian (fa_IR) (thanks to <a href="mailto:AmirMaskani@gmail.com">Amir Maskani</a>, www.emir.ir)
 * Russian (ru_RU)
 * Spain (es_ES) (thanks to Grupo Gomariz, S.L. www.grupogomariz.com)
-* Ukrainian (uk) (thanks to Cmd Soft, www.cmd-soft.com)
+* Ukrainian (uk)
 
 If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
@@ -124,6 +124,10 @@ After that your theme will support thumbnails and the error will disappear.
 7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.19 - 02.10.2013 =
+* Update : The Ukrainian language file is updated in the plugin.
+* Update : The album cover is a link to portfolio item now.
 
 = V2.18 - 23.09.2013 =
 * NEW : The European Portuguese language file is added to the plugin.
@@ -213,6 +217,9 @@ After that your theme will support thumbnails and the error will disappear.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.19 =
+The Ukrainian language file is updated in the plugin. The album cover is a link to portfolio item now.
 
 = V2.18 =
 The European Portuguese language file is added to the plugin. We updated all functionality for wordpress 3.6.1.
