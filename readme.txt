@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
 Tested up to: 3.6.1
-Stable tag: 2.19
+Stable tag: 2.20
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -125,6 +125,10 @@ After that your theme will support thumbnails and the error will disappear.
 
 == Changelog ==
 
+= V2.20 - 14.10.2013 =
+* Bugfix : Fixed style bugs.
+* Bugfix : Fixed bug of updating images for portfolio.
+
 = V2.19 - 02.10.2013 =
 * Update : The Ukrainian language file is updated in the plugin.
 * Update : The album cover is a link to portfolio item now.
@@ -217,6 +221,9 @@ After that your theme will support thumbnails and the error will disappear.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.20 =
+Fixed style bugs. Fixed bug of updating images for portfolio.
 
 = V2.19 =
 The Ukrainian language file is updated in the plugin. The album cover is a link to portfolio item now.

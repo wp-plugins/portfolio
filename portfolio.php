@@ -4,7 +4,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.19
+Version: 2.20
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -195,21 +195,21 @@ if ( ! function_exists( 'prtfl_taxonomy_portfolio' ) ) {
 				'hierarchical' => false,
 				'update_count_callback' => '_update_post_term_count',
 				'labels' => array(
-					'name'								=> __( 'Executor Profiles', 'portfolio' ),
+					'name'						=> __( 'Executor Profiles', 'portfolio' ),
 					'singular_name'				=> __( 'Executor Profile', 'portfolio' ),
 					'search_items'				=> __( 'Search Executor Profiles', 'portfolio' ),
 					'popular_items'				=> __( 'Popular Executor Profiles', 'portfolio' ),
-					'all_items'						=> __( 'All Executor Profiles', 'portfolio' ),
-					'parent_item'					=> __( 'Parent Executor Profile', 'portfolio' ),
+					'all_items'					=> __( 'All Executor Profiles', 'portfolio' ),
+					'parent_item'				=> __( 'Parent Executor Profile', 'portfolio' ),
 					'parent_item_colon'			=> __( 'Parent Executor Profile:', 'portfolio' ),
 					'edit_item'					=> __( 'Edit Executor Profile', 'portfolio' ),
 					'update_item'				=> __( 'Update Executor Profile', 'portfolio' ),
 					'add_new_item'				=> __( 'Add New Executor Profile', 'portfolio' ),
 					'new_item_name'				=> __( 'New Executor Name', 'portfolio' ),
 					'separate_items_with_commas' => __( 'Separate Executor Profiles with commas', 'portfolio' ),
-					'add_or_remove_items' => __( 'Add or remove Executor Profile', 'portfolio' ),
-					'choose_from_most_used' => __( 'Choose from the most used Executor Profiles', 'portfolio' ),
-					'menu_name'						=> __( 'Executors', 'portfolio' )
+					'add_or_remove_items'		=> __( 'Add or remove Executor Profile', 'portfolio' ),
+					'choose_from_most_used'		=> __( 'Choose from the most used Executor Profiles', 'portfolio' ),
+					'menu_name'					=> __( 'Executors', 'portfolio' )
 				),
 				'sort'					=> true,
 				'args'					=> array( 'orderby' => 'term_order' ),
@@ -1161,8 +1161,8 @@ if ( ! function_exists ( 'prtfl_wp_generate_attachment_metadata' ) ) {
 if ( ! function_exists ( 'prtfl_image_make_intermediate_size' ) ) {
 	function prtfl_image_make_intermediate_size( $file, $width, $height, $crop=false ) {
 		if ( $width || $height ) {
-			$resized_file = prtfl_image_resize($file, $width, $height, $crop);
-			if ( !is_wp_error($resized_file) && $resized_file && $info = getimagesize($resized_file) ) {
+			$resized_file = prtfl_image_resize( $file, $width, $height, $crop );
+			if ( !is_wp_error($resized_file) && $resized_file && $info = getimagesize( $resized_file ) ) {
 				$resized_file = apply_filters('image_make_intermediate_size', $resized_file);
 				return array(
 					'file' => wp_basename( $resized_file ),
@@ -1178,20 +1178,36 @@ if ( ! function_exists ( 'prtfl_image_make_intermediate_size' ) ) {
 if ( ! function_exists ( 'prtfl_image_resize' ) ) {
 	function prtfl_image_resize( $file, $max_w, $max_h, $crop = false, $suffix = null, $dest_path = null, $jpeg_quality = 90 ) {
 
-		$image = wp_load_image( $file );
-		if ( !is_resource( $image ) )
-			return new WP_Error( 'error_loading_image', $image, $file );
-
 		$size = @getimagesize( $file );
-		if ( !$size )
-			return new WP_Error('invalid_image', __('Image size not defined'), $file);
-		list($orig_w, $orig_h, $orig_type) = $size;
+        if ( !$size )
+            return new WP_Error('invalid_image', __('Image size not defined'), $file);
+
+        $type = $size[2];
+
+        if ( $type == 3 )
+            $image = imagecreatefrompng($file);
+        else if ( $type == 2 )
+            $image = imagecreatefromjpeg($file);
+        else if ( $type == 1 )
+            $image = imagecreatefromgif($file);
+        else if ( $type == 15 )
+            $image = imagecreatefromwbmp($file);
+       	else if ( $type == 16 )
+            $image = imagecreatefromxbm($file);
+        else
+        	return new WP_Error('invalid_image', __('We can update only PNG, JPEG, GIF, WPMP or XBM filetype. For other, please, manually reload image.'), $file );
+
+        if ( !is_resource( $image ) )
+            return new WP_Error( 'error_loading_image', $image, $file );
+
+        //$size = @getimagesize( $file );
+        list( $orig_w, $orig_h, $orig_type ) = $size;
 
 		$dims = prtfl_image_resize_dimensions($orig_w, $orig_h, $max_w, $max_h, $crop);
 
 		if ( !$dims )
 			return new WP_Error( 'error_getting_dimensions', __('Image size changes not defined') );
-		list($dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h) = $dims;
+		list( $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h ) = $dims;
 
 		$newimage = wp_imagecreatetruecolor( $dst_w, $dst_h );
 

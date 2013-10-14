@@ -90,8 +90,8 @@ $portfolio_options = get_option( 'prtfl_options' ); ?>
 							} ?>
 
 							<div class="portfolio_thumb">
-								<a class="lightbox" rel="portfolio_fancybox" href="<?php echo get_permalink(); ?>" title="<?php echo $image_desc; ?>">
-									<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
+								<a rel="bookmark" href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+									<img src="<?php echo $image[0]; ?>" width="<?php echo $portfolio_options['prtfl_custom_size_px'][0][0]; ?>" height="<?php echo $portfolio_options['prtfl_custom_size_px'][0][1]; ?>" alt="<?php echo $image_alt; ?>" />
 								</a>
 							</div>
 							<div class="portfolio_short_content">
@@ -160,10 +160,9 @@ $portfolio_options = get_option( 'prtfl_options' ); ?>
 				</script>
 			</div><!-- #content -->
 			<div id="portfolio_pagenation">
-			<?php if( function_exists( 'prtfl_pagination' ) ) prtfl_pagination(); ?>
-			<input type="hidden" value="Version=2.09" />
+				<?php if( function_exists( 'prtfl_pagination' ) ) prtfl_pagination(); ?>
+				<input type="hidden" value="Version=2.09" />
 			</div>
 		</div><!-- #container -->
-
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

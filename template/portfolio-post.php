@@ -54,7 +54,7 @@ get_header(); ?>
 							} ?>
 							<div class="portfolio_thumb">
 								<a class="lightbox" rel="portfolio_fancybox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
-									<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
+									<img src="<?php echo $image[0]; ?>" width="<?php echo $portfolio_options['prtfl_custom_size_px'][0][0]; ?>" height="<?php echo $portfolio_options['prtfl_custom_size_px'][0][1]; ?>" alt="<?php echo $image_alt; ?>" />
 								</a>
 							</div>
 							<div class="portfolio_short_content">
@@ -125,7 +125,7 @@ get_header(); ?>
 									<?php } ?>
 										<div class="portfolio_images_gallery">
 											<a class="lightbox" rel="portfolio_fancybox" href="<?php echo $image_large[0]; ?>" title="<?php echo $image_desc; ?>">
-												<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
+												<img src="<?php echo $image[0]; ?>" width="<?php echo $portfolio_options['prtfl_custom_size_px'][1][0]; ?>" height="<?php echo $portfolio_options['prtfl_custom_size_px'][1][1]; ?>" alt="<?php echo $image_alt; ?>" />
 											</a>
 											<br /><?php echo $image_title; ?>
 										</div>
