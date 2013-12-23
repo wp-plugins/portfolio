@@ -109,6 +109,7 @@ function setMessage(msg) {
 		$(".error").hide();
 		$(".updated").html(msg);
 		$(".updated").show();
+		$('#prtfl_settings_notice').hide();
 	})(jQuery);
 }
 
