@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=13
 Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
 Requires at least: 3.1
-Tested up to: 3.8
-Stable tag: 2.22
+Tested up to: 3.8.1
+Stable tag: 2.23
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,14 @@ function theme_setup() {
 
 After that your theme will support thumbnails and the error will disappear.
 
+= I have some problems with the plugin's work. What Information should I provide to receive proper support? =
+
+Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+1. the link to the page where the problem occurs
+2. the name of the plugin and its version. If you are using a pro version - your order number.
+3. the version of your WordPress installation
+4. copy and paste into the message your system status report. Please read more here: <a href="https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit" target="_blank">System_Status.pdf</a>
+
 == Screenshots ==
 
 1. Portfolio Settings page.
@@ -131,6 +139,13 @@ After that your theme will support thumbnails and the error will disappear.
 7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.23 - 28.03.2014 =
+* Update : Portfolio Template is updated.
+* Update : Screenshots are updated.
+* Update : BWS plugins section is updated.
+* Budfix : Plugin optimization is done.
+* Budfix : Problem with pagination for portfolio as front page is fixed.
 
 = V2.22 - 23.12.2013 =
 * NEW : We added the ability to include Portfolio as search criterion for Custom Search on the Porfolio settings page.
@@ -239,6 +254,9 @@ After that your theme will support thumbnails and the error will disappear.
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.23 =
+Portfolio Template is updated. Screenshots are updated. BWS plugins section is updated. Plugin optimization is done. Problem with pagination for portfolio as front page is fixed.
 
 = V2.22 =
 We added the ability to include Portfolio as search criterion for Custom Search on the Porfolio settings page. BWS plugins section is updated. We updated all functionality for wordpress 3.8.
