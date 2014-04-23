@@ -140,7 +140,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
-= V2.24 - 23.04.2014 =
+= V2.24 - 23.04.2014 = 
 * Update : We updated all functionality for wordpress 3.9.
 * Update : Compatibility with Gallery Pro plugin.
 * Update : The Ukrainian language file is updated in the plugin.
