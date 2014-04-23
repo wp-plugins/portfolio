@@ -24,8 +24,7 @@ get_header(); ?>
 			} else {
 				$paged = 1;
 			}
-			$per_page = $showitems = get_option( 'posts_per_page' );  
-			$count_all_albums = $wpdb->get_var( "SELECT COUNT(*) FROM wp_posts WHERE 1=1 AND wp_posts.post_type = 'portfolio' AND (wp_posts.post_status = 'publish')" );
+			$per_page = $showitems = get_option( 'posts_per_page' ); 
 			$technologies = isset( $wp_query->query_vars["technologies"] ) ? $wp_query->query_vars["technologies"] : "";
 			if ( "" != $technologies ) {
 				$args = array(
@@ -157,13 +156,14 @@ get_header(); ?>
 				<?php endwhile;
 			endif; 
 
+			$count_all_albums = $second_query->found_posts;
 			wp_reset_query(); 
 			$request = $wp_query->request;
 			$pages = intval( $count_all_albums / $per_page );
 			if ( $count_all_albums % $per_page > 0 )
 				$pages += 1;
 
-			$range = 100;
+			$range = 2;
 
 			if ( ! $pages )
 				$pages = 1;
@@ -171,14 +171,26 @@ get_header(); ?>
 			if ( 1 != $pages ) { ?>
 				</div><!-- #content -->
 				<div class='clear'></div>
-				<div class='pagination'>
-					<?php for ( $i = 1; $i <= $pages; $i++ ) {
-						if ( 1 != $pages && ( !( $i >= $paged + $range + 1 || $i <= $paged - $range - 1 ) || $pages <= $showitems ) ) {
-							echo ( $paged == $i ) ? "<span class='current'>" . $i . "</span>":"<a href='" . get_pagenum_link( $i ) . "' class='inactive' >" . $i . "</a>";
+				<div id="portfolio_pagenation">
+					<div class='pagination'>
+						<?php
+						if ( 2 < $paged && $paged > $range + 1 && $showitems < $pages )
+							echo "<a href='" . get_pagenum_link( 1 ) . "'>&laquo;</a>";
+						if ( 1 < $paged && $showitems < $pages )
+							echo "<a href='" . get_pagenum_link( $paged - 1 ) . "'>&lsaquo;</a>";
+
+						for ( $i = 1; $i <= $pages; $i++ ) {
+							if ( 1 != $pages && ( ! ( $i >= $paged + $range + 1 || $i <= $paged - $range - 1 ) || $pages <= $showitems ) ) {
+								echo ( $paged == $i ) ? "<span class='current'>" . $i . "</span>":"<a href='" . get_pagenum_link( $i ) . "' class='inactive' >" . $i . "</a>";
+							}
 						}
-					} ?>
-					<div class='clear'></div>
-				</div><!-- .pagination -->
+						if ( $paged < $pages && $showitems < $pages )
+							echo "<a href='" . get_pagenum_link( $paged + 1 ) . "'>&rsaquo;</a>";
+						if ( $paged < $pages - 1 && $paged + $range - 1 < $pages && $showitems < $pages )
+							echo "<a href='" . get_pagenum_link( $pages ) . "'>&raquo;</a>"; ?>
+						<div class='clear'></div>
+					</div><!-- .pagination -->
+				</div><!-- #portfolio_pagenation -->
 			<?php } else { ?>
 				</div><!-- #content -->
 			<?php } 

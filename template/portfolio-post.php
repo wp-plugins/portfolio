@@ -163,16 +163,37 @@
 			<script type="text/javascript">
 				(function($){
 					$(document).ready(function(){
-						$("a[rel=portfolio_fancybox]").fancybox({
-							'transitionIn'		: 'elastic',
-							'transitionOut'		: 'elastic',
-							'titlePosition' 	: 'inside',
-							'speedIn'			: 500,
-							'speedOut'			: 300,
-							'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
-								return '<span id="fancybox-title-inside">' + (title.length ? title + '<br />' : '') + 'Image ' + (currentIndex + 1) + ' / ' + currentArray.length + '</span>';
-							}
-						});
+						<?php 
+						if ( ! function_exists( 'is_plugin_active_for_network' ) || ! function_exists( 'is_plugin_active' ) )
+							require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+						$all_plugins = get_plugins();
+						if ( ( ! is_plugin_active( 'gallery-plugin-pro/gallery-plugin-pro.php' ) && ! is_plugin_active_for_network( 'gallery-plugin-pro/gallery-plugin-pro.php' ) ) || ( isset( $all_plugins["gallery-plugin-pro/gallery-plugin-pro.php"]["Version"] ) && "1.3.0" >= $all_plugins["gallery-plugin-pro/gallery-plugin-pro.php"]["Version"] ) ) {  ?>
+							$("a[rel=portfolio_fancybox]").fancybox({
+								'transitionIn'		: 'elastic',
+								'transitionOut'		: 'elastic',
+								'titlePosition' 	: 'inside',
+								'speedIn'			: 500,
+								'speedOut'			: 300,
+								'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+									return '<span id="fancybox-title-inside">' + ( title.length ? title + '<br />' : '' ) + 'Image ' + ( currentIndex + 1 ) + ' / ' + currentArray.length + '</span>';
+								}
+							});
+						<?php } else { ?>
+							$("a[rel=portfolio_fancybox]").fancybox({
+								openSpeed	:	500, 
+								closeSpeed	:	300,
+								helpers		: {
+									title	: { type : 'inside' }
+								},
+								prevEffect	: 'fade',
+								nextEffect	: 'fade',	
+								openEffect	: 'elastic',
+								closeEffect	: 'elastic',
+								beforeLoad: function() {
+									this.title = '<span id="fancybox-title-inside">' + ( this.title.length ? this.title + '<br />' : '' ) + 'Image ' + ( this.index + 1 ) + ' / ' + this.group.length + '</span>';
+								}
+							});		
+						<?php } ?>
 					});
 				})(jQuery);
 			</script>

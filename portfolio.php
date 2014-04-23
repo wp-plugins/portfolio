@@ -4,7 +4,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.23
+Version: 2.24
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -29,17 +29,14 @@ $prtfl_boxes = array();
 
 if ( ! function_exists( 'prtfl_plugin_install' ) ) {
 	function prtfl_plugin_install() {
-		global $wpmu;
+		global $wpmu, $prtfl_options;
 		$filename_1			=	WP_PLUGIN_DIR . '/portfolio/template/portfolio.php';
 		$filename_2			=	WP_PLUGIN_DIR . '/portfolio/template/portfolio-post.php';
 		$filename_theme_1	=	get_stylesheet_directory() . '/portfolio.php';
 		$filename_theme_2	=	get_stylesheet_directory() . '/portfolio-post.php';
-
-		if ( 1 == $wpmu )
-			$prtfl_options = get_option( 'prtfl_options' );
-		else
-			$prtfl_options = get_site_option( 'prtfl_options' );
-
+		
+		register_prtfl_settings();
+		
 		if ( ! file_exists( $filename_theme_1 ) ) {
 			$handle = @fopen( $filename_1, "r" );
 			$contents = @fread( $handle, filesize( $filename_1 ) );
@@ -109,7 +106,7 @@ if ( ! function_exists( 'prtfl_plugin_install' ) ) {
 if ( ! function_exists( 'add_prtfl_admin_menu' ) ) {
 	function add_prtfl_admin_menu() {
 		global $bstwbsftwppdtplgns_options, $wpmu, $bstwbsftwppdtplgns_added_menu;
-		$bws_menu_version = '1.2.3';
+		$bws_menu_version = '1.2.7';
 		$base = plugin_basename( __FILE__ );
 
 		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
@@ -166,9 +163,8 @@ if ( ! function_exists( 'prtfl_admin_init' ) ) {
 		/* Function check if plugin is compatible with current WP version  */
 		prtfl_version_check();
 		/* Call register settings function */
-		if ( isset( $_GET['page'] ) && "portfolio.php" == $_GET['page'] )
+		if ( ( isset( $_GET['page'] ) && "portfolio.php" == $_GET['page'] ) || ( isset( $_GET['post_type'] ) && 'portfolio' == $_GET['post_type'] )  )
 			register_prtfl_settings();
-
 
 		prtfl_admin_error();
 	}
@@ -287,6 +283,7 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 	function prtfl_settings_page() {
 		global $prtfl_options, $wpmu, $wpdb;
 		$error = "";
+		$cstmsrch_options_name = "";
 
 		if ( 1 == $wpmu ){
 			if ( false !== get_site_option( 'bws_custom_search' ) )
@@ -343,7 +340,7 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 
 			$prtfl_request_options["prtfl_rewrite_template"] = isset( $_REQUEST["prtfl_rewrite_template"] ) ? 1 : 0;
 
-			if ( isset( $_REQUEST['prtfl_add_to_search'] ) ) {
+			if ( isset( $_REQUEST['prtfl_add_to_search'] ) && "" != $cstmsrch_options_name ) {
 				if ( 0 == $wpmu && false !== get_option( $cstmsrch_options_name ) ) {
 					$cstmsrch_options = get_option( $cstmsrch_options_name );
 					if ( ! in_array( 'portfolio', $cstmsrch_options ) ) {
@@ -534,7 +531,7 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 						$active_plugins = get_option( 'active_plugins' );
 						if ( ! function_exists( 'is_plugin_active_for_network' ) )
 							require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
-						if ( isset( $cstmsrch_options_name ) ) {
+						if ( isset( $cstmsrch_options_name ) && "" != $cstmsrch_options_name ) {
 							if ( 1 == $wpmu ) {
 								$cstmsrch_options = get_site_option( $cstmsrch_options_name );
 							} else {
@@ -580,10 +577,11 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 /* Create post type for portfolio */
 if ( ! function_exists( 'prtfl_post_type_portfolio' ) ) {
 	function prtfl_post_type_portfolio() {
-		global $wpdb;
+		global $wpdb, $prtfl_options;
+		register_prtfl_settings();
 		prtfl_replace_old_post_tag();
-		$options	=	get_site_option( 'prtfl_options' );
-		$slug		=	isset( $options['prtfl_slug'] ) && ! empty( $options['prtfl_slug'] ) ? $options['prtfl_slug'] : 'portfolio';
+		/*$options	=	get_site_option( 'prtfl_options' );*/
+		$slug		=	isset( $prtfl_options['prtfl_slug'] ) && ! empty( $prtfl_options['prtfl_slug'] ) ? $prtfl_options['prtfl_slug'] : 'portfolio';
 		register_post_type(
 			'portfolio',
 			array(
@@ -896,6 +894,8 @@ if ( ! function_exists ( 'prtfl_save_postdata' ) ) {
 	function prtfl_save_postdata( $post_id, $post ) {
 		global $prtfl_boxes;
 
+		register_prtfl_settings();
+
 		if ( "portfolio" == $post->post_type && ! wp_is_post_revision( $post_id ) && ! empty( $_POST ) ) { /* Don't store custom data twice */
 			/* Verify this came from the our screen and with proper authorization, because save_post can be triggered at other times */
 			if ( ! current_user_can ( 'edit_page', $post->ID ) ) {
@@ -1133,21 +1133,28 @@ if ( ! function_exists ( 'prtfl_admin_head' ) ) {
 			wp_enqueue_style( 'prtfl_stylesheet', plugins_url( 'css/style_wp_before_3.8.css', __FILE__ ) );	
 		else
 			wp_enqueue_style( 'prtfl_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
-		wp_enqueue_style( 'prtflDatepickerStylesheet', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
+		wp_enqueue_style( 'prtfl_datepicker_stylesheet', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
 
 		if ( isset( $_GET['page'] ) && "portfolio.php" == $_GET['page'] )
 			wp_enqueue_script( 'prtfl_script', plugins_url( 'js/script.js', __FILE__ ) );
-		wp_enqueue_script( 'prtfl_satepicker_script', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );
+		wp_enqueue_script( 'prtfl_datepicker_script', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );
 	}
 }
 
 if ( ! function_exists ( 'prtfl_wp_head' ) ) {
 	function prtfl_wp_head() {
-		wp_enqueue_style( 'prtfl_lightbox_stylesheet', plugins_url( 'fancybox/jquery.fancybox-1.3.4.css', __FILE__ ) );
 		wp_enqueue_style( 'prtfl_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
-
-		wp_enqueue_script( 'prtfl_fancybox_mousewheelJs', plugins_url( 'fancybox/jquery.mousewheel-3.0.4.pack.js', __FILE__ ), array( 'jquery' ) );
-		wp_enqueue_script( 'prtfl_fancyboxJs', plugins_url( 'fancybox/jquery.fancybox-1.3.4.pack.js', __FILE__ ), array( 'jquery' ) );
+		
+		if ( ! function_exists( 'is_plugin_active_for_network' ) || ! function_exists( 'is_plugin_active' ) )
+			require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+		
+		$all_plugins = get_plugins();
+		
+		if ( ( ! is_plugin_active( 'gallery-plugin-pro/gallery-plugin-pro.php' ) && ! is_plugin_active_for_network( 'gallery-plugin-pro/gallery-plugin-pro.php' ) ) || ( isset( $all_plugins["gallery-plugin-pro/gallery-plugin-pro.php"]["Version"] ) && "1.3.0" >= $all_plugins["gallery-plugin-pro/gallery-plugin-pro.php"]["Version"] ) ) { 
+			wp_enqueue_style( 'prtfl_lightbox_stylesheet', plugins_url( 'fancybox/jquery.fancybox-1.3.4.css', __FILE__ ) );
+			wp_enqueue_script( 'prtfl_fancybox_mousewheelJs', plugins_url( 'fancybox/jquery.mousewheel-3.0.4.pack.js', __FILE__ ), array( 'jquery' ) );
+			wp_enqueue_script( 'prtfl_fancyboxJs', plugins_url( 'fancybox/jquery.fancybox-1.3.4.pack.js', __FILE__ ), array( 'jquery' ) );
+		}
 	}
 }
 
@@ -1222,7 +1229,6 @@ if ( ! function_exists ( 'prtfl_wp_generate_attachment_metadata' ) ) {
 	function prtfl_wp_generate_attachment_metadata( $attachment_id, $file, $metadata ) {
 		global $prtfl_options;
 		$attachment		=	get_post( $attachment_id );
-
 		add_image_size( 'portfolio-thumb', $prtfl_options['prtfl_custom_size_px'][0][0], $prtfl_options['prtfl_custom_size_px'][0][1], true );
 		add_image_size( 'portfolio-photo-thumb', $prtfl_options['prtfl_custom_size_px'][1][0], $prtfl_options['prtfl_custom_size_px'][1][1], true );
 
