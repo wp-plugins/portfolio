@@ -15,7 +15,10 @@ Portfolio plugin allows you to create a page containing the information about yo
 With the Portfolio plugin you can create a unique page for displaying portfolio items consisting of screenshots and additional information such as description, short description, URL, date of completion, etc.
 Moreover you can add not just one, but many screenshots to one portfolio item for better visual guidance. 
 
+http://www.youtube.com/watch?v=LAImUxwEO78
+
 <a href="http://wordpress.org/plugins/portfolio/faq/" target="_blank">FAQ</a>
+
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
 = Features =
