@@ -1,10 +1,10 @@
 === Portfolio ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
-Tags: portfolio, images gallery, custom fields, categories, clients, custom, image, images, jpeg, jpg, page, pages, photos, picture, pictures, portolio, post, posts, showcase, tags
+Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
-Tested up to: 3.9
-Stable tag: 2.24
+Tested up to: 3.9.1
+Stable tag: 2.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.25 - 20.05.2014 =
+* Update : We updated all functionality for wordpress 3.9.1.
+
 = V2.24 - 23.04.2014 = 
 * Update : We updated all functionality for wordpress 3.9.
 * Update : Compatibility with Gallery Pro plugin.
@@ -263,6 +266,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.25 =
+We updated all functionality for wordpress 3.9.1.
 
 = V2.24 =
 We updated all functionality for wordpress 3.9. Compatibility with Gallery Pro plugin. The Ukrainian language file is updated in the plugin. Problem with paginiation of technologies is fixed.

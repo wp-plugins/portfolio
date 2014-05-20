@@ -4,7 +4,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.24
+Version: 2.25
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -106,7 +106,8 @@ if ( ! function_exists( 'prtfl_plugin_install' ) ) {
 if ( ! function_exists( 'add_prtfl_admin_menu' ) ) {
 	function add_prtfl_admin_menu() {
 		global $bstwbsftwppdtplgns_options, $wpmu, $bstwbsftwppdtplgns_added_menu;
-		$bws_menu_version = '1.2.7';
+		$bws_menu_info = get_plugin_data( plugin_dir_path( __FILE__ ) . "bws_menu/bws_menu.php" );
+		$bws_menu_version = $bws_menu_info["Version"];
 		$base = plugin_basename( __FILE__ );
 
 		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
@@ -394,6 +395,10 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 	<div class="wrap">
 		<div class="icon32 icon32-bws" id="icon-options-general"></div>
 		<h2><?php _e( 'Portfolio Settings', 'portfolio' ); ?></h2>
+		<h2 class="nav-tab-wrapper">
+			<a class="nav-tab nav-tab-active" href="admin.php?page=portfolio.php"><?php _e( 'Settings', 'portfolio' ); ?></a>
+			<a class="nav-tab" href="http://bestwebsoft.com/plugin/portfolio-plugin/#faq" target="_blank"><?php _e( 'FAQ', 'portfolio' ); ?></a>
+		</h2>		
 		<div class="updated fade" <?php if ( ! isset( $_REQUEST['prtfl_form_submit'] ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 		<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
 		<div id="prtfl_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'portfolio' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'portfolio' ); ?></p></div>
