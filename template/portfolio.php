@@ -12,6 +12,11 @@ get_header(); ?>
 			if ( isset( $wp_query->query_vars["technologies"] ) ) {
 				$term = get_term_by( 'slug', $wp_query->query_vars["technologies"], 'portfolio_technologies' );
 				echo $portfolio_options['prtfl_technologies_text_field'] . " " . ( $term->name );
+			} elseif ( isset( $wp_query->query_vars["portfolio_executor_profile"] ) ) {
+				$term = get_term_by('slug', $wp_query->query_vars["portfolio_executor_profile"], 'portfolio_executor_profile');
+				echo __( 'Executor Profile', 'portfolio' ) . ": <h1>" . ( $term->name ) . "</h1>";
+				$_SESSION['prtfl_page_name'] = __( 'Executor Profile', 'portfolio' ) . ": " . ( $term->name );
+				$_SESSION['prtfl_page_url'] = get_pagenum_link( $wp_query->query_vars['paged'] );
 			} else {
 				the_title();
 			} ?>

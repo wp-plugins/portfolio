@@ -4,7 +4,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.25
+Version: 2.26
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -697,7 +697,7 @@ if ( ! function_exists( 'prtfl_taxonomy_portfolio' ) ) {
 
 if ( ! function_exists( 'prtfl_technologies_get_posts' ) ) {
 	function prtfl_technologies_get_posts( $query ) {
-		if ( isset( $query->query_vars["technologies"] ) )
+		if ( isset( $query->query_vars["technologies"] ) || isset( $query->query_vars["portfolio_executor_profile"] ) )
 			$query->set( 'post_type', array( 'portfolio' ) );
 		return $query;
 	}
@@ -996,10 +996,10 @@ if ( ! function_exists ( 'prtfl_replace_old_post_tag' ) ) {
 if ( ! function_exists( 'prtfl_template_redirect' ) ) {
 	function prtfl_template_redirect() {
 		global $wp_query, $post, $posts;
-		if ( 'portfolio' == get_post_type() && "" == $wp_query->query_vars["s"] && ! isset( $wp_query->query_vars["technologies"] ) ) {
+		if ( 'portfolio' == get_post_type() && "" == $wp_query->query_vars["s"] && ! isset( $wp_query->query_vars["technologies"] ) && ! isset( $wp_query->query_vars["portfolio_executor_profile"] ) ) {
 			include( get_stylesheet_directory() . '/portfolio-post.php' );
 			exit();
-		} elseif ( 'portfolio' == get_post_type() && isset( $wp_query->query_vars["technologies"] ) ) {
+		} elseif ( 'portfolio' == get_post_type() && ( isset( $wp_query->query_vars["technologies"] ) || isset( $wp_query->query_vars["portfolio_executor_profile"] ) ) ) {
 			include( get_stylesheet_directory() . '/portfolio.php' );
 			exit();
 		}

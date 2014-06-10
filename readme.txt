@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
 Tested up to: 3.9.1
-Stable tag: 2.25
+Stable tag: 2.26
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.26 - 10.06.2014 =
+* Bugfix : Problem with executor profile is fixed.
+
 = V2.25 - 20.05.2014 =
 * Update : We updated all functionality for wordpress 3.9.1.
 
@@ -266,6 +269,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.26 =
+Problem with executor profile is fixed.
 
 = V2.25 =
 We updated all functionality for wordpress 3.9.1.
