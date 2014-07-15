@@ -31,22 +31,39 @@ get_header(); ?>
 			}
 			$per_page = $showitems = get_option( 'posts_per_page' ); 
 			$technologies = isset( $wp_query->query_vars["technologies"] ) ? $wp_query->query_vars["technologies"] : "";
+			$executor_profile = isset( $wp_query->query_vars["portfolio_executor_profile"] ) ? $wp_query->query_vars["portfolio_executor_profile"] : "";
 			if ( "" != $technologies ) {
 				$args = array(
-					'post_type'			=>	'portfolio',
-					'post_status'		=>	'publish',
-					'orderby'			=>	$portfolio_options['prtfl_order_by'],
-					'order'				=>	$portfolio_options['prtfl_order'],
-					'posts_per_page'	=>	$per_page,
-					'paged'				=>	$paged,
-					'tax_query'			=>	array(
-							array(
-								'taxonomy'	=>	'portfolio_technologies',
-								'field'		=>	'slug',
-								'terms'		=>	$technologies
-							)
+					'post_type' 		=> 'portfolio',
+					'post_status' 		=> 'publish',
+					'orderby' 			=> $portfolio_options['prtfl_order_by'],
+					'order'			 	=> $portfolio_options['prtfl_order'],
+					'posts_per_page'	=> $per_page,
+					'paged' 			=> $paged,
+					'tax_query' 		=> array(
+						array(
+							'taxonomy' 	=> 'portfolio_technologies',
+							'field' 	=> 'slug',
+							'terms' 	=> $technologies
 						)
-					);
+					)
+				);
+			} else if ( "" != $executor_profile ) {
+				$args = array(
+					'post_type' 		=> 'portfolio',
+					'post_status' 		=> 'publish',
+					'orderby'			=> $portfolio_options['prtfl_order_by'],
+					'order' 			=> $portfolio_options['prtfl_order'],
+					'posts_per_page' 	=> $per_page,
+					'paged' 			=> $paged,
+					'tax_query' 		=> array(
+						array(
+							'taxonomy' 	=> 'portfolio_executor_profile',
+							'field' 	=> 'slug',
+							'terms' 	=> $executor_profile
+						)
+					)
+				);
 			} else {
 				$args = array(
 					'post_type'			=>	'portfolio',

@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
 Tested up to: 3.9.1
-Stable tag: 2.26
+Stable tag: 2.27
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,13 +39,13 @@ There is also a premium version of the plugin <a href="http://bestwebsoft.com/pl
 
 = Translation =
 
-* European Portuguese (pt_PT) (thanks to <a href="mailto:catarinavclemente@gmail.com">Catarina Clemente</a> )
+* European Portuguese (pt_PT) (thanks to <a href="mailto:catarinavclemente@gmail.com">Catarina Clemente</a>)
 * Brazilian Portuguese (pt_BR) (thanks to DJIO, www.djio.com.br)
 * Dutch (nl_NL) (thanks to <a href="mailto:ronald@hostingu.nl">HostingU, Ronald Verheul</a>)
 * French (fr_FR) (thanks to <a href="mailto:paillat.jeff@gmail.com">Jeff</a>)
 * German (de_DE) (thanks to Felix Griewald, www.felix-griewald.de)
 * Hebrew (he_IL) (thanks to Sagive SEO)
-* Hindi (hi_IN) (thanks to <a href="mailto:ash.pr@outshinesolutions.com">Outshine Solutions</a>, www.outshinesolutions.com )
+* Hindi (hi_IN) (thanks to <a href="mailto:ash.pr@outshinesolutions.com">Outshine Solutions</a>, www.outshinesolutions.com)
 * Italian (it_IT)
 * Persian (fa_IR) (thanks to <a href="mailto:AmirMaskani@gmail.com">Amir Maskani</a>, www.emir.ir)
 * Russian (ru_RU)
@@ -142,6 +142,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.27 - 15.07.2014 =
+* NEW : We added settings for renaming uploaded images to avoid conflict.
+* Update : We added functionality to exclude unnecessary thumbnails from uploaded images in portfolio.
+* Bugfix : Problem with executor profile is fixed in portfolio template.
 
 = V2.26 - 10.06.2014 =
 * Bugfix : Problem with executor profile is fixed.
@@ -269,6 +274,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.27 =
+We added settings for renaming uploaded images to avoid conflict. We added functionality to exclude unnecessary thumbnails from uploaded images in portfolio. Problem with executor profile is fixed in portfolio template.
 
 = V2.26 =
 Problem with executor profile is fixed.

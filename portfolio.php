@@ -4,7 +4,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.26
+Version: 2.27
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -221,6 +221,7 @@ if ( ! function_exists( 'register_prtfl_settings' ) ) {
 			'prtfl_technologies_text_field'			=>	__( 'Technologies:', 'portfolio' ),
 			'prtfl_slug' 							=>	'portfolio',
 			'prtfl_rewrite_template' 				=>	1,
+			'prtfl_rename_file' 					=>	0,
 			'plugin_option_version'					=> $prtfl_plugin_info["Version"]
 		);
 
@@ -340,6 +341,7 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 			$prtfl_request_options["prtfl_slug"]	=	preg_replace( "/\s/", "-", $prtfl_request_options["prtfl_slug"] );
 
 			$prtfl_request_options["prtfl_rewrite_template"] = isset( $_REQUEST["prtfl_rewrite_template"] ) ? 1 : 0;
+			$prtfl_request_options["prtfl_rename_file"] = isset( $_REQUEST["prtfl_rename_file"] ) ? 1 : 0;
 
 			if ( isset( $_REQUEST['prtfl_add_to_search'] ) && "" != $cstmsrch_options_name ) {
 				if ( 0 == $wpmu && false !== get_option( $cstmsrch_options_name ) ) {
@@ -527,6 +529,12 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 					<th scope="row"><?php _e( 'Rewrite templates after update', 'portfolio' ); ?></th>
 					<td>
 						<input type="checkbox" name="prtfl_rewrite_template" value="1" <?php if ( 1 == $prtfl_options['prtfl_rewrite_template'] ) echo "checked=\"checked\""; ?> /> <span style="color: #888888;font-size: 10px;"><?php _e( "Turn off the checkbox, if You edited the file 'portfolio.php' or 'portfolio-post.php' file in your theme folder and You don't want to rewrite them", 'portfolio' ); ?></span>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><?php _e( 'Rename uploaded images', 'portfolio' ); ?></th>
+					<td>
+						<input type="checkbox" name="prtfl_rename_file" value="1" <?php if ( 1 == $prtfl_options['prtfl_rename_file'] ) echo "checked=\"checked\""; ?> /> <span style="color: #888888;font-size: 10px;"><?php _e( "To avoid conflicts, all the symbols will be excluded, except numbers, the Roman letters,  _ and - symbols.", 'portfolio' ); ?></span>
 					</td>
 				</tr>
 				<tr valign="top">
@@ -1421,6 +1429,39 @@ if ( ! function_exists ( 'prtfl_image_resize_dimensions' ) ) {
 	}
 }
 
+
+if ( ! function_exists( 'prtfl_sanitize_file_name' ) ) {
+	function prtfl_sanitize_file_name( $file_name ) {
+		global $prtfl_options;
+		if ( isset( $_REQUEST['post_id'] ) && 'portfolio' == get_post_type( $_REQUEST['post_id'] )
+			&& isset( $prtfl_options['prtfl_rename_file'] ) && $prtfl_options['prtfl_rename_file'] == 1 ) {	
+			$file_name_old = explode('.', $file_name );		
+			$file_name_new = preg_replace( '/--+/', '-', preg_replace( '/[^a-zA-Z0-9_-]/', '', $file_name_old[0] ) );
+
+			if ( $file_name_new == '' || $file_name_new == '-' ) {
+				$slug = isset( $prtfl_options['prtfl_slug'] ) && ! empty( $prtfl_options['prtfl_slug'] ) ? $prtfl_options['prtfl_slug'] : 'portfolio';
+				$file_name_new = $slug . '-' . time();
+			}
+			$file_name = $file_name_new . '.' . $file_name_old[1];
+		}
+		return $file_name;
+	}
+}
+
+if ( ! function_exists( 'prtfl_filter_image_sizes' ) ) {
+	function prtfl_filter_image_sizes( $sizes ) {
+		if ( isset( $_REQUEST['post_id'] ) && 'portfolio' == get_post_type( $_REQUEST['post_id'] ) ) {
+			$prtfl_image_size = array( 'portfolio-thumb', 'portfolio-photo-thumb', 'large' );
+			foreach ( $sizes as $key => $value ) {
+				if ( ! in_array( $key, $prtfl_image_size ) ) {
+					unset( $sizes[ $key ] );
+				}
+			}
+		}
+		return $sizes;
+	}
+}
+
 if ( ! function_exists( 'prtfl_plugin_uninstall' ) ) {
 	function prtfl_plugin_uninstall() {
 		if ( file_exists( get_stylesheet_directory() . '/portfolio.php' ) && ! unlink( get_stylesheet_directory() . '/portfolio.php' ) )
@@ -1457,7 +1498,7 @@ add_action( 'wp_ajax_prtfl_update_image', 'prtfl_update_image' );
 /* Add custom permalink for portfolio */
 /* add_action( 'init', 'prtfl_custom_permalinks' ); */
 
-add_shortcode('latest_portfolio_items', 'prtfl_latest_items');
+add_shortcode( 'latest_portfolio_items', 'prtfl_latest_items' );
 
 /* Display tachnologies taxonomy */
 add_filter( 'pre_get_posts', 'prtfl_technologies_get_posts' );
@@ -1467,6 +1508,9 @@ add_filter( 'plugin_row_meta', 'prtfl_register_plugin_links', 10, 2 );
 /* Adds "Settings" link to the plugin action page */
 add_filter( 'plugin_action_links', 'prtfl_plugin_action_links', 10, 2 );
 add_filter( 'nav_menu_css_class', 'prtfl_add_portfolio_ancestor_to_menu', 10, 2 );
+
+add_filter( 'sanitize_file_name', 'prtfl_sanitize_file_name' );
+add_filter( 'intermediate_image_sizes_advanced', 'prtfl_filter_image_sizes' );
 
 register_uninstall_hook( __FILE__, 'prtfl_plugin_uninstall' ); /* Deactivate plugin */
 
