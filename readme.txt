@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
-Tested up to: 3.9.1
-Stable tag: 2.27
+Tested up to: 3.9.2
+Stable tag: 2.28
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.28 - 07.08.2014 =
+* Bugfix : Bug with localization was fixed.
+* Bugfix : Security Exploit was fixed.
+
 = V2.27 - 15.07.2014 =
 * NEW : We added settings for renaming uploaded images to avoid conflict.
 * Update : We added functionality to exclude unnecessary thumbnails from uploaded images in portfolio.
@@ -274,6 +278,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.28 =
+Bug with localization was fixed. Security Exploit was fixed.
 
 = V2.27 =
 We added settings for renaming uploaded images to avoid conflict. We added functionality to exclude unnecessary thumbnails from uploaded images in portfolio. Problem with executor profile is fixed in portfolio template.

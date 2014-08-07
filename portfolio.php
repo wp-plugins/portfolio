@@ -4,7 +4,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.27
+Version: 2.28
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -308,7 +308,7 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 				array( intval( trim( $_REQUEST['prtfl_custom_image_size_w_album'] ) ), intval( trim( $_REQUEST['prtfl_custom_image_size_h_album'] ) ) ),
 				array( intval( trim( $_REQUEST['prtfl_custom_image_size_w_photo'] ) ), intval( trim( $_REQUEST['prtfl_custom_image_size_h_photo'] ) ) )
 			);
-			$prtfl_request_options["prtfl_custom_image_row_count"] =  intval( trim( $_REQUEST['prtfl_custom_image_row_count'] ) );
+			$prtfl_request_options["prtfl_custom_image_row_count"] =  intval( $_REQUEST['prtfl_custom_image_row_count'] );
 			if ( "" == $prtfl_request_options["prtfl_custom_image_row_count"] || 1 > $prtfl_request_options["prtfl_custom_image_row_count"] )
 				$prtfl_request_options["prtfl_custom_image_row_count"] = 1;
 
@@ -325,14 +325,14 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 
 			$prtfl_request_options["prtfl_link_additional_field_for_non_registered"] = isset( $_REQUEST["prtfl_link_additional_field_for_non_registered"] ) ? $_REQUEST["prtfl_link_additional_field_for_non_registered"] : 0;
 
-			$prtfl_request_options["prtfl_date_text_field"] 			=	$_REQUEST["prtfl_date_text_field"];
-			$prtfl_request_options["prtfl_link_text_field"]				=	$_REQUEST["prtfl_link_text_field"];
-			$prtfl_request_options["prtfl_shrdescription_text_field"] 	=	$_REQUEST["prtfl_shrdescription_text_field"];
-			$prtfl_request_options["prtfl_description_text_field"]		=	$_REQUEST["prtfl_description_text_field"];
-			$prtfl_request_options["prtfl_svn_text_field"]				=	$_REQUEST["prtfl_svn_text_field"];
-			$prtfl_request_options["prtfl_executor_text_field"]			=	$_REQUEST["prtfl_executor_text_field"];
-			$prtfl_request_options["prtfl_screenshot_text_field"]		=	$_REQUEST["prtfl_screenshot_text_field"];
-			$prtfl_request_options["prtfl_technologies_text_field"]		=	$_REQUEST["prtfl_technologies_text_field"];
+			$prtfl_request_options["prtfl_date_text_field"] 			=	stripslashes( esc_html( $_REQUEST["prtfl_date_text_field"] ) );
+			$prtfl_request_options["prtfl_link_text_field"]				=	stripslashes( esc_html( $_REQUEST["prtfl_link_text_field"] ) );
+			$prtfl_request_options["prtfl_shrdescription_text_field"] 	=	stripslashes( esc_html( $_REQUEST["prtfl_shrdescription_text_field"] ) );
+			$prtfl_request_options["prtfl_description_text_field"]		=	stripslashes( esc_html( $_REQUEST["prtfl_description_text_field"] ) );
+			$prtfl_request_options["prtfl_svn_text_field"]				=	stripslashes( esc_html( $_REQUEST["prtfl_svn_text_field"] ) );
+			$prtfl_request_options["prtfl_executor_text_field"]			=	stripslashes( esc_html( $_REQUEST["prtfl_executor_text_field"] ) );
+			$prtfl_request_options["prtfl_screenshot_text_field"]		=	stripslashes( esc_html( $_REQUEST["prtfl_screenshot_text_field"] ) );
+			$prtfl_request_options["prtfl_technologies_text_field"]		=	stripslashes( esc_html( $_REQUEST["prtfl_technologies_text_field"] ) );
 
 			$prtfl_request_options["prtfl_slug"]	=	trim( $_REQUEST['prtfl_slug'] );
 			$prtfl_request_options["prtfl_slug"]	=	strtolower( $prtfl_request_options["prtfl_slug"] );
@@ -468,18 +468,18 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 				<tr valign="top">
 					<th scope="row"><?php _e( 'Sort portfolio by', 'portfolio' ); ?> </th>
 					<td>
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="ID" <?php if ( 'ID' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'portfolio id', 'gallery' ); ?></label><br />
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="title" <?php if ( 'title' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'portfolio title', 'gallery' ); ?></label><br />
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="date" <?php if ( 'date' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'date', 'gallery' ); ?></label><br />
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="menu_order" <?php if ( 'menu_order' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'menu order', 'gallery' ); ?></label><br />
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="rand" <?php if ( 'rand' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'random', 'gallery' ); ?></label>
+						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="ID" <?php if ( 'ID' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'portfolio id', 'portfolio' ); ?></label><br />
+						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="title" <?php if ( 'title' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'portfolio title', 'portfolio' ); ?></label><br />
+						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="date" <?php if ( 'date' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'date', 'portfolio' ); ?></label><br />
+						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="menu_order" <?php if ( 'menu_order' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'menu order', 'portfolio' ); ?></label><br />
+						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="rand" <?php if ( 'rand' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'random', 'portfolio' ); ?></label>
 					</td>
 				</tr>
 				<tr valign="top">
 					<th scope="row"><?php _e( 'Portfolio sorting', 'portfolio' ); ?> </th>
 					<td>
-						<label class="label_radio" style="width: auto;"><input type="radio" name="prtfl_order" value="ASC" <?php if ( 'ASC' == $prtfl_options["prtfl_order"] ) echo 'checked="checked"'; ?> /> <?php _e( 'ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)', 'gallery' ); ?></label><br />
-						<label class="label_radio" style="width: auto;"><input type="radio" name="prtfl_order" value="DESC" <?php if ( 'DESC' == $prtfl_options["prtfl_order"] ) echo 'checked="checked"'; ?> /> <?php _e( 'DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)', 'gallery' ); ?></label>
+						<label class="label_radio" style="width: auto;"><input type="radio" name="prtfl_order" value="ASC" <?php if ( 'ASC' == $prtfl_options["prtfl_order"] ) echo 'checked="checked"'; ?> /> <?php _e( 'ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)', 'portfolio' ); ?></label><br />
+						<label class="label_radio" style="width: auto;"><input type="radio" name="prtfl_order" value="DESC" <?php if ( 'DESC' == $prtfl_options["prtfl_order"] ) echo 'checked="checked"'; ?> /> <?php _e( 'DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)', 'portfolio' ); ?></label>
 					</td>
 				</tr>
 				<tr valign="top">
@@ -557,11 +557,11 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 								<span style="color: #888888;font-size: 10px;"> (<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>)</span>
 							<?php } else { ?>
 								<input disabled="disabled" type="checkbox" name="prtfl_add_to_search" value="1" <?php if ( isset( $cstmsrch_options ) && in_array( 'portfolio', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />
-								<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'gallery' ); ?></a></span>
+								<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'portfolio' ); ?></a></span>
 							<?php }
 						} else { ?>
 							<input disabled="disabled" type="checkbox" name="prtfl_add_to_search" value="1" />
-							<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/plugin/custom-search-plugin/"><?php _e( 'Download Custom Search', 'gallery' ); ?></a></span>
+							<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/plugin/custom-search-plugin/"><?php _e( 'Download Custom Search', 'portfolio' ); ?></a></span>
 						<?php } ?>
 					</td>
 				</tr>
@@ -917,10 +917,12 @@ if ( ! function_exists ( 'prtfl_save_postdata' ) ) {
 			/* We'll put it into an array to make it easier to loop though. The data is already in $prtfl_boxes, but we need to flatten it out. */
 			foreach( $prtfl_boxes as $prtfl_boxe ) {
 				foreach( $prtfl_boxe as $prtfl_fields ) {
-					$my_data[ $prtfl_fields[0] ] = $_POST[ $prtfl_fields[0] ];
+					if ( $prtfl_fields[0] == '_prtfl_link' || $prtfl_fields[0] == '_prtfl_svn' )
+						$my_data[ $prtfl_fields[0] ] = esc_url( $_POST[ $prtfl_fields[0] ] );
+					else
+						$my_data[ $prtfl_fields[0] ] = stripslashes( esc_html( $_POST[ $prtfl_fields[0] ] ) );
 				}
 			}
-
 			/*	Add values of $my_data as custom fields. Let's cycle through the $my_data array! */
 			if ( '1' == get_option( 'prtfl_postmeta_update' ) ) {
 				if ( get_post_meta( $post->ID, 'prtfl_information', FALSE ) ) {
