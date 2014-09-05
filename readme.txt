@@ -143,7 +143,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
-= V2.29 - 03.08.2014 =
+= V2.29 - 05.09.2014 =
 * ATTENTION! In the current version of Portfolio plugin we updated the Technologies widget. If it was added to the sidebar, it will disappear and you will have to add it again.
 * Budfix : We fixed the bug of displaying sidebar in Twenty Fourteen theme.
 * Budfix : We fixed the bug of adding Technologies widget.
