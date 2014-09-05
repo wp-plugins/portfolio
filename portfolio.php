@@ -4,7 +4,7 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.28
+Version: 2.29
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -156,16 +156,14 @@ if ( ! function_exists( 'prtfl_admin_init' ) ) {
 	function prtfl_admin_init() {
 		global  $bws_plugin_info, $prtfl_plugin_info;
 
-		$prtfl_plugin_info	=	get_plugin_data( __FILE__, false );
+		if ( ! $prtfl_plugin_info )
+			$prtfl_plugin_info	=	get_plugin_data( __FILE__, false );
 
 		if ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) )
 			$bws_plugin_info = array( 'id' => '74', 'version' => $prtfl_plugin_info["Version"] );
 
 		/* Function check if plugin is compatible with current WP version  */
 		prtfl_version_check();
-		/* Call register settings function */
-		if ( ( isset( $_GET['page'] ) && "portfolio.php" == $_GET['page'] ) || ( isset( $_GET['post_type'] ) && 'portfolio' == $_GET['post_type'] )  )
-			register_prtfl_settings();
 
 		prtfl_admin_error();
 	}
@@ -183,12 +181,12 @@ if ( ! function_exists ( 'prtfl_init' ) ) {
 			array( '_prtfl_link', __( 'Link', 'portfolio' ), __( 'A link to the site', 'portfolio' ), '', '' ),
 			array( '_prtfl_svn', __( 'SVN', 'portfolio' ), __( 'SVN URL', 'portfolio' ), '', '' ),
 		);
+		/* Call register settings function */
+		register_prtfl_settings();
 		/* Register post type */
 		prtfl_post_type_portfolio();
 		/* Register taxonomy for portfolio */
 		prtfl_taxonomy_portfolio();
-		/* Add widget for portfolio technologies */
-		prtfl_register_widget();
 	}
 }
 
@@ -196,6 +194,13 @@ if ( ! function_exists ( 'prtfl_init' ) ) {
 if ( ! function_exists( 'register_prtfl_settings' ) ) {
 	function register_prtfl_settings() {
 		global $wpmu, $prtfl_options, $prtfl_plugin_info;
+
+		if ( ! $prtfl_plugin_info ) {
+			if ( ! function_exists( 'get_plugin_data' ) ) {
+				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			}
+			$prtfl_plugin_info	=	get_plugin_data( __FILE__, false );
+		}
 
 		$prtfl_option_defaults = array(
 			'prtfl_custom_size_name'				=>	array( 'portfolio-thumb', 'portfolio-photo-thumb' ),
@@ -222,7 +227,8 @@ if ( ! function_exists( 'register_prtfl_settings' ) ) {
 			'prtfl_slug' 							=>	'portfolio',
 			'prtfl_rewrite_template' 				=>	1,
 			'prtfl_rename_file' 					=>	0,
-			'plugin_option_version'					=> $prtfl_plugin_info["Version"]
+			'plugin_option_version'					=> $prtfl_plugin_info["Version"],
+			'widget_updated' 						=>	1 /* this option is for updating plugin was added in v2.29 */
 		);
 
 		/* Install the option defaults */
@@ -235,16 +241,16 @@ if ( ! function_exists( 'register_prtfl_settings' ) ) {
 		}
 
 		/* Get options from the database */
-		if ( 1 == $wpmu )
-			$prtfl_options = get_site_option( 'prtfl_options' ); /* Get options from the database */
-		else
-			$prtfl_options = get_option( 'prtfl_options' ); /* Get options from the database */
+		$prtfl_options = ( 1 == $wpmu ) ? get_site_option( 'prtfl_options' ) : get_option( 'prtfl_options' );
 
 		if ( isset( $prtfl_options['prtfl_prettyPhoto_style'] ) )
 			unset( $prtfl_options['prtfl_prettyPhoto_style'] );
 
 		/* Array merge incase this version has added new options */
 		if ( ! isset( $prtfl_options['plugin_option_version'] ) || $prtfl_options['plugin_option_version'] != $prtfl_plugin_info["Version"] ) {
+			if ( ! isset( $prtfl_options['plugin_option_version'] ) || $prtfl_options['plugin_option_version'] < '2.29' )
+				$prtfl_option_defaults['widget_updated'] = 0;
+
 			$prtfl_options = array_merge( $prtfl_option_defaults, $prtfl_options );
 			$prtfl_options['plugin_option_version'] = $prtfl_plugin_info["Version"];
 			update_option( 'prtfl_options', $prtfl_options );
@@ -284,10 +290,9 @@ if ( ! function_exists( 'prtfl_admin_error' ) ) {
 if ( ! function_exists( 'prtfl_settings_page' ) ) {
 	function prtfl_settings_page() {
 		global $prtfl_options, $wpmu, $wpdb;
-		$error = "";
-		$cstmsrch_options_name = "";
+		$error = $cstmsrch_options_name = "";
 
-		if ( 1 == $wpmu ){
+		if ( 1 == $wpmu ) {
 			if ( false !== get_site_option( 'bws_custom_search' ) )
 				$cstmsrch_options_name = "bws_custom_search";
 			elseif ( false !== get_site_option( 'cstmsrch_options' ) )
@@ -392,198 +397,179 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 		if ( ! file_exists( get_stylesheet_directory() . '/portfolio.php' ) || ! file_exists( get_stylesheet_directory() . '/portfolio-post.php' ) ) {
 			$error .= __( 'The files "portfolio.php" and "portfolio-post.php" are not found in your theme directory. Please copy them from the directory `wp-content/plugins/portfolio/template/` to your theme directory for correct work of the Portfolio plugin', 'portfolio' );
 		}
-		/* Display form on the setting page */
-	?>
-	<div class="wrap">
-		<div class="icon32 icon32-bws" id="icon-options-general"></div>
-		<h2><?php _e( 'Portfolio Settings', 'portfolio' ); ?></h2>
-		<h2 class="nav-tab-wrapper">
-			<a class="nav-tab nav-tab-active" href="admin.php?page=portfolio.php"><?php _e( 'Settings', 'portfolio' ); ?></a>
-			<a class="nav-tab" href="http://bestwebsoft.com/plugin/portfolio-plugin/#faq" target="_blank"><?php _e( 'FAQ', 'portfolio' ); ?></a>
-		</h2>		
-		<div class="updated fade" <?php if ( ! isset( $_REQUEST['prtfl_form_submit'] ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
-		<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
-		<div id="prtfl_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'portfolio' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'portfolio' ); ?></p></div>
-		<p><?php _e( "If you would like to add the Latest Portfolio Items to your page or post, just copy and paste this shortcode into your post or page:", 'portfolio' ); ?> [latest_portfolio_items count=3], <?php _e( 'where count=3 is a number of posts to show up in the portfolio.', 'portfolio' ); ?></p>
-
-		<?php
-		if ( '1' == get_option( 'prtfl_tag_update' ) )
-			$prefix = '_prtfl';
-		else
-			$prefix = '_prtf';
-		if ( NULL != $wpdb->get_var( "SELECT meta_id FROM " . $wpdb->postmeta . " WHERE meta_key = '" . $prefix . "_short_descr' LIMIT 1" ) ) { ?>
+		/* Display form on the setting page */ ?>
+		<div class="wrap">
+			<div class="icon32 icon32-bws" id="icon-options-general"></div>
+			<h2><?php _e( 'Portfolio Settings', 'portfolio' ); ?></h2>
+			<h2 class="nav-tab-wrapper">
+				<a class="nav-tab nav-tab-active" href="admin.php?page=portfolio.php"><?php _e( 'Settings', 'portfolio' ); ?></a>
+				<a class="nav-tab" href="http://bestwebsoft.com/plugin/portfolio-plugin/#faq" target="_blank"><?php _e( 'FAQ', 'portfolio' ); ?></a>
+			</h2>		
+			<div class="updated fade" <?php if ( ! isset( $_REQUEST['prtfl_form_submit'] ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
+			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
+			<div id="prtfl_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'portfolio' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'portfolio' ); ?></p></div>
+			<p><?php _e( "If you would like to add the Latest Portfolio Items to your page or post, just copy and paste this shortcode into your post or page:", 'portfolio' ); ?> [latest_portfolio_items count=3], <?php _e( 'where count=3 is a number of posts to show up in the portfolio.', 'portfolio' ); ?></p>
+			<?php
+			if ( '1' == get_option( 'prtfl_tag_update' ) )
+				$prefix = '_prtfl';
+			else
+				$prefix = '_prtf';
+			if ( NULL != $wpdb->get_var( "SELECT meta_id FROM " . $wpdb->postmeta . " WHERE meta_key = '" . $prefix . "_short_descr' LIMIT 1" ) ) { ?>
+				<table class="form-table">
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Change the way to store your post_meta information for portfolio', 'portfolio' ); ?> </th>
+						<td style="position:relative">
+							<input type="button" value="<?php _e( 'Update All Info' ); ?>" id="ajax_update_postmeta" name="ajax_update_postmeta" class="button" onclick="javascript:update_postmeta();"> <div id="prtfl_loader"><img src="<?php echo plugins_url( 'images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></div>
+						</td>
+					</tr>
+				</table>
+			<?php } ?>
 			<table class="form-table">
 				<tr valign="top">
-					<th scope="row"><?php _e( 'Change the way to store your post_meta information for portfolio', 'portfolio' ); ?> </th>
+					<th scope="row"><?php _e( 'Update images for portfolio', 'portfolio' ); ?> </th>
 					<td style="position:relative">
-						<input type="button" value="<?php _e( 'Update All Info' ); ?>" id="ajax_update_postmeta" name="ajax_update_postmeta" class="button" onclick="javascript:update_postmeta();"> <div id="prtfl_loader"><img src="<?php echo plugins_url( 'images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></div>
+						<input type="button" value="<?php _e( 'Update images' ); ?>" id="ajax_update_images" name="ajax_update_images" class="button" onclick="javascript:update_images();"> <div id="prtfl_img_loader"><img src="<?php echo plugins_url( 'images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></div>
 					</td>
+				</tr>
+				<tr valign="top">
 				</tr>
 			</table>
-			<script type="text/javascript">
-				var update_message	=	"<?php _e( 'Updating post_meta information...', 'portfolio' ) ?>",
-					not_found_info	=	"<?php _e( 'No portfolio item found', 'portfolio'); ?>",
-					success			=	"<?php _e( 'All info is updated', 'portfolio' ); ?>",
-					error			=	"<?php _e( 'Error.', 'portfolio' ); ?>";
-			</script>
-		<?php } ?>
-		<table class="form-table">
-			<tr valign="top">
-				<th scope="row"><?php _e( 'Update images for portfolio', 'portfolio' ); ?> </th>
-				<td style="position:relative">
-					<input type="button" value="<?php _e( 'Update images' ); ?>" id="ajax_update_images" name="ajax_update_images" class="button" onclick="javascript:update_images();"> <div id="prtfl_img_loader"><img src="<?php echo plugins_url( 'images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></div>
-				</td>
-			</tr>
-			<tr valign="top">
-			</tr>
-		</table>
-		<br />
-		<script type="text/javascript">
-			var update_img_message	=	"<?php _e( 'Updating images...', 'portfolio' ) ?>",
-				not_found_img_info	=	"<?php _e( 'No image found', 'portfolio'); ?>",
-				img_success			=	"<?php _e( 'All images are updated', 'portfolio' ); ?>",
-				img_error			=	"<?php _e( 'Error.', 'portfolio' ); ?>";
-		</script>
-		<form method="post" action="admin.php?page=portfolio.php" id="prtfl_form_image_size">
-			<table class="form-table">
-				<tr valign="top">
-					<th scope="row"><?php _e( 'The album cover size', 'portfolio' ); ?> </th>
-					<td>
-						<label><?php _e( 'Image size name', 'portfolio' ); ?></label> <?php echo $prtfl_options["prtfl_custom_size_name"][0]; ?><br />
-						<label><?php _e( 'Width (in px)', 'portfolio' ); ?></label> <input type="text" name="prtfl_custom_image_size_w_album" value="<?php echo $prtfl_options["prtfl_custom_size_px"][0][0]; ?>" /><br />
-						<label><?php _e( 'Height (in px)', 'portfolio' ); ?></label> <input type="text" name="prtfl_custom_image_size_h_album" value="<?php echo $prtfl_options["prtfl_custom_size_px"][0][1]; ?>" />
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Size of portfolio images', 'portfolio' ); ?> </th>
-					<td>
-						<label><?php _e( 'Image size name', 'portfolio' ); ?></label> <?php echo $prtfl_options["prtfl_custom_size_name"][1]; ?><br />
-						<label><?php _e( 'Width (in px)', 'portfolio' ); ?></label> <input type="text" name="prtfl_custom_image_size_w_photo" value="<?php echo $prtfl_options["prtfl_custom_size_px"][1][0]; ?>" /><br />
-						<label><?php _e( 'Height (in px)', 'portfolio' ); ?></label> <input type="text" name="prtfl_custom_image_size_h_photo" value="<?php echo $prtfl_options["prtfl_custom_size_px"][1][1]; ?>" />
-					</td>
-				</tr>
-				<tr valign="top">
-					<td colspan="2"><span style="color: #888888;font-size: 10px;"><?php _e( 'WordPress will copy thumbnails with the specified dimensions when you upload a new image. It is necessary to click  the Update images button at the bottom of this page in order to generate new images and set new dimensions', 'portfolio' ); ?></span></th>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Sort portfolio by', 'portfolio' ); ?> </th>
-					<td>
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="ID" <?php if ( 'ID' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'portfolio id', 'portfolio' ); ?></label><br />
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="title" <?php if ( 'title' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'portfolio title', 'portfolio' ); ?></label><br />
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="date" <?php if ( 'date' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'date', 'portfolio' ); ?></label><br />
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="menu_order" <?php if ( 'menu_order' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'menu order', 'portfolio' ); ?></label><br />
-						<label class="label_radio"><input type="radio" name="prtfl_order_by" value="rand" <?php if ( 'rand' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'random', 'portfolio' ); ?></label>
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Portfolio sorting', 'portfolio' ); ?> </th>
-					<td>
-						<label class="label_radio" style="width: auto;"><input type="radio" name="prtfl_order" value="ASC" <?php if ( 'ASC' == $prtfl_options["prtfl_order"] ) echo 'checked="checked"'; ?> /> <?php _e( 'ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)', 'portfolio' ); ?></label><br />
-						<label class="label_radio" style="width: auto;"><input type="radio" name="prtfl_order" value="DESC" <?php if ( 'DESC' == $prtfl_options["prtfl_order"] ) echo 'checked="checked"'; ?> /> <?php _e( 'DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)', 'portfolio' ); ?></label>
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Number of images in the row', 'portfolio' ); ?> </th>
-					<td>
-						<input type="text" name="prtfl_custom_image_row_count" value="<?php echo $prtfl_options["prtfl_custom_image_row_count"]; ?>" />
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Display additional fields', 'portfolio' ); ?> </th>
-					<td>
-						<input type="checkbox" name="prtfl_date_additional_field" value="1" id="prtfl_date_additional_field" <?php if ( 1 == $prtfl_options['prtfl_date_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_date_additional_field" style="float:none;"><?php _e( 'Date', 'portfolio' ); ?></label>
-						<input type="checkbox" name="prtfl_link_additional_field" value="1" id="prtfl_link_additional_field" <?php if ( 1 == $prtfl_options['prtfl_link_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_link_additional_field" style="float:none;"><?php _e( 'Link', 'portfolio' ); ?></label>
-						<input type="checkbox" name="prtfl_shrdescription_additional_field" value="1" id="prtfl_shrdescription_additional_field" <?php if ( 1 == $prtfl_options['prtfl_shrdescription_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_shrdescription_additional_field" style="float:none;"><?php _e( 'Short Description', 'portfolio' ); ?></label>
-						<input type="checkbox" name="prtfl_description_additional_field" value="1" id="prtfl_description_additional_field" <?php if ( 1 == $prtfl_options['prtfl_description_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_description_additional_field" style="float:none;"><?php _e( 'Description', 'portfolio' ); ?></label>
-						<input type="checkbox" name="prtfl_svn_additional_field" value="1" id="prtfl_svn_additional_field" <?php if ( 1 == $prtfl_options['prtfl_svn_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_svn_additional_field" style="float:none;"><?php _e( 'SVN', 'portfolio' ); ?></label>
-						<input type="checkbox" name="prtfl_executor_additional_field" value="1" id="prtfl_executor_additional_field" <?php if ( 1 == $prtfl_options['prtfl_executor_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_executor_additional_field" style="float:none;"><?php _e( 'Executor', 'portfolio' ); ?></label>
-						<input type="checkbox" name="prtfl_technologies_additional_field" value="1" id="prtfl_technologies_additional_field" <?php if ( 1 == $prtfl_options['prtfl_technologies_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_technologies_additional_field" style="float:none;"><?php _e( 'Technologies', 'portfolio' ); ?></label>
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Display the link field as a text for non-registered users', 'portfolio' ); ?></th>
-					<td>
-						<input type="checkbox" name="prtfl_link_additional_field_for_non_registered" value="1" id="prtfl_link_additional_field_for_non_registered" <?php if ( 1 == $prtfl_options['prtfl_link_additional_field_for_non_registered'] ) echo "checked=\"checked\""; ?> />
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Text for additional fields', 'portfolio' ); ?> </th>
-					<td>
-					 	<label><?php _e( 'Date of completion:', 'portfolio' ); ?></label> <input type="text" name="prtfl_date_text_field" value="<?php echo $prtfl_options["prtfl_date_text_field"]; ?>" /><br />
-						<label><?php _e( 'Link:', 'portfolio' ); ?></label> <input type="text" name="prtfl_link_text_field" value="<?php echo $prtfl_options["prtfl_link_text_field"]; ?>" /><br />
-						<label><?php _e( 'Short description:', 'portfolio' ); ?></label> <input type="text" name="prtfl_shrdescription_text_field" value="<?php echo $prtfl_options["prtfl_shrdescription_text_field"]; ?>" /><br />
-						<label><?php _e( 'Description:', 'portfolio' ); ?></label> <input type="text" name="prtfl_description_text_field" value="<?php echo $prtfl_options["prtfl_description_text_field"]; ?>" /><br />
-						<label><?php _e( 'SVN:', 'portfolio' ); ?></label> <input type="text" name="prtfl_svn_text_field" value="<?php echo $prtfl_options["prtfl_svn_text_field"]; ?>" /><br />
-						<label><?php _e( 'Executor Profile:', 'portfolio' ); ?></label> <input type="text" name="prtfl_executor_text_field" value="<?php echo $prtfl_options["prtfl_executor_text_field"]; ?>" /><br />
-						<label><?php _e( 'More screenshots:', 'portfolio' ); ?></label> <input type="text" name="prtfl_screenshot_text_field" value="<?php echo $prtfl_options["prtfl_screenshot_text_field"]; ?>" /><br />
-						<label><?php _e( 'Technologies:', 'portfolio' ); ?></label> <input type="text" name="prtfl_technologies_text_field" value="<?php echo $prtfl_options["prtfl_technologies_text_field"]; ?>" />
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Slug for portfolio item', 'portfolio' ); ?></th>
-					<td>
-						<input type="text" name="prtfl_slug" value="<?php echo $prtfl_options["prtfl_slug"]; ?>" /> <span style="color: #888888;font-size: 10px;"><?php _e( 'for any structure of permalinks except the default structure', 'portfolio' ); ?></span>
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Rewrite templates after update', 'portfolio' ); ?></th>
-					<td>
-						<input type="checkbox" name="prtfl_rewrite_template" value="1" <?php if ( 1 == $prtfl_options['prtfl_rewrite_template'] ) echo "checked=\"checked\""; ?> /> <span style="color: #888888;font-size: 10px;"><?php _e( "Turn off the checkbox, if You edited the file 'portfolio.php' or 'portfolio-post.php' file in your theme folder and You don't want to rewrite them", 'portfolio' ); ?></span>
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Rename uploaded images', 'portfolio' ); ?></th>
-					<td>
-						<input type="checkbox" name="prtfl_rename_file" value="1" <?php if ( 1 == $prtfl_options['prtfl_rename_file'] ) echo "checked=\"checked\""; ?> /> <span style="color: #888888;font-size: 10px;"><?php _e( "To avoid conflicts, all the symbols will be excluded, except numbers, the Roman letters,  _ and - symbols.", 'portfolio' ); ?></span>
-					</td>
-				</tr>
-				<tr valign="top">
-					<th scope="row"><?php _e( 'Add portfolio to the search', 'portfolio' ); ?></th>
-					<td>
-						<?php $all_plugins = get_plugins();
-						$active_plugins = get_option( 'active_plugins' );
-						if ( ! function_exists( 'is_plugin_active_for_network' ) )
-							require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
-						if ( isset( $cstmsrch_options_name ) && "" != $cstmsrch_options_name ) {
-							if ( 1 == $wpmu ) {
-								$cstmsrch_options = get_site_option( $cstmsrch_options_name );
-							} else {
-								$cstmsrch_options = get_option( $cstmsrch_options_name );
+			<br />
+			<form method="post" action="admin.php?page=portfolio.php" id="prtfl_form_image_size">
+				<table class="form-table">
+					<tr valign="top">
+						<th scope="row"><?php _e( 'The album cover size', 'portfolio' ); ?> </th>
+						<td>
+							<label><?php _e( 'Image size name', 'portfolio' ); ?></label> <?php echo $prtfl_options["prtfl_custom_size_name"][0]; ?><br />
+							<label><?php _e( 'Width (in px)', 'portfolio' ); ?></label> <input type="text" name="prtfl_custom_image_size_w_album" value="<?php echo $prtfl_options["prtfl_custom_size_px"][0][0]; ?>" /><br />
+							<label><?php _e( 'Height (in px)', 'portfolio' ); ?></label> <input type="text" name="prtfl_custom_image_size_h_album" value="<?php echo $prtfl_options["prtfl_custom_size_px"][0][1]; ?>" />
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Size of portfolio images', 'portfolio' ); ?> </th>
+						<td>
+							<label><?php _e( 'Image size name', 'portfolio' ); ?></label> <?php echo $prtfl_options["prtfl_custom_size_name"][1]; ?><br />
+							<label><?php _e( 'Width (in px)', 'portfolio' ); ?></label> <input type="text" name="prtfl_custom_image_size_w_photo" value="<?php echo $prtfl_options["prtfl_custom_size_px"][1][0]; ?>" /><br />
+							<label><?php _e( 'Height (in px)', 'portfolio' ); ?></label> <input type="text" name="prtfl_custom_image_size_h_photo" value="<?php echo $prtfl_options["prtfl_custom_size_px"][1][1]; ?>" />
+						</td>
+					</tr>
+					<tr valign="top">
+						<td colspan="2"><span style="color: #888888;font-size: 10px;"><?php _e( 'WordPress will copy thumbnails with the specified dimensions when you upload a new image. It is necessary to click  the Update images button at the bottom of this page in order to generate new images and set new dimensions', 'portfolio' ); ?></span></th>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Sort portfolio by', 'portfolio' ); ?> </th>
+						<td>
+							<label class="label_radio"><input type="radio" name="prtfl_order_by" value="ID" <?php if ( 'ID' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'portfolio id', 'portfolio' ); ?></label><br />
+							<label class="label_radio"><input type="radio" name="prtfl_order_by" value="title" <?php if ( 'title' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'portfolio title', 'portfolio' ); ?></label><br />
+							<label class="label_radio"><input type="radio" name="prtfl_order_by" value="date" <?php if ( 'date' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'date', 'portfolio' ); ?></label><br />
+							<label class="label_radio"><input type="radio" name="prtfl_order_by" value="menu_order" <?php if ( 'menu_order' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'menu order', 'portfolio' ); ?></label><br />
+							<label class="label_radio"><input type="radio" name="prtfl_order_by" value="rand" <?php if ( 'rand' == $prtfl_options["prtfl_order_by"] ) echo 'checked="checked"'; ?> /> <?php _e( 'random', 'portfolio' ); ?></label>
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Portfolio sorting', 'portfolio' ); ?> </th>
+						<td>
+							<label class="label_radio" style="width: auto;"><input type="radio" name="prtfl_order" value="ASC" <?php if ( 'ASC' == $prtfl_options["prtfl_order"] ) echo 'checked="checked"'; ?> /> <?php _e( 'ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)', 'portfolio' ); ?></label><br />
+							<label class="label_radio" style="width: auto;"><input type="radio" name="prtfl_order" value="DESC" <?php if ( 'DESC' == $prtfl_options["prtfl_order"] ) echo 'checked="checked"'; ?> /> <?php _e( 'DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)', 'portfolio' ); ?></label>
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Number of images in the row', 'portfolio' ); ?> </th>
+						<td>
+							<input type="text" name="prtfl_custom_image_row_count" value="<?php echo $prtfl_options["prtfl_custom_image_row_count"]; ?>" />
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Display additional fields', 'portfolio' ); ?> </th>
+						<td>
+							<input type="checkbox" name="prtfl_date_additional_field" value="1" id="prtfl_date_additional_field" <?php if ( 1 == $prtfl_options['prtfl_date_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_date_additional_field" style="float:none;"><?php _e( 'Date', 'portfolio' ); ?></label>
+							<input type="checkbox" name="prtfl_link_additional_field" value="1" id="prtfl_link_additional_field" <?php if ( 1 == $prtfl_options['prtfl_link_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_link_additional_field" style="float:none;"><?php _e( 'Link', 'portfolio' ); ?></label>
+							<input type="checkbox" name="prtfl_shrdescription_additional_field" value="1" id="prtfl_shrdescription_additional_field" <?php if ( 1 == $prtfl_options['prtfl_shrdescription_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_shrdescription_additional_field" style="float:none;"><?php _e( 'Short Description', 'portfolio' ); ?></label>
+							<input type="checkbox" name="prtfl_description_additional_field" value="1" id="prtfl_description_additional_field" <?php if ( 1 == $prtfl_options['prtfl_description_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_description_additional_field" style="float:none;"><?php _e( 'Description', 'portfolio' ); ?></label>
+							<input type="checkbox" name="prtfl_svn_additional_field" value="1" id="prtfl_svn_additional_field" <?php if ( 1 == $prtfl_options['prtfl_svn_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_svn_additional_field" style="float:none;"><?php _e( 'SVN', 'portfolio' ); ?></label>
+							<input type="checkbox" name="prtfl_executor_additional_field" value="1" id="prtfl_executor_additional_field" <?php if ( 1 == $prtfl_options['prtfl_executor_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_executor_additional_field" style="float:none;"><?php _e( 'Executor', 'portfolio' ); ?></label>
+							<input type="checkbox" name="prtfl_technologies_additional_field" value="1" id="prtfl_technologies_additional_field" <?php if ( 1 == $prtfl_options['prtfl_technologies_additional_field'] ) echo "checked=\"checked\""; ?> /> <label for="prtfl_technologies_additional_field" style="float:none;"><?php _e( 'Technologies', 'portfolio' ); ?></label>
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Display the link field as a text for non-registered users', 'portfolio' ); ?></th>
+						<td>
+							<input type="checkbox" name="prtfl_link_additional_field_for_non_registered" value="1" id="prtfl_link_additional_field_for_non_registered" <?php if ( 1 == $prtfl_options['prtfl_link_additional_field_for_non_registered'] ) echo "checked=\"checked\""; ?> />
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Text for additional fields', 'portfolio' ); ?> </th>
+						<td>
+						 	<label><?php _e( 'Date of completion:', 'portfolio' ); ?></label> <input type="text" name="prtfl_date_text_field" value="<?php echo $prtfl_options["prtfl_date_text_field"]; ?>" /><br />
+							<label><?php _e( 'Link:', 'portfolio' ); ?></label> <input type="text" name="prtfl_link_text_field" value="<?php echo $prtfl_options["prtfl_link_text_field"]; ?>" /><br />
+							<label><?php _e( 'Short description:', 'portfolio' ); ?></label> <input type="text" name="prtfl_shrdescription_text_field" value="<?php echo $prtfl_options["prtfl_shrdescription_text_field"]; ?>" /><br />
+							<label><?php _e( 'Description:', 'portfolio' ); ?></label> <input type="text" name="prtfl_description_text_field" value="<?php echo $prtfl_options["prtfl_description_text_field"]; ?>" /><br />
+							<label><?php _e( 'SVN:', 'portfolio' ); ?></label> <input type="text" name="prtfl_svn_text_field" value="<?php echo $prtfl_options["prtfl_svn_text_field"]; ?>" /><br />
+							<label><?php _e( 'Executor Profile:', 'portfolio' ); ?></label> <input type="text" name="prtfl_executor_text_field" value="<?php echo $prtfl_options["prtfl_executor_text_field"]; ?>" /><br />
+							<label><?php _e( 'More screenshots:', 'portfolio' ); ?></label> <input type="text" name="prtfl_screenshot_text_field" value="<?php echo $prtfl_options["prtfl_screenshot_text_field"]; ?>" /><br />
+							<label><?php _e( 'Technologies:', 'portfolio' ); ?></label> <input type="text" name="prtfl_technologies_text_field" value="<?php echo $prtfl_options["prtfl_technologies_text_field"]; ?>" />
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Slug for portfolio item', 'portfolio' ); ?></th>
+						<td>
+							<input type="text" name="prtfl_slug" value="<?php echo $prtfl_options["prtfl_slug"]; ?>" /> <span style="color: #888888;font-size: 10px;"><?php _e( 'for any structure of permalinks except the default structure', 'portfolio' ); ?></span>
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Rewrite templates after update', 'portfolio' ); ?></th>
+						<td>
+							<input type="checkbox" name="prtfl_rewrite_template" value="1" <?php if ( 1 == $prtfl_options['prtfl_rewrite_template'] ) echo "checked=\"checked\""; ?> /> <span style="color: #888888;font-size: 10px;"><?php _e( "Turn off the checkbox, if You edited the file 'portfolio.php' or 'portfolio-post.php' file in your theme folder and You don't want to rewrite them", 'portfolio' ); ?></span>
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Rename uploaded images', 'portfolio' ); ?></th>
+						<td>
+							<input type="checkbox" name="prtfl_rename_file" value="1" <?php if ( 1 == $prtfl_options['prtfl_rename_file'] ) echo "checked=\"checked\""; ?> /> <span style="color: #888888;font-size: 10px;"><?php _e( "To avoid conflicts, all the symbols will be excluded, except numbers, the Roman letters,  _ and - symbols.", 'portfolio' ); ?></span>
+						</td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e( 'Add portfolio to the search', 'portfolio' ); ?></th>
+						<td>
+							<?php $all_plugins = get_plugins();
+							$active_plugins = get_option( 'active_plugins' );
+							if ( ! function_exists( 'is_plugin_active_for_network' ) )
+								require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+							if ( isset( $cstmsrch_options_name ) && "" != $cstmsrch_options_name ) {
+								$cstmsrch_options = ( 1 == $wpmu ) ? get_site_option( $cstmsrch_options_name ) : get_option( $cstmsrch_options_name );
 							}
-						}
-						if ( array_key_exists( 'custom-search-plugin/custom-search-plugin.php', $all_plugins ) ) {
-							if ( 0 < count( preg_grep( '/custom-search-plugin\/custom-search-plugin.php/', $active_plugins ) ) || is_plugin_active_for_network( 'custom-search-plugin/custom-search-plugin.php' ) ) { ?>
-								<input type="checkbox" name="prtfl_add_to_search" value="1" <?php if ( isset( $cstmsrch_options ) && in_array( 'portfolio', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />
-								<span style="color: #888888;font-size: 10px;"> (<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>)</span>
-							<?php } else { ?>
-								<input disabled="disabled" type="checkbox" name="prtfl_add_to_search" value="1" <?php if ( isset( $cstmsrch_options ) && in_array( 'portfolio', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />
-								<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'portfolio' ); ?></a></span>
-							<?php }
-						} else { ?>
-							<input disabled="disabled" type="checkbox" name="prtfl_add_to_search" value="1" />
-							<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/plugin/custom-search-plugin/"><?php _e( 'Download Custom Search', 'portfolio' ); ?></a></span>
-						<?php } ?>
-					</td>
-				</tr>
-			</table>
-			<input type="hidden" name="prtfl_form_submit" value="submit" />
-			<p class="submit">
-				<input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" />
-			</p>
-			<?php wp_nonce_field( plugin_basename( __FILE__ ), 'prtfl_nonce_name' ); ?>
-		</form>
-		<br />
-		<div class="bws-plugin-reviews">
-			<div class="bws-plugin-reviews-rate">
-				<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'portfolio' ); ?>: 
-				<a href="http://wordpress.org/support/view/plugin-reviews/portfolio" target="_blank" title="Portfolio reviews"><?php _e( 'Rate the plugin', 'portfolio' ); ?></a><br/>
-			</div>
-			<div class="bws-plugin-reviews-support">
-				<?php _e( 'If there is something wrong about it, please contact us', 'portfolio' ); ?>: 
-				<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
+							if ( array_key_exists( 'custom-search-plugin/custom-search-plugin.php', $all_plugins ) ) {
+								if ( 0 < count( preg_grep( '/custom-search-plugin\/custom-search-plugin.php/', $active_plugins ) ) || is_plugin_active_for_network( 'custom-search-plugin/custom-search-plugin.php' ) ) { ?>
+									<input type="checkbox" name="prtfl_add_to_search" value="1" <?php if ( isset( $cstmsrch_options ) && in_array( 'portfolio', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />
+									<span style="color: #888888;font-size: 10px;"> (<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>)</span>
+								<?php } else { ?>
+									<input disabled="disabled" type="checkbox" name="prtfl_add_to_search" value="1" <?php if ( isset( $cstmsrch_options ) && in_array( 'portfolio', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />
+									<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'portfolio' ); ?></a></span>
+								<?php }
+							} else { ?>
+								<input disabled="disabled" type="checkbox" name="prtfl_add_to_search" value="1" />
+								<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/plugin/custom-search-plugin/"><?php _e( 'Download Custom Search', 'portfolio' ); ?></a></span>
+							<?php } ?>
+						</td>
+					</tr>
+				</table>
+				<input type="hidden" name="prtfl_form_submit" value="submit" />
+				<p class="submit">
+					<input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" />
+				</p>
+				<?php wp_nonce_field( plugin_basename( __FILE__ ), 'prtfl_nonce_name' ); ?>
+			</form>
+			<div class="bws-plugin-reviews">
+				<div class="bws-plugin-reviews-rate">
+					<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'portfolio' ); ?>: 
+					<a href="http://wordpress.org/support/view/plugin-reviews/portfolio" target="_blank" title="Portfolio reviews"><?php _e( 'Rate the plugin', 'portfolio' ); ?></a><br/>
+				</div>
+				<div class="bws-plugin-reviews-support">
+					<?php _e( 'If there is something wrong about it, please contact us', 'portfolio' ); ?>: 
+					<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
+				</div>
 			</div>
 		</div>
-	</div>
 	<?php }
 }
 
@@ -591,9 +577,9 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 if ( ! function_exists( 'prtfl_post_type_portfolio' ) ) {
 	function prtfl_post_type_portfolio() {
 		global $wpdb, $prtfl_options;
-		register_prtfl_settings();
+
 		prtfl_replace_old_post_tag();
-		/*$options	=	get_site_option( 'prtfl_options' );*/
+
 		$slug		=	isset( $prtfl_options['prtfl_slug'] ) && ! empty( $prtfl_options['prtfl_slug'] ) ? $prtfl_options['prtfl_slug'] : 'portfolio';
 		register_post_type(
 			'portfolio',
@@ -711,114 +697,50 @@ if ( ! function_exists( 'prtfl_technologies_get_posts' ) ) {
 	}
 }
 
+/**
+ * Class extends WP class WP_Widget, and create new widget
+ */
+if ( ! class_exists( 'portfolio_technologies_widget' ) ) {
+	class portfolio_technologies_widget extends WP_Widget {
+		/* constructor of class */
+		function __construct() {
+			parent::__construct(
+		 			'portfolio_technologies_widget',
+		 			__( 'Technologies', 'portfolio' ),
+		 			array( 'description' => __( 'Your most used portfolio technologies as a tag cloud', 'portfolio' ) )
+				);
+		}
+		/* Function to displaying widget in front end */
+		function widget( $args, $instance ) {
+			$widget_title = isset( $instance['widget_title'] ) ? $instance['widget_title'] : null;
+			$widget_title = apply_filters( 'widget_title', $widget_title, '', 'portfolio_technologies_widget' );
+			echo $args['before_widget'];			
+			if ( $widget_title )
+				echo $args['before_title'] . $widget_title . $args['after_title'];
+			echo '<div class="tagcloud">';
+			wp_tag_cloud( apply_filters( 'widget_tag_cloud_args', array( 'taxonomy' => 'portfolio_technologies', 'number' => 0 ) ) );
+			echo "</div>\n";
+			echo $args['after_widget'];
+		}
+		/* Function to save widget settings */
+		function update( $new_instance, $old_instance ) {
+			$instance = array();			
+			$instance['widget_title'] = ( ! empty( $new_instance['widget_title'] ) ) ? strip_tags( $new_instance['widget_title'] ) : null;		
+			return $instance;
+		}
+		/* Function to displaying widget settings in back end */
+		function form( $instance ) {
+			$widget_title = isset( $instance['widget_title'] ) ? stripslashes( esc_html( $instance['widget_title'] ) ) : null; ?>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'widget_title' ); ?>"><?php _e( 'Title', 'portfolio' ); ?>:</label>
+				<input class="widefat" id="<?php echo $this->get_field_id( 'widget_title' ); ?>" name="<?php echo $this->get_field_name( 'widget_title' ); ?>" type="text" value="<?php echo esc_attr( $widget_title ); ?>"/>
+			</p>
+		<?php }
+	}
+}
 if ( ! function_exists( 'prtfl_register_widget' ) ) {
 	function prtfl_register_widget() {
-		$control_ops = array( 'width' => 200, 'height' => 200, 'id_base' => 'portfolio_technologies_widget' );
-
-		wp_register_sidebar_widget(
-			'portfolio_technologies_widget',
-			__( 'Technologies', 'portfolio' ),
-			'prtfl_widget_display',
-			array(
-				'description' => __( 'Your most used portfolio technologies as a tag cloud', 'portfolio' )
-			)
-		);
-		wp_register_widget_control(
-			'portfolio_technologies_widget', /* Your unique widget id */
-			__( 'Technologies', 'portfolio' ), /* Widget name */
-			'prtfl_widget_display_control', /* Callback function */
-			$control_ops,
-			array( 'number' => 1 )
-		);
-	}
-}
-
-if ( ! function_exists( 'prtfl_widget_display' ) ) {
-	function prtfl_widget_display( $args, $vars = array() ) {
-		/* Print some HTML for the widget to display here */
-		extract( $args );
-		$options = get_option( 'widget-portfolio_technologies_widget' );
-		if ( ! empty( $options[1]['title'] ) )
-			$title = $options[1]['title'];
-		else
-			$title = $widget_name;
-		$title = apply_filters( 'widget_title', $title, '', 'portfolio_technologies_widget' );
-
-		echo $before_widget;
-		if ( $title )
-			echo $before_title . $title . $after_title;
-		echo '<div class="tagcloud">';
-		wp_tag_cloud( apply_filters( 'widget_tag_cloud_args', array( 'taxonomy' => 'portfolio_technologies', 'number' => 0 ) ) );
-		echo "</div>\n";
-		echo $after_widget;
-	}
-}
-
-if ( ! function_exists( 'prtfl_widget_display_control' ) ) {
-	function prtfl_widget_display_control( $args ) {
-		$options = get_option( 'widget-portfolio_technologies_widget' );
-		if ( empty( $options ) ) $options = array();
-		if ( isset( $options[0] ) ) unset( $options[0] );
-
-		/* Update options array */
-		if ( ! empty( $_POST['widget-portfolio_technologies_widget'] ) && is_array( $_POST ) ) {
-			foreach( $_POST['widget-portfolio_technologies_widget'] as $widget_number => $values ) {
-				if ( empty( $values ) && isset( $options[$widget_number] ) ) /* User clicked cancel */
-					continue;
-
-				if ( ! isset( $options[$widget_number] ) && -1 == $args['number'] )
-					$args['number'] = $widget_number;
-
-				$options[$widget_number] = $values;
-			}
-			/* Clear unused options and update options in DB. return actual options array */
-			$options = prtfl_widget_portfolio_technologies_update( 'widget-portfolio_technologies_widget', $options, $_POST['widget-portfolio_technologies_widget'], $_POST['sidebar'], 'widget-portfolio_technologies_widget' );
-		}
-		/*	$number - is dynamic number for multi widget, gived by WP
-			by default $number = -1 (if no widgets activated). In this case we should use %i% for inputs
-			to allow WP generate number automatically */
-		$number = ( $args['number'] == -1 ) ? '%i%' : $args['number'];
-
-		/* Now we can output control */
-		$title = $options[$number]['title'];
-	?>
-		<p><label for="widget-portfolio_technologies_widget-<?php echo $number; ?>-title"><?php _e( 'Title', 'portfolio' ); ?>:</label>
-		<input type="text" value="<?php echo $title; ?>" name="widget-portfolio_technologies_widget[<?php echo $number; ?>][title]" id="widget-portfolio_technologies_widget-<?php echo $number; ?>-title" class="widefat"></p>
-	<?php
-	}
-}
-
-if ( ! function_exists( 'prtfl_widget_portfolio_technologies_update' ) ) {
-	function prtfl_widget_portfolio_technologies_update( $id_prefix, $options, $post, $sidebar, $option_name = '' ) {
-		global $wp_registered_widgets;
-		static $updated = false;
- 
-		/* Get active sidebar */
-		$sidebars_widgets = wp_get_sidebars_widgets();
-		if ( isset( $sidebars_widgets[$sidebar]) )
-			$this_sidebar =& $sidebars_widgets[$sidebar];
-		else
-			$this_sidebar = array();
- 
-		/* Search unused options */
-		foreach ( $this_sidebar as $_widget_id ) {
-			if ( preg_match( '/' . $id_prefix . '-([0-9]+)/i', $_widget_id, $match ) ) {
-				$widget_number = $match[1];
- 
-				/* $_POST['widget-id'] contain current widgets set for current sidebar */
-				/* $this_sidebar is not updated yet, so we can determine which was deleted */
-				if ( ! in_array( $match[0], $_POST['widget-id'] ) ) {
-					unset( $options[$widget_number] );
-				}
-			}
-		}
-		/* Update database */
-		if ( ! empty( $option_name ) ) {
-			update_option( $option_name, $options );
-			$updated = true;
-		}
-		/* Return updated array */
-		return $options;
+		register_widget( 'portfolio_technologies_widget' );
 	}
 }
 
@@ -857,7 +779,7 @@ if ( ! function_exists( 'prtfl_post_custom_box' ) ) {
 	function prtfl_post_custom_box( $obj = '', $box = '' ) {
 		global $prtfl_boxes;
 		/* Generate box contents */
-		foreach( $prtfl_boxes[ $box[ 'id' ] ] as $prtfl_box ) {
+		foreach ( $prtfl_boxes[ $box[ 'id' ] ] as $prtfl_box ) {
 			echo prtfl_text_field( $prtfl_box );
 		}
 	}
@@ -972,15 +894,15 @@ if ( ! function_exists ( 'prtfl_replace_old_post_tag' ) ) {
 		global $wpdb;
 		if ( false === get_option( 'prtfl_tag_update' ) ) {
 			$tag_id_array = $wpdb->get_results( "SELECT term_taxonomy_id FROM $wpdb->posts, $wpdb->term_relationships WHERE post_type = 'portfolio' AND $wpdb->posts.ID = $wpdb->term_relationships.object_id" );
-			while( list( $key, $val ) = each( $tag_id_array ) ) {
+			while ( list( $key, $val ) = each( $tag_id_array ) ) {
 				$wpdb->update(
 					$wpdb->term_taxonomy,
 					array(
 						'taxonomy' => 'portfolio_technologies'
 					),
 					array(
-						'taxonomy' => 'post_tag' ,
-						'term_taxonomy_id' => $val->term_taxonomy_id
+						'taxonomy' 			=> 'post_tag' ,
+						'term_taxonomy_id'	 => $val->term_taxonomy_id
 					),
 					array(
 						'%s'
@@ -1081,7 +1003,7 @@ if ( ! function_exists( 'prtfl_latest_items' ) ) {
 					}
 					$image		=	wp_get_attachment_image_src( $post_thumbnail_id, 'portfolio-thumb' );
 					$image_alt	=	get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
-					$image_desc	=	get_post($post_thumbnail_id);
+					$image_desc	=	get_post( $post_thumbnail_id );
 					$image_desc	=	$image_desc->post_content;
 					if ( '1' == get_option( 'prtfl_postmeta_update' ) ) {
 						$post_meta	=	get_post_meta( $post->ID, 'prtfl_information', true);
@@ -1150,8 +1072,19 @@ if ( ! function_exists ( 'prtfl_admin_head' ) ) {
 			wp_enqueue_style( 'prtfl_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
 		wp_enqueue_style( 'prtfl_datepicker_stylesheet', plugins_url( 'datepicker/datepicker.css', __FILE__ ) );
 
-		if ( isset( $_GET['page'] ) && "portfolio.php" == $_GET['page'] )
+		if ( isset( $_GET['page'] ) && "portfolio.php" == $_GET['page'] ) {
 			wp_enqueue_script( 'prtfl_script', plugins_url( 'js/script.js', __FILE__ ) );
+			wp_localize_script( 'prtfl_script', 'prtfl_var', array(
+				'prtfl_nonce' 			=> wp_create_nonce( plugin_basename( __FILE__ ), 'prtfl_ajax_nonce_field' ),
+				'update_message'		=> __( 'Updating post_meta information...', 'portfolio' ),
+				'not_found_info'		=> __( 'No portfolio item found', 'portfolio'),
+				'success'				=> __( 'All info is updated', 'portfolio' ),
+				'error_msg'				=> __( 'Error.', 'portfolio' ),
+				'update_img_message'	=> __( 'Updating images...', 'portfolio' ),
+				'not_found_img_info'	=> __( 'No image found', 'portfolio'),
+				'img_success'			=> __( 'All images are updated', 'portfolio' ),
+				'img_error'				=> __( 'Error.', 'portfolio' ) ) );
+		}
 		wp_enqueue_script( 'prtfl_datepicker_script', plugins_url( 'datepicker/datepicker.js', __FILE__ ) );
 	}
 }
@@ -1176,6 +1109,7 @@ if ( ! function_exists ( 'prtfl_wp_head' ) ) {
 if ( ! function_exists ( 'prtfl_update_info' ) ) {
 	function prtfl_update_info() {
 		global $wpdb;
+		check_ajax_referer( plugin_basename( __FILE__ ), 'prtfl_ajax_nonce_field' );
 		$action	=	isset( $_REQUEST['action1'] ) ? $_REQUEST['action1'] : "";
 		$id		=	isset( $_REQUEST['id'] ) ? $_REQUEST['id'] : "";
 		switch ( $action ) {
@@ -1209,6 +1143,7 @@ if ( ! function_exists ( 'prtfl_update_info' ) ) {
 if ( ! function_exists ( 'prtfl_update_image' ) ) {
 	function prtfl_update_image() {
 		global $wpdb;
+		check_ajax_referer( plugin_basename( __FILE__ ), 'prtfl_ajax_nonce_field' );
 		$action	=	isset( $_REQUEST['action1'] ) ? $_REQUEST['action1'] : "";
 		$id		=	isset( $_REQUEST['id'] ) ? $_REQUEST['id'] : "";
 		switch ( $action ) {
@@ -1316,7 +1251,7 @@ if ( ! function_exists ( 'prtfl_image_resize' ) ) {
 	function prtfl_image_resize( $file, $max_w, $max_h, $crop = false, $suffix = null, $dest_path = null, $jpeg_quality = 90 ) {
 		$size = @getimagesize( $file );
         if ( !$size )
-            return new WP_Error( 'invalid_image', __( 'Image size not defined' ), $file );
+            return new WP_Error( 'invalid_image', __( 'Image size not defined', 'portfolio' ), $file );
         $type = $size[2];
 
         if ( 3 == $type )
@@ -1330,7 +1265,7 @@ if ( ! function_exists ( 'prtfl_image_resize' ) ) {
        	else if ( 16 == $type )
             $image = imagecreatefromxbm( $file );
         else
-        	return new WP_Error( 'invalid_image', __('We can update only PNG, JPEG, GIF, WPMP or XBM filetype. For other, please, manually reload image.' ), $file );
+        	return new WP_Error( 'invalid_image', __( 'We can update only PNG, JPEG, GIF, WPMP or XBM filetype. For other, please, manually reload image.', 'portfolio' ), $file );
 
         if ( ! is_resource( $image ) )
             return new WP_Error( 'error_loading_image', $image, $file );
@@ -1340,7 +1275,7 @@ if ( ! function_exists ( 'prtfl_image_resize' ) ) {
 		$dims = prtfl_image_resize_dimensions($orig_w, $orig_h, $max_w, $max_h, $crop);
 
 		if ( ! $dims )
-			return new WP_Error( 'error_getting_dimensions', __( 'Image size changes not defined' ) );
+			return new WP_Error( 'error_getting_dimensions', __( 'Image size changes not defined', 'portfolio' ) );
 		list( $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h ) = $dims;
 		$newimage = wp_imagecreatetruecolor( $dst_w, $dst_h );
 		imagecopyresampled( $newimage, $image, $dst_x, $dst_y, $src_x, $src_y, $dst_w, $dst_h, $src_w, $src_h );
@@ -1365,22 +1300,22 @@ if ( ! function_exists ( 'prtfl_image_resize' ) ) {
 
 		if ( IMAGETYPE_GIF == $orig_type ) {
 			if ( ! imagegif( $newimage, $destfilename ) )
-				return new WP_Error( 'resize_path_invalid', __( 'Invalid path' ) );
+				return new WP_Error( 'resize_path_invalid', __( 'Invalid path', 'portfolio' ) );
 		} elseif ( IMAGETYPE_PNG == $orig_type ) {
 			if ( ! imagepng( $newimage, $destfilename ) )
-				return new WP_Error( 'resize_path_invalid', __( 'Invalid path' ) );
+				return new WP_Error( 'resize_path_invalid', __( 'Invalid path', 'portfolio' ) );
 		} else {
 			/* All other formats are converted to jpg */
 			$destfilename = "{$dir}/{$name}-{$suffix}.jpg";
 			if ( ! imagejpeg( $newimage, $destfilename, apply_filters( 'jpeg_quality', $jpeg_quality, 'image_resize' ) ) )
-				return new WP_Error( 'resize_path_invalid', __( 'Invalid path' ) );
+				return new WP_Error( 'resize_path_invalid', __( 'Invalid path', 'portfolio' ) );
 		}
 
 		imagedestroy( $newimage );
 		/* Set correct file permissions */
 		$stat	=	stat( dirname( $destfilename ) );
 		$perms	=	$stat['mode'] & 0000666; /* Same permissions as parent folder, strip off the executable bits */
-		@ chmod( $destfilename, $perms );
+		@chmod( $destfilename, $perms );
 		return $destfilename;
 	}
 }
@@ -1463,6 +1398,43 @@ if ( ! function_exists( 'prtfl_filter_image_sizes' ) ) {
 		return $sizes;
 	}
 }
+if ( ! function_exists ( 'prtfl_admin_notices' ) ) {
+	function prtfl_admin_notices() {
+		global $hook_suffix, $prtfl_options;
+		if ( 'plugins.php' == $hook_suffix || 'update-core.php' == $hook_suffix ) {  
+			/* Get options from the database */
+			if ( ! $prtfl_options )
+				$prtfl_options = ( 1 == $wpmu ) ? get_site_option( 'prtfl_options' ) : get_option( 'prtfl_options' );
+
+			if ( $prtfl_options['widget_updated'] == 0 ) {
+				/* Save data for settings page */
+				if ( isset( $_REQUEST['prtfl_form_submit'] ) && check_admin_referer( plugin_basename(__FILE__), 'prtfl_nonce_name' ) ) {
+					$prtfl_options['widget_updated'] = 1;
+					update_option( 'prtfl_options', $prtfl_options, '', 'yes' );
+				} else { ?>				
+					<div class="updated" style="padding: 0; margin: 0; border: none; background: none;">				
+						<div class="prtfl_admin_notices bws_banner_on_plugin_page">
+							<form method="post" action="<?php echo $hook_suffix; ?>">
+								<div class="text">									
+									<p>
+										<strong><?php _e( "ATTENTION!", 'portfolio' ); ?></strong>
+										<?php _e( "In the current version of Portfolio plugin we updated the Technologies widget. If it was added to the sidebar, it will disappear and you will have to add it again.", 'portfolio' ); ?>
+									</p>	
+									<input type="hidden" name="prtfl_form_submit" value="submit" />
+									<p class="submit">
+										<input type="submit" class="button-primary" value="<?php _e( 'Read and Understood' ); ?>" />
+									</p>
+									<?php wp_nonce_field( plugin_basename( __FILE__ ), 'prtfl_nonce_name' ); ?>
+								</div>	
+							</form>							
+						</div>		
+					</div>				
+				<?php }
+			}
+		}
+	}
+}
+
 
 if ( ! function_exists( 'prtfl_plugin_uninstall' ) ) {
 	function prtfl_plugin_uninstall() {
@@ -1478,6 +1450,8 @@ if ( ! function_exists( 'prtfl_plugin_uninstall' ) ) {
 		delete_site_option( 'prtfl_options' );
 		delete_site_option( 'prtfl_tag_update' );
 		delete_site_option( 'prtfl_postmeta_update' );
+
+		delete_option( 'widget-portfolio_technologies_widget' );
 	}
 }
 
@@ -1493,8 +1467,13 @@ add_action( 'save_post', 'prtfl_save_postdata', 1, 2 );
 add_action( 'template_redirect', 'prtfl_template_redirect' );
 /* Add template in theme after activate new theme */
 add_action( 'after_setup_theme', 'prtfl_add_template_in_new_theme' );
+
 add_action( 'admin_enqueue_scripts', 'prtfl_admin_head' );
 add_action( 'wp_enqueue_scripts', 'prtfl_wp_head' );
+
+/* Add widget for portfolio technologies */
+add_action( 'widgets_init', 'prtfl_register_widget' );
+
 add_action( 'wp_ajax_prtfl_update_info', 'prtfl_update_info' );
 add_action( 'wp_ajax_prtfl_update_image', 'prtfl_update_image' );
 /* Add custom permalink for portfolio */
@@ -1514,6 +1493,7 @@ add_filter( 'nav_menu_css_class', 'prtfl_add_portfolio_ancestor_to_menu', 10, 2 
 add_filter( 'sanitize_file_name', 'prtfl_sanitize_file_name' );
 add_filter( 'intermediate_image_sizes_advanced', 'prtfl_filter_image_sizes' );
 
-register_uninstall_hook( __FILE__, 'prtfl_plugin_uninstall' ); /* Deactivate plugin */
+add_action( 'admin_notices', 'prtfl_admin_notices');
 
+register_uninstall_hook( __FILE__, 'prtfl_plugin_uninstall' ); /* Deactivate plugin */
 ?>

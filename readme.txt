@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
-Tested up to: 3.9.2
-Stable tag: 2.28
+Tested up to: 4.0
+Stable tag: 2.29
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,12 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.29 - 03.08.2014 =
+* ATTENTION! In the current version of Portfolio plugin we updated the Technologies widget. If it was added to the sidebar, it will disappear and you will have to add it again.
+* Budfix : We fixed the bug of displaying sidebar in Twenty Fourteen theme.
+* Budfix : We fixed the bug of adding Technologies widget.
+* Update : We updated all functionality for wordpress 4.0.
+
 = V2.28 - 07.08.2014 =
 * Bugfix : Bug with localization was fixed.
 * Bugfix : Security Exploit was fixed.
@@ -278,6 +284,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.29 =
+ATTENTION! In the current version of Portfolio plugin we updated the Technologies widget. If it was added to the sidebar, it will disappear and you will have to add it again.
+We fixed the bug of displaying sidebar in Twenty Fourteen theme. We fixed the bug of adding Technologies widget. We updated all functionality for wordpress 4.0-beta3.
 
 = V2.28 =
 Bug with localization was fixed. Security Exploit was fixed.
