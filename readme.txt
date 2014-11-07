@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
 Tested up to: 4.0
-Stable tag: 2.29
+Stable tag: 2.30
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ http://www.youtube.com/watch?v=LAImUxwEO78
 The author of the Portfolio also recommends the following plugins:
 
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=5c5c9083d339113b444b74b2cb3ecaa1">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/?k=5c5c9083d339113b444b74b2cb3ecaa1">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
 = Translation =
 
@@ -143,10 +143,14 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V2.30 - 07.11.2014 =
+* Update : We added the necessary functionality to avoid errors that may appear if a user also has Jetpack Portfolio installed.
+* Update : We added menu order attribute for portfolio.
+
 = V2.29 - 05.09.2014 =
 * ATTENTION! In the current version of Portfolio plugin we updated the Technologies widget. If it was added to the sidebar, it will disappear and you will have to add it again.
-* Budfix : We fixed the bug of displaying sidebar in Twenty Fourteen theme.
-* Budfix : We fixed the bug of adding Technologies widget.
+* Bugfix : We fixed the bug of displaying sidebar in Twenty Fourteen theme.
+* Bugfix : We fixed the bug of adding Technologies widget.
 * Update : We updated all functionality for wordpress 4.0.
 
 = V2.28 - 07.08.2014 =
@@ -284,6 +288,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.30 =
+We added the necessary functionality to avoid errors that may appear if a user also has Jetpack Portfolio installed. We added menu order attribute for portfolio.
 
 = V2.29 =
 ATTENTION! In the current version of Portfolio plugin we updated the Technologies widget. If it was added to the sidebar, it will disappear and you will have to add it again.

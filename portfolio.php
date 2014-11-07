@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Portfolio
-Plugin URI:  http://bestwebsoft.com/plugin/
+Plugin URI:  http://bestwebsoft.com/products/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.29
+Version: 2.30
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -29,7 +29,7 @@ $prtfl_boxes = array();
 
 if ( ! function_exists( 'prtfl_plugin_install' ) ) {
 	function prtfl_plugin_install() {
-		global $wpmu, $prtfl_options;
+		global $prtfl_options;
 		$filename_1			=	WP_PLUGIN_DIR . '/portfolio/template/portfolio.php';
 		$filename_2			=	WP_PLUGIN_DIR . '/portfolio/template/portfolio-post.php';
 		$filename_theme_1	=	get_stylesheet_directory() . '/portfolio.php';
@@ -105,21 +105,15 @@ if ( ! function_exists( 'prtfl_plugin_install' ) ) {
 /* Function are using to add on admin-panel Wordpress page 'bws_plugins' and sub-page of this plugin */
 if ( ! function_exists( 'add_prtfl_admin_menu' ) ) {
 	function add_prtfl_admin_menu() {
-		global $bstwbsftwppdtplgns_options, $wpmu, $bstwbsftwppdtplgns_added_menu;
+		global $bstwbsftwppdtplgns_options, $bstwbsftwppdtplgns_added_menu;
 		$bws_menu_info = get_plugin_data( plugin_dir_path( __FILE__ ) . "bws_menu/bws_menu.php" );
 		$bws_menu_version = $bws_menu_info["Version"];
 		$base = plugin_basename( __FILE__ );
 
 		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
-			if ( 1 == $wpmu ) {
-				if ( ! get_site_option( 'bstwbsftwppdtplgns_options' ) )
-					add_site_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
-				$bstwbsftwppdtplgns_options = get_site_option( 'bstwbsftwppdtplgns_options' );
-			} else {
-				if ( ! get_option( 'bstwbsftwppdtplgns_options' ) )
-					add_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
-				$bstwbsftwppdtplgns_options = get_option( 'bstwbsftwppdtplgns_options' );
-			}
+			if ( ! get_option( 'bstwbsftwppdtplgns_options' ) )
+				add_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
+			$bstwbsftwppdtplgns_options = get_option( 'bstwbsftwppdtplgns_options' );
 		}
 
 		if ( isset( $bstwbsftwppdtplgns_options['bws_menu_version'] ) ) {
@@ -160,10 +154,7 @@ if ( ! function_exists( 'prtfl_admin_init' ) ) {
 			$prtfl_plugin_info	=	get_plugin_data( __FILE__, false );
 
 		if ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) )
-			$bws_plugin_info = array( 'id' => '74', 'version' => $prtfl_plugin_info["Version"] );
-
-		/* Function check if plugin is compatible with current WP version  */
-		prtfl_version_check();
+			$bws_plugin_info = array( 'id' => '74', 'version' => $prtfl_plugin_info["Version"] );		
 
 		prtfl_admin_error();
 	}
@@ -171,10 +162,13 @@ if ( ! function_exists( 'prtfl_admin_init' ) ) {
 
 if ( ! function_exists ( 'prtfl_init' ) ) {
 	function prtfl_init() {
-		/* Add language file */
 		global $prtfl_boxes;
 		/* Internationalization, first(!) */
 		load_plugin_textdomain( 'portfolio', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+		/* Function check if plugin is compatible with current WP version  */
+		prtfl_version_check();
+
 		$prtfl_boxes['Portfolio-Info'] = array(
 			array( '_prtfl_short_descr', __( 'Short description', 'portfolio' ), __( 'A short description which you\'d like to be displayed on your portfolio page', 'portfolio' ), '', '' ),
 			array( '_prtfl_date_compl', __( 'Date of completion', 'portfolio' ), __( 'The date when the task was completed', 'portfolio' ), '', '' ),
@@ -193,7 +187,7 @@ if ( ! function_exists ( 'prtfl_init' ) ) {
 /* Register settings function */
 if ( ! function_exists( 'register_prtfl_settings' ) ) {
 	function register_prtfl_settings() {
-		global $wpmu, $prtfl_options, $prtfl_plugin_info;
+		global $prtfl_options, $prtfl_plugin_info;
 
 		if ( ! $prtfl_plugin_info ) {
 			if ( ! function_exists( 'get_plugin_data' ) ) {
@@ -232,16 +226,11 @@ if ( ! function_exists( 'register_prtfl_settings' ) ) {
 		);
 
 		/* Install the option defaults */
-		if ( 1 == $wpmu ) {
-			if ( ! get_site_option( 'prtfl_options' ) )
-				add_site_option( 'prtfl_options', $prtfl_option_defaults, '', 'yes' );
-		} else {
-			if ( ! get_option( 'prtfl_options' ) )
-				add_option( 'prtfl_options', $prtfl_option_defaults, '', 'yes' );
-		}
+		if ( ! get_option( 'prtfl_options' ) )
+			add_option( 'prtfl_options', $prtfl_option_defaults, '', 'yes' );
 
 		/* Get options from the database */
-		$prtfl_options = ( 1 == $wpmu ) ? get_site_option( 'prtfl_options' ) : get_option( 'prtfl_options' );
+		$prtfl_options = get_option( 'prtfl_options' );
 
 		if ( isset( $prtfl_options['prtfl_prettyPhoto_style'] ) )
 			unset( $prtfl_options['prtfl_prettyPhoto_style'] );
@@ -270,9 +259,13 @@ if ( ! function_exists ( 'prtfl_version_check' ) ) {
 		$require_wp			=	"3.1"; /* Wordpress at least requires version */
 		$plugin				=	plugin_basename( __FILE__ );
 	 	if ( version_compare( $wp_version, $require_wp, "<" ) ) {
+	 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			if ( is_plugin_active( $plugin ) ) {
 				deactivate_plugins( $plugin );
-				wp_die( "<strong>" . $prtfl_plugin_info['Name'] . " </strong> " . __( 'requires', 'portfolio' ) . " <strong>WordPress " . $require_wp . "</strong> " . __( 'or higher, that is why it has been deactivated! Please upgrade WordPress and try again.', 'portfolio') . "<br /><br />" . __( 'Back to the WordPress', 'portfolio') . " <a href='" . get_admin_url( null, 'plugins.php' ) . "'>" . __( 'Plugins page', 'portfolio') . "</a>." );
+				$admin_url = ( function_exists( 'get_admin_url' ) ) ? get_admin_url( null, 'plugins.php' ) : esc_url( '/wp-admin/plugins.php' );
+				if ( ! $prtfl_plugin_info )
+				    $prtfl_plugin_info = get_plugin_data( __FILE__, false );
+				wp_die( "" . $prtfl_plugin_info['Name'] . " " . __( 'requires', 'portfolio' ) . " WordPress " . $require_wp . " " . __( 'or higher, that is why it has been deactivated! Please upgrade WordPress and try again.', 'portfolio') . " " . __( 'Back to the WordPress', 'portfolio') . " <a href='" . $admin_url . "'>" . __( 'Plugins page', 'portfolio') . "</a>." );
 			}
 		}
 	}
@@ -289,20 +282,13 @@ if ( ! function_exists( 'prtfl_admin_error' ) ) {
 
 if ( ! function_exists( 'prtfl_settings_page' ) ) {
 	function prtfl_settings_page() {
-		global $prtfl_options, $wpmu, $wpdb;
-		$error = $cstmsrch_options_name = "";
+		global $prtfl_options, $wpdb;
+		$error = $message = $cstmsrch_options_name = "";
 
-		if ( 1 == $wpmu ) {
-			if ( false !== get_site_option( 'bws_custom_search' ) )
-				$cstmsrch_options_name = "bws_custom_search";
-			elseif ( false !== get_site_option( 'cstmsrch_options' ) )
-				$cstmsrch_options_name = "cstmsrch_options";
-		} else {
-			if ( false !== get_option( 'bws_custom_search' ) )
-				$cstmsrch_options_name = "bws_custom_search";
-			elseif ( false !== get_option( 'cstmsrch_options' ) )
-				$cstmsrch_options_name = "cstmsrch_options";
-		}
+		if ( false !== get_option( 'bws_custom_search' ) )
+			$cstmsrch_options_name = "bws_custom_search";
+		elseif ( false !== get_option( 'cstmsrch_options' ) )
+			$cstmsrch_options_name = "cstmsrch_options";
 
 		/* Save data for settings page */
 		if ( isset( $_REQUEST['prtfl_form_submit'] ) && check_admin_referer( plugin_basename(__FILE__), 'prtfl_nonce_name' ) ) {
@@ -349,30 +335,17 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 			$prtfl_request_options["prtfl_rename_file"] = isset( $_REQUEST["prtfl_rename_file"] ) ? 1 : 0;
 
 			if ( isset( $_REQUEST['prtfl_add_to_search'] ) && "" != $cstmsrch_options_name ) {
-				if ( 0 == $wpmu && false !== get_option( $cstmsrch_options_name ) ) {
+				if ( false !== get_option( $cstmsrch_options_name ) ) {
 					$cstmsrch_options = get_option( $cstmsrch_options_name );
-					if ( ! in_array( 'portfolio', $cstmsrch_options ) ) {
-						array_push( $cstmsrch_options, 'portfolio' );
-						update_option( $cstmsrch_options_name, $cstmsrch_options, '', 'yes' );
-					}
-				} elseif ( 1 == $wpmu && false !== get_site_option( $cstmsrch_options_name ) ) {
-					$cstmsrch_options = get_site_option( $cstmsrch_options_name );
 					if ( ! in_array( 'portfolio', $cstmsrch_options ) ) {
 						array_push( $cstmsrch_options, 'portfolio' );
 						update_option( $cstmsrch_options_name, $cstmsrch_options, '', 'yes' );
 					}
 				}
 			} else {
-				if ( 0 == $wpmu && false !== get_option( $cstmsrch_options_name ) ) {
+				if ( false !== get_option( $cstmsrch_options_name ) ) {
 					$cstmsrch_options = get_option( $cstmsrch_options_name );
 					if ( in_array( 'portfolio', $cstmsrch_options ) ) {
-						$key = array_search( 'portfolio', $cstmsrch_options );
-						unset( $cstmsrch_options[ $key ] );
-						update_option( $cstmsrch_options_name, $cstmsrch_options, '', 'yes' );
-					}
-				} elseif ( 1 == $wpmu && false !== get_site_option( $cstmsrch_options_name ) ) {
-					$cstmsrch_options = get_site_option( $cstmsrch_options_name );
-					if ( ! in_array( 'portfolio', $cstmsrch_options ) ) {
 						$key = array_search( 'portfolio', $cstmsrch_options );
 						unset( $cstmsrch_options[ $key ] );
 						update_option( $cstmsrch_options_name, $cstmsrch_options, '', 'yes' );
@@ -403,7 +376,7 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 			<h2><?php _e( 'Portfolio Settings', 'portfolio' ); ?></h2>
 			<h2 class="nav-tab-wrapper">
 				<a class="nav-tab nav-tab-active" href="admin.php?page=portfolio.php"><?php _e( 'Settings', 'portfolio' ); ?></a>
-				<a class="nav-tab" href="http://bestwebsoft.com/plugin/portfolio-plugin/#faq" target="_blank"><?php _e( 'FAQ', 'portfolio' ); ?></a>
+				<a class="nav-tab" href="http://bestwebsoft.com/products/portfolio/faq/" target="_blank"><?php _e( 'FAQ', 'portfolio' ); ?></a>
 			</h2>		
 			<div class="updated fade" <?php if ( ! isset( $_REQUEST['prtfl_form_submit'] ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
@@ -536,19 +509,19 @@ if ( ! function_exists( 'prtfl_settings_page' ) ) {
 							if ( ! function_exists( 'is_plugin_active_for_network' ) )
 								require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
 							if ( isset( $cstmsrch_options_name ) && "" != $cstmsrch_options_name ) {
-								$cstmsrch_options = ( 1 == $wpmu ) ? get_site_option( $cstmsrch_options_name ) : get_option( $cstmsrch_options_name );
+								$cstmsrch_options = get_option( $cstmsrch_options_name );
 							}
 							if ( array_key_exists( 'custom-search-plugin/custom-search-plugin.php', $all_plugins ) ) {
 								if ( 0 < count( preg_grep( '/custom-search-plugin\/custom-search-plugin.php/', $active_plugins ) ) || is_plugin_active_for_network( 'custom-search-plugin/custom-search-plugin.php' ) ) { ?>
 									<input type="checkbox" name="prtfl_add_to_search" value="1" <?php if ( isset( $cstmsrch_options ) && in_array( 'portfolio', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />
-									<span style="color: #888888;font-size: 10px;"> (<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>)</span>
+									<span style="color: #888888;font-size: 10px;"> (<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>)</span>
 								<?php } else { ?>
 									<input disabled="disabled" type="checkbox" name="prtfl_add_to_search" value="1" <?php if ( isset( $cstmsrch_options ) && in_array( 'portfolio', $cstmsrch_options ) ) echo "checked=\"checked\""; ?> />
-									<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'portfolio' ); ?></a></span>
+									<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="<?php echo bloginfo("url"); ?>/wp-admin/plugins.php"><?php _e( 'Activate Custom Search', 'portfolio' ); ?></a></span>
 								<?php }
 							} else { ?>
 								<input disabled="disabled" type="checkbox" name="prtfl_add_to_search" value="1" />
-								<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/plugin/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/plugin/custom-search-plugin/"><?php _e( 'Download Custom Search', 'portfolio' ); ?></a></span>
+								<span style="color: #888888;font-size: 10px;">(<?php _e( 'Using Custom Search powered by', 'portfolio' ); ?> <a href="http://bestwebsoft.com/products/">bestwebsoft.com</a>) <a href="http://bestwebsoft.com/products/custom-search/"><?php _e( 'Download Custom Search', 'portfolio' ); ?></a></span>
 							<?php } ?>
 						</td>
 					</tr>
@@ -615,7 +588,8 @@ if ( ! function_exists( 'prtfl_post_type_portfolio' ) ) {
 					'custom-fields',
 					'comments', /* Ability to turn on/off comments. */
 					'thumbnail', /* Displays a box for featured image. */
-					'author'
+					'author',
+					'page-attributes'
 				)
 			)
 		);
@@ -686,6 +660,17 @@ if ( ! function_exists( 'prtfl_taxonomy_portfolio' ) ) {
 				'show_tagcloud' 		=>	false
 			)
 		);
+	}
+}
+
+/* add query_var "post_type" in case we have another custom post type with query_var 'portfolio' (example: jetpack portfolio) */
+if ( ! function_exists( 'prtfl_request_filter' ) ) {
+	function prtfl_request_filter( $query_vars ) {
+		if ( isset( $query_vars["post_type"] ) && $query_vars["post_type"] == 'jetpack-portfolio' ) {
+			if ( ! get_posts( $query_vars ) )
+				$query_vars["post_type"] = 'portfolio';
+		}
+		return $query_vars;
 	}
 }
 
@@ -1404,7 +1389,7 @@ if ( ! function_exists ( 'prtfl_admin_notices' ) ) {
 		if ( 'plugins.php' == $hook_suffix || 'update-core.php' == $hook_suffix ) {  
 			/* Get options from the database */
 			if ( ! $prtfl_options )
-				$prtfl_options = ( 1 == $wpmu ) ? get_site_option( 'prtfl_options' ) : get_option( 'prtfl_options' );
+				$prtfl_options = get_option( 'prtfl_options' );
 
 			if ( $prtfl_options['widget_updated'] == 0 ) {
 				/* Save data for settings page */
@@ -1446,10 +1431,6 @@ if ( ! function_exists( 'prtfl_plugin_uninstall' ) ) {
 		delete_option( 'prtfl_options' );
 		delete_option( 'prtfl_tag_update' );
 		delete_option( 'prtfl_postmeta_update' );
-		
-		delete_site_option( 'prtfl_options' );
-		delete_site_option( 'prtfl_tag_update' );
-		delete_site_option( 'prtfl_postmeta_update' );
 
 		delete_option( 'widget-portfolio_technologies_widget' );
 	}
@@ -1481,6 +1462,7 @@ add_action( 'wp_ajax_prtfl_update_image', 'prtfl_update_image' );
 
 add_shortcode( 'latest_portfolio_items', 'prtfl_latest_items' );
 
+add_filter( 'request', 'prtfl_request_filter' );
 /* Display tachnologies taxonomy */
 add_filter( 'pre_get_posts', 'prtfl_technologies_get_posts' );
 add_filter( 'rewrite_rules_array', 'prtfl_custom_permalinks' );
