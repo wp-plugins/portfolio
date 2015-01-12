@@ -1,27 +1,27 @@
 <?php
 /*
 Template Name: Portfolio template
-* Version: 1.1
+* Version: 1.2
 */
 get_header(); ?>
 	<div class="content-area">
-		<div id="container" class="site-content">
+		<div id="container" class="site-content site-main">
 			<div id="content" class="hentry">
 				<div class="breadcrumbs home_page_title entry-header">
-				<?php global $post, $wpdb, $wp_query, $request;
-				$portfolio_options = get_option( 'prtfl_options' );
+					<?php global $post, $wpdb, $wp_query, $request;
+					$portfolio_options = get_option( 'prtfl_options' );
 
-				if ( isset( $wp_query->query_vars["technologies"] ) ) {
-					$term = get_term_by( 'slug', $wp_query->query_vars["technologies"], 'portfolio_technologies' );
-					echo $portfolio_options['prtfl_technologies_text_field'] . " " . ( $term->name );
-				} elseif ( isset( $wp_query->query_vars["portfolio_executor_profile"] ) ) {
-					$term = get_term_by('slug', $wp_query->query_vars["portfolio_executor_profile"], 'portfolio_executor_profile');
-					echo __( 'Executor Profile', 'portfolio' ) . ": <h1>" . ( $term->name ) . "</h1>";
-					$_SESSION['prtfl_page_name'] = __( 'Executor Profile', 'portfolio' ) . ": " . ( $term->name );
-					$_SESSION['prtfl_page_url'] = get_pagenum_link( $wp_query->query_vars['paged'] );
-				} else {
-					the_title();
-				} ?>
+					if ( isset( $wp_query->query_vars["technologies"] ) ) {
+						$term = get_term_by( 'slug', $wp_query->query_vars["technologies"], 'portfolio_technologies' );
+						echo $portfolio_options['prtfl_technologies_text_field'] . " " . ( $term->name );
+					} elseif ( isset( $wp_query->query_vars["portfolio_executor_profile"] ) ) {
+						$term = get_term_by('slug', $wp_query->query_vars["portfolio_executor_profile"], 'portfolio_executor_profile');
+						echo __( 'Executor Profile', 'portfolio' ) . ": <h1>" . ( $term->name ) . "</h1>";
+						$_SESSION['prtfl_page_name'] = __( 'Executor Profile', 'portfolio' ) . ": " . ( $term->name );
+						$_SESSION['prtfl_page_url'] = get_pagenum_link( $wp_query->query_vars['paged'] );
+					} else {
+						the_title();
+					} ?>
 				</div>
 				<?php $count = 0;
 				if ( get_query_var( 'paged' ) ) {
@@ -178,47 +178,43 @@ get_header(); ?>
 							</div><!-- .entry_footer -->
 						</div><!-- .portfolio_content -->
 					<?php endwhile;
-				endif; 
+				endif; ?>
+			</div><!-- #content -->	
+			<?php $count_all_albums = $second_query->found_posts;
+			wp_reset_query(); 
+			$request = $wp_query->request;
+			$pages = intval( $count_all_albums / $per_page );
+			if ( $count_all_albums % $per_page > 0 )
+				$pages += 1;
 
-				$count_all_albums = $second_query->found_posts;
-				wp_reset_query(); 
-				$request = $wp_query->request;
-				$pages = intval( $count_all_albums / $per_page );
-				if ( $count_all_albums % $per_page > 0 )
-					$pages += 1;
+			$range = 2;
 
-				$range = 2;
+			if ( ! $pages )
+				$pages = 1;
 
-				if ( ! $pages )
-					$pages = 1;
+			if ( 1 != $pages ) { ?>
+				<div class='clear'></div>
+				<div id="portfolio_pagenation">
+					<div class='pagination'>
+						<?php if ( 2 < $paged && $paged > $range + 1 && $showitems < $pages )
+							echo "<a href='" . get_pagenum_link( 1 ) . "'>&laquo;</a>";
+						if ( 1 < $paged && $showitems < $pages )
+							echo "<a href='" . get_pagenum_link( $paged - 1 ) . "'>&lsaquo;</a>";
 
-				if ( 1 != $pages ) { ?>
-					</div><!-- #content -->
-					<div class='clear'></div>
-					<div id="portfolio_pagenation">
-						<div class='pagination'>
-							<?php
-							if ( 2 < $paged && $paged > $range + 1 && $showitems < $pages )
-								echo "<a href='" . get_pagenum_link( 1 ) . "'>&laquo;</a>";
-							if ( 1 < $paged && $showitems < $pages )
-								echo "<a href='" . get_pagenum_link( $paged - 1 ) . "'>&lsaquo;</a>";
-
-							for ( $i = 1; $i <= $pages; $i++ ) {
-								if ( 1 != $pages && ( ! ( $i >= $paged + $range + 1 || $i <= $paged - $range - 1 ) || $pages <= $showitems ) ) {
-									echo ( $paged == $i ) ? "<span class='current'>" . $i . "</span>":"<a href='" . get_pagenum_link( $i ) . "' class='inactive' >" . $i . "</a>";
-								}
+						for ( $i = 1; $i <= $pages; $i++ ) {
+							if ( 1 != $pages && ( ! ( $i >= $paged + $range + 1 || $i <= $paged - $range - 1 ) || $pages <= $showitems ) ) {
+								echo ( $paged == $i ) ? "<span class='current'>" . $i . "</span>":"<a href='" . get_pagenum_link( $i ) . "' class='inactive' >" . $i . "</a>";
 							}
-							if ( $paged < $pages && $showitems < $pages )
-								echo "<a href='" . get_pagenum_link( $paged + 1 ) . "'>&rsaquo;</a>";
-							if ( $paged < $pages - 1 && $paged + $range - 1 < $pages && $showitems < $pages )
-								echo "<a href='" . get_pagenum_link( $pages ) . "'>&raquo;</a>"; ?>
-							<div class='clear'></div>
-						</div><!-- .pagination -->
-					</div><!-- #portfolio_pagenation -->
-				<?php } else { ?>
-					</div><!-- #content -->
-				<?php } 
-			comments_template(); ?>
+						}
+						if ( $paged < $pages && $showitems < $pages )
+							echo "<a href='" . get_pagenum_link( $paged + 1 ) . "'>&rsaquo;</a>";
+						if ( $paged < $pages - 1 && $paged + $range - 1 < $pages && $showitems < $pages )
+							echo "<a href='" . get_pagenum_link( $pages ) . "'>&raquo;</a>"; ?>
+						<div class='clear'></div>
+					</div><!-- .pagination -->
+				</div><!-- #portfolio_pagenation -->
+			<?php } ?>
+			<?php comments_template(); ?>
 		</div><!-- #container -->
 	</div><!-- .content-area -->
 <?php get_sidebar(); ?>

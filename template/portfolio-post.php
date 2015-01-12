@@ -1,11 +1,11 @@
 <?php
 /*
 * Template - Portfolio post
-* Version: 1.1
+* Version: 1.2
 */
 get_header(); ?>
 	<div class="content-area">
-		<div id="container" class="site-content">
+		<div id="container" class="site-content site-main">
 			<div id="content" class="hentry">
 				<div class="breadcrumbs home_page_title entry-header">
 					<?php the_title(); ?>

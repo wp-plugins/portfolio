@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
-Tested up to: 4.0
-Stable tag: 2.30
+Tested up to: 4.1
+Stable tag: 2.31
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,7 @@ There is also a premium version of the plugin <a href="http://bestwebsoft.com/pr
 * Italian (it_IT)
 * Persian (fa_IR) (thanks to <a href="mailto:AmirMaskani@gmail.com">Amir Maskani</a>, www.emir.ir)
 * Russian (ru_RU)
+* Serbian (sr_RS) (thanks to <a href="mailto:ognjend@firstsiteguide.com">Ogi Djuraskovic</a>, www.firstsiteguide.com)
 * Spanish (es_ES) (thanks to Grupo Gomariz, S.L. www.grupogomariz.com)
 * Ukrainian (uk)
 
@@ -142,6 +143,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.31 - 12.01.2015 =
+* NEW : The Serbian language file is added to the plugin.
+* Update : Templates are updated.
+* Update : We updated all functionality for wordpress 4.1.
 
 = V2.30 - 07.11.2014 =
 * Update : We added the necessary functionality to avoid errors that may appear if a user also has Jetpack Portfolio installed.
@@ -288,6 +294,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.31 =
+The Serbian language file is added to the plugin. Templates are updated. We updated all functionality for wordpress 4.1.
 
 = V2.30 =
 We added the necessary functionality to avoid errors that may appear if a user also has Jetpack Portfolio installed. We added menu order attribute for portfolio.

@@ -187,3 +187,10 @@
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 }
+.page-template-portfolio .site-content .site-content,
+.single-portfolio .site-content .site-content,
+.tax-portfolio_technologies .site-content .site-content {
+	margin-left: 0;
+	width: auto;
+	float: none;
+}

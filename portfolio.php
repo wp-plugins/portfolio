@@ -4,13 +4,13 @@ Plugin Name: Portfolio
 Plugin URI:  http://bestwebsoft.com/products/
 Description: Plugin for portfolio.
 Author: BestWebSoft
-Version: 2.30
+Version: 2.31
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
 
 /*
-	@ Copyright 2014  BestWebSoft  ( http://support.bestwebsoft.com )
+	@ Copyright 2015  BestWebSoft  ( http://support.bestwebsoft.com )
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -111,19 +111,31 @@ if ( ! function_exists( 'add_prtfl_admin_menu' ) ) {
 		$base = plugin_basename( __FILE__ );
 
 		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
-			if ( ! get_option( 'bstwbsftwppdtplgns_options' ) )
-				add_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
-			$bstwbsftwppdtplgns_options = get_option( 'bstwbsftwppdtplgns_options' );
+			if ( is_multisite() ) {
+				if ( ! get_site_option( 'bstwbsftwppdtplgns_options' ) )
+					add_site_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
+				$bstwbsftwppdtplgns_options = get_site_option( 'bstwbsftwppdtplgns_options' );
+			} else {
+				if ( ! get_option( 'bstwbsftwppdtplgns_options' ) )
+					add_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
+				$bstwbsftwppdtplgns_options = get_option( 'bstwbsftwppdtplgns_options' );
+			}
 		}
 
 		if ( isset( $bstwbsftwppdtplgns_options['bws_menu_version'] ) ) {
 			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
 			unset( $bstwbsftwppdtplgns_options['bws_menu_version'] );
-			update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			if ( is_multisite() )
+				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			else
+				update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
 			require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
 		} else if ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] < $bws_menu_version ) {
 			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
-			update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			if ( is_multisite() )
+				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
+			else
+				update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options, '', 'yes' );
 			require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
 		} else if ( ! isset( $bstwbsftwppdtplgns_added_menu ) ) {
 			$plugin_with_newer_menu = $base;
