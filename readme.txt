@@ -1,10 +1,10 @@
-=== Portfolio ===
+=== Portfolio by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
-Tested up to: 4.1
-Stable tag: 2.31
+Tested up to: 4.2-beta4
+Stable tag: 2.32
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,8 @@ With the Portfolio plugin you can create a unique page for displaying portfolio 
 Moreover you can add not just one, but many screenshots to one portfolio item for better visual guidance. 
 
 http://www.youtube.com/watch?v=LAImUxwEO78
+
+<a href="http://www.youtube.com/watch?v=6xPYIttiJ8g" target="_blank">Video instruction on Installation</a>
 
 <a href="http://wordpress.org/plugins/portfolio/faq/" target="_blank">FAQ</a>
 
@@ -34,6 +36,7 @@ http://www.youtube.com/watch?v=LAImUxwEO78
 
 The author of the Portfolio also recommends the following plugins:
 
+* <a href="http://wordpress.org/plugins/re-attacher/">Re-attacher</a> - With this plugin, you can reattach previously uploaded images to other posts, as well as detach files from the post completely. This plugin makes using our Gallery and Portfolio plugins a lot more convenient, as you won’t have to upload new images each time you may need them on your gallery or portfolio pages.
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
 There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/?k=5c5c9083d339113b444b74b2cb3ecaa1">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
@@ -71,6 +74,10 @@ We can fix some things for free for the users who provide translation of our plu
 4. Create a page and select a template in the Page Attributes block.
 5. Create (if necessary) Technologies and Executor profiles.
 6. Create portfolio item, add title, description, short description, and upload the images one of which should be set as featured. Publish portfolio then.
+
+<a href="https://docs.google.com/document/d/1hfVxqFXw-Mr2vI9jVQbDO3JyEcAAu9FY5fZTjovShO0/edit" target="_blank">View a PDF version of Step-by-step Instruction on Portfolio Installation</a>.
+
+http://www.youtube.com/watch?v=6xPYIttiJ8g
 
 == Frequently Asked Questions ==
 
@@ -143,6 +150,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.32 - 16.04.2015 =
+* Update : Portfolio template checking functionality was updated.
 
 = V2.31 - 12.01.2015 =
 * NEW : The Serbian language file is added to the plugin.
@@ -294,6 +304,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.32 =
+Portfolio template checking functionality was updated.
 
 = V2.31 =
 The Serbian language file is added to the plugin. Templates are updated. We updated all functionality for wordpress 4.1.
