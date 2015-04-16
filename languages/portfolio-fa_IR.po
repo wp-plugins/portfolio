@@ -1,0 +1,678 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio.2.04 Parsi\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-16 13:33+0300\n"
+"PO-Revision-Date: 2015-04-16 13:34+0300\n"
+"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
+"Language-Team: Amir Maskani <AmirMaskani@gmail.com>\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: portfolio.php:41 portfolio.php:481 portfolio.php:482
+msgid "Portfolio"
+msgstr "نمونه کارها"
+
+#: portfolio.php:62
+msgid "Short description"
+msgstr "توضیح کوتاه"
+
+#: portfolio.php:62
+msgid ""
+"A short description which you'd like to be displayed on your portfolio page"
+msgstr "توضیحی کوتاه از آنچه شما می خواهید در برگه نمونه کارتان نمایش داده شود"
+
+#: portfolio.php:63
+msgid "Date of completion"
+msgstr "زمان اتمام"
+
+#: portfolio.php:63
+msgid "The date when the task was completed"
+msgstr "تاریخی که کار ​​تکمیل شد"
+
+#: portfolio.php:64 portfolio.php:395
+msgid "Link"
+msgstr "پیوند"
+
+#: portfolio.php:64
+msgid "A link to the site"
+msgstr "پیوند به تارنما"
+
+#: portfolio.php:65 portfolio.php:398
+msgid "SVN"
+msgstr "(SVN) مهار نگارش زیر نگارش"
+
+#: portfolio.php:65
+#, fuzzy
+msgid "SVN URL"
+msgstr "(SVN) مهار نگارش زیر نگارش"
+
+#: portfolio.php:106 portfolio.php:412
+#, fuzzy
+msgid "Date of completion:"
+msgstr "زمان اتمام"
+
+#: portfolio.php:107 portfolio.php:413
+#, fuzzy
+msgid "Link:"
+msgstr "پیوند"
+
+#: portfolio.php:108 portfolio.php:414
+#, fuzzy
+msgid "Short description:"
+msgstr "توضیح کوتاه"
+
+#: portfolio.php:109 portfolio.php:415
+#, fuzzy
+msgid "Description:"
+msgstr "توضیحات"
+
+#: portfolio.php:110 portfolio.php:416
+msgid "SVN:"
+msgstr ""
+
+#: portfolio.php:111 portfolio.php:417
+#, fuzzy
+msgid "Executor Profile:"
+msgstr "شناسنامه  مجریان"
+
+#: portfolio.php:112 portfolio.php:418
+#, fuzzy
+msgid "More screenshots:"
+msgstr "تصاویر بیشتر"
+
+#: portfolio.php:113 portfolio.php:419
+#, fuzzy
+msgid "Technologies:"
+msgstr "فن آوری ها"
+
+#: portfolio.php:217
+#, fuzzy
+msgid ""
+"The files \"portfolio.php\" and \"portfolio-post.php\" are not found in your "
+"theme directory. Please copy them from the directory `wp-content/plugins/"
+"portfolio/template/` to your theme directory for correct work of the "
+"Portfolio plugin"
+msgstr ""
+"فایلهای\"portfolio.php\"   و \"portfolio-post.php\" در پوشه ی پوسته شما پیدا "
+"نشد.برای درست کار کردن افزونه لطفاً آنها را از شاخه`/wp-content/plugins/"
+"portfolio/template/` به پوشه پوسته ی خود کپی کنید."
+
+#: portfolio.php:311
+#, fuzzy
+msgid "Settings saved."
+msgstr "تنظیمات ذخیره شد"
+
+#: portfolio.php:316
+#, fuzzy
+msgid "Portfolio Settings"
+msgstr "تنظیمات نمونه کار"
+
+#: portfolio.php:318 portfolio.php:834 portfolio.php:850
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: portfolio.php:319 portfolio.php:835
+msgid "FAQ"
+msgstr "سوالات متداول"
+
+#: portfolio.php:323
+msgid "Notice:"
+msgstr ""
+
+#: portfolio.php:323
+msgid ""
+"The plugin's settings have been changed. In order to save them please don't "
+"forget to click the 'Save Changes' button."
+msgstr ""
+
+#: portfolio.php:324
+msgid ""
+"If you would like to add the Latest Portfolio Items to your page or post, "
+"just copy and paste this shortcode into your post or page:"
+msgstr ""
+
+#: portfolio.php:324
+msgid "where count=3 is a number of posts to show up in the portfolio."
+msgstr ""
+
+#: portfolio.php:329
+#, fuzzy
+msgid "Change the way to store your post_meta information for portfolio"
+msgstr "به روز رسانی مسیر ذخیره سازی اطلاعات  post_meta برای نمونه کارها"
+
+#: portfolio.php:331
+msgid "Update All Info"
+msgstr "به روزرسانی تمام اطلاعات"
+
+#: portfolio.php:338
+msgid "Update images for portfolio"
+msgstr "به روز رسانی تصاویر برای نمونه کارها"
+
+#: portfolio.php:340
+msgid "Update images"
+msgstr "به روز رسانی تصاویر"
+
+#: portfolio.php:350
+msgid "The album cover size"
+msgstr ""
+
+#: portfolio.php:352 portfolio.php:360
+msgid "Image size name"
+msgstr "Image size name"
+
+#: portfolio.php:353 portfolio.php:361
+msgid "Width (in px)"
+msgstr "(in px) پهنا"
+
+#: portfolio.php:354 portfolio.php:362
+msgid "Height (in px)"
+msgstr "(in px) بلندی"
+
+#: portfolio.php:358
+#, fuzzy
+msgid "Size of portfolio images"
+msgstr "حجم عکس نمونه کار"
+
+#: portfolio.php:366
+#, fuzzy
+msgid ""
+"WordPress will copy thumbnails with the specified dimensions when you upload "
+"a new image. It is necessary to click the Update images button at the bottom "
+"of this page in order to generate new images and set new dimensions"
+msgstr ""
+"هنگامی که شما یک عکس تازه بارگذاری می کنید وردپرس یک کپی از تصویر بند انگشتی "
+"پست با ابعاد مشخص می کند ایجاد می کند.برای این کار لازم است شما بر روی دکمه "
+"به روز رسانی تصویر ؛ در پایین این صفحه برای ساخت تصویر، مطابق ابعاد جدید "
+"کلیک کنید. "
+
+#: portfolio.php:369
+#, fuzzy
+msgid "Sort portfolio by"
+msgstr "نمونه کارها"
+
+#: portfolio.php:371
+#, fuzzy
+msgid "portfolio id"
+msgstr "نمونه کارها"
+
+#: portfolio.php:372
+#, fuzzy
+msgid "portfolio title"
+msgstr "تنظیمات نمونه کار"
+
+#: portfolio.php:373
+msgid "date"
+msgstr ""
+
+#: portfolio.php:374
+msgid "menu order"
+msgstr ""
+
+#: portfolio.php:375
+msgid "random"
+msgstr ""
+
+#: portfolio.php:379
+#, fuzzy
+msgid "Portfolio sorting"
+msgstr "تنظیمات نمونه کار"
+
+#: portfolio.php:381
+msgid "ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)"
+msgstr ""
+
+#: portfolio.php:382
+msgid ""
+"DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)"
+msgstr ""
+
+#: portfolio.php:386
+#, fuzzy
+msgid "Number of images in the row"
+msgstr "تعداد مشاهدات تصویر در سطر"
+
+#: portfolio.php:392
+msgid "Display additional fields"
+msgstr "نمایش فیلد اضافی"
+
+#: portfolio.php:394
+msgid "Date"
+msgstr ""
+
+#: portfolio.php:396
+#, fuzzy
+msgid "Short Description"
+msgstr "توضیح کوتاه"
+
+#: portfolio.php:397
+msgid "Description"
+msgstr "توضیحات"
+
+#: portfolio.php:399
+msgid "Executor"
+msgstr "مجری کار"
+
+#: portfolio.php:400 portfolio.php:558 portfolio.php:572 portfolio.php:613
+#: portfolio.php:1004
+msgid "Technologies"
+msgstr "فن آوری ها"
+
+#: portfolio.php:404
+msgid "Display the link field as a text for non-registered users"
+msgstr ""
+
+#: portfolio.php:410
+#, fuzzy
+msgid "Text for additional fields"
+msgstr "نمایش فیلد اضافی"
+
+#: portfolio.php:423
+#, fuzzy
+msgid "Slug for portfolio item"
+msgstr "نمونه کارها"
+
+#: portfolio.php:425
+msgid "for any structure of permalinks except the default structure"
+msgstr ""
+
+#: portfolio.php:429
+msgid "Rewrite templates after update"
+msgstr ""
+
+#: portfolio.php:431
+msgid ""
+"Turn off the checkbox, if You edited the file 'portfolio.php' or 'portfolio-"
+"post.php' file in your theme folder and You don't want to rewrite them"
+msgstr ""
+
+#: portfolio.php:435
+msgid "Rename uploaded images"
+msgstr ""
+
+#: portfolio.php:437
+msgid ""
+"To avoid conflicts, all the symbols will be excluded, except numbers, the "
+"Roman letters,  _ and - symbols."
+msgstr ""
+
+#: portfolio.php:441
+#, fuzzy
+msgid "Add portfolio to the search"
+msgstr "پیوند به تارنما"
+
+#: portfolio.php:446 portfolio.php:449 portfolio.php:453
+msgid "Using Custom Search powered by"
+msgstr ""
+
+#: portfolio.php:449
+msgid "Activate Custom Search"
+msgstr ""
+
+#: portfolio.php:453
+msgid "Download Custom Search"
+msgstr ""
+
+#: portfolio.php:460
+msgid "Save Changes"
+msgstr "ذخیره تغییرات"
+
+#: portfolio.php:483
+msgid "Add New"
+msgstr "افزودن"
+
+#: portfolio.php:484
+msgid "Add New Portfolio"
+msgstr "افزودن نمونه کار"
+
+#: portfolio.php:485
+msgid "Edit"
+msgstr "ویرایش"
+
+#: portfolio.php:486
+msgid "Edit Portfolio"
+msgstr "ویرایش نمونه کار"
+
+#: portfolio.php:487
+msgid "New Portfolio"
+msgstr "نمونه کار تازه"
+
+#: portfolio.php:488 portfolio.php:489
+msgid "View Portfolio"
+msgstr "دیدن نمونه کار"
+
+#: portfolio.php:490
+msgid "Search Portfolio"
+msgstr "جستجوی نمونه کار"
+
+#: portfolio.php:491
+msgid "No portfolio found"
+msgstr "هیچ نمونه کاری پیدا نشد"
+
+#: portfolio.php:492
+msgid "No portfolio found in Trash"
+msgstr "هیچ نمونه کاری در زباله دان پیدا نشد"
+
+#: portfolio.php:493
+msgid "Parent Portfolio"
+msgstr "نمونه مرجع"
+
+#: portfolio.php:495
+#, fuzzy
+msgid "Create a portfolio item"
+msgstr "ساخت یگ نمونه کار"
+
+#: portfolio.php:528
+msgid "Executor Profiles"
+msgstr "شناسنامه های مجریان"
+
+#: portfolio.php:529 template/portfolio.php:19 template/portfolio.php:20
+msgid "Executor Profile"
+msgstr "شناسنامه مجری کار"
+
+#: portfolio.php:530
+msgid "Search Executor Profiles"
+msgstr "جستجوی شناسنامه مجریان"
+
+#: portfolio.php:531
+msgid "Popular Executor Profiles"
+msgstr "شناسنامه مجریان پر طرفدار"
+
+#: portfolio.php:532
+msgid "All Executor Profiles"
+msgstr "تمام شناسنامه های مجریان"
+
+#: portfolio.php:533
+msgid "Parent Executor Profile"
+msgstr "شناسنامه مجری مرجع"
+
+#: portfolio.php:534
+msgid "Parent Executor Profile:"
+msgstr "شناسنامه مجری مرجع :"
+
+#: portfolio.php:535
+msgid "Edit Executor Profile"
+msgstr "ویرایش شناسنامه مجری کار"
+
+#: portfolio.php:536
+msgid "Update Executor Profile"
+msgstr "به روزرسانی شناسنامه مجری کار"
+
+#: portfolio.php:537
+msgid "Add New Executor Profile"
+msgstr "افزودن شناسنامه مجری کار "
+
+#: portfolio.php:538
+#, fuzzy
+msgid "New Executor Name"
+msgstr "شناسنامه تازه مجری"
+
+#: portfolio.php:539
+msgid "Separate Executor Profiles with commas"
+msgstr "شناسنامه های مجریان را با کاما جدا کنید"
+
+#: portfolio.php:540
+msgid "Add or remove Executor Profile"
+msgstr "افزودن یا پاک کردن شناسنامه مجری کار"
+
+#: portfolio.php:541
+#, fuzzy
+msgid "Choose from the most used Executor Profiles"
+msgstr "گزینش از میان  پر کاربردترین شناسنامه های مجریان "
+
+#: portfolio.php:542
+#, fuzzy
+msgid "Executors"
+msgstr "مجری کار"
+
+#: portfolio.php:559
+msgid "Technology"
+msgstr "فن آوری"
+
+#: portfolio.php:560
+msgid "Search Technologies"
+msgstr "جستجوی فن آوری ها"
+
+#: portfolio.php:561
+msgid "Popular Technologies"
+msgstr "پرکاربردترین فن آوری"
+
+#: portfolio.php:562
+msgid "All Technologies"
+msgstr "همه فن آوری ها"
+
+#: portfolio.php:563
+msgid "Parent Technology"
+msgstr "فن آوری مرجع"
+
+#: portfolio.php:564
+msgid "Parent Technology:"
+msgstr "فن آوری مرجع :"
+
+#: portfolio.php:565
+msgid "Edit Technology"
+msgstr "ویرایش فن آوری"
+
+#: portfolio.php:566
+msgid "Update Technology"
+msgstr "به روزرسانی فن آوری"
+
+#: portfolio.php:567
+msgid "Add New Technology"
+msgstr "افزودن فن آوری تازه"
+
+#: portfolio.php:568
+msgid "New Technology Name"
+msgstr "نام فن آوری تازه"
+
+#: portfolio.php:569
+msgid "Separate Technologies with commas"
+msgstr "فن آوری ها را با کاما جدا کنید"
+
+#: portfolio.php:570
+msgid "Add or remove Technology"
+msgstr "افزودن یا حذف فن آوری"
+
+#: portfolio.php:571
+#, fuzzy
+msgid "Choose from the most used technologies"
+msgstr "گزینش از میان پرکاربردترین فن آوری ها"
+
+#: portfolio.php:614
+#, fuzzy
+msgid "Your most used portfolio technologies as a tag cloud"
+msgstr "استفاده از فن آوری نمونه کارها خود را در قالب ابر"
+
+#: portfolio.php:639
+msgid "Title"
+msgstr "عنوان"
+
+#: portfolio.php:677
+msgid "Portfolio Info"
+msgstr "مشخصات نمونه کار"
+
+#: portfolio.php:679
+msgid "Already attached"
+msgstr ""
+
+#: portfolio.php:706
+#, fuzzy
+msgid "Activate"
+msgstr "افزونه های فعال"
+
+#: portfolio.php:713
+#, fuzzy
+msgid "Install now"
+msgstr "نصب %s "
+
+#: portfolio.php:716
+msgid ""
+"If you'd like to attach the files, which are already uploaded, please use Re-"
+"attacher plugin."
+msgstr ""
+
+#: portfolio.php:719
+#, fuzzy
+msgid "Learn more"
+msgstr "بیشتر"
+
+#: portfolio.php:836
+msgid "Support"
+msgstr "پشتیبانی"
+
+#: portfolio.php:999 template/portfolio.php:163
+msgid "Read more"
+msgstr "بیشتر"
+
+#: portfolio.php:1009 template/portfolio.php:173
+#: template/portfolio-post.php:159
+#, php-format
+msgid "View all posts in %s"
+msgstr "مشاهده تمام نوشته ها در %s"
+
+#: portfolio.php:1038
+#, fuzzy
+msgid "Updating post_meta information..."
+msgstr "به روز رسانی اطلاعات post_meta"
+
+#: portfolio.php:1039
+#, fuzzy
+msgid "No portfolio item found"
+msgstr "هیچ نمونه کاری پیدا نشد"
+
+#: portfolio.php:1040
+#, fuzzy
+msgid "All info is updated"
+msgstr "تمامی اطلاعات به روز شد."
+
+#: portfolio.php:1041 portfolio.php:1045
+msgid "Error."
+msgstr "خطا."
+
+#: portfolio.php:1042
+#, fuzzy
+msgid "Updating images..."
+msgstr "به روز رسانی تصاویر ..."
+
+#: portfolio.php:1043
+#, fuzzy
+msgid "No image found"
+msgstr "هیچ تصویری پیدا نشد."
+
+#: portfolio.php:1044
+#, fuzzy
+msgid "All images are updated"
+msgstr "تمامی تصاویر به روز شدند."
+
+#: portfolio.php:1213
+#, fuzzy
+msgid "Image size not defined"
+msgstr "Image size name"
+
+#: portfolio.php:1227
+msgid ""
+"We can update only PNG, JPEG, GIF, WPMP or XBM filetype. For other, please, "
+"manually reload image."
+msgstr ""
+
+#: portfolio.php:1237
+msgid "Image size changes not defined"
+msgstr ""
+
+#: portfolio.php:1262 portfolio.php:1265 portfolio.php:1270
+msgid "Invalid path"
+msgstr ""
+
+#: portfolio.php:1390
+msgid "ATTENTION!"
+msgstr ""
+
+#: portfolio.php:1391
+msgid ""
+"In the current version of Portfolio plugin we updated the Technologies "
+"widget. If it was added to the sidebar, it will disappear and you will have "
+"to add it again."
+msgstr ""
+
+#: portfolio.php:1395
+msgid "Read and Understood"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Plugins page"
+#~ msgstr "افزونه های پیشنهادی"
+
+#, fuzzy
+#~ msgid "Rate the plugin"
+#~ msgstr "افزونه های پیشنهادی"
+
+#, fuzzy
+#~ msgid "Site URL"
+#~ msgstr "(SVN) مهار نگارش زیر نگارش"
+
+#~ msgid "Installed plugins"
+#~ msgstr "افزونه های نصب شده"
+
+#~ msgid "Recommended plugins"
+#~ msgstr "افزونه های پیشنهادی"
+
+#~ msgid "Download"
+#~ msgstr "دانلود"
+
+#~ msgid "Install now from wordpress.org"
+#~ msgstr "نصب از wordpress.org"
+
+#, fuzzy
+#~ msgid "Active Plugins"
+#~ msgstr "افزونه های فعال"
+
+#, fuzzy
+#~ msgid "Inactive Plugins"
+#~ msgstr "افزونه های فعال"
+
+#, fuzzy
+#~ msgid "Send to support"
+#~ msgstr "پشتیبانی"
+
+#~ msgid "Could not read image size"
+#~ msgstr "حجم تصویر قابل خواندن نیست"
+
+#~ msgid "Could not calculate resized image dimensions"
+#~ msgstr "نمی تواند حجم تصویر ریسایز شده را محاسبه کند"
+
+#~ msgid "Resize path invalid"
+#~ msgstr "مسیر ریسایز اشتباه است"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill out the contact form on our website"
+#~ msgstr ""
+#~ "اگر سوالی داشتید ؛ می توانید از فرم تماس ما در سایتمان اتفاده کنید و یا "
+#~ "با این ایمیل ارتباط داشته باشید plugin@bestwebsoft.com"
+
+#~ msgid "URL of the SVN"
+#~ msgstr "URL of the SVN"
+
+#~ msgid "Executor Profiles "
+#~ msgstr "شناسنامه های مجریان"
+
+#~ msgid "The size of the cover album for portfolio"
+#~ msgstr "اندازه کاور آلبوم نمونه کار"
+
+#, fuzzy
+#~ msgid "Portfolio order by"
+#~ msgstr "مشخصات نمونه کار"
+
+#, fuzzy
+#~ msgid "Portfolio order"
+#~ msgstr "مشخصات نمونه کار"
+
+#~ msgid "No informations found."
+#~ msgstr "هیچ اطلاعاتی پیدا نشد."

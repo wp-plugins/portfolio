@@ -1,0 +1,682 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-16 13:34+0300\n"
+"PO-Revision-Date: 2015-04-16 13:34+0300\n"
+"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
+"Language-Team: Outshine Solutions <ash.pr@outshinesolutions.com>\n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: portfolio.php:41 portfolio.php:481 portfolio.php:482
+msgid "Portfolio"
+msgstr "पोर्टफोलियो"
+
+#: portfolio.php:62
+msgid "Short description"
+msgstr "छोटा वर्णन"
+
+#: portfolio.php:62
+msgid ""
+"A short description which you'd like to be displayed on your portfolio page"
+msgstr "एक संक्षिप्त विवरण है जो आप अपने पोर्टफोलियो पृष्ठ पर प्रदर्शित करना चाहते हैं"
+
+#: portfolio.php:63
+msgid "Date of completion"
+msgstr "पूरा होने की तिथि"
+
+#: portfolio.php:63
+msgid "The date when the task was completed"
+msgstr "जब कार्य पूरा किया गया दिनांक"
+
+#: portfolio.php:64 portfolio.php:395
+msgid "Link"
+msgstr "लिंक"
+
+#: portfolio.php:64
+msgid "A link to the site"
+msgstr "साइट के लिए एक लिंक"
+
+#: portfolio.php:65 portfolio.php:398
+msgid "SVN"
+msgstr "SVN"
+
+#: portfolio.php:65
+#, fuzzy
+msgid "SVN URL"
+msgstr "SVN"
+
+#: portfolio.php:106 portfolio.php:412
+msgid "Date of completion:"
+msgstr "पूरा होने की तिथि"
+
+#: portfolio.php:107 portfolio.php:413
+msgid "Link:"
+msgstr "लिंक"
+
+#: portfolio.php:108 portfolio.php:414
+msgid "Short description:"
+msgstr "छोटा वर्णन"
+
+#: portfolio.php:109 portfolio.php:415
+msgid "Description:"
+msgstr "विवरण"
+
+#: portfolio.php:110 portfolio.php:416
+msgid "SVN:"
+msgstr "SVN:"
+
+#: portfolio.php:111 portfolio.php:417
+#, fuzzy
+msgid "Executor Profile:"
+msgstr "executors प्रोफ़ाइल"
+
+#: portfolio.php:112 portfolio.php:418
+msgid "More screenshots:"
+msgstr "अधिक स्क्रीनशॉट"
+
+#: portfolio.php:113 portfolio.php:419
+msgid "Technologies:"
+msgstr "टेक्नोलॉजीज"
+
+#: portfolio.php:217
+#, fuzzy
+msgid ""
+"The files \"portfolio.php\" and \"portfolio-post.php\" are not found in your "
+"theme directory. Please copy them from the directory `wp-content/plugins/"
+"portfolio/template/` to your theme directory for correct work of the "
+"Portfolio plugin"
+msgstr ""
+"निम्न फ़ाइलें  \"portfolio.php \" और \"पोर्टफोलियो post.php \" अपने विषय की "
+"निर्देशिका में नहीं पाए गए. उन्हें `wp-content/plugins/portfolio/template /  "
+"पोर्टफोलियो प्लगइन का सही काम के लिए अपने विषय की निर्देशिका में` निर्देशिका से कॉपी करें"
+
+#: portfolio.php:311
+#, fuzzy
+msgid "Settings saved."
+msgstr "विकल्प बचाया."
+
+#: portfolio.php:316
+#, fuzzy
+msgid "Portfolio Settings"
+msgstr "पोर्टफोलियो विकल्प"
+
+#: portfolio.php:318 portfolio.php:834 portfolio.php:850
+msgid "Settings"
+msgstr "Settings"
+
+#: portfolio.php:319 portfolio.php:835
+msgid "FAQ"
+msgstr "अक्सर पूछे जाने वाले प्रश्न"
+
+#: portfolio.php:323
+msgid "Notice:"
+msgstr ""
+
+#: portfolio.php:323
+msgid ""
+"The plugin's settings have been changed. In order to save them please don't "
+"forget to click the 'Save Changes' button."
+msgstr ""
+
+#: portfolio.php:324
+msgid ""
+"If you would like to add the Latest Portfolio Items to your page or post, "
+"just copy and paste this shortcode into your post or page:"
+msgstr ""
+
+#: portfolio.php:324
+msgid "where count=3 is a number of posts to show up in the portfolio."
+msgstr ""
+
+#: portfolio.php:329
+#, fuzzy
+msgid "Change the way to store your post_meta information for portfolio"
+msgstr "जिस तरह से भंडारण अपडेट करें आपके पोर्टफोलियो के लिए post_meta जानकारी"
+
+#: portfolio.php:331
+msgid "Update All Info"
+msgstr "सभी जानकारी को अपडेट करें"
+
+#: portfolio.php:338
+msgid "Update images for portfolio"
+msgstr "पोर्टफोलियो के लिए छवियों को अपडेट करें"
+
+#: portfolio.php:340
+msgid "Update images"
+msgstr "छवियों अपडेट करें"
+
+#: portfolio.php:350
+msgid "The album cover size"
+msgstr ""
+
+#: portfolio.php:352 portfolio.php:360
+msgid "Image size name"
+msgstr "छवि आकार नाम"
+
+#: portfolio.php:353 portfolio.php:361
+msgid "Width (in px)"
+msgstr "चौड़ाई (पिक्सेल में)"
+
+#: portfolio.php:354 portfolio.php:362
+msgid "Height (in px)"
+msgstr "ऊँचाई (पिक्सेल में)"
+
+#: portfolio.php:358
+#, fuzzy
+msgid "Size of portfolio images"
+msgstr "पोर्टफोलियो छवि के लिए आकार"
+
+#: portfolio.php:366
+#, fuzzy
+msgid ""
+"WordPress will copy thumbnails with the specified dimensions when you upload "
+"a new image. It is necessary to click the Update images button at the bottom "
+"of this page in order to generate new images and set new dimensions"
+msgstr ""
+"WordPress के निर्दिष्ट आयामों के साथ पोस्ट थंबनेल की एक प्रतिलिपि बनाने के लिए जब आप एक "
+"नया फोटो अपलोड करेंगे. यह आवश्यक है नए आयाम के अनुसार इस पृष्ठ के नीचे के क्रम में नई छवियों "
+"को उत्पन्न बटन अपडेट करें छवियों पर क्लिक करें"
+
+#: portfolio.php:369
+#, fuzzy
+msgid "Sort portfolio by"
+msgstr "पोर्टफोलियो"
+
+#: portfolio.php:371
+#, fuzzy
+msgid "portfolio id"
+msgstr "पोर्टफोलियो"
+
+#: portfolio.php:372
+#, fuzzy
+msgid "portfolio title"
+msgstr "पोर्टफोलियो विकल्प"
+
+#: portfolio.php:373
+msgid "date"
+msgstr ""
+
+#: portfolio.php:374
+msgid "menu order"
+msgstr ""
+
+#: portfolio.php:375
+msgid "random"
+msgstr ""
+
+#: portfolio.php:379
+#, fuzzy
+msgid "Portfolio sorting"
+msgstr "पोर्टफोलियो विकल्प"
+
+#: portfolio.php:381
+msgid "ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)"
+msgstr ""
+
+#: portfolio.php:382
+msgid ""
+"DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)"
+msgstr ""
+
+#: portfolio.php:386
+#, fuzzy
+msgid "Number of images in the row"
+msgstr "पंक्ति में छवियों गिनती"
+
+#: portfolio.php:392
+msgid "Display additional fields"
+msgstr "अतिरिक्त फ़ील्ड्स प्रदर्शित करना"
+
+#: portfolio.php:394
+msgid "Date"
+msgstr ""
+
+#: portfolio.php:396
+msgid "Short Description"
+msgstr "छोटा वर्णन"
+
+#: portfolio.php:397
+msgid "Description"
+msgstr "विवरण"
+
+#: portfolio.php:399
+msgid "Executor"
+msgstr "निष्पादक"
+
+#: portfolio.php:400 portfolio.php:558 portfolio.php:572 portfolio.php:613
+#: portfolio.php:1004
+msgid "Technologies"
+msgstr "टेक्नोलॉजीज"
+
+#: portfolio.php:404
+msgid "Display the link field as a text for non-registered users"
+msgstr ""
+
+#: portfolio.php:410
+msgid "Text for additional fields"
+msgstr ""
+
+#: portfolio.php:423
+#, fuzzy
+msgid "Slug for portfolio item"
+msgstr "पोर्टफोलियो"
+
+#: portfolio.php:425
+msgid "for any structure of permalinks except the default structure"
+msgstr ""
+
+#: portfolio.php:429
+msgid "Rewrite templates after update"
+msgstr ""
+
+#: portfolio.php:431
+msgid ""
+"Turn off the checkbox, if You edited the file 'portfolio.php' or 'portfolio-"
+"post.php' file in your theme folder and You don't want to rewrite them"
+msgstr ""
+
+#: portfolio.php:435
+msgid "Rename uploaded images"
+msgstr ""
+
+#: portfolio.php:437
+msgid ""
+"To avoid conflicts, all the symbols will be excluded, except numbers, the "
+"Roman letters,  _ and - symbols."
+msgstr ""
+
+#: portfolio.php:441
+#, fuzzy
+msgid "Add portfolio to the search"
+msgstr "साइट के लिए एक लिंक"
+
+#: portfolio.php:446 portfolio.php:449 portfolio.php:453
+msgid "Using Custom Search powered by"
+msgstr ""
+
+#: portfolio.php:449
+msgid "Activate Custom Search"
+msgstr ""
+
+#: portfolio.php:453
+msgid "Download Custom Search"
+msgstr ""
+
+#: portfolio.php:460
+msgid "Save Changes"
+msgstr "परिवर्तन सहेजें"
+
+#: portfolio.php:483
+msgid "Add New"
+msgstr "नया जोड़ें"
+
+#: portfolio.php:484
+msgid "Add New Portfolio"
+msgstr "नया पोर्टफोलियो में जोड़ें"
+
+#: portfolio.php:485
+msgid "Edit"
+msgstr "संपादित करें"
+
+#: portfolio.php:486
+msgid "Edit Portfolio"
+msgstr "पोर्टफोलियो संपादित करें"
+
+#: portfolio.php:487
+msgid "New Portfolio"
+msgstr "नया पोर्टफोलियो"
+
+#: portfolio.php:488 portfolio.php:489
+msgid "View Portfolio"
+msgstr "पोर्टफोलियो देखें"
+
+#: portfolio.php:490
+msgid "Search Portfolio"
+msgstr "पोर्टफोलियो खोजें "
+
+#: portfolio.php:491
+msgid "No portfolio found"
+msgstr "पोर्टफोलियो नहीं मिला"
+
+#: portfolio.php:492
+msgid "No portfolio found in Trash"
+msgstr " पोर्टफोलियो ट्रैश में नहीं पाया गया"
+
+#: portfolio.php:493
+msgid "Parent Portfolio"
+msgstr "माता - पिता पोर्टफोलियो"
+
+#: portfolio.php:495
+#, fuzzy
+msgid "Create a portfolio item"
+msgstr "एक पोर्टफोलियो बनाएँ."
+
+#: portfolio.php:528
+msgid "Executor Profiles"
+msgstr "निष्पादक प्रोफ़ाइल"
+
+#: portfolio.php:529 template/portfolio.php:19 template/portfolio.php:20
+msgid "Executor Profile"
+msgstr "निष्पादक प्रोफ़ाइल"
+
+#: portfolio.php:530
+msgid "Search Executor Profiles"
+msgstr " निष्पादक प्रोफ़ाइल खोजें"
+
+#: portfolio.php:531
+msgid "Popular Executor Profiles"
+msgstr "लोकप्रिय निष्पादक प्रोफाइल"
+
+#: portfolio.php:532
+msgid "All Executor Profiles"
+msgstr "सभी निष्पादक प्रोफाइल"
+
+#: portfolio.php:533
+msgid "Parent Executor Profile"
+msgstr "जनक निष्पादक प्रोफ़ाइल"
+
+#: portfolio.php:534
+msgid "Parent Executor Profile:"
+msgstr "माता - पिता निष्पादक प्रोफ़ाइल:"
+
+#: portfolio.php:535
+msgid "Edit Executor Profile"
+msgstr "निष्पादक प्रोफ़ाइल संपादित करें"
+
+#: portfolio.php:536
+msgid "Update Executor Profile"
+msgstr "निष्पादक प्रोफाइल को अपडेट करें"
+
+#: portfolio.php:537
+msgid "Add New Executor Profile"
+msgstr "नया निष्पादक प्रोफाइल जोड़ें"
+
+#: portfolio.php:538
+#, fuzzy
+msgid "New Executor Name"
+msgstr "नई निष्पादक प्रोफ़ाइल नाम"
+
+#: portfolio.php:539
+msgid "Separate Executor Profiles with commas"
+msgstr "अल्पविरामों से अलग निष्पादक प्रोफ़ाइल"
+
+#: portfolio.php:540
+msgid "Add or remove Executor Profile"
+msgstr " निष्पादक प्रोफ़ाइल जोड़ें या निकालें"
+
+#: portfolio.php:541
+#, fuzzy
+msgid "Choose from the most used Executor Profiles"
+msgstr "सबसे अधिक इस्तेमाल किया निष्पादक प्रोफाइल से चुनें"
+
+#: portfolio.php:542
+#, fuzzy
+msgid "Executors"
+msgstr "निष्पादक"
+
+#: portfolio.php:559
+msgid "Technology"
+msgstr "टेक्नोलॉजी"
+
+#: portfolio.php:560
+msgid "Search Technologies"
+msgstr " टेक्नोलॉजीज खोजें"
+
+#: portfolio.php:561
+msgid "Popular Technologies"
+msgstr "लोकप्रिय टेक्नोलॉजीज"
+
+#: portfolio.php:562
+msgid "All Technologies"
+msgstr "सभी तकनीक"
+
+#: portfolio.php:563
+msgid "Parent Technology"
+msgstr "माता - पिता टैक्नोलॉजी"
+
+#: portfolio.php:564
+msgid "Parent Technology:"
+msgstr "माता - पिता टैक्नोलॉजी"
+
+#: portfolio.php:565
+msgid "Edit Technology"
+msgstr "टैक्नोलॉजी संपादित करें"
+
+#: portfolio.php:566
+msgid "Update Technology"
+msgstr "टैक्नोलॉजी अपडेट करें"
+
+#: portfolio.php:567
+msgid "Add New Technology"
+msgstr "नई प्रौद्योगिकी जोड़ें"
+
+#: portfolio.php:568
+msgid "New Technology Name"
+msgstr "नई प्रौद्योगिकी का नाम"
+
+#: portfolio.php:569
+msgid "Separate Technologies with commas"
+msgstr "अल्पविराम से अलग टेक्नोलॉजीज"
+
+#: portfolio.php:570
+msgid "Add or remove Technology"
+msgstr "जोड़ें या टैक्नोलॉजी निकालें"
+
+#: portfolio.php:571
+#, fuzzy
+msgid "Choose from the most used technologies"
+msgstr "सबसे अधिक इस्तेमाल किया टैक्नोलॉजी चुनें"
+
+#: portfolio.php:614
+#, fuzzy
+msgid "Your most used portfolio technologies as a tag cloud"
+msgstr "अपने सबसे अधिक इस्तेमाल बादल प्रारूप में पोर्टफोलियो प्रौद्योगिकियों"
+
+#: portfolio.php:639
+msgid "Title"
+msgstr "शीर्षक"
+
+#: portfolio.php:677
+msgid "Portfolio Info"
+msgstr "पोर्टफोलियो की जानकारी"
+
+#: portfolio.php:679
+msgid "Already attached"
+msgstr ""
+
+#: portfolio.php:706
+#, fuzzy
+msgid "Activate"
+msgstr "सक्रिय प्लगिन"
+
+#: portfolio.php:713
+#, fuzzy
+msgid "Install now"
+msgstr "स्थापित%s"
+
+#: portfolio.php:716
+msgid ""
+"If you'd like to attach the files, which are already uploaded, please use Re-"
+"attacher plugin."
+msgstr ""
+
+#: portfolio.php:719
+#, fuzzy
+msgid "Learn more"
+msgstr "और अधिक पढ़ें"
+
+#: portfolio.php:836
+msgid "Support"
+msgstr "समर्थन"
+
+#: portfolio.php:999 template/portfolio.php:163
+msgid "Read more"
+msgstr "और अधिक पढ़ें"
+
+#: portfolio.php:1009 template/portfolio.php:173
+#: template/portfolio-post.php:159
+#, php-format
+msgid "View all posts in %s"
+msgstr "सभी प्रविष्टियाँ देखें%s"
+
+#: portfolio.php:1038
+#, fuzzy
+msgid "Updating post_meta information..."
+msgstr "अपडेट करें post_meta जानकारी ..."
+
+#: portfolio.php:1039
+#, fuzzy
+msgid "No portfolio item found"
+msgstr "पोर्टफोलियो नहीं मिला"
+
+#: portfolio.php:1040
+#, fuzzy
+msgid "All info is updated"
+msgstr "सभी जानकारी को अपडेट किया गया."
+
+#: portfolio.php:1041 portfolio.php:1045
+msgid "Error."
+msgstr "त्रुटि."
+
+#: portfolio.php:1042
+#, fuzzy
+msgid "Updating images..."
+msgstr "छवियों अपडेट करें ..."
+
+#: portfolio.php:1043
+#, fuzzy
+msgid "No image found"
+msgstr "कोई छवियां नहीं मिलीं."
+
+#: portfolio.php:1044
+#, fuzzy
+msgid "All images are updated"
+msgstr "सभी छवियों को अपडेट किया गया."
+
+#: portfolio.php:1213
+#, fuzzy
+msgid "Image size not defined"
+msgstr "छवि आकार नाम"
+
+#: portfolio.php:1227
+msgid ""
+"We can update only PNG, JPEG, GIF, WPMP or XBM filetype. For other, please, "
+"manually reload image."
+msgstr ""
+
+#: portfolio.php:1237
+msgid "Image size changes not defined"
+msgstr ""
+
+#: portfolio.php:1262 portfolio.php:1265 portfolio.php:1270
+msgid "Invalid path"
+msgstr ""
+
+#: portfolio.php:1390
+msgid "ATTENTION!"
+msgstr ""
+
+#: portfolio.php:1391
+msgid ""
+"In the current version of Portfolio plugin we updated the Technologies "
+"widget. If it was added to the sidebar, it will disappear and you will have "
+"to add it again."
+msgstr ""
+
+#: portfolio.php:1395
+msgid "Read and Understood"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Plugins page"
+#~ msgstr "अनुशंसित प्लगिन"
+
+#, fuzzy
+#~ msgid "Rate the plugin"
+#~ msgstr "अनुशंसित प्लगिन"
+
+#, fuzzy
+#~ msgid "Site URL"
+#~ msgstr "SVN"
+
+#~ msgid "Installed plugins"
+#~ msgstr "स्थापित plugins"
+
+#~ msgid "Recommended plugins"
+#~ msgstr "अनुशंसित प्लगिन"
+
+#~ msgid "Download"
+#~ msgstr "डाउनलोड"
+
+#~ msgid "Install now from wordpress.org"
+#~ msgstr "Wordpress.org से अब स्थापित"
+
+#, fuzzy
+#~ msgid "Active Plugins"
+#~ msgstr "सक्रिय प्लगिन"
+
+#, fuzzy
+#~ msgid "Inactive Plugins"
+#~ msgstr "सक्रिय प्लगिन"
+
+#, fuzzy
+#~ msgid "Send to support"
+#~ msgstr "समर्थन"
+
+#~ msgid "Could not read image size"
+#~ msgstr "छवि का आकार नहीं पढ़ सका"
+
+#~ msgid "Could not calculate resized image dimensions"
+#~ msgstr "Resized छवि आयाम की गणना नहीं कर सका"
+
+#~ msgid "Resize path invalid"
+#~ msgstr "अवैध पथ का आकार बदलें"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill out the contact form on our website"
+#~ msgstr ""
+#~ "यदि आप कोई प्रश्न हैं, हमें plugin@bestwebsoft.com के माध्यम से संपर्क करें या हमारी "
+#~ "साइट पर हमारे संपर्क फार्म में भरें कृपया"
+
+#~ msgid "URL of the SVN"
+#~ msgstr "SVN का URL"
+
+#~ msgid "Executor Profiles "
+#~ msgstr "निष्पादक प्रोफ़ाइल"
+
+#~ msgid "The size of the cover album for portfolio"
+#~ msgstr "पोर्टफोलियो के लिए कवर एल्बम का आकार"
+
+#, fuzzy
+#~ msgid "Portfolio order by"
+#~ msgstr "पोर्टफोलियो की जानकारी"
+
+#, fuzzy
+#~ msgid "Portfolio order"
+#~ msgstr "पोर्टफोलियो की जानकारी"
+
+#~ msgid "No informations found."
+#~ msgstr "Informations  नहीं पाया गया."
+
+#~ msgid "Style for lightbox"
+#~ msgstr "Style voor de lightbox"
+
+#~ msgid "Display sidebar"
+#~ msgstr "Geeft sidebar weer"
+
+#~ msgid "On frontend portfolio page"
+#~ msgstr "Op de portfolio beginpagina"
+
+#~ msgid "On single portfolio page"
+#~ msgstr "Op de individuele portfolio pagina"

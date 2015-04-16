@@ -1,0 +1,680 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: portfolio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-16 13:45+0300\n"
+"PO-Revision-Date: 2015-04-16 13:45+0300\n"
+"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
+"Language-Team: Felix Griewald, felix-griewald.de <felix.griewald@arcor.de>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: portfolio.php:41 portfolio.php:481 portfolio.php:482
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: portfolio.php:62
+msgid "Short description"
+msgstr "Kratak opis"
+
+#: portfolio.php:62
+msgid ""
+"A short description which you'd like to be displayed on your portfolio page"
+msgstr ""
+"Kratak opis onoga što biste voleli da se prikaže na vašoj portfolio stranici"
+
+#: portfolio.php:63
+msgid "Date of completion"
+msgstr "Datum završetka"
+
+#: portfolio.php:63
+msgid "The date when the task was completed"
+msgstr "Datum završetka"
+
+#: portfolio.php:64 portfolio.php:395
+msgid "Link"
+msgstr "Link"
+
+#: portfolio.php:64
+msgid "A link to the site"
+msgstr "Link za site"
+
+#: portfolio.php:65 portfolio.php:398
+msgid "SVN"
+msgstr "SVN"
+
+#: portfolio.php:65
+msgid "SVN URL"
+msgstr "SVN URL"
+
+#: portfolio.php:106 portfolio.php:412
+msgid "Date of completion:"
+msgstr "Datum završetka:"
+
+#: portfolio.php:107 portfolio.php:413
+msgid "Link:"
+msgstr "Link:"
+
+#: portfolio.php:108 portfolio.php:414
+msgid "Short description:"
+msgstr "Kratak opis:"
+
+#: portfolio.php:109 portfolio.php:415
+msgid "Description:"
+msgstr "Opis:"
+
+#: portfolio.php:110 portfolio.php:416
+msgid "SVN:"
+msgstr "SVN:"
+
+#: portfolio.php:111 portfolio.php:417
+msgid "Executor Profile:"
+msgstr "Profil izvršitelja:"
+
+#: portfolio.php:112 portfolio.php:418
+msgid "More screenshots:"
+msgstr "Više slika ekrana:"
+
+#: portfolio.php:113 portfolio.php:419
+msgid "Technologies:"
+msgstr "Tehnologije:"
+
+#: portfolio.php:217
+msgid ""
+"The files \"portfolio.php\" and \"portfolio-post.php\" are not found in your "
+"theme directory. Please copy them from the directory `wp-content/plugins/"
+"portfolio/template/` to your theme directory for correct work of the "
+"Portfolio plugin"
+msgstr ""
+"Datoteke \"portfolio.php\" i \"portfolio-post.php\" nisu pronađene u "
+"direktorijumu vaše teme. Molimo vas da ih kopirate iz direktorijuma `wp-"
+"content/plugins/portfolio/template/` u direktorijum vaše teme da bi vam "
+"Portfolio plugin ispravno funkcionisao."
+
+#: portfolio.php:311
+msgid "Settings saved."
+msgstr "Podešavanja sačuvana."
+
+#: portfolio.php:316
+msgid "Portfolio Settings"
+msgstr "Portfolio Podešavanja"
+
+#: portfolio.php:318 portfolio.php:834 portfolio.php:850
+msgid "Settings"
+msgstr "Podešavanja"
+
+#: portfolio.php:319 portfolio.php:835
+msgid "FAQ"
+msgstr "FAQ"
+
+#: portfolio.php:323
+msgid "Notice:"
+msgstr "Primetite:"
+
+#: portfolio.php:323
+msgid ""
+"The plugin's settings have been changed. In order to save them please don't "
+"forget to click the 'Save Changes' button."
+msgstr ""
+"Podešavanja plugin-a su izmenjena. Da biste ih sačuvali, ne zaboravite da "
+"kliknete na taster ‘Sačuvaj izmene’."
+
+#: portfolio.php:324
+msgid ""
+"If you would like to add the Latest Portfolio Items to your page or post, "
+"just copy and paste this shortcode into your post or page:"
+msgstr ""
+"Ako biste želeli da dodate Najnovije Portfolio stavke svojoj stranici ili "
+"svom postu, samo kopirajte i nalepite ovaj shortcode na svoj post ili "
+"stranicu:"
+
+#: portfolio.php:324
+msgid "where count=3 is a number of posts to show up in the portfolio."
+msgstr "gde je =3 broj postova koji će biti prikazani na portfoliu."
+
+#: portfolio.php:329
+msgid "Change the way to store your post_meta information for portfolio"
+msgstr "Promenite način čuvanja svojih meta informacija_posta za portfolio"
+
+#: portfolio.php:331
+msgid "Update All Info"
+msgstr "Ažuriraj sve podatke"
+
+#: portfolio.php:338
+msgid "Update images for portfolio"
+msgstr "Ažuriraj slike za portfolio"
+
+#: portfolio.php:340
+msgid "Update images"
+msgstr "Ažuriraj slike"
+
+#: portfolio.php:350
+msgid "The album cover size"
+msgstr "Veličina korica albuma"
+
+#: portfolio.php:352 portfolio.php:360
+msgid "Image size name"
+msgstr "Naziv veličine slike"
+
+#: portfolio.php:353 portfolio.php:361
+msgid "Width (in px)"
+msgstr "Širina (u pikselima)"
+
+#: portfolio.php:354 portfolio.php:362
+msgid "Height (in px)"
+msgstr "Visina (u pikselima)"
+
+#: portfolio.php:358
+msgid "Size of portfolio images"
+msgstr "Veličina portfolio slika"
+
+#: portfolio.php:366
+#, fuzzy
+msgid ""
+"WordPress will copy thumbnails with the specified dimensions when you upload "
+"a new image. It is necessary to click the Update images button at the bottom "
+"of this page in order to generate new images and set new dimensions"
+msgstr ""
+"WordPress će kopirati sličice sa navedenim dimenzijama kad otpremite novu "
+"sliku. Neophodno je da kliknete na taster Ažuriraj slike, koji se nalazi na "
+"dnu ove stranice da biste generisali nove slike i podesili nove dimenzije"
+
+#: portfolio.php:369
+msgid "Sort portfolio by"
+msgstr "Rasporedi portfolio prema"
+
+#: portfolio.php:371
+msgid "portfolio id"
+msgstr "portfolio id"
+
+#: portfolio.php:372
+msgid "portfolio title"
+msgstr "naziv portfolia"
+
+#: portfolio.php:373
+msgid "date"
+msgstr "datum"
+
+#: portfolio.php:374
+msgid "menu order"
+msgstr "redosled menija"
+
+#: portfolio.php:375
+msgid "random"
+msgstr "nasumični"
+
+#: portfolio.php:379
+msgid "Portfolio sorting"
+msgstr "Portfolio raspored"
+
+#: portfolio.php:381
+msgid "ASC (ascending order from lowest to highest values - 1, 2, 3; a, b, c)"
+msgstr "RAST (rastući, od najnižih do najviših vrednosti - 1, 2, 3; a, b, c)"
+
+#: portfolio.php:382
+msgid ""
+"DESC (descending order from highest to lowest values - 3, 2, 1; c, b, a)"
+msgstr "OPAD (opadajući, od najviših do najnižih vrednosti - 3, 2, 1; c, b, a)"
+
+#: portfolio.php:386
+msgid "Number of images in the row"
+msgstr "Broj slika u redu"
+
+#: portfolio.php:392
+msgid "Display additional fields"
+msgstr "Prikaži dodatna polja"
+
+#: portfolio.php:394
+msgid "Date"
+msgstr "Datum"
+
+#: portfolio.php:396
+msgid "Short Description"
+msgstr "Kratak opis"
+
+#: portfolio.php:397
+msgid "Description"
+msgstr "Opis"
+
+#: portfolio.php:399
+msgid "Executor"
+msgstr "Izvršitelj"
+
+#: portfolio.php:400 portfolio.php:558 portfolio.php:572 portfolio.php:613
+#: portfolio.php:1004
+msgid "Technologies"
+msgstr "Tehnologije"
+
+#: portfolio.php:404
+msgid "Display the link field as a text for non-registered users"
+msgstr "Prikaži polje za link kao tekst za neregistrovane korisnike"
+
+#: portfolio.php:410
+msgid "Text for additional fields"
+msgstr "Tekst dodatnih polja"
+
+#: portfolio.php:423
+msgid "Slug for portfolio item"
+msgstr "Podloška za portfolio stavku"
+
+#: portfolio.php:425
+msgid "for any structure of permalinks except the default structure"
+msgstr "za bilo koju strukturu permalinkova, osim za podrazumevanu strukturu"
+
+#: portfolio.php:429
+msgid "Rewrite templates after update"
+msgstr "Ponovo napišite šablone posle ažuriranja"
+
+#: portfolio.php:431
+msgid ""
+"Turn off the checkbox, if You edited the file 'portfolio.php' or 'portfolio-"
+"post.php' file in your theme folder and You don't want to rewrite them"
+msgstr ""
+"Isključite okvir za štikliranje ako ste uredili 'portfolio.php' ili "
+"'portfolio-post.php' datoteku u svom folderu sa temama i ako ne želite da ih "
+"ponovo pišete."
+
+#: portfolio.php:435
+msgid "Rename uploaded images"
+msgstr "Promenite naziv otpremljenim slikama"
+
+#: portfolio.php:437
+msgid ""
+"To avoid conflicts, all the symbols will be excluded, except numbers, the "
+"Roman letters,  _ and - symbols."
+msgstr ""
+"Da biste izbegli konflikte, svi simboli će biti isklljučeni, osim brojeva, "
+"latiničnih slova i simbola _ i -."
+
+#: portfolio.php:441
+msgid "Add portfolio to the search"
+msgstr "Dodaj portfolio pretrazi"
+
+#: portfolio.php:446 portfolio.php:449 portfolio.php:453
+msgid "Using Custom Search powered by"
+msgstr "Upotrebu prilagođene pretrage omogućio"
+
+#: portfolio.php:449
+msgid "Activate Custom Search"
+msgstr "Aktiviraj prilagođenu pretragu"
+
+#: portfolio.php:453
+msgid "Download Custom Search"
+msgstr "Preuzmi prilagođenu pretragu"
+
+#: portfolio.php:460
+msgid "Save Changes"
+msgstr "Sačuvaj izmene"
+
+#: portfolio.php:483
+msgid "Add New"
+msgstr "Dodaj novi"
+
+#: portfolio.php:484
+msgid "Add New Portfolio"
+msgstr "Dodaj novi Portfolio"
+
+#: portfolio.php:485
+msgid "Edit"
+msgstr "Uredi"
+
+#: portfolio.php:486
+msgid "Edit Portfolio"
+msgstr "Uredi Portfolio"
+
+#: portfolio.php:487
+msgid "New Portfolio"
+msgstr "Novi Portfolio"
+
+#: portfolio.php:488 portfolio.php:489
+msgid "View Portfolio"
+msgstr "Vidi Portfolio"
+
+#: portfolio.php:490
+msgid "Search Portfolio"
+msgstr "Pretraži Portfolio"
+
+#: portfolio.php:491
+msgid "No portfolio found"
+msgstr "Portfolio nije pronađen"
+
+#: portfolio.php:492
+msgid "No portfolio found in Trash"
+msgstr "Portfolio nije pronađen u korpi za otpatke"
+
+#: portfolio.php:493
+msgid "Parent Portfolio"
+msgstr "Nadređeni Portfolio"
+
+#: portfolio.php:495
+msgid "Create a portfolio item"
+msgstr "Kreiraj Portfolio stavku"
+
+#: portfolio.php:528
+msgid "Executor Profiles"
+msgstr "Profili izvršitelja"
+
+#: portfolio.php:529 template/portfolio.php:19 template/portfolio.php:20
+msgid "Executor Profile"
+msgstr "Profil izvršitelja"
+
+#: portfolio.php:530
+msgid "Search Executor Profiles"
+msgstr "Pretraži profile izvršitelja"
+
+#: portfolio.php:531
+msgid "Popular Executor Profiles"
+msgstr "Popularni profili izvršitelja"
+
+#: portfolio.php:532
+msgid "All Executor Profiles"
+msgstr "Svi profili izvršitelja "
+
+#: portfolio.php:533
+msgid "Parent Executor Profile"
+msgstr "Profil nadređenog izvršitelja"
+
+#: portfolio.php:534
+msgid "Parent Executor Profile:"
+msgstr "Profil nadređenog izvršitelja:"
+
+#: portfolio.php:535
+msgid "Edit Executor Profile"
+msgstr "Uredi profil izvršitelja"
+
+#: portfolio.php:536
+msgid "Update Executor Profile"
+msgstr "Ažuriraj profil izvršitelja"
+
+#: portfolio.php:537
+msgid "Add New Executor Profile"
+msgstr "Dodaj novi profil izvršitelja"
+
+#: portfolio.php:538
+msgid "New Executor Name"
+msgstr "Novo ime izvršitelja"
+
+#: portfolio.php:539
+msgid "Separate Executor Profiles with commas"
+msgstr "Odvojite profile izvršitelja zarezima"
+
+#: portfolio.php:540
+msgid "Add or remove Executor Profile"
+msgstr "Dodaj ili ukloni profil izvršitelja"
+
+#: portfolio.php:541
+msgid "Choose from the most used Executor Profiles"
+msgstr "Izaberite među najčešće korišćenim profilima izvršitelja"
+
+#: portfolio.php:542
+msgid "Executors"
+msgstr "Izvršitelji"
+
+#: portfolio.php:559
+msgid "Technology"
+msgstr "Tehnologija"
+
+#: portfolio.php:560
+msgid "Search Technologies"
+msgstr "Pretraži tehnologije"
+
+#: portfolio.php:561
+msgid "Popular Technologies"
+msgstr "Popularne tehnologije"
+
+#: portfolio.php:562
+msgid "All Technologies"
+msgstr "Sve tehnologije"
+
+#: portfolio.php:563
+msgid "Parent Technology"
+msgstr "Nadređena tehnologija"
+
+#: portfolio.php:564
+msgid "Parent Technology:"
+msgstr "Nadređena tehnologija:"
+
+#: portfolio.php:565
+msgid "Edit Technology"
+msgstr "Uredi tehnologiju"
+
+#: portfolio.php:566
+msgid "Update Technology"
+msgstr "Ažuriraj tehnologiju"
+
+#: portfolio.php:567
+msgid "Add New Technology"
+msgstr "Dodaj novu tehnologiju"
+
+#: portfolio.php:568
+msgid "New Technology Name"
+msgstr "Novo ime tehnologije"
+
+#: portfolio.php:569
+msgid "Separate Technologies with commas"
+msgstr "Odvojite tehnologije zarezima"
+
+#: portfolio.php:570
+msgid "Add or remove Technology"
+msgstr "Dodaj ili ukloni tehnologiju"
+
+#: portfolio.php:571
+msgid "Choose from the most used technologies"
+msgstr "Izaberite među najčešće korišćenim tehnologijama"
+
+#: portfolio.php:614
+msgid "Your most used portfolio technologies as a tag cloud"
+msgstr "Vaše najčešće korišćene portfolio tehnologije kao oblak reči"
+
+#: portfolio.php:639
+msgid "Title"
+msgstr "Naslov"
+
+#: portfolio.php:677
+msgid "Portfolio Info"
+msgstr "Portfolio Info"
+
+#: portfolio.php:679
+msgid "Already attached"
+msgstr ""
+
+#: portfolio.php:706
+#, fuzzy
+msgid "Activate"
+msgstr "Aktivierte plugins"
+
+#: portfolio.php:713
+#, fuzzy
+msgid "Install now"
+msgstr "Fortschritt %s"
+
+#: portfolio.php:716
+msgid ""
+"If you'd like to attach the files, which are already uploaded, please use Re-"
+"attacher plugin."
+msgstr ""
+
+#: portfolio.php:719
+#, fuzzy
+msgid "Learn more"
+msgstr "Pročitajte više"
+
+#: portfolio.php:836
+msgid "Support"
+msgstr "Podrška"
+
+#: portfolio.php:999 template/portfolio.php:163
+msgid "Read more"
+msgstr "Pročitajte više"
+
+#: portfolio.php:1009 template/portfolio.php:173
+#: template/portfolio-post.php:159
+#, php-format
+msgid "View all posts in %s"
+msgstr "Vidite sve postove u %s"
+
+#: portfolio.php:1038
+msgid "Updating post_meta information..."
+msgstr "Ažuriranje meta informacije_posta..."
+
+#: portfolio.php:1039
+msgid "No portfolio item found"
+msgstr "Nije pronađena portfolio stavka"
+
+#: portfolio.php:1040
+msgid "All info is updated"
+msgstr "Svi podaci su ažurirani"
+
+#: portfolio.php:1041 portfolio.php:1045
+msgid "Error."
+msgstr "Greška."
+
+#: portfolio.php:1042
+msgid "Updating images..."
+msgstr "Ažuriranje slika..."
+
+#: portfolio.php:1043
+msgid "No image found"
+msgstr "Nije pronađena slika"
+
+#: portfolio.php:1044
+msgid "All images are updated"
+msgstr "Sve slike su ažurirane"
+
+#: portfolio.php:1213
+msgid "Image size not defined"
+msgstr "Veličina slike nije određena"
+
+#: portfolio.php:1227
+msgid ""
+"We can update only PNG, JPEG, GIF, WPMP or XBM filetype. For other, please, "
+"manually reload image."
+msgstr ""
+"Možemo ažurirati samo  PNG, JPEG, GIF, WPMP ili XBM vrste datoteka. Za "
+"ostale, ponovo otpremite slike ručno."
+
+#: portfolio.php:1237
+msgid "Image size changes not defined"
+msgstr "Promene veličine slike nisu određene"
+
+#: portfolio.php:1262 portfolio.php:1265 portfolio.php:1270
+msgid "Invalid path"
+msgstr "Nevažeća putanja"
+
+#: portfolio.php:1390
+msgid "ATTENTION!"
+msgstr "PAŽNJA!"
+
+#: portfolio.php:1391
+msgid ""
+"In the current version of Portfolio plugin we updated the Technologies "
+"widget. If it was added to the sidebar, it will disappear and you will have "
+"to add it again."
+msgstr ""
+"U tekućoj verziji Portfolio plugin-a ažurirali smo widget Tehnologije. Ako "
+"je dodat bočnom meniju, nestaće i moraćete ga ponovo dodati."
+
+#: portfolio.php:1395
+msgid "Read and Understood"
+msgstr "Pročitajte i shvatite"
+
+#~ msgid "requires"
+#~ msgstr "zahteva"
+
+#~ msgid ""
+#~ "or higher, that is why it has been deactivated! Please upgrade WordPress "
+#~ "and try again."
+#~ msgstr ""
+#~ "ili noviju i zato je deaktiviran! Molimo vas da nadogradite WordPress i "
+#~ "da pokušate ponovo. "
+
+#~ msgid "Back to the WordPress"
+#~ msgstr "Nazad na WordPress"
+
+#~ msgid "Plugins page"
+#~ msgstr "Stranica plugin-a"
+
+#~ msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
+#~ msgstr ""
+#~ "Ako vam se dopada naš plugin, ocenite ga sa 5 zvezdica na WordPress-u"
+
+#~ msgid "Rate the plugin"
+#~ msgstr "Ocenite plugin"
+
+#~ msgid "If there is something wrong about it, please contact us"
+#~ msgstr "Ako nešto nije u redu u vezi s njim, pišite nam"
+
+#, fuzzy
+#~ msgid "Site URL"
+#~ msgstr "SVN"
+
+#~ msgid "Installed plugins"
+#~ msgstr "Installierte Plugins"
+
+#~ msgid "Recommended plugins"
+#~ msgstr "Empfohlene Plugins"
+
+#~ msgid "Download"
+#~ msgstr "Download"
+
+#~ msgid "Install now from wordpress.org"
+#~ msgstr "Installieren von wordpress.org"
+
+#, fuzzy
+#~ msgid "Active Plugins"
+#~ msgstr "Aktivierte plugins"
+
+#, fuzzy
+#~ msgid "Inactive Plugins"
+#~ msgstr "Aktivierte plugins"
+
+#, fuzzy
+#~ msgid "Send to support"
+#~ msgstr "Hilfe"
+
+#~ msgid "Could not read image size"
+#~ msgstr "Konnte Bildgröße nicht lesen"
+
+#~ msgid "Could not calculate resized image dimensions"
+#~ msgstr "Konnte Bildgröße nicht berechnen"
+
+#~ msgid "Resize path invalid"
+#~ msgstr "Pfad ungültig"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill out the contact form on our website"
+#~ msgstr ""
+#~ "Wenn du Fragen hast, dann wende dich bitte per Email an "
+#~ "plugin@bestwebsoft.com oder nutze das Kontakt Formular unserer Seite"
+
+#~ msgid "URL of the SVN"
+#~ msgstr "URL zum SVN"
+
+#~ msgid "Executor Profiles "
+#~ msgstr "Entwickler Profile"
+
+#~ msgid "The size of the cover album for portfolio"
+#~ msgstr "Größe des Portfolio Cover Albums"
+
+#, fuzzy
+#~ msgid "Portfolio order by"
+#~ msgstr "Portfolio Info"
+
+#, fuzzy
+#~ msgid "Portfolio order"
+#~ msgstr "Portfolio Info"
+
+#~ msgid "No informations found."
+#~ msgstr "Keine Informationen gefunden."
+
+#~ msgid "Style for lightbox"
+#~ msgstr "Стили для лайтбокса"
