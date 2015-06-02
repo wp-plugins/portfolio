@@ -1,10 +1,10 @@
 === Portfolio by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Donate link: http://bestwebsoft.com/donate/
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
-Tested up to: 4.2-beta4
-Stable tag: 2.32
+Tested up to: 4.2.2
+Stable tag: 2.33
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,13 +15,15 @@ Portfolio plugin allows you to create a page containing the information about yo
 With the Portfolio plugin you can create a unique page for displaying portfolio items consisting of screenshots and additional information such as description, short description, URL, date of completion, etc.
 Moreover you can add not just one, but many screenshots to one portfolio item for better visual guidance. 
 
-http://www.youtube.com/watch?v=LAImUxwEO78
+https://www.youtube.com/watch?v=OIxDlQZcCcI
 
 <a href="http://www.youtube.com/watch?v=6xPYIttiJ8g" target="_blank">Video instruction on Installation</a>
 
 <a href="http://wordpress.org/plugins/portfolio/faq/" target="_blank">FAQ</a>
 
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
+
+<a href="http://bestwebsoft.com/products/portfolio/?k=b97fe54507469c680b273a111ab11083" target="_blank">Upgrade to Pro Version</a>
 
 = Features =
 
@@ -98,27 +100,7 @@ Use Wordpress meta box to upload images from URL or your local storage. Please n
 
 = I updated the plugin, the template changed, but I would like to revert it back as it was before? What should I do? =
 
-Sometimes during the plugin update the plugin template in your theme is also updated. Meanwhile a backup of the previous template verion is created and it contains the files `portfolio-post.php.bak` and `portfolio.php.bak`. You should compare the old files with the new ones and apply the necessary changes to the new files.
-
-= I was wondering what determines the order of portfolio posts on the Portfolio page =
-'orderby'                        => 'menu_order',  menu_order  
-
-orderby (string) - Sort retrieved posts by parameter. Defaults to 'date'.
-	'none' - No order (available with Version 2.8).
-	'ID' - Order by post id. Note the captialization.
-	'author' - Order by author.
-	'title' - Order by title.
-	'date' - Order by date.
-	'modified' - Order by last modified date.
-	'parent' - Order by post/page parent id.
-	'rand' - Random order.
-	'comment_count' - Order by number of comments (available with Version 2.9).
-	'menu_order' - Order by Page Order. Used most often for Pages (Order field in the Edit Page Attributes box) and for Attachments (the integer fields in the Insert / Upload Media Gallery dialog), but could be used for any post type with distinct 'menu_order' values (they all default to 0).
-	'meta_value' - Note that a 'meta_key=keyname' must also be present in the query. Note also that the sorting will be alphabetical which is fine for strings (i.e. words), but can be unexpected for numbers (e.g. 1, 3, 34, 4, 56, 6, etc, rather than 1, 3, 4, 6, 34, 56 as you might naturally expect).
-	'meta_value_num' - Order by numeric meta value (available with Version 2.8). Also note that a 'meta_key=keyname' must also be present in the query. This value allows for numerical sorting as noted above in 'meta_value'. 
-'order'=>'ASC',  'order'=>'DESC', - 
-    'ASC' - ascending order from lowest to highest values (1, 2, 3; a, b, c).
-    'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a). 
+Sometimes during the plugin update the plugin template in your theme is also updated. Meanwhile a backup of the previous template version is created and it contains the files `portfolio-post.php.bak` and `portfolio.php.bak`. You should compare the old files with the new ones and apply the necessary changes to the new files. If you want to templates are not overwritten when updating the plugin, turn off the checkbox in "Rewrite templates after update" option on the plugin settings page and save the changes.
 
 = I'm getting the following error: Fatal error: Call to undefined function get_post_thumbnail_id() =
 
@@ -134,6 +116,7 @@ After that your theme will support thumbnails and the error will disappear.
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
@@ -147,9 +130,13 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 4. Add New Portfolio items.
 5. Portfolio frontend page (for all portfolios).
 6. Portfolio single frontend page.
-7. Portfolio frontend page (for all portfolios) without label for additional fields.
 
 == Changelog ==
+
+= V2.33 - 02.06.2015 =
+* Bugfix : We fixed the bug of displaying links to executors profile page.
+* Update : Portfolio template checking functionality was updated.
+* Update : We updated all functionality for wordpress 4.2.2.
 
 = V2.32 - 16.04.2015 =
 * Update : Portfolio template checking functionality was updated.
@@ -304,6 +291,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.33 =
+We fixed the bug of displaying links to executors profile page. Portfolio template checking functionality was updated. We updated all functionality for wordpress 4.2.2.
 
 = V2.32 =
 Portfolio template checking functionality was updated.

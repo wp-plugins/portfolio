@@ -1,7 +1,7 @@
 <?php
 /*
 Template Name: Portfolio template
-* Version: 1.2
+* Version: 1.3
 */
 get_header(); ?>
 	<div class="content-area">
@@ -80,8 +80,14 @@ get_header(); ?>
 				$second_query = new WP_Query( $args );
 
 				$pdfprnt_options = get_option('pdfprnt_options_array');
-				if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio' ) &&  ( isset( $pdfprnt_options ) && is_array( $pdfprnt_options ) && true === in_array( 'portfolio', $pdfprnt_options['use_types_posts']) ) )
-					echo pdfprnt_show_buttons_for_bws_portfolio();
+				if ( empty( $pdfprnt_options ) )
+					$pdfprnt_options = get_option('pdfprntpr_options_array');
+				if (  isset( $pdfprnt_options ) && is_array( $pdfprnt_options ) && true === in_array( 'portfolio', $pdfprnt_options['use_types_posts'] ) ) {
+					if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio_post' ) )
+						echo pdfprnt_show_buttons_for_bws_portfolio_post();
+					elseif ( function_exists( 'pdfprntpr_show_buttons_for_bws_portfolio_post' ) )
+						echo pdfprntpr_show_buttons_for_bws_portfolio_post();
+				}
 				
 				$request = $second_query->request;
 
@@ -106,34 +112,31 @@ get_header(); ?>
 								$image_alt		=	get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
 								$image_desc 	=	get_post($post_thumbnail_id);
 								$image_desc		=	$image_desc->post_content;
-								
-								if ( '1' == get_option( 'prtfl_postmeta_update' ) ) {
-									$post_meta		=	get_post_meta( $post->ID, 'prtfl_information', true);
-									$date_compl		=	$post_meta['_prtfl_date_compl'];
-									if ( ! empty( $date_compl ) && 'in progress' != $date_compl) {
-										$date_compl		= explode( "/", $date_compl );
-										$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1] . "-" . $date_compl[0] . '-' . $date_compl[2] ) );
-									}
-									$link			=	$post_meta['_prtfl_link'];
-									$short_descr	=	$post_meta['_prtfl_short_descr'];
-								} else {
-									$date_compl		=	get_post_meta( $post->ID, '_prtfl_date_compl', true );
-									if ( ! empty( $date_compl ) && 'in progress' != $date_compl) {
-										$date_compl		=	explode( "/", $date_compl );
-										$date_compl		=	date( get_option( 'date_format' ), strtotime( $date_compl[1] . "-" . $date_compl[0] . '-' . $date_compl[2] ) );
-									}
-									$link			=	get_post_meta( $post->ID, '_prtfl_link', true );
-									$short_descr	=	get_post_meta( $post->ID, '_prtfl_short_descr', true );
-								} ?>
-								<div class="portfolio_thumb">
-									<a rel="bookmark" href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>">
-										<img src="<?php echo $image[0]; ?>" width="<?php echo $portfolio_options['prtfl_custom_size_px'][0][0]; ?>" height="<?php echo $portfolio_options['prtfl_custom_size_px'][0][1]; ?>" alt="<?php echo $image_alt; ?>" />
-									</a>
-								</div><!-- .portfolio_thumb -->
+								$post_meta		=	get_post_meta( $post->ID, 'prtfl_information', true);
+								$date_compl		=	isset( $post_meta['_prtfl_date_compl'] ) ? $post_meta['_prtfl_date_compl'] : '';
+								if ( ! empty( $date_compl ) && 'in progress' != $date_compl) {
+									$date_compl		= explode( "/", $date_compl );
+									$date_compl		= date( get_option( 'date_format' ), strtotime( $date_compl[1] . "-" . $date_compl[0] . '-' . $date_compl[2] ) );
+								}
+								$link			=	isset( $post_meta['_prtfl_link'] ) ? $post_meta['_prtfl_link'] : '';
+								$short_descr	=	isset( $post_meta['_prtfl_short_descr'] ) ? $post_meta['_prtfl_short_descr'] : '';
+								if ( empty( $short_descr ) )
+									$short_descr = get_the_excerpt();
+								$title = get_the_title();
+								if ( empty( $title ) )
+									$title = '(' . __( 'No title', 'portfolio-pro' ) . ')';
+								$permalink = get_permalink(); 
+								if ( ! empty( $image[0] ) ) { ?>
+									<div class="portfolio_thumb">
+										<a rel="bookmark" href="<?php echo $permalink; ?>" title="<?php echo $title; ?>">
+											<img src="<?php echo $image[0]; ?>" width="<?php echo $portfolio_options['prtfl_custom_size_px'][0][0]; ?>" height="<?php echo $portfolio_options['prtfl_custom_size_px'][0][1]; ?>" alt="<?php echo $image_alt; ?>" />
+										</a>
+									</div><!-- .portfolio_thumb -->
+								<?php } ?>
 								<div class="portfolio_short_content">
 									<div class="item_title">
 										<p>
-											<a href="<?php echo get_permalink(); ?>" rel="bookmark"><?php echo get_the_title(); ?></a>
+											<a href="<?php echo $permalink; ?>" rel="bookmark"><?php echo $title; ?></a>
 										</p>
 									</div><!-- .item_title -->
 									<?php if ( 1 == $portfolio_options['prtfl_date_additional_field'] ) { ?>
