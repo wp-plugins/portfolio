@@ -69,7 +69,7 @@ function setError( msg ) {
 
 (function($) {
 	$(document).ready( function() {
-		$( '#prtfl_form_image_size input' ).bind( "change click select", function() {
+		$( '#prtfl_form input' ).bind( "change click select", function() {
 			if ( $( this ).attr( 'type' ) != 'submit' ) {
 				$( '.updated.fade' ).css( 'display', 'none' );
 				$( '#prtfl_settings_notice' ).css( 'display', 'block' );

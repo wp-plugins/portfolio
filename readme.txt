@@ -4,7 +4,7 @@ Donate link: http://bestwebsoft.com/donate/
 Tags: album, categories, clients, custom, custom fields, image, images, image description, image display, images gallery, image size, jpeg, jpg, labels, page, pages, photos, photographs, picture, pictures, portfolio, portolio, porfolio, Post, posts, screenshots, showcase, tags, thumbnails, visual items
 Requires at least: 3.1
 Tested up to: 4.2.2
-Stable tag: 2.33
+Stable tag: 2.34
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,13 @@ http://www.youtube.com/watch?v=6xPYIttiJ8g
 
 Use Wordpress meta box to upload images from URL or your local storage. Please note that one of the images should be set as 'Featured' - it will be the main image of your portfolio item.
 
+= How to add image from Media library into portfolio? =
+
+Since our Portfolio plugin works with attached images, this cannot be done by standard means.
+However, you can re-attach previously downloaded images to your portfolio. Please note that after this, that image will not be available as an attachment in that post to which it was attached earlier.
+
+You can re-attach images using our plugin <a href="http://wordpress.org/plugins/re-attacher/">Re-attacher</a>. With this plugin, you can reattach previously uploaded images to other posts, as well as detach files from the post completely. Re-attacher allows you to manage both single files and groups of files. This plugin makes using our Gallery and Portfolio plugins a lot more convenient, as you won't have to upload new images each time you may need them on your gallery or portfolio pages.
+
 = I updated the plugin, the template changed, but I would like to revert it back as it was before? What should I do? =
 
 Sometimes during the plugin update the plugin template in your theme is also updated. Meanwhile a backup of the previous template version is created and it contains the files `portfolio-post.php.bak` and `portfolio.php.bak`. You should compare the old files with the new ones and apply the necessary changes to the new files. If you want to templates are not overwritten when updating the plugin, turn off the checkbox in "Rewrite templates after update" option on the plugin settings page and save the changes.
@@ -132,6 +139,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 6. Portfolio single frontend page.
 
 == Changelog ==
+
+= V2.34 - 08.07.2015 =
+* NEW : Ability to restore settings to defaults.
+* Update : Portfolio Settings page is updated.
 
 = V2.33 - 02.06.2015 =
 * Bugfix : We fixed the bug of displaying links to executors profile page.
@@ -291,6 +302,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * In this version an image uploaded by means of custom fields is substituted with Wordpress standard meta box for the media files uploading.
 
 == Upgrade Notice ==
+
+= V2.34 =
+Ability to restore settings to defaults. Portfolio Settings page is updated.
 
 = V2.33 =
 We fixed the bug of displaying links to executors profile page. Portfolio template checking functionality was updated. We updated all functionality for wordpress 4.2.2.

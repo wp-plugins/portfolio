@@ -20,14 +20,14 @@
 }
 
 /* Styles for Portfolio */
-
-#prtfl_form_image_size label {
+.prtfl_fancybox_thumb_helper_options {
+	margin-left: 23px;
+	margin-top: 10px;
+}
+.prtfl_form_image_size label {
 	display: block;
 	float: left;
 	width: 130px;
-}
-#prtfl_form_image_size select {
-	width: 140px;
 }
 .portfolio_images_block {
 	clear: both;
